@@ -1,114 +1,487 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Torque to HP Calculator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-br from-indigo-100 via-white to-purple-100 min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-lg bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-indigo-100">
-        <h1 class="text-3xl font-extrabold text-indigo-700 mb-6 text-center tracking-tight">Torque to HP Calculator</h1>
+<x-app-layout 
+    title="Torque to HP Calculator - ConvertPro"
+    description="Professional torque to horsepower calculator for engineering applications. Calculate power output from torque and RPM values with precision."
+>
+    <!-- Breadcrumb Component -->
+    <x-breadcrumb :items="[
+        ['label' => 'Home', 'url' => url('/')],
+        ['label' => 'Conversion Tools', 'url' => route('conversion.index')],
+        ['label' => 'Torque to HP Calculator']
+    ]" />
 
-        <form class="space-y-5">
-            <div>
-                <label for="torque" class="block text-gray-700 font-medium mb-1">Torque Value</label>
-                <input type="number" id="torque" class="w-full p-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" placeholder="Enter torque value">
+    <!-- Main Calculator Section -->
+    <section class="py-16 bg-gradient-to-br from-orange-50 to-white min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto">
+                
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">Torque to HP Calculator</h1>
+                    <p class="text-gray-600">Calculate power output from torque and RPM</p>
+                </div>
+
+                <!-- Calculator Card -->
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                    
+                    <!-- Calculator Header -->
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
+                        <h2 class="text-lg font-semibold text-white">Power Calculation from Torque</h2>
+                    </div>
+
+                    <!-- Calculator Body -->
+                    <div class="p-8">
+                        <form class="space-y-6" id="calculatorForm">
+                            
+                            <!-- Torque Input -->
+                            <div class="space-y-2">
+                                <label for="torqueValue" class="block text-sm font-semibold text-gray-700">
+                                    Torque Value
+                                </label>
+                                <div class="relative">
+                                    <input 
+                                        type="number" 
+                                        id="torqueValue" 
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
+                                        placeholder="Enter torque value"
+                                        step="any"
+                                        min="0"
+                                    >
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                        <span class="text-gray-500 text-sm font-medium" id="torqueUnitDisplay">ft-lbs</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Torque Unit -->
+                            <div class="space-y-2">
+                                <label for="torqueUnit" class="block text-sm font-semibold text-gray-700">
+                                    Torque Unit
+                                </label>
+                                <select 
+                                    id="torqueUnit" 
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
+                                >
+                                    <option value="ftlbs">Foot-pounds (ft-lbs)</option>
+                                    <option value="nm">Newton-meters (Nm)</option>
+                                    <option value="inchlbs">Inch-pounds (in-lbs)</option>
+                                    <option value="kgm">Kilogram-meters (kg⋅m)</option>
+                                    <option value="ozin">Ounce-inches (oz-in)</option>
+                                    <option value="dyncm">Dyne-centimeters (dyn⋅cm)</option>
+                                </select>
+                            </div>
+
+                            <!-- RPM Input -->
+                            <div class="space-y-2">
+                                <label for="rpmValue" class="block text-sm font-semibold text-gray-700">
+                                    RPM (Revolutions per minute)
+                                </label>
+                                <div class="relative">
+                                    <input 
+                                        type="number" 
+                                        id="rpmValue" 
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
+                                        placeholder="Enter RPM"
+                                        step="any"
+                                        min="0"
+                                    >
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                        <span class="text-gray-500 text-sm font-medium">RPM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Power Unit -->
+                            <div class="space-y-2">
+                                <label for="powerUnit" class="block text-sm font-semibold text-gray-700">
+                                    Power Output Unit
+                                </label>
+                                <select 
+                                    id="powerUnit" 
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
+                                >
+                                    <option value="hp">Horsepower (HP)</option>
+                                    <option value="kw">Kilowatts (kW)</option>
+                                    <option value="watts">Watts (W)</option>
+                                    <option value="bhp">Brake Horsepower (BHP)</option>
+                                    <option value="ps">Metric Horsepower (PS)</option>
+                                </select>
+                            </div>
+
+                            <!-- Common RPM Presets -->
+                            <div class="space-y-2">
+                                <label class="block text-sm font-semibold text-gray-700">
+                                    Common RPM Values
+                                </label>
+                                <div class="grid grid-cols-4 gap-2">
+                                    <button type="button" class="rpm-preset px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-rpm="1800">1800</button>
+                                    <button type="button" class="rpm-preset px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-rpm="3600">3600</button>
+                                    <button type="button" class="rpm-preset px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-rpm="5000">5000</button>
+                                    <button type="button" class="rpm-preset px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-rpm="6000">6000</button>
+                                </div>
+                            </div>
+
+                            <!-- Clear Button -->
+                            <div class="flex justify-center">
+                                <button 
+                                    type="button" 
+                                    id="clearButton"
+                                    class="inline-flex items-center px-4 py-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-medium rounded-lg transition-colors duration-200"
+                                >
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                    Clear All
+                                </button>
+                            </div>
+
+                        </form>
+
+                        <!-- Results Display -->
+                        <div class="mt-8 space-y-4">
+                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Power Calculation Results</h3>
+                            
+                            <!-- Primary Result -->
+                            <div class="p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-l-4 border-orange-500">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Power Output</h4>
+                                        <p class="text-sm text-gray-600" id="result-description">Calculated power from torque and RPM</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-bold text-orange-600 font-mono" id="output">--</div>
+                                        <div class="text-sm text-gray-500 font-medium" id="powerUnitDisplay">HP</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- All Power Units Display -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                    <div class="text-center">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Horsepower</h4>
+                                        <div class="text-lg font-bold text-blue-600 font-mono" id="hpOutput">--</div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                    <div class="text-center">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilowatts</h4>
+                                        <div class="text-lg font-bold text-green-600 font-mono" id="kwOutput">--</div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                    <div class="text-center">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Watts</h4>
+                                        <div class="text-lg font-bold text-purple-600 font-mono" id="wattsOutput">--</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Power Units -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                    <div class="text-center">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Brake Horsepower</h4>
+                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="bhpOutput">--</div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                    <div class="text-center">
+                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Metric Horsepower</h4>
+                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="psOutput">--</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calculation Details -->
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <h4 class="text-sm font-semibold text-gray-700 mb-3 text-center">Calculation Details</h4>
+                                <div class="space-y-2 text-sm text-gray-600">
+                                    <div class="flex justify-between">
+                                        <span>Torque (converted to ft-lbs):</span>
+                                        <span class="font-mono" id="convertedTorque">--</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>RPM:</span>
+                                        <span class="font-mono" id="displayRpm">--</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Formula:</span>
+                                        <span class="font-mono text-xs">HP = (Torque × RPM) ÷ 5252</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Formula Reference -->
+                        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                            <h4 class="text-sm font-semibold text-gray-700 mb-2">Power Calculation Formulas</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
+                                <div>• HP = (Torque × RPM) ÷ 5252</div>
+                                <div>• kW = HP × 0.7457</div>
+                                <div>• 1 HP = 745.7 Watts</div>
+                                <div>• 1 PS = 0.9863 HP</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">About Torque to HP Conversion</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Power Relationship</h4>
+                            <p>Power is the rate of doing work and is calculated from torque and rotational speed (RPM). The relationship shows how torque and speed combine to produce usable power in rotating machinery.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Engineering Applications</h4>
+                            <p>Essential for motor selection, pump sizing, gear design, engine performance analysis, and any application involving rotating equipment where power requirements must be determined from torque specifications.</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200">
+                        <p class="text-sm text-orange-800">
+                            <strong>Engineering Note:</strong> The constant 5252 comes from the conversion between foot-pounds, RPM, and horsepower units. Always verify torque and speed units for accurate calculations!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Common Application Examples -->
+                <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Engineering Examples</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <div class="font-semibold text-gray-700">Small Motor</div>
+                            <div class="text-orange-600 cursor-pointer hover:text-orange-800 transition-colors" data-torque="10" data-rpm="1800">10 ft-lbs @ 1800 RPM</div>
+                            <div class="text-xs text-gray-500 mt-1">≈ 3.4 HP</div>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <div class="font-semibold text-gray-700">Car Engine</div>
+                            <div class="text-orange-600 cursor-pointer hover:text-orange-800 transition-colors" data-torque="250" data-rpm="5000">250 ft-lbs @ 5000 RPM</div>
+                            <div class="text-xs text-gray-500 mt-1">≈ 238 HP</div>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <div class="font-semibold text-gray-700">Industrial Pump</div>
+                            <div class="text-orange-600 cursor-pointer hover:text-orange-800 transition-colors" data-torque="150" data-rpm="3600">150 ft-lbs @ 3600 RPM</div>
+                            <div class="text-xs text-gray-500 mt-1">≈ 103 HP</div>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <div class="font-semibold text-gray-700">Small Tool</div>
+                            <div class="text-orange-600 cursor-pointer hover:text-orange-800 transition-colors" data-torque="2" data-rpm="6000">2 ft-lbs @ 6000 RPM</div>
+                            <div class="text-xs text-gray-500 mt-1">≈ 2.3 HP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Back to Tools -->
+                <div class="mt-8 text-center">
+                    <a href="{{ route('conversion.index') }}" 
+                       class="inline-flex items-center px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-200">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Conversion Tools
+                    </a>
+                </div>
+
             </div>
-
-            <div>
-                <label for="torqueUnit" class="block text-gray-700 font-medium mb-1">Torque Unit</label>
-                <select id="torqueUnit" class="w-full p-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
-                    <option value="ftlbs">Foot-pounds (ft-lbs)</option>
-                    <option value="nm">Newton-meters (Nm)</option>
-                    <option value="inchlbs">Inch-pounds (in-lbs)</option>
-                    <option value="kgm">Kilogram-meters (kg⋅m)</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="rpm" class="block text-gray-700 font-medium mb-1">RPM (Revolutions per minute)</label>
-                <input type="number" id="rpm" class="w-full p-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" placeholder="Enter RPM">
-            </div>
-
-            <div>
-                <label for="powerUnit" class="block text-gray-700 font-medium mb-1">Power Unit</label>
-                <select id="powerUnit" class="w-full p-3 border border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
-                    <option value="hp">Horsepower (HP)</option>
-                    <option value="kw">Kilowatts (kW)</option>
-                    <option value="watts">Watts (W)</option>
-                </select>
-            </div>
-        </form>
-
-        <div class="mt-8 text-center">
-            <h2 class="text-xl font-semibold text-gray-800 mb-2">Power Output</h2>
-            <div class="inline-block bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 px-6 py-3 rounded-xl shadow font-mono text-2xl text-indigo-800 font-semibold" id="output">--</div>
         </div>
+    </section>
 
-        <div class="mt-4 text-sm text-gray-600 text-center">
-            <p>Formula: Power = (Torque × RPM) / Conversion Factor</p>
-            <p>HP = (Torque × RPM) / 5252</p>
-        </div>
-    </div>
+    <x-slot name="scripts">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const torqueValue = document.getElementById('torqueValue');
+                const torqueUnit = document.getElementById('torqueUnit');
+                const torqueUnitDisplay = document.getElementById('torqueUnitDisplay');
+                const rpmValue = document.getElementById('rpmValue');
+                const powerUnit = document.getElementById('powerUnit');
+                const powerUnitDisplay = document.getElementById('powerUnitDisplay');
+                const clearButton = document.getElementById('clearButton');
+                const output = document.getElementById('output');
+                const resultTitle = document.getElementById('result-title');
+                const resultDescription = document.getElementById('result-description');
+                const hpOutput = document.getElementById('hpOutput');
+                const kwOutput = document.getElementById('kwOutput');
+                const wattsOutput = document.getElementById('wattsOutput');
+                const bhpOutput = document.getElementById('bhpOutput');
+                const psOutput = document.getElementById('psOutput');
+                const convertedTorque = document.getElementById('convertedTorque');
+                const displayRpm = document.getElementById('displayRpm');
 
-    <script>
-        const torqueInput = document.getElementById('torque');
-        const torqueUnitSelect = document.getElementById('torqueUnit');
-        const rpmInput = document.getElementById('rpm');
-        const powerUnitSelect = document.getElementById('powerUnit');
-        const output = document.getElementById('output');
+                // Torque conversion factors to ft-lbs
+                const torqueConversions = {
+                    ftlbs: 1,
+                    nm: 0.737562149,
+                    inchlbs: 1/12,
+                    kgm: 7.23301,
+                    ozin: 1/192,
+                    dyncm: 7.375621e-8
+                };
 
-        function convert() {
-            const torque = parseFloat(torqueInput.value);
-            const torqueUnit = torqueUnitSelect.value;
-            const rpm = parseFloat(rpmInput.value);
-            const powerUnit = powerUnitSelect.value;
+                // Power conversion factors from HP
+                const powerConversions = {
+                    hp: 1,
+                    kw: 0.745699872,
+                    watts: 745.699872,
+                    bhp: 1, // Same as HP for calculation purposes
+                    ps: 1.01387 // PS (Pferdestärke) conversion
+                };
 
-            if (!isNaN(torque) && !isNaN(rpm) && torque > 0 && rpm > 0) {
-                // Convert torque to ft-lbs
-                let torqueInFtLbs;
-                switch(torqueUnit) {
-                    case 'ftlbs':
-                        torqueInFtLbs = torque;
-                        break;
-                    case 'nm':
-                        torqueInFtLbs = torque * 0.737562149;
-                        break;
-                    case 'inchlbs':
-                        torqueInFtLbs = torque / 12;
-                        break;
-                    case 'kgm':
-                        torqueInFtLbs = torque * 7.23301;
-                        break;
+                const unitSymbols = {
+                    ftlbs: 'ft-lbs',
+                    nm: 'Nm',
+                    inchlbs: 'in-lbs',
+                    kgm: 'kg⋅m',
+                    ozin: 'oz-in',
+                    dyncm: 'dyn⋅cm',
+                    hp: 'HP',
+                    kw: 'kW',
+                    watts: 'W',
+                    bhp: 'BHP',
+                    ps: 'PS'
+                };
+
+                function formatNumber(num) {
+                    if (num >= 1000000) {
+                        return num.toExponential(3);
+                    } else if (num >= 1000) {
+                        return num.toLocaleString(undefined, { maximumFractionDigits: 2 });
+                    } else if (num >= 1) {
+                        return num.toLocaleString(undefined, { maximumFractionDigits: 4 });
+                    } else {
+                        return num.toLocaleString(undefined, { maximumFractionDigits: 6 });
+                    }
                 }
-                
-                // Calculate horsepower
-                const hp = (torqueInFtLbs * rpm) / 5252;
-                
-                let result;
-                switch(powerUnit) {
-                    case 'hp':
-                        result = hp;
-                        break;
-                    case 'kw':
-                        result = hp * 0.745699872; // HP to kW
-                        break;
-                    case 'watts':
-                        result = hp * 745.699872; // HP to Watts
-                        break;
-                }
-                
-                output.textContent = result.toLocaleString(undefined, { maximumFractionDigits: 4 });
-            } else {
-                output.textContent = "--";
-            }
-        }
 
-        torqueInput.addEventListener('input', convert);
-        torqueUnitSelect.addEventListener('change', convert);
-        rpmInput.addEventListener('input', convert);
-        powerUnitSelect.addEventListener('change', convert);
-    </script>
-</body>
-</html>
+                function updateUnitDisplays() {
+                    torqueUnitDisplay.textContent = unitSymbols[torqueUnit.value];
+                    powerUnitDisplay.textContent = unitSymbols[powerUnit.value];
+                    
+                    const powerUnitName = {
+                        hp: 'Horsepower',
+                        kw: 'Kilowatts',
+                        watts: 'Watts',
+                        bhp: 'Brake Horsepower',
+                        ps: 'Metric Horsepower'
+                    };
+                    
+                    resultTitle.textContent = `Power in ${powerUnitName[powerUnit.value]}`;
+                    resultDescription.textContent = 'Calculated from torque and RPM';
+                }
+
+                function convert() {
+                    const torque = parseFloat(torqueValue.value);
+                    const rpm = parseFloat(rpmValue.value);
+
+                    if (!isNaN(torque) && !isNaN(rpm) && torque > 0 && rpm > 0) {
+                        // Convert torque to ft-lbs
+                        const torqueInFtLbs = torque * torqueConversions[torqueUnit.value];
+                        
+                        // Calculate horsepower using the standard formula
+                        const hp = (torqueInFtLbs * rpm) / 5252;
+                        
+                        // Convert to selected power unit
+                        const result = hp * powerConversions[powerUnit.value];
+                        
+                        // Update primary output
+                        output.textContent = formatNumber(result);
+                        
+                        // Update all power unit outputs
+                        hpOutput.textContent = formatNumber(hp) + ' HP';
+                        kwOutput.textContent = formatNumber(hp * powerConversions.kw) + ' kW';
+                        wattsOutput.textContent = formatNumber(hp * powerConversions.watts) + ' W';
+                        bhpOutput.textContent = formatNumber(hp) + ' BHP';
+                        psOutput.textContent = formatNumber(hp * powerConversions.ps) + ' PS';
+                        
+                        // Update calculation details
+                        convertedTorque.textContent = formatNumber(torqueInFtLbs) + ' ft-lbs';
+                        displayRpm.textContent = formatNumber(rpm) + ' RPM';
+                        
+                    } else {
+                        output.textContent = '--';
+                        hpOutput.textContent = '--';
+                        kwOutput.textContent = '--';
+                        wattsOutput.textContent = '--';
+                        bhpOutput.textContent = '--';
+                        psOutput.textContent = '--';
+                        convertedTorque.textContent = '--';
+                        displayRpm.textContent = '--';
+                    }
+                }
+
+                function clearAll() {
+                    torqueValue.value = '';
+                    rpmValue.value = '';
+                    convert();
+                    torqueValue.focus();
+                }
+
+                // Event listeners
+                torqueValue.addEventListener('input', convert);
+                torqueUnit.addEventListener('change', () => {
+                    updateUnitDisplays();
+                    convert();
+                });
+                rpmValue.addEventListener('input', convert);
+                powerUnit.addEventListener('change', () => {
+                    updateUnitDisplays();
+                    convert();
+                });
+                clearButton.addEventListener('click', clearAll);
+
+                // RPM preset buttons
+                const rpmPresets = document.querySelectorAll('.rpm-preset');
+                rpmPresets.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const rpm = this.getAttribute('data-rpm');
+                        
+                        rpmValue.value = rpm;
+                        convert();
+                        
+                        // Update button styles
+                        rpmPresets.forEach(btn => btn.classList.remove('bg-orange-100', 'text-orange-700'));
+                        rpmPresets.forEach(btn => btn.classList.add('bg-gray-100', 'text-gray-700'));
+                        this.classList.remove('bg-gray-100', 'text-gray-700');
+                        this.classList.add('bg-orange-100', 'text-orange-700');
+                    });
+                });
+
+                // Add clickable functionality to examples
+                const examples = document.querySelectorAll('[data-torque][data-rpm]');
+                examples.forEach(element => {
+                    element.addEventListener('click', function() {
+                        const torque = this.getAttribute('data-torque');
+                        const rpm = this.getAttribute('data-rpm');
+                        
+                        torqueUnit.value = 'ftlbs'; // Examples are in ft-lbs
+                        torqueValue.value = torque;
+                        rpmValue.value = rpm;
+                        updateUnitDisplays();
+                        convert();
+                        torqueValue.focus();
+                    });
+                });
+
+                // Initialize
+                torqueValue.focus();
+                updateUnitDisplays();
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        clearAll();
+                    }
+                });
+
+                // Initialize conversion
+                convert();
+            });
+        </script>
+    </x-slot>
+</x-app-layout>

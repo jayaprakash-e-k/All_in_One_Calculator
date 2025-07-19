@@ -207,7 +207,7 @@ class ConversionController extends Controller
     // New calculators
     public function nmToInchLbs()
     {
-        return view('conversion.nm_to_inchlbs');
+        return view('conversion.nm_to_inlbs');
     }
 
     public function pressureConverter()
