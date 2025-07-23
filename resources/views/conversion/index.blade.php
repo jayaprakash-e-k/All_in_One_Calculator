@@ -1085,7 +1085,6 @@
                         <p class="text-sm text-gray-600">Degrees, radians, gradians conversions</p>
                     </a>
 
-                    <!-- Density Conversion -->
                     <a href="{{ route('conversion.densityConversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
@@ -1099,7 +1098,6 @@
                         <p class="text-sm text-gray-600">Mass per unit volume calculations</p>
                     </a>
 
-                    <!-- Hardness Conversion Calculator -->
                     <a href="{{ route('conversion.hardnessConversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
@@ -1113,7 +1111,6 @@
                         <p class="text-sm text-gray-600">Rockwell, Brinell, Vickers scales</p>
                     </a>
 
-                    <!-- Radiation Converter -->
                     <a href="{{ route('conversion.radiationConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
@@ -1127,7 +1124,6 @@
                         <p class="text-sm text-gray-600">Radiation dose and exposure units</p>
                     </a>
 
-                    <!-- Natural Gas Converter -->
                     <a href="{{ route('conversion.naturalGasConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
@@ -1141,7 +1137,6 @@
                         <p class="text-sm text-gray-600">Gas volume and energy conversions</p>
                     </a>
 
-                    <!-- Dimensional Analysis Calculator -->
                     <a href="{{ route('conversion.dimensionalAnalysisCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
@@ -1155,7 +1150,6 @@
                         <p class="text-sm text-gray-600">Unit analysis and conversions</p>
                     </a>
 
-                    <!-- CGS System of Units Converter -->
                     <a href="{{ route('conversion.cgsSystemOfUnitsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
@@ -1169,7 +1163,6 @@
                         <p class="text-sm text-gray-600">Centimeter-gram-second conversions</p>
                     </a>
 
-                    <!-- Weird Units Converter -->
                     <a href="{{ route('conversion.weirdUnitsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
@@ -1205,7 +1198,6 @@
                         <p class="text-sm text-gray-600">Meters per second to kilometers per hour</p>
                     </a>
 
-                    <!-- Knots to kph Converter -->
                     <a href="{{ route('conversion.knotsToKphConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
@@ -1219,7 +1211,6 @@
                         <p class="text-sm text-gray-600">Nautical speed to metric conversion</p>
                     </a>
 
-                    <!-- Knots to mph Converter -->
                     <a href="{{ route('conversion.knotsToMphConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
@@ -1233,7 +1224,6 @@
                         <p class="text-sm text-gray-600">Nautical to imperial speed conversion</p>
                     </a>
 
-                    <!-- MPG to L/100 km Converter -->
                     <a href="{{ route('conversion.mpgToL100kmConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
@@ -1247,7 +1237,6 @@
                         <p class="text-sm text-gray-600">Fuel economy conversions</p>
                     </a>
 
-                    <!-- Speed Conversion -->
                     <a href="{{ route('conversion.speedConversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
@@ -1283,7 +1272,6 @@
                         <p class="text-sm text-gray-600">Joules, calories, BTU, kWh conversions</p>
                     </a>
 
-                    <!-- Power Converter -->
                     <a href="{{ route('conversion.powerConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
@@ -1297,7 +1285,6 @@
                         <p class="text-sm text-gray-600">Watts, horsepower, BTU/h conversions</p>
                     </a>
 
-                    <!-- Joules to Volts Calculator -->
                     <a href="{{ route('conversion.joulesToVoltsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
@@ -1311,7 +1298,6 @@
                         <p class="text-sm text-gray-600">Energy to electrical potential conversion</p>
                     </a>
 
-                    <!-- Nm to Joules Calculator -->
                     <a href="{{ route('conversion.nmToJoulesCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
@@ -1325,7 +1311,6 @@
                         <p class="text-sm text-gray-600">Torque to energy conversion</p>
                     </a>
 
-                    <!-- dBm to Watts Calculator -->
                     <a href="{{ route('conversion.dbmToWattsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
@@ -1339,7 +1324,6 @@
                         <p class="text-sm text-gray-600">RF power conversion calculator</p>
                     </a>
 
-                    <!-- RMS to Watts Converter -->
                     <a href="{{ route('conversion.rmsToWattsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
@@ -1375,7 +1359,6 @@
                         <p class="text-sm text-gray-600">Convert cents to dollar amounts</p>
                     </a>
 
-                    <!-- Dimes to Dollars Calculator -->
                     <a href="{{ route('conversion.dimesToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
@@ -1389,7 +1372,6 @@
                         <p class="text-sm text-gray-600">Convert dimes to dollar amounts</p>
                     </a>
 
-                    <!-- Nickels to Dollars Calculator -->
                     <a href="{{ route('conversion.nickelsToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
@@ -1403,7 +1385,6 @@
                         <p class="text-sm text-gray-600">Convert nickels to dollar amounts</p>
                     </a>
 
-                    <!-- Pennies to Dollars Calculator -->
                     <a href="{{ route('conversion.penniesToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
@@ -1439,7 +1420,6 @@
                         <p class="text-sm text-gray-600">CSS pixel to em unit conversion</p>
                     </a>
 
-                    <!-- PPM Calculator -->
                     <a href="{{ route('conversion.ppmCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
@@ -1453,7 +1433,6 @@
                         <p class="text-sm text-gray-600">Parts per million calculations</p>
                     </a>
 
-                    <!-- PPM to mg/L Converter -->
                     <a href="{{ route('conversion.ppmToMgLConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-cyan-50 rounded-lg group-hover:bg-cyan-100 transition-colors">
@@ -1467,7 +1446,6 @@
                         <p class="text-sm text-gray-600">Water quality concentration units</p>
                     </a>
 
-                    <!-- CPS Calculator -->
                     <a href="{{ route('conversion.cpsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-pink-50 rounded-lg group-hover:bg-pink-100 transition-colors">
@@ -1481,7 +1459,6 @@
                         <p class="text-sm text-gray-600">Cycles per second calculations</p>
                     </a>
 
-                    <!-- Paper Quantity Converter -->
                     <a href="{{ route('conversion.paperQuantityConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
@@ -1517,7 +1494,6 @@
                         <p class="text-sm text-gray-600">Gas volume to energy conversion</p>
                     </a>
 
-                    <!-- Conversion Calculator -->
                     <a href="{{ route('conversion.conversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
@@ -1531,7 +1507,6 @@
                         <p class="text-sm text-gray-600">General purpose conversion tool</p>
                     </a>
 
-                    <!-- Grams To Calories Calculator -->
                     <a href="{{ route('conversion.gramsToCaloriesCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
@@ -1545,7 +1520,6 @@
                         <p class="text-sm text-gray-600">Food weight to energy conversion</p>
                     </a>
 
-                    <!-- Quantity Converter -->
                     <a href="{{ route('conversion.quantityConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
@@ -1559,7 +1533,6 @@
                         <p class="text-sm text-gray-600">Count and quantity conversions</p>
                     </a>
 
-                    <!-- Temperature Conversion -->
                     <a href="{{ route('conversion.temperatureConversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
