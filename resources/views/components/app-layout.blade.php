@@ -40,6 +40,8 @@
             }
         }
     </script>
+
+    @stack('styles')
     
     {{ $styles ?? '' }}
 </head>
@@ -51,6 +53,8 @@
     </main>
     
     <x-footer />
+
+    @stack('scripts')
     
     {{ $scripts ?? '' }}
 </body>

@@ -49,7 +49,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Precise conversions for length, area, and spatial measurements</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.length') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.length') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@
                         <p class="text-sm text-gray-600">Meters, feet, inches, kilometers</p>
                     </a>
 
-                    <a href="{{ route('conversion.area') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.area') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@
                         <p class="text-sm text-gray-600">Square units, acres, hectares</p>
                     </a>
 
-                    <a href="{{ route('conversion.acreage') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.acreage') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@
                         <p class="text-sm text-gray-600">Acres to various area units</p>
                     </a>
 
-                    <a href="{{ route('conversion.aresToHectares') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.ares-to-hectares') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@
                         <p class="text-sm text-gray-600">Metric area unit conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.astronomicalUnit') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.astronomical-unit') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@
                         <p class="text-sm text-gray-600">AU, light-years, parsecs</p>
                     </a>
 
-                    <a href="{{ route('conversion.decimeterToMeter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.decimeter-to-meter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
                                 <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +127,7 @@
                         <p class="text-sm text-gray-600">Simple metric conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.feetInches') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-violet-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.feet-inches') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-violet-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-violet-50 rounded-lg group-hover:bg-violet-100 transition-colors">
                                 <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +140,7 @@
                         <p class="text-sm text-gray-600">Imperial to metric conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.heightInInches') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.height-in-inches') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +153,7 @@
                         <p class="text-sm text-gray-600">Human height conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.inchesToFraction') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.inches-to-fraction') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors">
                                 <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +166,7 @@
                         <p class="text-sm text-gray-600">Decimal to fraction conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.lightYear') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.lightyear-conversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +179,7 @@
                         <p class="text-sm text-gray-600">Astronomical distance units</p>
                     </a>
 
-                    <a href="{{ route('conversion.meshToMicron') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-sky-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.mesh-to-micron') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-sky-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-sky-50 rounded-lg group-hover:bg-sky-100 transition-colors">
                                 <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -192,7 +192,7 @@
                         <p class="text-sm text-gray-600">Screen mesh conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.pixelsToInches') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.length-and-area-conversions.pixels-to-inches') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
                                 <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -214,7 +214,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive tools for mass, weight, and volume calculations</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.weightConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.weight-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +227,7 @@
                         <p class="text-sm text-gray-600">Grams, pounds, kilograms, ounces</p>
                     </a>
 
-                    <a href="{{ route('conversion.volume') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.volume') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-cyan-50 rounded-lg group-hover:bg-cyan-100 transition-colors">
                                 <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +240,7 @@
                         <p class="text-sm text-gray-600">Liters, gallons, cubic units</p>
                     </a>
 
-                    <a href="{{ route('conversion.ccfToGallons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.ccf-to-gallons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -253,7 +253,7 @@
                         <p class="text-sm text-gray-600">Hundred cubic feet conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.cubicFeet') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.cubic-feet-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,7 +266,7 @@
                         <p class="text-sm text-gray-600">Volume calculations in ft³</p>
                     </a>
 
-                    <a href="{{ route('conversion.cubicMeter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.cubic-meter-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,7 +279,7 @@
                         <p class="text-sm text-gray-600">Volume calculations in m³</p>
                     </a>
 
-                    <a href="{{ route('conversion.cubicYardsToTons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.cubic-yards-to-tons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -292,7 +292,7 @@
                         <p class="text-sm text-gray-600">Volume to weight for materials</p>
                     </a>
 
-                    <a href="{{ route('conversion.decagramToGram') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.decagram-to-gram') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -305,7 +305,7 @@
                         <p class="text-sm text-gray-600">Metric weight conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.dropsToMl') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.drops-to-ml') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -318,7 +318,7 @@
                         <p class="text-sm text-gray-600">Small volume measurements</p>
                     </a>
 
-                    <a href="{{ route('conversion.gallonCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.gallon-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,7 +331,7 @@
                         <p class="text-sm text-gray-600">Comprehensive gallon conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.gallonsToPounds') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.gallons-to-pounds') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors">
                                 <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -344,7 +344,7 @@
                         <p class="text-sm text-gray-600">Liquid volume to weight</p>
                     </a>
 
-                    <a href="{{ route('conversion.gramsToOunces') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.grams-to-ounces') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
                                 <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,7 +357,7 @@
                         <p class="text-sm text-gray-600">Metric to imperial weight</p>
                     </a>
 
-                    <a href="{{ route('conversion.kgToGallons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.kg-to-gallons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -370,7 +370,7 @@
                         <p class="text-sm text-gray-600">Weight to volume for water</p>
                     </a>
 
-                    <a href="{{ route('conversion.litersToCentiliters') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.liters-to-centiliters') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -383,7 +383,7 @@
                         <p class="text-sm text-gray-600">Metric volume conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.mcgToMg') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.mcg-to-mg') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-pink-50 rounded-lg group-hover:bg-pink-100 transition-colors">
                                 <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -396,7 +396,7 @@
                         <p class="text-sm text-gray-600">Microgram to milligram</p>
                     </a>
 
-                    <a href="{{ route('conversion.mgToMl') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.mg-to-ml') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-pink-50 rounded-lg group-hover:bg-pink-100 transition-colors">
                                 <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -409,7 +409,7 @@
                         <p class="text-sm text-gray-600">Medical dosage conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.mlToCups') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.ml-to-cups') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -422,7 +422,7 @@
                         <p class="text-sm text-gray-600">Cooking measurement conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.ozToCups') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.oz-to-cups') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-cyan-50 rounded-lg group-hover:bg-cyan-100 transition-colors">
                                 <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -435,7 +435,7 @@
                         <p class="text-sm text-gray-600">Fluid ounce conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.pintsToPounds') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.pints-to-pounds') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -448,7 +448,7 @@
                         <p class="text-sm text-gray-600">Volume to weight conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.poundsAndOunces') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.pounds-and-ounces') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -461,7 +461,7 @@
                         <p class="text-sm text-gray-600">Mixed unit conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.quartsToPounds') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-fuchsia-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.volume-and-weight-conversions.quarts-to-pounds') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-fuchsia-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-fuchsia-50 rounded-lg group-hover:bg-fuchsia-100 transition-colors">
                                 <svg class="w-6 h-6 text-fuchsia-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -483,7 +483,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for force, pressure, torque, and power calculations</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.pressureConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.pressure-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
                                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -496,7 +496,7 @@
                         <p class="text-sm text-gray-600">PSI, bar, pascal, atmosphere</p>
                     </a>
 
-                    <a href="{{ route('conversion.torqueToHp') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.torque-to-hp') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -509,7 +509,7 @@
                         <p class="text-sm text-gray-600">Power calculations from torque</p>
                     </a>
 
-                    <a href="{{ route('conversion.nmToInchLbs') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.nm-to-inchlbs') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -522,7 +522,7 @@
                         <p class="text-sm text-gray-600">Torque unit conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.psiToGpm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.psi-to-gpm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,7 +535,7 @@
                         <p class="text-sm text-gray-600">Flow rate calculations</p>
                     </a>
 
-                    <a href="{{ route('conversion.torrToAtm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-400 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.torr-to-atm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-gray-400 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-gray-50 rounded-lg group-hover:bg-gray-100 transition-colors">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -548,7 +548,7 @@
                         <p class="text-sm text-gray-600">Vacuum pressure units</p>
                     </a>
 
-                    <a href="{{ route('conversion.forceConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.force-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -561,7 +561,7 @@
                         <p class="text-sm text-gray-600">Newtons, pounds-force, kgf</p>
                     </a>
 
-                    <a href="{{ route('conversion.inchLbsToNm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.inchlbs-to-nm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -574,7 +574,7 @@
                         <p class="text-sm text-gray-600">Torque unit conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.inchLbsToFtLbs') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.inchlbs-to-ftlbs') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -587,7 +587,7 @@
                         <p class="text-sm text-gray-600">Torque converter</p>
                     </a>
 
-                    <a href="{{ route('conversion.lbsToNewtons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.lbs-to-newtons') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-pink-50 rounded-lg group-hover:bg-pink-100 transition-colors">
                                 <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -600,7 +600,7 @@
                         <p class="text-sm text-gray-600">Force converter</p>
                     </a>
 
-                    <a href="{{ route('conversion.newtonMeterCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.newton-meter-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -613,7 +613,7 @@
                         <p class="text-sm text-gray-600">Newton Meter Calculator</p>
                     </a>
 
-                    <a href="{{ route('conversion.nmToFtlbsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.engineering-and-technical-conversions.nm-to-ftlbs-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -635,7 +635,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for geographic coordinate conversion and mapping tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.coordinatesConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.geographic-and-mapping-tools.coordinates-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition-colors">
                                 <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -648,7 +648,7 @@
                         <p class="text-sm text-gray-600">Geographic coordinate conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.dmsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.geographic-and-mapping-tools.dms-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -661,7 +661,7 @@
                         <p class="text-sm text-gray-600">Degrees Minutes Seconds</p>
                     </a>
 
-                    <a href="{{ route('conversion.latLongToUtm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.geographic-and-mapping-tools.lat-long-to-utm') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
                                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -675,7 +675,7 @@
                         <p class="text-sm text-gray-600">Coordinate projection</p>
                     </a>
 
-                    <a href="{{ route('conversion.scaleCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.geographic-and-mapping-tools.scale-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-cyan-50 rounded-lg group-hover:bg-cyan-100 transition-colors">
                                 <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -698,7 +698,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for number conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.billionToTrillionConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.billion-to-trillion-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -711,7 +711,7 @@
                         <p class="text-sm text-gray-600">Convert billions to trillions</p>
                     </a>
 
-                    <a href="{{ route('conversion.croreToLakhConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.crore-to-lakh-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -724,7 +724,7 @@
                         <p class="text-sm text-gray-600">Convert crores to lakhs</p>
                     </a>
 
-                    <a href="{{ route('conversion.croreToMillionConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.crore-to-million-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -737,7 +737,7 @@
                         <p class="text-sm text-gray-600">Convert between Indian and Western systems</p>
                     </a>
 
-                    <a href="{{ route('conversion.millionToBillionConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.million-to-billion-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -750,7 +750,7 @@
                         <p class="text-sm text-gray-600">Convert millions to billions</p>
                     </a>
 
-                    <a href="{{ route('conversion.millionToLakhConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.million-to-lakh-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
                                 <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -763,7 +763,7 @@
                         <p class="text-sm text-gray-600">Convert between Western and Indian systems</p>
                     </a>
 
-                    <a href="{{ route('conversion.millionToThousandConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.million-to-thousand-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -776,7 +776,7 @@
                         <p class="text-sm text-gray-600">Convert millions to thousands</p>
                     </a>
 
-                    <a href="{{ route('conversion.numberToBillionConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.number-to-billion-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors">
                                 <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -789,7 +789,7 @@
                         <p class="text-sm text-gray-600">Convert any number to billions</p>
                     </a>
 
-                    <a href="{{ route('conversion.numberToMillionConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-conversion-tools.number-to-million-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors">
                                 <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -811,7 +811,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for number system conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.binaryConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-system-conversion-tools.binary-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -824,7 +824,7 @@
                         <p class="text-sm text-gray-600">Convert binary to decimal and other systems</p>
                     </a>
 
-                    <a href="{{ route('conversion.binaryToHexadecimalConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-system-conversion-tools.binary-to-hexadecimal-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -837,7 +837,7 @@
                         <p class="text-sm text-gray-600">Convert binary to hexadecimal</p>
                     </a>
 
-                    <a href="{{ route('conversion.binaryToOctalConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-system-conversion-tools.binary-to-octal-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -850,7 +850,7 @@
                         <p class="text-sm text-gray-600">Convert binary to octal</p>
                     </a>
 
-                    <a href="{{ route('conversion.decimalToHexadecimalConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-system-conversion-tools.decimal-to-hexadecimal-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
                                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -863,7 +863,7 @@
                         <p class="text-sm text-gray-600">Convert decimal to hexadecimal</p>
                     </a>
 
-                    <a href="{{ route('conversion.decimalToOctalConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-system-conversion-tools.decimal-to-octal-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -876,7 +876,7 @@
                         <p class="text-sm text-gray-600">Convert decimal to octal</p>
                     </a>
 
-                    <a href="{{ route('conversion.romanNumeralsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.number-system-conversion-tools.roman-numerals-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -898,7 +898,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for data and technical conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.byteConversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.byte-conversion-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -911,7 +911,7 @@
                         <p class="text-sm text-gray-600">Convert between all byte units (B, KB, MB, GB, TB)</p>
                     </a>
 
-                    <a href="{{ route('conversion.capacitanceConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.capacitance-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -924,7 +924,7 @@
                         <p class="text-sm text-gray-600">Convert capacitance units (F, mF, μF, nF, pF)</p>
                     </a>
 
-                    <a href="{{ route('conversion.kbToMbConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.kb-to-mb-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-cyan-50 rounded-lg group-hover:bg-cyan-100 transition-colors">
                                 <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -937,7 +937,7 @@
                         <p class="text-sm text-gray-600">Convert kilobytes to megabytes</p>
                     </a>
 
-                    <a href="{{ route('conversion.mbpsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.mbps-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -950,7 +950,7 @@
                         <p class="text-sm text-gray-600">Calculate network speeds and data transfer rates</p>
                     </a>
 
-                    <a href="{{ route('conversion.mbpsToGbpsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.mbps-to-gbps-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -963,7 +963,7 @@
                         <p class="text-sm text-gray-600">Convert megabits to gigabits per second</p>
                     </a>
 
-                    <a href="{{ route('conversion.mbToGbConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.mb-to-gb-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -976,7 +976,7 @@
                         <p class="text-sm text-gray-600">Convert megabytes to gigabytes</p>
                     </a>
 
-                    <a href="{{ route('conversion.unixTimeConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.data-and-technical-conversion-tools.unix-time-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -998,7 +998,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for time and date conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.militaryTimeConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.time-and-date-conversion-tools.military-time-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-emerald-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition-colors">
                                 <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1011,7 +1011,7 @@
                         <p class="text-sm text-gray-600">Convert between 12-hour and 24-hour time formats</p>
                     </a>
 
-                    <a href="{{ route('conversion.minutesToHoursConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.time-and-date-conversion-tools.minutes-to-hours-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1024,7 +1024,7 @@
                         <p class="text-sm text-gray-600">Convert minutes to hours and vice versa</p>
                     </a>
 
-                    <a href="{{ route('conversion.timeUnitConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-violet-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.time-and-date-conversion-tools.time-unit-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-violet-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-violet-50 rounded-lg group-hover:bg-violet-100 transition-colors">
                                 <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1037,7 +1037,7 @@
                         <p class="text-sm text-gray-600">Convert between all time units (seconds, minutes, hours, days)</p>
                     </a>
 
-                    <a href="{{ route('conversion.timeZonesConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.time-and-date-conversion-tools.time-zones-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-amber-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors">
                                 <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1050,7 +1050,7 @@
                         <p class="text-sm text-gray-600">Convert time between different time zones worldwide</p>
                     </a>
 
-                    <a href="{{ route('conversion.yearsToDecadesCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.time-and-date-conversion-tools.years-to-decades-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
                                 <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1072,7 +1072,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for specialized measurement conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.angleConversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.angle-conversion-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1085,7 +1085,7 @@
                         <p class="text-sm text-gray-600">Degrees, radians, gradians conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.densityConversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.density-conversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1098,7 +1098,7 @@
                         <p class="text-sm text-gray-600">Mass per unit volume calculations</p>
                     </a>
 
-                    <a href="{{ route('conversion.hardnessConversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.hardness-conversion-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1111,7 +1111,7 @@
                         <p class="text-sm text-gray-600">Rockwell, Brinell, Vickers scales</p>
                     </a>
 
-                    <a href="{{ route('conversion.radiationConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.radiation-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1124,7 +1124,7 @@
                         <p class="text-sm text-gray-600">Radiation dose and exposure units</p>
                     </a>
 
-                    <a href="{{ route('conversion.naturalGasConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.natural-gas-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1137,7 +1137,7 @@
                         <p class="text-sm text-gray-600">Gas volume and energy conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.dimensionalAnalysisCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.dimensional-analysis-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1150,7 +1150,7 @@
                         <p class="text-sm text-gray-600">Unit analysis and conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.cgsSystemOfUnitsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.cgs-system-of-units-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-rose-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
                                 <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1163,7 +1163,7 @@
                         <p class="text-sm text-gray-600">Centimeter-gram-second conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.weirdUnitsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.specialized-measurement-conversion-tools.weird-units-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1185,7 +1185,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for speed and motion conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.msToKmhConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.speed-and-motion-conversion-tools.m-s-to-km-h-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1198,7 +1198,7 @@
                         <p class="text-sm text-gray-600">Meters per second to kilometers per hour</p>
                     </a>
 
-                    <a href="{{ route('conversion.knotsToKphConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.speed-and-motion-conversion-tools.knots-to-kph-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1211,7 +1211,7 @@
                         <p class="text-sm text-gray-600">Nautical speed to metric conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.knotsToMphConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.speed-and-motion-conversion-tools.knots-to-mph-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1224,7 +1224,7 @@
                         <p class="text-sm text-gray-600">Nautical to imperial speed conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.mpgToL100kmConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.speed-and-motion-conversion-tools.mpg-to-l-100km-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1237,7 +1237,7 @@
                         <p class="text-sm text-gray-600">Fuel economy conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.speedConversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.speed-and-motion-conversion-tools.speed-conversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1259,7 +1259,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for energy and power conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.energyConversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.energy-and-power-conversion-tools.energy-conversion-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
                                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1272,7 +1272,7 @@
                         <p class="text-sm text-gray-600">Joules, calories, BTU, kWh conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.powerConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.energy-and-power-conversion-tools.power-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1285,7 +1285,7 @@
                         <p class="text-sm text-gray-600">Watts, horsepower, BTU/h conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.joulesToVoltsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.energy-and-power-conversion-tools.joules-to-volts-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1298,7 +1298,7 @@
                         <p class="text-sm text-gray-600">Energy to electrical potential conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.nmToJoulesCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.energy-and-power-conversion-tools.nm-to-joules-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1311,7 +1311,7 @@
                         <p class="text-sm text-gray-600">Torque to energy conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.dbmToWattsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.energy-and-power-conversion-tools.dbm-to-watts-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1324,7 +1324,7 @@
                         <p class="text-sm text-gray-600">RF power conversion calculator</p>
                     </a>
 
-                    <a href="{{ route('conversion.rmsToWattsConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.energy-and-power-conversion-tools.rms-to-watts-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1346,7 +1346,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for currency and financial conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.centsToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.currency-and-financial-conversion-tools.cents-to-dollars-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1359,7 +1359,7 @@
                         <p class="text-sm text-gray-600">Convert cents to dollar amounts</p>
                     </a>
 
-                    <a href="{{ route('conversion.dimesToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.currency-and-financial-conversion-tools.dimes-to-dollars-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1372,7 +1372,7 @@
                         <p class="text-sm text-gray-600">Convert dimes to dollar amounts</p>
                     </a>
 
-                    <a href="{{ route('conversion.nickelsToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.currency-and-financial-conversion-tools.nickels-to-dollars-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1385,7 +1385,7 @@
                         <p class="text-sm text-gray-600">Convert nickels to dollar amounts</p>
                     </a>
 
-                    <a href="{{ route('conversion.penniesToDollarsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.currency-and-financial-conversion-tools.pennies-to-dollars-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1407,7 +1407,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for digital and technical conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.pxToEmConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.digital-and-technical-conversion-tools.px-to-em-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-indigo-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1420,7 +1420,7 @@
                         <p class="text-sm text-gray-600">CSS pixel to em unit conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.ppmCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.digital-and-technical-conversion-tools.ppm-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-teal-50 rounded-lg group-hover:bg-teal-100 transition-colors">
                                 <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1433,7 +1433,7 @@
                         <p class="text-sm text-gray-600">Parts per million calculations</p>
                     </a>
 
-                    <a href="{{ route('conversion.ppmToMgLConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.digital-and-technical-conversion-tools.ppm-to-mg-l-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-cyan-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-cyan-50 rounded-lg group-hover:bg-cyan-100 transition-colors">
                                 <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1446,7 +1446,7 @@
                         <p class="text-sm text-gray-600">Water quality concentration units</p>
                     </a>
 
-                    <a href="{{ route('conversion.cpsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.digital-and-technical-conversion-tools.cps-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-pink-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-pink-50 rounded-lg group-hover:bg-pink-100 transition-colors">
                                 <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1459,7 +1459,7 @@
                         <p class="text-sm text-gray-600">Cycles per second calculations</p>
                     </a>
 
-                    <a href="{{ route('conversion.paperQuantityConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.digital-and-technical-conversion-tools.paper-quantity-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
                                 <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1481,7 +1481,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Professional tools for utility and general conversion tasks</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <a href="{{ route('conversion.ccfToThermsCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.utility-and-general-conversion-tools.ccf-to-therms-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1494,7 +1494,7 @@
                         <p class="text-sm text-gray-600">Gas volume to energy conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.conversionCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.utility-and-general-conversion-tools.conversion-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-purple-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
                                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1507,7 +1507,7 @@
                         <p class="text-sm text-gray-600">General purpose conversion tool</p>
                     </a>
 
-                    <a href="{{ route('conversion.gramsToCaloriesCalculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.utility-and-general-conversion-tools.grams-to-calories-calculator') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-green-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
                                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1520,7 +1520,7 @@
                         <p class="text-sm text-gray-600">Food weight to energy conversion</p>
                     </a>
 
-                    <a href="{{ route('conversion.quantityConverter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.utility-and-general-conversion-tools.quantity-converter') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-yellow-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
                                 <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1533,7 +1533,7 @@
                         <p class="text-sm text-gray-600">Count and quantity conversions</p>
                     </a>
 
-                    <a href="{{ route('conversion.temperatureConversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
+                    <a href="{{ route('conversion.utility-and-general-conversion-tools.temperature-conversion') }}" class="group bg-white border border-gray-200 rounded-xl p-6 hover:border-red-300 hover:shadow-lg transition-all duration-200">
                         <div class="flex items-center justify-between mb-4">
                             <div class="p-2 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
                                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

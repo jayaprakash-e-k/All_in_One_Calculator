@@ -32,11 +32,11 @@
             <div>
                 <h4 class="text-sm font-semibold text-gray-900 mb-4">Popular Tools</h4>
                 <ul class="space-y-2 text-sm text-gray-600">
-                    <li><a href="{{ route('conversion.length') }}" class="hover:text-gray-900 transition-colors duration-200">Length Converter</a></li>
-                    <li><a href="{{ route('conversion.weightConverter') }}" class="hover:text-gray-900 transition-colors duration-200">Weight Converter</a></li>
-                    <li><a href="{{ route('conversion.pressureConverter') }}" class="hover:text-gray-900 transition-colors duration-200">Pressure Converter</a></li>
-                    <li><a href="{{ route('conversion.volume') }}" class="hover:text-gray-900 transition-colors duration-200">Volume Converter</a></li>
-                    <li><a href="{{ route('conversion.torqueToHp') }}" class="hover:text-gray-900 transition-colors duration-200">Torque to HP</a></li>
+                    <li><a href="{{ route('conversion.length-and-area-conversions.length') }}" class="hover:text-gray-900 transition-colors duration-200">Length Converter</a></li>
+                    <li><a href="{{ route('conversion.volume-and-weight-conversions.weight-converter') }}" class="hover:text-gray-900 transition-colors duration-200">Weight Converter</a></li>
+                    <li><a href="{{ route('conversion.engineering-and-technical-conversions.pressure-converter') }}" class="hover:text-gray-900 transition-colors duration-200">Pressure Converter</a></li>
+                    <li><a href="{{ route('conversion.volume-and-weight-conversions.volume') }}" class="hover:text-gray-900 transition-colors duration-200">Volume Converter</a></li>
+                    <li><a href="{{ route('conversion.engineering-and-technical-conversions.torque-to-hp') }}" class="hover:text-gray-900 transition-colors duration-200">Torque to HP</a></li>
                 </ul>
             </div>
             <div>
