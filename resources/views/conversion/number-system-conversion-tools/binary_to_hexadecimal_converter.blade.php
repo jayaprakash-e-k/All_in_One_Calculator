@@ -4,206 +4,222 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Binary to Hex Direct Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Conversion Mode -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Mode
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer bg-green-50 border-green-300">
-                                                <input type="radio" name="mode" value="binary-to-hex" class="text-green-600 focus:ring-green-500" checked>
-                                                <span class="text-sm font-medium">Binary → Hexadecimal</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="mode" value="hex-to-binary" class="text-green-600 focus:ring-green-500">
-                                                <span class="text-sm font-medium">Hexadecimal → Binary</span>
-                                            </label>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Conversion Mode -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Mode
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer bg-green-50 border-green-300">
+                                                                                        <input type="radio" name="mode" value="binary-to-hex" class="text-green-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">Binary → Hexadecimal</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="mode" value="hex-to-binary" class="text-green-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">Hexadecimal → Binary</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
+                                                                                    Enter Binary Number
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="text" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter binary (e.g., 11010110)"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnit">Binary</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500" id="inputHelp">Enter a binary number (only 0s and 1s)</p>
+                                                                            </div>
+
+                                                                            <!-- Hex Format Options -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Hexadecimal Format Options
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
+                                                                                        <input type="checkbox" name="showPrefix" class="text-green-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">Show 0x prefix</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
+                                                                                        <input type="checkbox" name="uppercase" class="text-green-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">Uppercase letters</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Grouping Options -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Binary Grouping
+                                                                                </label>
+                                                                                <div class="grid grid-cols-3 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="grouping" value="4" class="text-green-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">4-bit groups</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="grouping" value="8" class="text-green-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">8-bit groups</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="grouping" value="none" class="text-green-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">No grouping</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
-                                            Enter Binary Number
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="text" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter binary (e.g., 11010110)"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnit">Binary</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500" id="inputHelp">Enter a binary number (only 0s and 1s)</p>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Hexadecimal Value</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-green-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-green-600 hover:text-green-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Hex Format Options -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Hexadecimal Format Options
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                <input type="checkbox" name="showPrefix" class="text-green-600 focus:ring-green-500" checked>
-                                                <span class="text-sm font-medium">Show 0x prefix</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                <input type="checkbox" name="uppercase" class="text-green-600 focus:ring-green-500" checked>
-                                                <span class="text-sm font-medium">Uppercase letters</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Number System Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Binary -->
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Binary (Base 2)</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="binaryDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">0s and 1s</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Grouping Options -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Binary Grouping
-                                        </label>
-                                        <div class="grid grid-cols-3 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="grouping" value="4" class="text-green-600 focus:ring-green-500" checked>
-                                                <span class="text-sm font-medium">4-bit groups</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="grouping" value="8" class="text-green-600 focus:ring-green-500">
-                                                <span class="text-sm font-medium">8-bit groups</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="grouping" value="none" class="text-green-600 focus:ring-green-500">
-                                                <span class="text-sm font-medium">No grouping</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                                <!-- Hexadecimal -->
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Hexadecimal (Base 16)</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="hexDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">0-9, A-F</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Binary Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="1111" data-context="F hex">1111</button>
-                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="11111111" data-context="FF hex">11111111</button>
-                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="101010" data-context="2A hex">101010</button>
-                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="11010110" data-context="D6 hex">11010110</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Number Systems -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Decimal -->
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal (Base 10)</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="decimalDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">0-9</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                <!-- Octal -->
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Octal (Base 8)</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="octalDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">0-7</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Hexadecimal Value</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-green-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-green-600 hover:text-green-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- Number System Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Binary -->
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Binary (Base 2)</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="binaryDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">0s and 1s</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Hexadecimal -->
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Hexadecimal (Base 16)</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="hexDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">0-9, A-F</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Number Systems -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Decimal -->
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal (Base 10)</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="decimalDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">0-9</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Octal -->
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Octal (Base 8)</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="octalDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">0-7</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <!-- Conversion Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Binary to Hex Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div>0000 = 0</div>
-                                        <div>0001 = 1</div>
-                                        <div>0010 = 2</div>
-                                        <div>0011 = 3</div>
-                                        <div>0100 = 4</div>
-                                        <div>0101 = 5</div>
-                                        <div>0110 = 6</div>
-                                        <div>0111 = 7</div>
-                                        <div>1000 = 8</div>
-                                        <div>1001 = 9</div>
-                                        <div>1010 = A</div>
-                                        <div>1011 = B</div>
-                                        <div>1100 = C</div>
-                                        <div>1101 = D</div>
-                                        <div>1110 = E</div>
-                                        <div>1111 = F</div>
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Binary Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="1111" data-context="F hex">1111</button>
+                                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="11111111" data-context="FF hex">11111111</button>
+                                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="101010" data-context="2A hex">101010</button>
+                                                            <button type="button" class="hex-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors font-mono" data-value="11010110" data-context="D6 hex">11010110</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Conversion Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Binary to Hex Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div>0000 = 0</div>
+                                                        <div>0001 = 1</div>
+                                                        <div>0010 = 2</div>
+                                                        <div>0011 = 3</div>
+                                                        <div>0100 = 4</div>
+                                                        <div>0101 = 5</div>
+                                                        <div>0110 = 6</div>
+                                                        <div>0111 = 7</div>
+                                                        <div>1000 = 8</div>
+                                                        <div>1001 = 9</div>
+                                                        <div>1010 = A</div>
+                                                        <div>1011 = B</div>
+                                                        <div>1100 = C</div>
+                                                        <div>1101 = D</div>
+                                                        <div>1110 = E</div>
+                                                        <div>1111 = F</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

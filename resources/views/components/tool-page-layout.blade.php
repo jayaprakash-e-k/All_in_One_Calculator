@@ -55,7 +55,6 @@ $breadcrumbs[] = ['label' => $toolTitle];
 
 $toolUiContent = isset($toolUi) ? $toolUi : $slot;
 $aboutContentSlot = isset($aboutContent) ? $aboutContent : null;
-$seoContentSlot = isset($seoContent) ? $seoContent : null;
 
 $breadcrumbSchemaItems = [];
 foreach ($breadcrumbs as $index => $item) {
@@ -135,32 +134,99 @@ if (is_array($howToSchema)) {
 }
 @endphp
 
-<x-app-layout :title="$title" :description="$description">
+<x-app-layout :title="$title" :description="$description" :showFooter="false">
     <x-breadcrumb :items="$breadcrumbs" />
 
-    <section class="bg-slate-50 py-10 sm:py-12 min-h-screen">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-4xl space-y-6">
-                <header class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                    <div class="flex items-start gap-3">
-                        <div class="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div class="min-w-0">
-                            <h1 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ $toolTitle }}</h1>
-                            <p class="mt-2 text-sm leading-6 text-slate-600">{{ $toolSubtitle }}</p>
-                        </div>
-                    </div>
-                </header>
+    <style>
+        #toolUiRoot :where(label) {
+            font-size: 0.8125rem;
+            line-height: 1.15rem;
+        }
 
-                <div class="space-y-6">
-                    <section aria-label="Tool Interface" class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+        #toolUiRoot :where(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+            padding: 0.48rem 0.72rem !important;
+            font-size: 0.84rem !important;
+            line-height: 1.2rem !important;
+            border-width: 1px !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        #toolUiRoot :where(button) {
+            padding: 0.48rem 0.72rem !important;
+            font-size: 0.8rem !important;
+            line-height: 1.1rem !important;
+            border-width: 1px !important;
+        }
+
+        #toolUiRoot :where(input, select, textarea, button):focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        #toolUiRoot :where(.focus-within\:ring-2):focus-within {
+            box-shadow: none !important;
+        }
+
+        @media (min-width: 1024px) {
+            .tool-right-scroll {
+                scroll-behavior: smooth;
+                scrollbar-width: thin;
+                scrollbar-color: #94a3b8 transparent;
+                scrollbar-gutter: stable both-edges;
+            }
+
+            .tool-right-scroll::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .tool-right-scroll::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .tool-right-scroll::-webkit-scrollbar-thumb {
+                border-radius: 9999px;
+                border: 1px solid transparent;
+                background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%);
+            }
+
+            .tool-right-scroll::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(180deg, #64748b 0%, #475569 100%);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body.tool-layout-lock {
+                overflow: hidden;
+            }
+
+            .tool-layout-viewport {
+                height: calc(100dvh - var(--cp-nav-height, 0px) - var(--cp-breadcrumb-height, 0px));
+                overflow: hidden;
+            }
+
+            .tool-layout-grid {
+                height: 100%;
+                overflow: hidden;
+            }
+        }
+    </style>
+
+    <section class="tool-layout-viewport bg-slate-50 py-2 sm:py-3 lg:py-1">
+        <div class="mx-auto h-full max-w-7xl px-3 sm:px-4 lg:px-6">
+            <div class="tool-layout-grid grid h-full gap-4 lg:min-h-0 lg:grid-cols-12 lg:grid-rows-[minmax(0,1fr)] lg:items-stretch">
+                <div class="space-y-3 lg:col-span-7 lg:h-full lg:min-h-0 lg:overflow-hidden">
+                    <section id="toolUiRoot" aria-label="Tool Interface" class="tool-ui-shell tool-ui-compact rounded-xl bg-white p-2.5 shadow-sm sm:p-3">
                         {{ $toolUiContent }}
                     </section>
+                </div>
 
-                    <section aria-label="About This Tool" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div class="tool-right-scroll space-y-4 lg:col-span-5 lg:h-full lg:min-h-0 lg:self-stretch lg:overflow-y-auto lg:pr-1">
+                    <section id="quickReferenceColumn" aria-label="Quick Reference" class="hidden rounded-xl bg-white p-3 shadow-sm">
+                        <h2 class="mb-3 text-base font-semibold text-slate-900">Quick Reference</h2>
+                        <div id="quickReferenceTarget" class="space-y-4"></div>
+                    </section>
+
+                    <section aria-label="About This Tool" class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4">
                         @if($aboutContentSlot)
                             {{ $aboutContentSlot }}
                         @else
@@ -168,22 +234,6 @@ if (is_array($howToSchema)) {
                             <p class="text-sm leading-7 text-slate-600">
                                 {{ $toolDescription !== '' ? $toolDescription : ('This tool helps you perform accurate and reliable calculations for ' . $toolTitle . '.') }}
                             </p>
-                        @endif
-                    </section>
-
-                    <section aria-label="SEO Content" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                        @if($seoContentSlot)
-                            {{ $seoContentSlot }}
-                        @else
-                            <h2 class="mb-3 text-lg font-semibold text-slate-900">SEO Content</h2>
-                            <div class="space-y-3 text-sm leading-7 text-slate-600">
-                                <p>
-                                    {{ $toolTitle }} is designed for fast, accurate, and user-friendly calculations. This page provides structured conversion details, practical references, and reliable computational logic.
-                                </p>
-                                <p>
-                                    Users searching for {{ strtolower($toolTitle) }}, online converter tools, and precision unit conversion calculators can use this page for dependable results.
-                                </p>
-                            </div>
                         @endif
                     </section>
                 </div>
@@ -195,6 +245,74 @@ if (is_array($howToSchema)) {
         @if(isset($scripts) && trim((string) $scripts) !== '')
             {{ $scripts }}
         @endif
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const syncToolLayoutViewport = function () {
+                    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+                    const nav = document.querySelector('header.sticky.top-0.z-40');
+                    const breadcrumb = document.querySelector('nav[aria-label="Breadcrumb"]');
+
+                    const navHeight = nav ? nav.offsetHeight : 0;
+                    const breadcrumbHeight = breadcrumb ? breadcrumb.offsetHeight : 0;
+
+                    document.documentElement.style.setProperty('--cp-nav-height', navHeight + 'px');
+                    document.documentElement.style.setProperty('--cp-breadcrumb-height', breadcrumbHeight + 'px');
+
+                    if (isDesktop) {
+                        document.body.classList.add('tool-layout-lock');
+                    } else {
+                        document.body.classList.remove('tool-layout-lock');
+                    }
+                };
+
+                syncToolLayoutViewport();
+                window.addEventListener('resize', syncToolLayoutViewport);
+
+                const toolUiRoot = document.getElementById('toolUiRoot');
+                const quickReferenceColumn = document.getElementById('quickReferenceColumn');
+                const quickReferenceTarget = document.getElementById('quickReferenceTarget');
+
+                if (!toolUiRoot || !quickReferenceColumn || !quickReferenceTarget) {
+                    return;
+                }
+
+                const headingNodes = Array.from(toolUiRoot.querySelectorAll('h2, h3, h4, h5, h6'));
+                const referenceCards = [];
+
+                headingNodes.forEach((heading) => {
+                    const headingText = (heading.textContent || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+                    if (!headingText.includes('reference') || headingText.includes('impedance')) {
+                        return;
+                    }
+
+                    if (heading.closest('form')) {
+                        return;
+                    }
+
+                    const cardCandidate = heading.closest('section.rounded-xl, section.rounded-lg, div.rounded-xl, div.rounded-lg');
+
+                    if (!cardCandidate || cardCandidate.id === 'toolUiRoot' || !toolUiRoot.contains(cardCandidate)) {
+                        return;
+                    }
+
+                    referenceCards.push(cardCandidate);
+                });
+
+                const uniqueReferenceCards = Array.from(new Set(referenceCards));
+
+                if (!uniqueReferenceCards.length) {
+                    return;
+                }
+
+                uniqueReferenceCards.forEach((card) => {
+                    quickReferenceTarget.appendChild(card);
+                });
+
+                quickReferenceColumn.classList.remove('hidden');
+            });
+        </script>
 
         <script type="application/ld+json">{!! json_encode([
             '@context' => 'https://schema.org',

@@ -4,216 +4,232 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Culinary Volume Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
-                                            Enter Volume in Milliliters
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter volume (e.g., 250)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnit">mL</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500 mt-1" id="conversionHint">1 US cup = 236.588 mL</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
+                                                                                    Enter Volume in Milliliters
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter volume (e.g., 250)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnit">mL</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500 mt-1" id="conversionHint">1 US cup = 236.588 mL</p>
+                                                                            </div>
+
+                                                                            <!-- Conversion Direction -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Direction
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-3">
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="direction" value="ml-to-cups" class="text-yellow-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">mL → Cups</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="direction" value="cups-to-ml" class="text-yellow-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">Cups → mL</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Cup Standard Selection -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Cup Standard
+                                                                                </label>
+                                                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="cupType" value="us" class="text-yellow-600 focus:ring-slate-200" checked>
+                                                                                        <div>
+                                                                                            <span class="text-sm font-medium">US Cup</span>
+                                                                                            <div class="text-xs text-gray-500">236.588 mL</div>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="cupType" value="metric" class="text-yellow-600 focus:ring-slate-200">
+                                                                                        <div>
+                                                                                            <span class="text-sm font-medium">Metric Cup</span>
+                                                                                            <div class="text-xs text-gray-500">250 mL</div>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="cupType" value="imperial" class="text-yellow-600 focus:ring-slate-200">
+                                                                                        <div>
+                                                                                            <span class="text-sm font-medium">Imperial Cup</span>
+                                                                                            <div class="text-xs text-gray-500">284.131 mL</div>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Recipe Ingredient Presets -->
+                                                                            
+
+                                                                            <!-- Recipe Scale Calculator -->
+                                                                            
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Conversion Direction -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Direction
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-3">
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="direction" value="ml-to-cups" class="text-yellow-600 focus:ring-yellow-500" checked>
-                                                <span class="text-sm font-medium">mL → Cups</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="direction" value="cups-to-ml" class="text-yellow-600 focus:ring-yellow-500">
-                                                <span class="text-sm font-medium">Cups → mL</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-yellow-50 to-green-50 rounded-xl border-l-4 border-yellow-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Volume in US Cups</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Cooking measurement</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="unit-display">cups</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Cup Standard Selection -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Cup Standard
-                                        </label>
-                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="cupType" value="us" class="text-yellow-600 focus:ring-yellow-500" checked>
-                                                <div>
-                                                    <span class="text-sm font-medium">US Cup</span>
-                                                    <div class="text-xs text-gray-500">236.588 mL</div>
-                                                </div>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="cupType" value="metric" class="text-yellow-600 focus:ring-yellow-500">
-                                                <div>
-                                                    <span class="text-sm font-medium">Metric Cup</span>
-                                                    <div class="text-xs text-gray-500">250 mL</div>
-                                                </div>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="cupType" value="imperial" class="text-yellow-600 focus:ring-yellow-500">
-                                                <div>
-                                                    <span class="text-sm font-medium">Imperial Cup</span>
-                                                    <div class="text-xs text-gray-500">284.131 mL</div>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- All Cup Standards Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">US Cups</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="usCupsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Metric Cups</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="metricCupsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Imperial Cups</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="imperialCupsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Recipe Ingredient Presets -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Common Recipe Measurements
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="60" data-direction="ml-to-cups">¼ cup</button>
-                                            <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="120" data-direction="ml-to-cups">½ cup</button>
-                                            <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="240" data-direction="ml-to-cups">1 cup</button>
-                                            <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="480" data-direction="ml-to-cups">2 cups</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Detailed Cooking Measurements -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-3 text-center">Detailed Cooking Measurements</h4>
+                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-gray-600">
+                                                                                    <div class="text-center">
+                                                                                        <div class="font-medium text-gray-700" id="tablespoonsOutput">-- tbsp</div>
+                                                                                        <div>Tablespoons</div>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <div class="font-medium text-gray-700" id="teaspoonsOutput">-- tsp</div>
+                                                                                        <div>Teaspoons</div>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <div class="font-medium text-gray-700" id="flOzOutput">-- fl oz</div>
+                                                                                        <div>Fluid Ounces</div>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <div class="font-medium text-gray-700" id="pintsOutput">-- pt</div>
+                                                                                        <div>Pints</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Recipe Scale Calculator -->
-                                    <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                                        <h4 class="text-sm font-semibold text-yellow-800 mb-2">Recipe Scaling Helper</h4>
-                                        <div class="grid grid-cols-2 gap-3">
-                                            <div>
-                                                <label for="originalServings" class="block text-xs font-medium text-yellow-700 mb-1">Original Servings</label>
-                                                <input type="number" id="originalServings" class="w-full px-2 py-1 text-sm border border-yellow-300 rounded focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500" placeholder="e.g., 4" min="1">
-                                            </div>
-                                            <div>
-                                                <label for="desiredServings" class="block text-xs font-medium text-yellow-700 mb-1">Desired Servings</label>
-                                                <input type="number" id="desiredServings" class="w-full px-2 py-1 text-sm border border-yellow-300 rounded focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500" placeholder="e.g., 6" min="1">
-                                            </div>
-                                        </div>
-                                        <div class="mt-2 text-xs text-yellow-700">
-                                            Scale Factor: <span id="scaleFactor" class="font-semibold">--</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-yellow-50 to-green-50 rounded-xl border-l-4 border-yellow-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Volume in US Cups</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Cooking measurement</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="unit-display">cups</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- All Cup Standards Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">US Cups</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="usCupsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Metric Cups</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="metricCupsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Imperial Cups</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="imperialCupsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Detailed Cooking Measurements -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-3 text-center">Detailed Cooking Measurements</h4>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-gray-600">
-                                            <div class="text-center">
-                                                <div class="font-medium text-gray-700" id="tablespoonsOutput">-- tbsp</div>
-                                                <div>Tablespoons</div>
-                                            </div>
-                                            <div class="text-center">
-                                                <div class="font-medium text-gray-700" id="teaspoonsOutput">-- tsp</div>
-                                                <div>Teaspoons</div>
-                                            </div>
-                                            <div class="text-center">
-                                                <div class="font-medium text-gray-700" id="flOzOutput">-- fl oz</div>
-                                                <div>Fluid Ounces</div>
-                                            </div>
-                                            <div class="text-center">
-                                                <div class="font-medium text-gray-700" id="pintsOutput">-- pt</div>
-                                                <div>Pints</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Scaled Result (if scaling is active) -->
-                                    <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200" id="scaledResult" style="display: none;">
-                                        <h4 class="text-sm font-semibold text-yellow-800 mb-2">Scaled Recipe Amount</h4>
-                                        <div class="text-lg font-bold text-yellow-700" id="scaledOutput">--</div>
+                                                                            <!-- Scaled Result (if scaling is active) -->
+                                                                            <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200" id="scaledResult" style="display: none;">
+                                                                                <h4 class="text-sm font-semibold text-yellow-800 mb-2">Scaled Recipe Amount</h4>
+                                                                                <div class="text-lg font-bold text-yellow-700" id="scaledOutput">--</div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Cooking Volume Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 US cup = 236.588 mL</div>
-                                        <div>• 1 Metric cup = 250 mL</div>
-                                        <div>• 1 tbsp = 14.787 mL</div>
-                                        <div>• 1 tsp = 4.929 mL</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="space-y-2">
+                                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                                    Common Recipe Measurements
+                                                                                                </label>
+                                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                                    <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="60" data-direction="ml-to-cups">¼ cup</button>
+                                                                                                    <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="120" data-direction="ml-to-cups">½ cup</button>
+                                                                                                    <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="240" data-direction="ml-to-cups">1 cup</button>
+                                                                                                    <button type="button" class="recipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="480" data-direction="ml-to-cups">2 cups</button>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                                                                                <h4 class="text-sm font-semibold text-yellow-800 mb-2">Recipe Scaling Helper</h4>
+                                                                                                <div class="grid grid-cols-2 gap-3">
+                                                                                                    <div>
+                                                                                                        <label for="originalServings" class="block text-xs font-medium text-yellow-700 mb-1">Original Servings</label>
+                                                                                                        <input type="number" id="originalServings" class="w-full px-2 py-1 text-sm border border-yellow-300 rounded focus:border-slate-400 focus:ring-1 focus:ring-slate-200" placeholder="e.g., 4" min="1">
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        <label for="desiredServings" class="block text-xs font-medium text-yellow-700 mb-1">Desired Servings</label>
+                                                                                                        <input type="number" id="desiredServings" class="w-full px-2 py-1 text-sm border border-yellow-300 rounded focus:border-slate-400 focus:ring-1 focus:ring-slate-200" placeholder="e.g., 6" min="1">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="mt-2 text-xs text-yellow-700">
+                                                                                                    Scale Factor: <span id="scaleFactor" class="font-semibold">--</span>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Cooking Volume Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 US cup = 236.588 mL</div>
+                                                        <div>• 1 Metric cup = 250 mL</div>
+                                                        <div>• 1 tbsp = 14.787 mL</div>
+                                                        <div>• 1 tsp = 4.929 mL</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

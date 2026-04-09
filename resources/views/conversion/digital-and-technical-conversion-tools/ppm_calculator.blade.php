@@ -4,332 +4,345 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-teal-500 to-teal-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Concentration Analysis Calculator</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Calculation Method -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Calculation Method
-                                        </label>
-                                        <select 
-                                            id="calculationMethod" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="mass_volume" selected>Mass/Volume (mg/L to PPM)</option>
-                                            <option value="mass_mass">Mass/Mass (mg/kg to PPM)</option>
-                                            <option value="volume_volume">Volume/Volume (mL/L to PPM)</option>
-                                            <option value="percentage">Percentage to PPM</option>
-                                            <option value="molarity">Molarity to PPM</option>
-                                            <option value="dilution">Dilution Calculator</option>
-                                        </select>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Calculation Method -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Calculation Method
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="calculationMethod" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="mass_volume" selected>Mass/Volume (mg/L to PPM)</option>
+                                                                                    <option value="mass_mass">Mass/Mass (mg/kg to PPM)</option>
+                                                                                    <option value="volume_volume">Volume/Volume (mL/L to PPM)</option>
+                                                                                    <option value="percentage">Percentage to PPM</option>
+                                                                                    <option value="molarity">Molarity to PPM</option>
+                                                                                    <option value="dilution">Dilution Calculator</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Solute Amount -->
+                                                                            <div class="space-y-2" id="soluteContainer">
+                                                                                <label for="soluteAmount" class="block text-sm font-semibold text-gray-700" id="soluteLabel">
+                                                                                    Solute Mass
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="soluteAmount" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter solute amount (e.g., 10)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="soluteUnit">mg</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500" id="soluteHint">Enter the amount of solute</p>
+                                                                            </div>
+
+                                                                            <!-- Solution Amount -->
+                                                                            <div class="space-y-2" id="solutionContainer">
+                                                                                <label for="solutionAmount" class="block text-sm font-semibold text-gray-700" id="solutionLabel">
+                                                                                    Solution Volume
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="solutionAmount" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter solution amount (e.g., 1)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="solutionUnit">L</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500" id="solutionHint">Enter the total solution amount</p>
+                                                                            </div>
+
+                                                                            <!-- Molecular Weight (for molarity) -->
+                                                                            <div class="space-y-2" id="molecularWeightContainer" style="display: none;">
+                                                                                <label for="molecularWeight" class="block text-sm font-semibold text-gray-700">
+                                                                                    Molecular Weight
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="molecularWeight" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter molecular weight (e.g., 58.44)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">g/mol</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Molecular weight of the compound</p>
+                                                                            </div>
+
+                                                                            <!-- Solution Type -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Solution Type
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="solutionType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="water" selected>Aqueous (Water-based)</option>
+                                                                                    <option value="air">Gas/Air mixture</option>
+                                                                                    <option value="soil">Soil/Solid matrix</option>
+                                                                                    <option value="oil">Oil-based solution</option>
+                                                                                    <option value="alcohol">Alcohol-based solution</option>
+                                                                                    <option value="other">Other solution</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Temperature (affects density) -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="temperature" class="block text-sm font-semibold text-gray-700">
+                                                                                    Temperature (°C)
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="temperature" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Temperature"
+                                                                                        step="any"
+                                                                                        value="20"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">°C</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Temperature affects solution density</p>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-teal-100 hover:bg-teal-200 text-teal-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">PPM Calculation Results</h3>
 
-                                    <!-- Solute Amount -->
-                                    <div class="space-y-2" id="soluteContainer">
-                                        <label for="soluteAmount" class="block text-sm font-semibold text-gray-700" id="soluteLabel">
-                                            Solute Mass
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="soluteAmount" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter solute amount (e.g., 10)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="soluteUnit">mg</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500" id="soluteHint">Enter the amount of solute</p>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Concentration (PPM)</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Calculated concentration result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-teal-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-teal-600 hover:text-teal-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Solution Amount -->
-                                    <div class="space-y-2" id="solutionContainer">
-                                        <label for="solutionAmount" class="block text-sm font-semibold text-gray-700" id="solutionLabel">
-                                            Solution Volume
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="solutionAmount" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter solution amount (e.g., 1)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="solutionUnit">L</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500" id="solutionHint">Enter the total solution amount</p>
-                                    </div>
+                                                                            <!-- Concentration Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <!-- PPM Variants -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">PPM Variants</h4>
 
-                                    <!-- Molecular Weight (for molarity) -->
-                                    <div class="space-y-2" id="molecularWeightContainer" style="display: none;">
-                                        <label for="molecularWeight" class="block text-sm font-semibold text-gray-700">
-                                            Molecular Weight
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="molecularWeight" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter molecular weight (e.g., 58.44)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">g/mol</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Molecular weight of the compound</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">PPM (w/v)</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="ppmWvDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Weight/Volume</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Solution Type -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Solution Type
-                                        </label>
-                                        <select 
-                                            id="solutionType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="water" selected>Aqueous (Water-based)</option>
-                                            <option value="air">Gas/Air mixture</option>
-                                            <option value="soil">Soil/Solid matrix</option>
-                                            <option value="oil">Oil-based solution</option>
-                                            <option value="alcohol">Alcohol-based solution</option>
-                                            <option value="other">Other solution</option>
-                                        </select>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">PPM (w/w)</h5>
+                                                                                            <div class="text-lg font-bold text-indigo-600 font-mono" id="ppmWwDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Weight/Weight</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Temperature (affects density) -->
-                                    <div class="space-y-2">
-                                        <label for="temperature" class="block text-sm font-semibold text-gray-700">
-                                            Temperature (°C)
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="temperature" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Temperature"
-                                                step="any"
-                                                value="20"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">°C</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Temperature affects solution density</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">PPM (v/v)</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="ppmVvDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Volume/Volume</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Quick PPM Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick PPM Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="10" data-solution="1" data-method="mass_volume">10 mg/L</button>
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="100" data-solution="1" data-method="mass_volume">100 mg/L</button>
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="1" data-solution="100" data-method="percentage">1%</button>
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="0.1" data-solution="1" data-method="molarity">0.1 M</button>
-                                        </div>
-                                    </div>
+                                                                                <!-- Related Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Related Units</h4>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-teal-100 hover:bg-teal-200 text-teal-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">PPB</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="ppbDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Parts per billion</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                </form>
+                                                                                    <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">mg/L</h5>
+                                                                                            <div class="text-lg font-bold text-emerald-600 font-mono" id="mgLDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Milligrams per liter</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">PPM Calculation Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Concentration (PPM)</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Calculated concentration result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-teal-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-teal-600 hover:text-teal-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Percentage</h5>
+                                                                                            <div class="text-lg font-bold text-teal-600 font-mono" id="percentageDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Percent concentration</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Concentration Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <!-- PPM Variants -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">PPM Variants</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">PPM (w/v)</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="ppmWvDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Weight/Volume</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">PPM (w/w)</h5>
-                                                    <div class="text-lg font-bold text-indigo-600 font-mono" id="ppmWwDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Weight/Weight</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">PPM (v/v)</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="ppmVvDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Volume/Volume</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                <!-- Molarity & Normality -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Molar Units</h4>
 
-                                        <!-- Related Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Related Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">PPB</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="ppbDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Parts per billion</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">mg/L</h5>
-                                                    <div class="text-lg font-bold text-emerald-600 font-mono" id="mgLDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Milligrams per liter</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Percentage</h5>
-                                                    <div class="text-lg font-bold text-teal-600 font-mono" id="percentageDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Percent concentration</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Molarity</h5>
+                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="molarityDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Moles per liter</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Molarity & Normality -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Molar Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Molarity</h5>
-                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="molarityDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Moles per liter</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Molality</h5>
-                                                    <div class="text-lg font-bold text-red-600 font-mono" id="molalityDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Moles per kg solvent</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Normality</h5>
-                                                    <div class="text-lg font-bold text-pink-600 font-mono" id="normalityDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Equivalents per liter</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Molality</h5>
+                                                                                            <div class="text-lg font-bold text-red-600 font-mono" id="molalityDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Moles per kg solvent</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <div class="hidden">
-                                        <!-- Solution Properties -->
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border border-cyan-200">
-                                            <h4 class="text-sm font-semibold text-cyan-800 mb-2 text-center">Solution Properties</h4>
-                                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                                <div class="text-center">
-                                                    <span class="text-gray-600 block">Density:</span>
-                                                    <span class="font-mono text-cyan-700" id="densityDisplay">--</span>
-                                                </div>
-                                                <div class="text-center">
-                                                    <span class="text-gray-600 block">Total Mass:</span>
-                                                    <span class="font-mono text-cyan-700" id="totalMassDisplay">--</span>
-                                                </div>
-                                                <div class="text-center">
-                                                    <span class="text-gray-600 block">Solvent Mass:</span>
-                                                    <span class="font-mono text-cyan-700" id="solventMassDisplay">--</span>
-                                                </div>
-                                                <div class="text-center">
-                                                    <span class="text-gray-600 block">Dilution Factor:</span>
-                                                    <span class="font-mono text-cyan-700" id="dilutionFactorDisplay">--</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Normality</h5>
+                                                                                            <div class="text-lg font-bold text-pink-600 font-mono" id="normalityDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Equivalents per liter</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                        <!-- Formula Display -->
-                                        <div class="p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border border-amber-200">
-                                            <h4 class="text-sm font-semibold text-amber-800 mb-2 text-center">Calculation Formula</h4>
-                                            <div class="text-sm text-amber-700 text-center">
-                                                <div class="font-mono bg-white px-3 py-2 rounded border inline-block" id="formulaDisplay">
-                                                    Select method to see formula
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                            <div class="hidden">
+                                                                                <!-- Solution Properties -->
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border border-cyan-200">
+                                                                                    <h4 class="text-sm font-semibold text-cyan-800 mb-2 text-center">Solution Properties</h4>
+                                                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                                                                        <div class="text-center">
+                                                                                            <span class="text-gray-600 block">Density:</span>
+                                                                                            <span class="font-mono text-cyan-700" id="densityDisplay">--</span>
+                                                                                        </div>
+                                                                                        <div class="text-center">
+                                                                                            <span class="text-gray-600 block">Total Mass:</span>
+                                                                                            <span class="font-mono text-cyan-700" id="totalMassDisplay">--</span>
+                                                                                        </div>
+                                                                                        <div class="text-center">
+                                                                                            <span class="text-gray-600 block">Solvent Mass:</span>
+                                                                                            <span class="font-mono text-cyan-700" id="solventMassDisplay">--</span>
+                                                                                        </div>
+                                                                                        <div class="text-center">
+                                                                                            <span class="text-gray-600 block">Dilution Factor:</span>
+                                                                                            <span class="font-mono text-cyan-700" id="dilutionFactorDisplay">--</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- Formula Display -->
+                                                                                <div class="p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border border-amber-200">
+                                                                                    <h4 class="text-sm font-semibold text-amber-800 mb-2 text-center">Calculation Formula</h4>
+                                                                                    <div class="text-sm text-amber-700 text-center">
+                                                                                        <div class="font-mono bg-white px-3 py-2 rounded border inline-block" id="formulaDisplay">
+                                                                                            Select method to see formula
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Reference Information -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">PPM Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>1 PPM</strong> = 1 mg/L (water)</div>
-                                        <div><strong>1 PPM</strong> = 1 mg/kg (solids)</div>
-                                        <div><strong>1%</strong> = 10,000 PPM</div>
-                                        <div><strong>1 PPB</strong> = 0.001 PPM</div>
-                                        <div><strong>Drinking water</strong> < 500 PPM TDS</div>
-                                        <div><strong>Seawater</strong> ≈ 35,000 PPM salt</div>
-                                        <div><strong>Pool chlorine</strong> = 1-3 PPM</div>
-                                        <div><strong>Air CO₂</strong> ≈ 400 PPM</div>
-                                        <div><strong>WHO arsenic limit</strong> = 0.01 PPM</div>
-                                        <div><strong>EPA lead limit</strong> = 0.015 PPM</div>
-                                        <div><strong>Soil fertility</strong> = 20-200 PPM N</div>
-                                        <div><strong>Industrial waste</strong> varies greatly</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick PPM Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick PPM Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="10" data-solution="1" data-method="mass_volume">10 mg/L</button>
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="100" data-solution="1" data-method="mass_volume">100 mg/L</button>
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="1" data-solution="100" data-method="percentage">1%</button>
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-solute="0.1" data-solution="1" data-method="molarity">0.1 M</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Reference Information -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">PPM Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>1 PPM</strong> = 1 mg/L (water)</div>
+                                                        <div><strong>1 PPM</strong> = 1 mg/kg (solids)</div>
+                                                        <div><strong>1%</strong> = 10,000 PPM</div>
+                                                        <div><strong>1 PPB</strong> = 0.001 PPM</div>
+                                                        <div><strong>Drinking water</strong> < 500 PPM TDS</div>
+                                                        <div><strong>Seawater</strong> ≈ 35,000 PPM salt</div>
+                                                        <div><strong>Pool chlorine</strong> = 1-3 PPM</div>
+                                                        <div><strong>Air CO₂</strong> ≈ 400 PPM</div>
+                                                        <div><strong>WHO arsenic limit</strong> = 0.01 PPM</div>
+                                                        <div><strong>EPA lead limit</strong> = 0.015 PPM</div>
+                                                        <div><strong>Soil fertility</strong> = 20-200 PPM N</div>
+                                                        <div><strong>Industrial waste</strong> varies greatly</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

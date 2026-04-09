@@ -4,264 +4,280 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Velocity Unit Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Velocity Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter velocity (e.g., 25)"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Value</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Enter velocity value for conversion</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Velocity Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter velocity (e.g., 25)"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Value</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Enter velocity value for conversion</p>
+                                                                            </div>
+
+                                                                            <!-- From Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    From Unit (Source)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="fromUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="Metric Velocity Units">
+                                                                                        <option value="ms" selected>m/s (meters per second)</option>
+                                                                                        <option value="kmh">km/h (kilometers per hour)</option>
+                                                                                        <option value="kms">km/s (kilometers per second)</option>
+                                                                                        <option value="cms">cm/s (centimeters per second)</option>
+                                                                                        <option value="mms">mm/s (millimeters per second)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Imperial Velocity Units">
+                                                                                        <option value="mph">mph (miles per hour)</option>
+                                                                                        <option value="fps">ft/s (feet per second)</option>
+                                                                                        <option value="ips">in/s (inches per second)</option>
+                                                                                        <option value="mps">mi/s (miles per second)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Specialized Units">
+                                                                                        <option value="knots">knots (nautical miles per hour)</option>
+                                                                                        <option value="mach">Mach (speed of sound)</option>
+                                                                                        <option value="c">c (speed of light)</option>
+                                                                                        <option value="yard_s">yd/s (yards per second)</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- To Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    To Unit (Target)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="toUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="Metric Velocity Units">
+                                                                                        <option value="ms">m/s (meters per second)</option>
+                                                                                        <option value="kmh" selected>km/h (kilometers per hour)</option>
+                                                                                        <option value="kms">km/s (kilometers per second)</option>
+                                                                                        <option value="cms">cm/s (centimeters per second)</option>
+                                                                                        <option value="mms">mm/s (millimeters per second)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Imperial Velocity Units">
+                                                                                        <option value="mph">mph (miles per hour)</option>
+                                                                                        <option value="fps">ft/s (feet per second)</option>
+                                                                                        <option value="ips">in/s (inches per second)</option>
+                                                                                        <option value="mps">mi/s (miles per second)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Specialized Units">
+                                                                                        <option value="knots">knots (nautical miles per hour)</option>
+                                                                                        <option value="mach">Mach (speed of sound)</option>
+                                                                                        <option value="c">c (speed of light)</option>
+                                                                                        <option value="yard_s">yd/s (yards per second)</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Precision Control -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Display Precision
+                                                                                </label>
+                                                                                <div class="flex items-center space-x-4">
+                                                                                    <input 
+                                                                                        type="range" 
+                                                                                        id="precision" 
+                                                                                        min="0" 
+                                                                                        max="8" 
+                                                                                        value="3" 
+                                                                                        class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                                                                    >
+                                                                                    <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">3 digits</span>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Adjust decimal places for results</p>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Velocity Conversion Results</h3>
 
-                                    <!-- From Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            From Unit (Source)
-                                        </label>
-                                        <select 
-                                            id="fromUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="Metric Velocity Units">
-                                                <option value="ms" selected>m/s (meters per second)</option>
-                                                <option value="kmh">km/h (kilometers per hour)</option>
-                                                <option value="kms">km/s (kilometers per second)</option>
-                                                <option value="cms">cm/s (centimeters per second)</option>
-                                                <option value="mms">mm/s (millimeters per second)</option>
-                                            </optgroup>
-                                            <optgroup label="Imperial Velocity Units">
-                                                <option value="mph">mph (miles per hour)</option>
-                                                <option value="fps">ft/s (feet per second)</option>
-                                                <option value="ips">in/s (inches per second)</option>
-                                                <option value="mps">mi/s (miles per second)</option>
-                                            </optgroup>
-                                            <optgroup label="Specialized Units">
-                                                <option value="knots">knots (nautical miles per hour)</option>
-                                                <option value="mach">Mach (speed of sound)</option>
-                                                <option value="c">c (speed of light)</option>
-                                                <option value="yard_s">yd/s (yards per second)</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Velocity</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-blue-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-blue-600 hover:text-blue-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- To Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            To Unit (Target)
-                                        </label>
-                                        <select 
-                                            id="toUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="Metric Velocity Units">
-                                                <option value="ms">m/s (meters per second)</option>
-                                                <option value="kmh" selected>km/h (kilometers per hour)</option>
-                                                <option value="kms">km/s (kilometers per second)</option>
-                                                <option value="cms">cm/s (centimeters per second)</option>
-                                                <option value="mms">mm/s (millimeters per second)</option>
-                                            </optgroup>
-                                            <optgroup label="Imperial Velocity Units">
-                                                <option value="mph">mph (miles per hour)</option>
-                                                <option value="fps">ft/s (feet per second)</option>
-                                                <option value="ips">in/s (inches per second)</option>
-                                                <option value="mps">mi/s (miles per second)</option>
-                                            </optgroup>
-                                            <optgroup label="Specialized Units">
-                                                <option value="knots">knots (nautical miles per hour)</option>
-                                                <option value="mach">Mach (speed of sound)</option>
-                                                <option value="c">c (speed of light)</option>
-                                                <option value="yard_s">yd/s (yards per second)</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Common Velocity Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Metric Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Metric Units</h4>
 
-                                    <!-- Precision Control -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Display Precision
-                                        </label>
-                                        <div class="flex items-center space-x-4">
-                                            <input 
-                                                type="range" 
-                                                id="precision" 
-                                                min="0" 
-                                                max="8" 
-                                                value="3" 
-                                                class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                            >
-                                            <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">3 digits</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Adjust decimal places for results</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">m/s</h5>
+                                                                                            <div class="text-lg font-bold text-red-600 font-mono" id="msDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">SI velocity unit</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Quick Velocity Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Velocity Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="10" data-from="ms" data-to="kmh">10 m/s</button>
-                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="60" data-from="kmh" data-to="ms">60 km/h</button>
-                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="100" data-from="kmh" data-to="ms">100 km/h</button>
-                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="30" data-from="mph" data-to="kmh">30 mph</button>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">km/h</h5>
+                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="kmhDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Common speed unit</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">cm/s</h5>
+                                                                                            <div class="text-lg font-bold text-yellow-600 font-mono" id="cmsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Small scale velocity</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                </form>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">km/s</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="kmsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">High speed unit</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Velocity Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Velocity</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-blue-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-blue-600 hover:text-blue-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                <!-- Imperial & Special Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Imperial & Special</h4>
 
-                                    <!-- Common Velocity Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Metric Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Metric Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">m/s</h5>
-                                                    <div class="text-lg font-bold text-red-600 font-mono" id="msDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">SI velocity unit</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">km/h</h5>
-                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="kmhDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Common speed unit</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">cm/s</h5>
-                                                    <div class="text-lg font-bold text-yellow-600 font-mono" id="cmsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Small scale velocity</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">km/s</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="kmsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">High speed unit</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">mph</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="mphDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Miles per hour</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Imperial & Special Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Imperial & Special</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">mph</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="mphDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Miles per hour</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">ft/s</h5>
-                                                    <div class="text-lg font-bold text-indigo-600 font-mono" id="fpsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Feet per second</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">knots</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="knotsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Nautical speed</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Mach</h5>
-                                                    <div class="text-lg font-bold text-pink-600 font-mono" id="machDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Speed of sound</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">ft/s</h5>
+                                                                                            <div class="text-lg font-bold text-indigo-600 font-mono" id="fpsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Feet per second</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Velocity Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Velocity Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>1 m/s</strong> = 3.6 km/h</div>
-                                        <div><strong>1 km/h</strong> = 0.278 m/s</div>
-                                        <div><strong>1 mph</strong> = 1.609 km/h</div>
-                                        <div><strong>1 knot</strong> = 1.852 km/h</div>
-                                        <div><strong>1 ft/s</strong> = 0.305 m/s</div>
-                                        <div><strong>Sound speed</strong> = 343 m/s</div>
-                                        <div><strong>Light speed</strong> = 3×10⁸ m/s</div>
-                                        <div><strong>Earth escape</strong> = 11.2 km/s</div>
-                                        <div><strong>Walking</strong> ≈ 1.4 m/s</div>
-                                        <div><strong>Running</strong> ≈ 5 m/s</div>
-                                        <div><strong>Cycling</strong> ≈ 6 m/s</div>
-                                        <div><strong>Car highway</strong> ≈ 30 m/s</div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">knots</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="knotsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Nautical speed</div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Mach</h5>
+                                                                                            <div class="text-lg font-bold text-pink-600 font-mono" id="machDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Speed of sound</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Velocity Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Velocity Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="10" data-from="ms" data-to="kmh">10 m/s</button>
+                                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="60" data-from="kmh" data-to="ms">60 km/h</button>
+                                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="100" data-from="kmh" data-to="ms">100 km/h</button>
+                                                            <button type="button" class="velocity-example px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="30" data-from="mph" data-to="kmh">30 mph</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Velocity Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Velocity Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>1 m/s</strong> = 3.6 km/h</div>
+                                                        <div><strong>1 km/h</strong> = 0.278 m/s</div>
+                                                        <div><strong>1 mph</strong> = 1.609 km/h</div>
+                                                        <div><strong>1 knot</strong> = 1.852 km/h</div>
+                                                        <div><strong>1 ft/s</strong> = 0.305 m/s</div>
+                                                        <div><strong>Sound speed</strong> = 343 m/s</div>
+                                                        <div><strong>Light speed</strong> = 3×10⁸ m/s</div>
+                                                        <div><strong>Earth escape</strong> = 11.2 km/s</div>
+                                                        <div><strong>Walking</strong> ≈ 1.4 m/s</div>
+                                                        <div><strong>Running</strong> ≈ 5 m/s</div>
+                                                        <div><strong>Cycling</strong> ≈ 6 m/s</div>
+                                                        <div><strong>Car highway</strong> ≈ 30 m/s</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

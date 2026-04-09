@@ -4,88 +4,98 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Land Area Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="value" class="block text-sm font-semibold text-gray-700">
-                                            Area in Acres
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="value" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter acres (e.g., 5.5)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">acres</span>
-                                            </div>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="value" class="block text-sm font-semibold text-gray-700">
+                                                                                    Area in Acres
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="value" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter acres (e.g., 5.5)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">acres</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Convert To -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="to" class="block text-sm font-semibold text-gray-700">
+                                                                                    Convert To
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="to" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="sqm">Square Meters (m²)</option>
+                                                                                    <option value="hectare">Hectares (ha)</option>
+                                                                                    <option value="sqft">Square Feet (ft²)</option>
+                                                                                    <option value="sqyd">Square Yards (yd²)</option>
+                                                                                    <option value="sqkm">Square Kilometers (km²)</option>
+                                                                                    <option value="sqin">Square Inches (in²)</option>
+                                                                                    <option value="ares">Ares (a)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
-
-                                    <!-- Convert To -->
-                                    <div class="space-y-2">
-                                        <label for="to" class="block text-sm font-semibold text-gray-700">
-                                            Convert To
-                                        </label>
-                                        <select 
-                                            id="to" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="sqm">Square Meters (m²)</option>
-                                            <option value="hectare">Hectares (ha)</option>
-                                            <option value="sqft">Square Feet (ft²)</option>
-                                            <option value="sqyd">Square Yards (yd²)</option>
-                                            <option value="sqkm">Square Kilometers (km²)</option>
-                                            <option value="sqin">Square Inches (in²)</option>
-                                            <option value="ares">Ares (a)</option>
-                                        </select>
-                                    </div>
-
-                                </form>
-
-                                <!-- Result Display -->
-                                <div class="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-500">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Converted Value</h3>
-                                            <p class="text-sm text-gray-600">Real-time conversion result</p>
-                                        </div>
-                                        <div class="text-right">
-                                            <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
-                                            <div class="text-sm text-gray-500 font-medium" id="unit-display">Select unit</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 acre = 4,047 m²</div>
-                                        <div>• 1 acre = 0.405 hectares</div>
-                                        <div>• 1 acre = 43,560 ft²</div>
-                                        <div>• 1 acre = 4,840 yd²</div>
-                                        <div>• 1 acre = 40.47 ares</div>
-                                        <div>• 1 acre = 0.004047 km²</div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Result Display -->
+                                                                        <div class="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-500">
+                                                                            <div class="flex items-center justify-between">
+                                                                                <div>
+                                                                                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Converted Value</h3>
+                                                                                    <p class="text-sm text-gray-600">Real-time conversion result</p>
+                                                                                </div>
+                                                                                <div class="text-right">
+                                                                                    <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
+                                                                                    <div class="text-sm text-gray-500 font-medium" id="unit-display">Select unit</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 acre = 4,047 m²</div>
+                                                        <div>• 1 acre = 0.405 hectares</div>
+                                                        <div>• 1 acre = 43,560 ft²</div>
+                                                        <div>• 1 acre = 4,840 yd²</div>
+                                                        <div>• 1 acre = 40.47 ares</div>
+                                                        <div>• 1 acre = 0.004047 km²</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

@@ -4,168 +4,181 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-pink-500 to-pink-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Precision Weight Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
-                                            Enter Weight in Micrograms
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter weight (e.g., 5000)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnit">mcg</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500 mt-1" id="conversionHint">1 milligram = 1000 micrograms</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
+                                                                                    Enter Weight in Micrograms
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter weight (e.g., 5000)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnit">mcg</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500 mt-1" id="conversionHint">1 milligram = 1000 micrograms</p>
+                                                                            </div>
+
+                                                                            <!-- Conversion Direction -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Direction
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-3">
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="direction" value="mcg-to-mg" class="text-pink-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">mcg → mg</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="direction" value="mg-to-mcg" class="text-pink-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">mg → mcg</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Precision Level -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Precision Level
+                                                                                </label>
+                                                                                <div class="grid grid-cols-3 gap-3">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="3" class="text-pink-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">3 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-pink-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="9" class="text-pink-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">9 decimals</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Common Weight Presets -->
+                                                                            
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear Value
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Conversion Direction -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Direction
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-3">
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="direction" value="mcg-to-mg" class="text-pink-600 focus:ring-pink-500" checked>
-                                                <span class="text-sm font-medium">mcg → mg</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="direction" value="mg-to-mcg" class="text-pink-600 focus:ring-pink-500">
-                                                <span class="text-sm font-medium">mg → mcg</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-pink-50 to-emerald-50 rounded-xl border-l-4 border-pink-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Weight in Milligrams</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Metric weight measurement</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-pink-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="unit-display">mg</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Precision Level -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Precision Level
-                                        </label>
-                                        <div class="grid grid-cols-3 gap-3">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="3" class="text-pink-600 focus:ring-pink-500" checked>
-                                                <span class="text-xs font-medium">3 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-pink-600 focus:ring-pink-500">
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="9" class="text-pink-600 focus:ring-pink-500">
-                                                <span class="text-xs font-medium">9 decimals</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Weight Conversions -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Grams</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="gramsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Nanograms</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="nanogramsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="kilogramsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Common Weight Presets -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Common Weight Values
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="100" data-direction="mcg-to-mg">100 mcg</button>
-                                            <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="500" data-direction="mcg-to-mg">500 mcg</button>
-                                            <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="1000" data-direction="mcg-to-mg">1000 mcg</button>
-                                            <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="5000" data-direction="mcg-to-mg">5000 mcg</button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear Value
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-pink-50 to-emerald-50 rounded-xl border-l-4 border-pink-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Weight in Milligrams</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Metric weight measurement</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-pink-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="unit-display">mg</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Weight Conversions -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Grams</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="gramsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Nanograms</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="nanogramsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="kilogramsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Step-by-Step Calculation -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Step-by-Step Calculation</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="stepByStep">
-                                            Enter a value to see the calculation steps
-                                        </div>
+                                                                            <!-- Step-by-Step Calculation -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Step-by-Step Calculation</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="stepByStep">
+                                                                                    Enter a value to see the calculation steps
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Weight Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 mg = 1000 mcg</div>
-                                        <div>• 1 g = 1,000,000 mcg</div>
-                                        <div>• 1 mcg = 1000 ng</div>
-                                        <div>• 1 kg = 1,000,000,000 mcg</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="space-y-2">
+                                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                                    Common Weight Values
+                                                                                                </label>
+                                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="100" data-direction="mcg-to-mg">100 mcg</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="500" data-direction="mcg-to-mg">500 mcg</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="1000" data-direction="mcg-to-mg">1000 mcg</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="5000" data-direction="mcg-to-mg">5000 mcg</button>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Weight Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 mg = 1000 mcg</div>
+                                                        <div>• 1 g = 1,000,000 mcg</div>
+                                                        <div>• 1 mcg = 1000 ng</div>
+                                                        <div>• 1 kg = 1,000,000,000 mcg</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

@@ -4,230 +4,240 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-pink-500 to-pink-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Concentration-Based Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Substance Type Selection -->
-                                    <div class="space-y-2">
-                                        <label for="substanceType" class="block text-sm font-semibold text-gray-700">
-                                            Substance Type
-                                        </label>
-                                        <select 
-                                            id="substanceType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option selected disabled>Select substance type</option>
-                                            <option value="common-liquids">Common Liquids</option>
-                                            <option value="solutions">Laboratory Solutions</option>
-                                            <option value="custom">Custom Concentration</option>
-                                        </select>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Substance Type Selection -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="substanceType" class="block text-sm font-semibold text-gray-700">
+                                                                                    Substance Type
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="substanceType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option selected disabled>Select substance type</option>
+                                                                                    <option value="common-liquids">Common Liquids</option>
+                                                                                    <option value="solutions">Laboratory Solutions</option>
+                                                                                    <option value="custom">Custom Concentration</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Common Liquids Field -->
+                                                                            <div id="commonLiquidsField" class="space-y-2 hidden">
+                                                                                <label for="commonLiquid" class="block text-sm font-semibold text-gray-700">
+                                                                                    Select Liquid
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="commonLiquid" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option selected disabled>Select liquid</option>
+                                                                                    <option value="1000">Water (1000 mg/mL)</option>
+                                                                                    <option value="1030">Milk (1030 mg/mL)</option>
+                                                                                    <option value="920">Cooking oil (920 mg/mL)</option>
+                                                                                    <option value="1420">Honey (1420 mg/mL)</option>
+                                                                                    <option value="1370">Maple syrup (1370 mg/mL)</option>
+                                                                                    <option value="790">Ethanol (790 mg/mL)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Laboratory Solutions Field -->
+                                                                            <div id="solutionsField" class="space-y-2 hidden">
+                                                                                <label for="solution" class="block text-sm font-semibold text-gray-700">
+                                                                                    Select Solution
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="solution" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option selected disabled>Select solution</option>
+                                                                                    <option value="10">10% Solution (100 mg/mL)</option>
+                                                                                    <option value="25">25% Solution (250 mg/mL)</option>
+                                                                                    <option value="50">50% Solution (500 mg/mL)</option>
+                                                                                    <option value="75">75% Solution (750 mg/mL)</option>
+                                                                                    <option value="100">Pure substance (1000 mg/mL)</option>
+                                                                                    <option value="custom-solution">Custom solution</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Custom Concentration Field -->
+                                                                            <div id="customField" class="space-y-2 hidden">
+                                                                                <label for="customConcentration" class="block text-sm font-semibold text-gray-700">
+                                                                                    Custom Concentration
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="customConcentration" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter concentration (e.g., 75)"
+                                                                                        step="any"
+                                                                                        min="0.001"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">mg/mL</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Current Concentration Display -->
+                                                                            <div class="p-3 bg-pink-50 rounded-lg border border-pink-200">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <span class="text-sm font-semibold text-pink-800">Current Concentration:</span>
+                                                                                    <span class="text-lg font-bold text-pink-700" id="concentrationDisplay">-- mg/mL</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Input Values -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="space-y-2">
+                                                                                    <label for="mgInput" class="block text-sm font-semibold text-gray-700">
+                                                                                        Weight
+                                                                                    </label>
+                                                                                    <div class="relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="mgInput" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="Enter weight (e.g., 100)"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                        >
+                                                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                            <span class="text-gray-500 text-sm font-medium">mg</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="space-y-2">
+                                                                                    <label for="mlInput" class="block text-sm font-semibold text-gray-700">
+                                                                                        Volume
+                                                                                    </label>
+                                                                                    <div class="relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="mlInput" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="Enter volume (e.g., 5)"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                        >
+                                                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                            <span class="text-gray-500 text-sm font-medium">mL</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Common Liquids Field -->
-                                    <div id="commonLiquidsField" class="space-y-2 hidden">
-                                        <label for="commonLiquid" class="block text-sm font-semibold text-gray-700">
-                                            Select Liquid
-                                        </label>
-                                        <select 
-                                            id="commonLiquid" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option selected disabled>Select liquid</option>
-                                            <option value="1000">Water (1000 mg/mL)</option>
-                                            <option value="1030">Milk (1030 mg/mL)</option>
-                                            <option value="920">Cooking oil (920 mg/mL)</option>
-                                            <option value="1420">Honey (1420 mg/mL)</option>
-                                            <option value="1370">Maple syrup (1370 mg/mL)</option>
-                                            <option value="790">Ethanol (790 mg/mL)</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- Bidirectional Results -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="p-6 bg-gradient-to-r from-pink-50 to-cyan-50 rounded-xl border-l-4 border-pink-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Weight</h4>
+                                                                                        <div class="text-2xl font-bold text-pink-600 font-mono" id="mgOutput">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium">mg</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Volume</h4>
+                                                                                        <div class="text-2xl font-bold text-cyan-600 font-mono" id="mlOutput">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium">mL</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Laboratory Solutions Field -->
-                                    <div id="solutionsField" class="space-y-2 hidden">
-                                        <label for="solution" class="block text-sm font-semibold text-gray-700">
-                                            Select Solution
-                                        </label>
-                                        <select 
-                                            id="solution" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option selected disabled>Select solution</option>
-                                            <option value="10">10% Solution (100 mg/mL)</option>
-                                            <option value="25">25% Solution (250 mg/mL)</option>
-                                            <option value="50">50% Solution (500 mg/mL)</option>
-                                            <option value="75">75% Solution (750 mg/mL)</option>
-                                            <option value="100">Pure substance (1000 mg/mL)</option>
-                                            <option value="custom-solution">Custom solution</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- Additional Volume Conversions -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="litersOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Fluid Ounces</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="flOzOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Teaspoons</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="tspOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Custom Concentration Field -->
-                                    <div id="customField" class="space-y-2 hidden">
-                                        <label for="customConcentration" class="block text-sm font-semibold text-gray-700">
-                                            Custom Concentration
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="customConcentration" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter concentration (e.g., 75)"
-                                                step="any"
-                                                min="0.001"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">mg/mL</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Current Concentration Display -->
-                                    <div class="p-3 bg-pink-50 rounded-lg border border-pink-200">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-sm font-semibold text-pink-800">Current Concentration:</span>
-                                            <span class="text-lg font-bold text-pink-700" id="concentrationDisplay">-- mg/mL</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Input Values -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="space-y-2">
-                                            <label for="mgInput" class="block text-sm font-semibold text-gray-700">
-                                                Weight
-                                            </label>
-                                            <div class="relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="mgInput" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="Enter weight (e.g., 100)"
-                                                    step="any"
-                                                    min="0"
-                                                >
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <span class="text-gray-500 text-sm font-medium">mg</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-y-2">
-                                            <label for="mlInput" class="block text-sm font-semibold text-gray-700">
-                                                Volume
-                                            </label>
-                                            <div class="relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="mlInput" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="Enter volume (e.g., 5)"
-                                                    step="any"
-                                                    min="0"
-                                                >
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <span class="text-gray-500 text-sm font-medium">mL</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Calculation Formula Display -->
-                                    <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Conversion Formula</h4>
-                                        <div class="text-sm text-gray-600 font-mono" id="formulaDisplay">
-                                            Volume (mL) = Weight (mg) ÷ Concentration (mg/mL)
-                                        </div>
-                                    </div>
-
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Bidirectional Results -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="p-6 bg-gradient-to-r from-pink-50 to-cyan-50 rounded-xl border-l-4 border-pink-500">
-                                            <div class="text-center">
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Weight</h4>
-                                                <div class="text-2xl font-bold text-pink-600 font-mono" id="mgOutput">--</div>
-                                                <div class="text-sm text-gray-500 font-medium">mg</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Volume</h4>
-                                                <div class="text-2xl font-bold text-cyan-600 font-mono" id="mlOutput">--</div>
-                                                <div class="text-sm text-gray-500 font-medium">mL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Volume Conversions -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="litersOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Fluid Ounces</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="flOzOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Teaspoons</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="tspOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Step-by-Step Calculation -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Calculation Steps</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="calculationSteps">
-                                            Enter values to see calculation steps
-                                        </div>
+                                                                            <!-- Step-by-Step Calculation -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Calculation Steps</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="calculationSteps">
+                                                                                    Enter values to see calculation steps
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Concentration Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• Water: 1000 mg/mL</div>
-                                        <div>• 10% solution: 100 mg/mL</div>
-                                        <div>• 50% solution: 500 mg/mL</div>
-                                        <div>• Pure substance: 1000 mg/mL</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+                <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Conversion Formula</h4>
+                        <div class="text-sm text-gray-600 font-mono" id="formulaDisplay">
+                            Volume (mL) = Weight (mg) ÷ Concentration (mg/mL)
+                        </div>
+                    </div>
+                </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Concentration Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• Water: 1000 mg/mL</div>
+                                                        <div>• 10% solution: 100 mg/mL</div>
+                                                        <div>• 50% solution: 500 mg/mL</div>
+                                                        <div>• Pure substance: 1000 mg/mL</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

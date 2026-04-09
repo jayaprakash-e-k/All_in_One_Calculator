@@ -4,202 +4,218 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Megabyte to Gigabyte Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Conversion Direction -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Direction
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer bg-indigo-50 border-indigo-300">
-                                                <input type="radio" name="mode" value="mb-to-gb" class="text-indigo-600 focus:ring-indigo-500" checked>
-                                                <span class="text-sm font-medium">MB → GB</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="mode" value="gb-to-mb" class="text-indigo-600 focus:ring-indigo-500">
-                                                <span class="text-sm font-medium">GB → MB</span>
-                                            </label>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Conversion Direction -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Direction
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer bg-indigo-50 border-indigo-300">
+                                                                                        <input type="radio" name="mode" value="mb-to-gb" class="text-indigo-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">MB → GB</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="mode" value="gb-to-mb" class="text-indigo-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">GB → MB</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
+                                                                                    Enter Megabytes (MB)
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter value (e.g., 1024)"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnit">MB</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500" id="inputHelp">Enter any positive number</p>
+                                                                            </div>
+
+                                                                            <!-- Calculation Standard -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Calculation Standard
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer bg-indigo-50 border-indigo-300">
+                                                                                        <input type="radio" name="standard" value="binary" class="text-indigo-600 focus:ring-slate-200" checked>
+                                                                                        <div class="text-left">
+                                                                                            <div class="text-sm font-medium">Binary (1024)</div>
+                                                                                            <div class="text-xs text-gray-500">Operating systems</div>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="standard" value="decimal" class="text-indigo-600 focus:ring-slate-200">
+                                                                                        <div class="text-left">
+                                                                                            <div class="text-sm font-medium">Decimal (1000)</div>
+                                                                                            <div class="text-xs text-gray-500">Manufacturers</div>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Storage Device Context -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Storage Device Context (Optional)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="deviceType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="">General conversion</option>
+                                                                                    <option value="hdd">Hard Disk Drive (HDD)</option>
+                                                                                    <option value="ssd">Solid State Drive (SSD)</option>
+                                                                                    <option value="usb">USB Flash Drive</option>
+                                                                                    <option value="sdcard">SD/MicroSD Card</option>
+                                                                                    <option value="ram">System Memory (RAM)</option>
+                                                                                    <option value="cloud">Cloud Storage</option>
+                                                                                    <option value="optical">Optical Media (CD/DVD/Blu-ray)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Precision Level -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Display Precision
+                                                                                </label>
+                                                                                <div class="flex items-center space-x-4">
+                                                                                    <input 
+                                                                                        type="range" 
+                                                                                        id="precision" 
+                                                                                        min="2" 
+                                                                                        max="10" 
+                                                                                        value="6" 
+                                                                                        class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                                                                    >
+                                                                                    <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">6 digits</span>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Adjust decimal places for display precision</p>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700" id="inputLabel">
-                                            Enter Megabytes (MB)
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter value (e.g., 1024)"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnit">MB</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500" id="inputHelp">Enter any positive number</p>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Gigabytes (GB)</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-indigo-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-indigo-600 hover:text-indigo-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Calculation Standard -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Calculation Standard
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer bg-indigo-50 border-indigo-300">
-                                                <input type="radio" name="standard" value="binary" class="text-indigo-600 focus:ring-indigo-500" checked>
-                                                <div class="text-left">
-                                                    <div class="text-sm font-medium">Binary (1024)</div>
-                                                    <div class="text-xs text-gray-500">Operating systems</div>
-                                                </div>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="standard" value="decimal" class="text-indigo-600 focus:ring-indigo-500">
-                                                <div class="text-left">
-                                                    <div class="text-sm font-medium">Decimal (1000)</div>
-                                                    <div class="text-xs text-gray-500">Manufacturers</div>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Both Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Megabytes -->
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Megabytes (MB)</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="mbDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁶ bytes</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Storage Device Context -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Storage Device Context (Optional)
-                                        </label>
-                                        <select 
-                                            id="deviceType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="">General conversion</option>
-                                            <option value="hdd">Hard Disk Drive (HDD)</option>
-                                            <option value="ssd">Solid State Drive (SSD)</option>
-                                            <option value="usb">USB Flash Drive</option>
-                                            <option value="sdcard">SD/MicroSD Card</option>
-                                            <option value="ram">System Memory (RAM)</option>
-                                            <option value="cloud">Cloud Storage</option>
-                                            <option value="optical">Optical Media (CD/DVD/Blu-ray)</option>
-                                        </select>
-                                    </div>
+                                                                                <!-- Gigabytes -->
+                                                                                <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Gigabytes (GB)</h4>
+                                                                                        <div class="text-lg font-bold text-indigo-600 font-mono" id="gbDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁹ bytes</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Precision Level -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Display Precision
-                                        </label>
-                                        <div class="flex items-center space-x-4">
-                                            <input 
-                                                type="range" 
-                                                id="precision" 
-                                                min="2" 
-                                                max="10" 
-                                                value="6" 
-                                                class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                            >
-                                            <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">6 digits</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Adjust decimal places for display precision</p>
-                                    </div>
 
-                                    <!-- Quick Storage Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Storage Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1024" data-mode="mb-to-gb">1024 MB</button>
-                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="2048" data-mode="mb-to-gb">2048 MB</button>
-                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="500" data-mode="gb-to-mb">500 GB</button>
-                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1000" data-mode="gb-to-mb">1000 GB</button>
-                                        </div>
-                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Gigabytes (GB)</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-indigo-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-indigo-600 hover:text-indigo-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Both Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Megabytes -->
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Megabytes (MB)</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="mbDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁶ bytes</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Gigabytes -->
-                                        <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Gigabytes (GB)</h4>
-                                                <div class="text-lg font-bold text-indigo-600 font-mono" id="gbDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁹ bytes</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <!-- Storage Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Storage Unit Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>Binary:</strong> 1024 MB = 1 GB</div>
-                                        <div><strong>Decimal:</strong> 1000 MB = 1 GB</div>
-                                        <div>1 GB = 1,024 MB (Binary)</div>
-                                        <div>1 GB = 1,000 MB (Decimal)</div>
-                                        <div>1 MB = 1,048,576 bytes</div>
-                                        <div>1 GB = 1,073,741,824 bytes</div>
-                                        <div>Difference: ~7.4% larger in binary</div>
-                                        <div>500 GB drive ≈ 465 GB (OS view)</div>
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Storage Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Storage Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1024" data-mode="mb-to-gb">1024 MB</button>
+                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="2048" data-mode="mb-to-gb">2048 MB</button>
+                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="500" data-mode="gb-to-mb">500 GB</button>
+                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1000" data-mode="gb-to-mb">1000 GB</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Storage Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Storage Unit Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>Binary:</strong> 1024 MB = 1 GB</div>
+                                                        <div><strong>Decimal:</strong> 1000 MB = 1 GB</div>
+                                                        <div>1 GB = 1,024 MB (Binary)</div>
+                                                        <div>1 GB = 1,000 MB (Decimal)</div>
+                                                        <div>1 MB = 1,048,576 bytes</div>
+                                                        <div>1 GB = 1,073,741,824 bytes</div>
+                                                        <div>Difference: ~7.4% larger in binary</div>
+                                                        <div>500 GB drive ≈ 465 GB (OS view)</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

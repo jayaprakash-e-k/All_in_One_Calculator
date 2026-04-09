@@ -4,15 +4,15 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Military Time & Standard Time Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
+                            <div class="p-5 sm:p-6">
                                 <!-- Current Time Display -->
                                 <div class="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
                                     <h3 class="text-sm font-semibold text-blue-800 mb-2">Current Time</h3>
@@ -28,218 +28,234 @@
                                     </div>
                                 </div>
 
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Conversion Mode -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Mode
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer bg-emerald-50 border-emerald-300">
-                                                <input type="radio" name="mode" value="12-to-24" class="text-emerald-600 focus:ring-emerald-500" checked>
-                                                <span class="text-sm font-medium">12-Hour → 24-Hour</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="mode" value="24-to-12" class="text-emerald-600 focus:ring-emerald-500">
-                                                <span class="text-sm font-medium">24-Hour → 12-Hour</span>
-                                            </label>
-                                        </div>
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Conversion Mode -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Mode
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer bg-emerald-50 border-emerald-300">
+                                                                                        <input type="radio" name="mode" value="12-to-24" class="text-emerald-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">12-Hour → 24-Hour</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="mode" value="24-to-12" class="text-emerald-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">24-Hour → 12-Hour</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Input Container -->
+                                                                            <div id="inputContainer">
+
+                                                                                <!-- 12-Hour Input -->
+                                                                                <div id="input12Hour" class="space-y-4">
+                                                                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="hour12" class="block text-sm font-semibold text-gray-700">
+                                                                                                Hour (1-12)
+                                                                                            </label>
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="hour12" 
+                                                                                                min="1" 
+                                                                                                max="12" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono text-center" 
+                                                                                                placeholder="12"
+                                                                                            >
+                                                                                        </div>
+
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="minute12" class="block text-sm font-semibold text-gray-700">
+                                                                                                Minute (0-59)
+                                                                                            </label>
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="minute12" 
+                                                                                                min="0" 
+                                                                                                max="59" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono text-center" 
+                                                                                                placeholder="00"
+                                                                                            >
+                                                                                        </div>
+
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="period" class="block text-sm font-semibold text-gray-700">
+                                                                                                Period
+                                                                                            </label>
+                                                                                            <select 
+                                                                                                id="period" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white text-center"
+                                                                                            >
+                                                                                                <option value="AM">AM</option>
+                                                                                                <option value="PM">PM</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- 24-Hour Input -->
+                                                                                <div id="input24Hour" class="space-y-4 hidden">
+                                                                                    <div class="grid grid-cols-2 gap-4">
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="hour24" class="block text-sm font-semibold text-gray-700">
+                                                                                                Hour (0-23)
+                                                                                            </label>
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="hour24" 
+                                                                                                min="0" 
+                                                                                                max="23" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono text-center" 
+                                                                                                placeholder="00"
+                                                                                            >
+                                                                                        </div>
+
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="minute24" class="block text-sm font-semibold text-gray-700">
+                                                                                                Minute (0-59)
+                                                                                            </label>
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="minute24" 
+                                                                                                min="0" 
+                                                                                                max="59" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono text-center" 
+                                                                                                placeholder="00"
+                                                                                            >
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <!-- Include Seconds -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="flex items-center space-x-2">
+                                                                                    <input type="checkbox" id="includeSeconds" class="text-emerald-600 focus:ring-slate-200">
+                                                                                    <span class="text-sm font-semibold text-gray-700">Include Seconds</span>
+                                                                                </label>
+                                                                                <div id="secondsContainer" class="hidden">
+                                                                                    <div class="w-full md:w-1/3">
+                                                                                        <label for="seconds" class="block text-sm font-semibold text-gray-700 mb-2">
+                                                                                            Seconds (0-59)
+                                                                                        </label>
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="seconds" 
+                                                                                            min="0" 
+                                                                                            max="59" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono text-center" 
+                                                                                            placeholder="00"
+                                                                                        >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Input Container -->
-                                    <div id="inputContainer">
-                                        
-                                        <!-- 12-Hour Input -->
-                                        <div id="input12Hour" class="space-y-4">
-                                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                                <div class="space-y-2">
-                                                    <label for="hour12" class="block text-sm font-semibold text-gray-700">
-                                                        Hour (1-12)
-                                                    </label>
-                                                    <input 
-                                                        type="number" 
-                                                        id="hour12" 
-                                                        min="1" 
-                                                        max="12" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono text-center" 
-                                                        placeholder="12"
-                                                    >
-                                                </div>
-                                                
-                                                <div class="space-y-2">
-                                                    <label for="minute12" class="block text-sm font-semibold text-gray-700">
-                                                        Minute (0-59)
-                                                    </label>
-                                                    <input 
-                                                        type="number" 
-                                                        id="minute12" 
-                                                        min="0" 
-                                                        max="59" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono text-center" 
-                                                        placeholder="00"
-                                                    >
-                                                </div>
-                                                
-                                                <div class="space-y-2">
-                                                    <label for="period" class="block text-sm font-semibold text-gray-700">
-                                                        Period
-                                                    </label>
-                                                    <select 
-                                                        id="period" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white text-center"
-                                                    >
-                                                        <option value="AM">AM</option>
-                                                        <option value="PM">PM</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border-l-4 border-emerald-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Military Time</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-3xl font-bold text-emerald-600 font-mono" id="output">--:--</div>
+                                                                                        <button class="text-xs text-emerald-600 hover:text-emerald-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                        <!-- 24-Hour Input -->
-                                        <div id="input24Hour" class="space-y-4 hidden">
-                                            <div class="grid grid-cols-2 gap-4">
-                                                <div class="space-y-2">
-                                                    <label for="hour24" class="block text-sm font-semibold text-gray-700">
-                                                        Hour (0-23)
-                                                    </label>
-                                                    <input 
-                                                        type="number" 
-                                                        id="hour24" 
-                                                        min="0" 
-                                                        max="23" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono text-center" 
-                                                        placeholder="00"
-                                                    >
-                                                </div>
-                                                
-                                                <div class="space-y-2">
-                                                    <label for="minute24" class="block text-sm font-semibold text-gray-700">
-                                                        Minute (0-59)
-                                                    </label>
-                                                    <input 
-                                                        type="number" 
-                                                        id="minute24" 
-                                                        min="0" 
-                                                        max="59" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono text-center" 
-                                                        placeholder="00"
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                            <!-- Both Time Formats -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- 12-Hour Format -->
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">12-Hour Format</h4>
+                                                                                        <div class="text-xl font-bold text-blue-600 font-mono" id="display12Hour">--:-- --</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Standard Time</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    </div>
+                                                                                <!-- 24-Hour Format -->
+                                                                                <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">24-Hour Format</h4>
+                                                                                        <div class="text-xl font-bold text-emerald-600 font-mono" id="display24Hour">--:--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Military Time</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Include Seconds -->
-                                    <div class="space-y-2">
-                                        <label class="flex items-center space-x-2">
-                                            <input type="checkbox" id="includeSeconds" class="text-emerald-600 focus:ring-emerald-500">
-                                            <span class="text-sm font-semibold text-gray-700">Include Seconds</span>
-                                        </label>
-                                        <div id="secondsContainer" class="hidden">
-                                            <div class="w-full md:w-1/3">
-                                                <label for="seconds" class="block text-sm font-semibold text-gray-700 mb-2">
-                                                    Seconds (0-59)
-                                                </label>
-                                                <input 
-                                                    type="number" 
-                                                    id="seconds" 
-                                                    min="0" 
-                                                    max="59" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono text-center" 
-                                                    placeholder="00"
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- Quick Time Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Time Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-hour="12" data-minute="00" data-period="AM">Midnight</button>
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-hour="12" data-minute="00" data-period="PM">Noon</button>
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-hour="6" data-minute="30" data-period="AM">Morning</button>
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-current="true">Current</button>
-                                        </div>
-                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border-l-4 border-emerald-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Military Time</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-3xl font-bold text-emerald-600 font-mono" id="output">--:--</div>
-                                                <button class="text-xs text-emerald-600 hover:text-emerald-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Both Time Formats -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- 12-Hour Format -->
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">12-Hour Format</h4>
-                                                <div class="text-xl font-bold text-blue-600 font-mono" id="display12Hour">--:-- --</div>
-                                                <div class="text-xs text-gray-500 mt-1">Standard Time</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- 24-Hour Format -->
-                                        <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">24-Hour Format</h4>
-                                                <div class="text-xl font-bold text-emerald-600 font-mono" id="display24Hour">--:--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Military Time</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <!-- Military Time Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Military Time Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>00:00</strong> = 12:00 AM (Midnight)</div>
-                                        <div><strong>06:00</strong> = 6:00 AM</div>
-                                        <div><strong>12:00</strong> = 12:00 PM (Noon)</div>
-                                        <div><strong>18:00</strong> = 6:00 PM</div>
-                                        <div><strong>01:00</strong> = 1:00 AM</div>
-                                        <div><strong>13:00</strong> = 1:00 PM</div>
-                                        <div><strong>23:59</strong> = 11:59 PM</div>
-                                        <div><strong>24:00</strong> = Next day 00:00</div>
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Time Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Time Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-hour="12" data-minute="00" data-period="AM">Midnight</button>
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-hour="12" data-minute="00" data-period="PM">Noon</button>
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-hour="6" data-minute="30" data-period="AM">Morning</button>
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-current="true">Current</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Military Time Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Military Time Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>00:00</strong> = 12:00 AM (Midnight)</div>
+                                                        <div><strong>06:00</strong> = 6:00 AM</div>
+                                                        <div><strong>12:00</strong> = 12:00 PM (Noon)</div>
+                                                        <div><strong>18:00</strong> = 6:00 PM</div>
+                                                        <div><strong>01:00</strong> = 1:00 AM</div>
+                                                        <div><strong>13:00</strong> = 1:00 PM</div>
+                                                        <div><strong>23:59</strong> = 11:59 PM</div>
+                                                        <div><strong>24:00</strong> = Next day 00:00</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

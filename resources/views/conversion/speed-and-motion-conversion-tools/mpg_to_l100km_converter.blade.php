@@ -4,282 +4,298 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Fuel Economy Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Fuel Economy Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter fuel economy (e.g., 30)"
-                                                step="any"
-                                                min="0.1"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Value</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Enter vehicle fuel efficiency value</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Fuel Economy Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter fuel economy (e.g., 30)"
+                                                                                        step="any"
+                                                                                        min="0.1"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Value</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Enter vehicle fuel efficiency value</p>
+                                                                            </div>
+
+                                                                            <!-- From Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    From Unit (Source)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="fromUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="Imperial Fuel Economy">
+                                                                                        <option value="mpg_us" selected>MPG (US) - Miles per US Gallon</option>
+                                                                                        <option value="mpg_uk">MPG (UK) - Miles per Imperial Gallon</option>
+                                                                                        <option value="gpm_us">GPM (US) - Gallons per 100 Miles</option>
+                                                                                        <option value="gpm_uk">GPM (UK) - Gallons per 100 Miles</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Metric Fuel Economy">
+                                                                                        <option value="l100km">L/100km - Liters per 100 Kilometers</option>
+                                                                                        <option value="kmpl">km/L - Kilometers per Liter</option>
+                                                                                        <option value="l100mi">L/100mi - Liters per 100 Miles</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Alternative Units">
+                                                                                        <option value="mpg_diesel">MPG Diesel Equivalent</option>
+                                                                                        <option value="mge">MPGe - Miles per Gallon Equivalent</option>
+                                                                                        <option value="kwh_100mi">kWh/100mi - Electric Vehicle</option>
+                                                                                        <option value="mi_kwh">mi/kWh - Electric Efficiency</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- To Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    To Unit (Target)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="toUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="Imperial Fuel Economy">
+                                                                                        <option value="mpg_us">MPG (US) - Miles per US Gallon</option>
+                                                                                        <option value="mpg_uk">MPG (UK) - Miles per Imperial Gallon</option>
+                                                                                        <option value="gpm_us">GPM (US) - Gallons per 100 Miles</option>
+                                                                                        <option value="gpm_uk">GPM (UK) - Gallons per 100 Miles</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Metric Fuel Economy">
+                                                                                        <option value="l100km" selected>L/100km - Liters per 100 Kilometers</option>
+                                                                                        <option value="kmpl">km/L - Kilometers per Liter</option>
+                                                                                        <option value="l100mi">L/100mi - Liters per 100 Miles</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Alternative Units">
+                                                                                        <option value="mpg_diesel">MPG Diesel Equivalent</option>
+                                                                                        <option value="mge">MPGe - Miles per Gallon Equivalent</option>
+                                                                                        <option value="kwh_100mi">kWh/100mi - Electric Vehicle</option>
+                                                                                        <option value="mi_kwh">mi/kWh - Electric Efficiency</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Vehicle Type -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Vehicle Type
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="vehicleType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="">General vehicle</option>
+                                                                                    <option value="compact_car">Compact Car</option>
+                                                                                    <option value="sedan">Sedan</option>
+                                                                                    <option value="suv">SUV</option>
+                                                                                    <option value="pickup_truck">Pickup Truck</option>
+                                                                                    <option value="hybrid">Hybrid Vehicle</option>
+                                                                                    <option value="electric">Electric Vehicle</option>
+                                                                                    <option value="motorcycle">Motorcycle</option>
+                                                                                    <option value="commercial">Commercial Vehicle</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Precision Control -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Display Precision
+                                                                                </label>
+                                                                                <div class="flex items-center space-x-4">
+                                                                                    <input 
+                                                                                        type="range" 
+                                                                                        id="precision" 
+                                                                                        min="0" 
+                                                                                        max="6" 
+                                                                                        value="2" 
+                                                                                        class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                                                                    >
+                                                                                    <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">2 digits</span>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Adjust decimal places for results</p>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Fuel Economy Conversion Results</h3>
 
-                                    <!-- From Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            From Unit (Source)
-                                        </label>
-                                        <select 
-                                            id="fromUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="Imperial Fuel Economy">
-                                                <option value="mpg_us" selected>MPG (US) - Miles per US Gallon</option>
-                                                <option value="mpg_uk">MPG (UK) - Miles per Imperial Gallon</option>
-                                                <option value="gpm_us">GPM (US) - Gallons per 100 Miles</option>
-                                                <option value="gpm_uk">GPM (UK) - Gallons per 100 Miles</option>
-                                            </optgroup>
-                                            <optgroup label="Metric Fuel Economy">
-                                                <option value="l100km">L/100km - Liters per 100 Kilometers</option>
-                                                <option value="kmpl">km/L - Kilometers per Liter</option>
-                                                <option value="l100mi">L/100mi - Liters per 100 Miles</option>
-                                            </optgroup>
-                                            <optgroup label="Alternative Units">
-                                                <option value="mpg_diesel">MPG Diesel Equivalent</option>
-                                                <option value="mge">MPGe - Miles per Gallon Equivalent</option>
-                                                <option value="kwh_100mi">kWh/100mi - Electric Vehicle</option>
-                                                <option value="mi_kwh">mi/kWh - Electric Efficiency</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border-l-4 border-yellow-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Fuel Economy</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-yellow-600 hover:text-yellow-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- To Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            To Unit (Target)
-                                        </label>
-                                        <select 
-                                            id="toUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="Imperial Fuel Economy">
-                                                <option value="mpg_us">MPG (US) - Miles per US Gallon</option>
-                                                <option value="mpg_uk">MPG (UK) - Miles per Imperial Gallon</option>
-                                                <option value="gpm_us">GPM (US) - Gallons per 100 Miles</option>
-                                                <option value="gpm_uk">GPM (UK) - Gallons per 100 Miles</option>
-                                            </optgroup>
-                                            <optgroup label="Metric Fuel Economy">
-                                                <option value="l100km" selected>L/100km - Liters per 100 Kilometers</option>
-                                                <option value="kmpl">km/L - Kilometers per Liter</option>
-                                                <option value="l100mi">L/100mi - Liters per 100 Miles</option>
-                                            </optgroup>
-                                            <optgroup label="Alternative Units">
-                                                <option value="mpg_diesel">MPG Diesel Equivalent</option>
-                                                <option value="mge">MPGe - Miles per Gallon Equivalent</option>
-                                                <option value="kwh_100mi">kWh/100mi - Electric Vehicle</option>
-                                                <option value="mi_kwh">mi/kWh - Electric Efficiency</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Fuel Economy Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Imperial Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Imperial Units</h4>
 
-                                    <!-- Vehicle Type -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Vehicle Type
-                                        </label>
-                                        <select 
-                                            id="vehicleType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="">General vehicle</option>
-                                            <option value="compact_car">Compact Car</option>
-                                            <option value="sedan">Sedan</option>
-                                            <option value="suv">SUV</option>
-                                            <option value="pickup_truck">Pickup Truck</option>
-                                            <option value="hybrid">Hybrid Vehicle</option>
-                                            <option value="electric">Electric Vehicle</option>
-                                            <option value="motorcycle">Motorcycle</option>
-                                            <option value="commercial">Commercial Vehicle</option>
-                                        </select>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">MPG (US)</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="mpgUsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Miles per US gallon</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Precision Control -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Display Precision
-                                        </label>
-                                        <div class="flex items-center space-x-4">
-                                            <input 
-                                                type="range" 
-                                                id="precision" 
-                                                min="0" 
-                                                max="6" 
-                                                value="2" 
-                                                class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                            >
-                                            <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">2 digits</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Adjust decimal places for results</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">MPG (UK)</h5>
+                                                                                            <div class="text-lg font-bold text-indigo-600 font-mono" id="mpgUkDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Miles per imperial gallon</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Quick Fuel Economy Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Fuel Economy Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="25" data-from="mpg_us" data-to="l100km">25 MPG</button>
-                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="8" data-from="l100km" data-to="mpg_us">8 L/100km</button>
-                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="50" data-from="mpg_us" data-to="l100km">50 MPG</button>
-                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="15" data-from="l100km" data-to="mpg_us">15 L/100km</button>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">GPM (US)</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="gpmUsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Gallons per 100 miles</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">MPGe</h5>
+                                                                                            <div class="text-lg font-bold text-pink-600 font-mono" id="mgeDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Miles per gallon equivalent</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                </form>
+                                                                                <!-- Metric Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Metric Units</h4>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Fuel Economy Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border-l-4 border-yellow-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Fuel Economy</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-yellow-600 hover:text-yellow-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">L/100km</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="l100kmDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Liters per 100 kilometers</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Fuel Economy Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Imperial Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Imperial Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">MPG (US)</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="mpgUsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Miles per US gallon</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">MPG (UK)</h5>
-                                                    <div class="text-lg font-bold text-indigo-600 font-mono" id="mpgUkDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Miles per imperial gallon</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">GPM (US)</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="gpmUsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Gallons per 100 miles</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">MPGe</h5>
-                                                    <div class="text-lg font-bold text-pink-600 font-mono" id="mgeDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Miles per gallon equivalent</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">km/L</h5>
+                                                                                            <div class="text-lg font-bold text-emerald-600 font-mono" id="kmplDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Kilometers per liter</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Metric Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Metric Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">L/100km</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="l100kmDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Liters per 100 kilometers</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">km/L</h5>
-                                                    <div class="text-lg font-bold text-emerald-600 font-mono" id="kmplDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Kilometers per liter</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">L/100mi</h5>
-                                                    <div class="text-lg font-bold text-teal-600 font-mono" id="l100miDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Liters per 100 miles</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg border-l-4 border-orange-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">kWh/100mi</h5>
-                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="kwh100miDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Electric vehicle efficiency</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">L/100mi</h5>
+                                                                                            <div class="text-lg font-bold text-teal-600 font-mono" id="l100miDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Liters per 100 miles</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Fuel Economy Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Fuel Economy Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>Formula:</strong> 235.214 ÷ MPG = L/100km</div>
-                                        <div><strong>Imperial gal:</strong> 20% larger than US gal</div>
-                                        <div><strong>Excellent:</strong> &lt;6 L/100km (&gt;39 MPG)</div>
-                                        <div><strong>Good:</strong> 6-8 L/100km (29-39 MPG)</div>
-                                        <div><strong>Average:</strong> 8-12 L/100km (20-29 MPG)</div>
-                                        <div><strong>Poor:</strong> &gt;12 L/100km (&lt;20 MPG)</div>
-                                        <div><strong>Compact car:</strong> 6-8 L/100km</div>
-                                        <div><strong>Sedan:</strong> 7-10 L/100km</div>
-                                        <div><strong>SUV:</strong> 9-15 L/100km</div>
-                                        <div><strong>Pickup truck:</strong> 10-18 L/100km</div>
-                                        <div><strong>Hybrid:</strong> 4-6 L/100km</div>
-                                        <div><strong>Electric:</strong> 15-25 kWh/100mi</div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg border-l-4 border-orange-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">kWh/100mi</h5>
+                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="kwh100miDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Electric vehicle efficiency</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Fuel Economy Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Fuel Economy Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="25" data-from="mpg_us" data-to="l100km">25 MPG</button>
+                                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="8" data-from="l100km" data-to="mpg_us">8 L/100km</button>
+                                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="50" data-from="mpg_us" data-to="l100km">50 MPG</button>
+                                                            <button type="button" class="fuel-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="15" data-from="l100km" data-to="mpg_us">15 L/100km</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Fuel Economy Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Fuel Economy Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>Formula:</strong> 235.214 ÷ MPG = L/100km</div>
+                                                        <div><strong>Imperial gal:</strong> 20% larger than US gal</div>
+                                                        <div><strong>Excellent:</strong> &lt;6 L/100km (&gt;39 MPG)</div>
+                                                        <div><strong>Good:</strong> 6-8 L/100km (29-39 MPG)</div>
+                                                        <div><strong>Average:</strong> 8-12 L/100km (20-29 MPG)</div>
+                                                        <div><strong>Poor:</strong> &gt;12 L/100km (&lt;20 MPG)</div>
+                                                        <div><strong>Compact car:</strong> 6-8 L/100km</div>
+                                                        <div><strong>Sedan:</strong> 7-10 L/100km</div>
+                                                        <div><strong>SUV:</strong> 9-15 L/100km</div>
+                                                        <div><strong>Pickup truck:</strong> 10-18 L/100km</div>
+                                                        <div><strong>Hybrid:</strong> 4-6 L/100km</div>
+                                                        <div><strong>Electric:</strong> 15-25 kWh/100mi</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

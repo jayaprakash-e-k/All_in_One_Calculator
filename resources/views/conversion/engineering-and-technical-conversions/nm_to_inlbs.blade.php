@@ -4,223 +4,236 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Engineering Torque Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Torque Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter torque value"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnitDisplay">Nm</span>
-                                            </div>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Torque Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter torque value"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnitDisplay">Nm</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Unit Selection -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="space-y-2">
+                                                                                    <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                        Convert From
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="fromUnit" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <optgroup label="Metric Units">
+                                                                                            <option value="nm" selected>Newton-meter (Nm)</option>
+                                                                                            <option value="kgm">Kilogram-meter (kg⋅m)</option>
+                                                                                            <option value="dynecm">Dyne-centimeter (dyn⋅cm)</option>
+                                                                                            <option value="gcm">Gram-centimeter (g⋅cm)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Imperial Units">
+                                                                                            <option value="inchlbs">Inch-pounds (in-lbs)</option>
+                                                                                            <option value="ftlbs">Foot-pounds (ft-lbs)</option>
+                                                                                            <option value="ozin">Ounce-inch (oz⋅in)</option>
+                                                                                            <option value="lbft">Pound-foot (lb⋅ft)</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="space-y-2">
+                                                                                    <label for="toUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                        Convert To
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="toUnit" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <optgroup label="Metric Units">
+                                                                                            <option value="nm">Newton-meter (Nm)</option>
+                                                                                            <option value="kgm">Kilogram-meter (kg⋅m)</option>
+                                                                                            <option value="dynecm">Dyne-centimeter (dyn⋅cm)</option>
+                                                                                            <option value="gcm">Gram-centimeter (g⋅cm)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Imperial Units">
+                                                                                            <option value="inchlbs" selected>Inch-pounds (in-lbs)</option>
+                                                                                            <option value="ftlbs">Foot-pounds (ft-lbs)</option>
+                                                                                            <option value="ozin">Ounce-inch (oz⋅in)</option>
+                                                                                            <option value="lbft">Pound-foot (lb⋅ft)</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Precision Level -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Precision Level
+                                                                                </label>
+                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="2" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">2 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="4" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">4 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-purple-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="auto" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Auto</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Unit Swap Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="swapUnits"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                                                                    </svg>
+                                                                                    Swap Units
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Unit Selection -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="space-y-2">
-                                            <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
-                                                Convert From
-                                            </label>
-                                            <select 
-                                                id="fromUnit" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <optgroup label="Metric Units">
-                                                    <option value="nm" selected>Newton-meter (Nm)</option>
-                                                    <option value="kgm">Kilogram-meter (kg⋅m)</option>
-                                                    <option value="dynecm">Dyne-centimeter (dyn⋅cm)</option>
-                                                    <option value="gcm">Gram-centimeter (g⋅cm)</option>
-                                                </optgroup>
-                                                <optgroup label="Imperial Units">
-                                                    <option value="inchlbs">Inch-pounds (in-lbs)</option>
-                                                    <option value="ftlbs">Foot-pounds (ft-lbs)</option>
-                                                    <option value="ozin">Ounce-inch (oz⋅in)</option>
-                                                    <option value="lbft">Pound-foot (lb⋅ft)</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                        <div class="space-y-2">
-                                            <label for="toUnit" class="block text-sm font-semibold text-gray-700">
-                                                Convert To
-                                            </label>
-                                            <select 
-                                                id="toUnit" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <optgroup label="Metric Units">
-                                                    <option value="nm">Newton-meter (Nm)</option>
-                                                    <option value="kgm">Kilogram-meter (kg⋅m)</option>
-                                                    <option value="dynecm">Dyne-centimeter (dyn⋅cm)</option>
-                                                    <option value="gcm">Gram-centimeter (g⋅cm)</option>
-                                                </optgroup>
-                                                <optgroup label="Imperial Units">
-                                                    <option value="inchlbs" selected>Inch-pounds (in-lbs)</option>
-                                                    <option value="ftlbs">Foot-pounds (ft-lbs)</option>
-                                                    <option value="ozin">Ounce-inch (oz⋅in)</option>
-                                                    <option value="lbft">Pound-foot (lb⋅ft)</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-purple-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Torque</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Target torque unit</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-purple-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">in-lbs</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Unit Swaps -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Conversion Presets
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="nm" data-to="inchlbs">Nm → in-lbs</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="nm" data-to="ftlbs">Nm → ft-lbs</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="ftlbs" data-to="nm">ft-lbs → Nm</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="inchlbs" data-to="nm">in-lbs → Nm</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Common Torque Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton-meter</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="nmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Inch-pounds</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="inchlbsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Foot-pounds</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="ftlbsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Precision Level -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Precision Level
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="2" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-xs font-medium">2 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="4" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-xs font-medium">4 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-purple-600 focus:ring-purple-500" checked>
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="auto" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-xs font-medium">Auto</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilogram-meter</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="kgmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Ounce-inch</h4>
+                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="ozinOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Dyne-centimeter</h4>
+                                                                                        <div class="text-lg font-bold text-pink-600 font-mono" id="dynecmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Unit Swap Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="swapUnits"
-                                            class="inline-flex items-center px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                                            </svg>
-                                            Swap Units
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-purple-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Torque</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Target torque unit</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-purple-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">in-lbs</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Common Torque Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton-meter</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="nmOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Inch-pounds</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="inchlbsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Foot-pounds</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="ftlbsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilogram-meter</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="kgmOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Ounce-inch</h4>
-                                                <div class="text-lg font-bold text-yellow-600 font-mono" id="ozinOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Dyne-centimeter</h4>
-                                                <div class="text-lg font-bold text-pink-600 font-mono" id="dynecmOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Conversion Formula -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Formula</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="conversionFormula">
-                                            Select units to see conversion formula
-                                        </div>
+                                                                            <!-- Conversion Formula -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Formula</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="conversionFormula">
+                                                                                    Select units to see conversion formula
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Torque Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 Nm = 8.8507 in-lbs</div>
-                                        <div>• 1 Nm = 0.7376 ft-lbs</div>
-                                        <div>• 1 ft-lbs = 12 in-lbs</div>
-                                        <div>• 1 kg⋅m = 9.8067 Nm</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Unit Swaps -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Conversion Presets
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="nm" data-to="inchlbs">Nm → in-lbs</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="nm" data-to="ftlbs">Nm → ft-lbs</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="ftlbs" data-to="nm">ft-lbs → Nm</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-from="inchlbs" data-to="nm">in-lbs → Nm</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Torque Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 Nm = 8.8507 in-lbs</div>
+                                                        <div>• 1 Nm = 0.7376 ft-lbs</div>
+                                                        <div>• 1 ft-lbs = 12 in-lbs</div>
+                                                        <div>• 1 kg⋅m = 9.8067 Nm</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

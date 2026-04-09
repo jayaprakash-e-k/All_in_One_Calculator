@@ -4,15 +4,15 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-violet-500 to-violet-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Universal Time Unit Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
+                            <div class="p-5 sm:p-6">
                                 <!-- Current Time Display -->
                                 <div class="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
                                     <h3 class="text-sm font-semibold text-blue-800 mb-2">Current Time (UTC)</h3>
@@ -28,250 +28,266 @@
                                     </div>
                                 </div>
 
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Time Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter value (e.g., 3600)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Value</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Enter any positive number</p>
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Time Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter value (e.g., 3600)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Value</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Enter any positive number</p>
+                                                                            </div>
+
+                                                                            <!-- From Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    From Unit (Source)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="fromUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="milliseconds">Milliseconds (ms)</option>
+                                                                                    <option value="seconds" selected>Seconds (s)</option>
+                                                                                    <option value="minutes">Minutes (min)</option>
+                                                                                    <option value="hours">Hours (hr)</option>
+                                                                                    <option value="days">Days</option>
+                                                                                    <option value="weeks">Weeks</option>
+                                                                                    <option value="months">Months (30 days)</option>
+                                                                                    <option value="years">Years (365 days)</option>
+                                                                                    <option value="decades">Decades</option>
+                                                                                    <option value="centuries">Centuries</option>
+                                                                                    <option value="millennia">Millennia</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- To Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    To Unit (Target)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="toUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="milliseconds">Milliseconds (ms)</option>
+                                                                                    <option value="seconds">Seconds (s)</option>
+                                                                                    <option value="minutes" selected>Minutes (min)</option>
+                                                                                    <option value="hours">Hours (hr)</option>
+                                                                                    <option value="days">Days</option>
+                                                                                    <option value="weeks">Weeks</option>
+                                                                                    <option value="months">Months (30 days)</option>
+                                                                                    <option value="years">Years (365 days)</option>
+                                                                                    <option value="decades">Decades</option>
+                                                                                    <option value="centuries">Centuries</option>
+                                                                                    <option value="millennia">Millennia</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Precision Control -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Display Precision
+                                                                                </label>
+                                                                                <div class="flex items-center space-x-4">
+                                                                                    <input 
+                                                                                        type="range" 
+                                                                                        id="precision" 
+                                                                                        min="0" 
+                                                                                        max="10" 
+                                                                                        value="6" 
+                                                                                        class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                                                                    >
+                                                                                    <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">6 digits</span>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Adjust decimal places for calculations</p>
+                                                                            </div>
+
+                                                                            <!-- Time Context -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Time Context
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="timeContext" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="">General conversion</option>
+                                                                                    <option value="precise">Scientific/Precise</option>
+                                                                                    <option value="human">Human lifespan</option>
+                                                                                    <option value="historical">Historical periods</option>
+                                                                                    <option value="astronomical">Astronomical time</option>
+                                                                                    <option value="computing">Computing/Programming</option>
+                                                                                </select>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-violet-100 hover:bg-violet-200 text-violet-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- From Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            From Unit (Source)
-                                        </label>
-                                        <select 
-                                            id="fromUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="milliseconds">Milliseconds (ms)</option>
-                                            <option value="seconds" selected>Seconds (s)</option>
-                                            <option value="minutes">Minutes (min)</option>
-                                            <option value="hours">Hours (hr)</option>
-                                            <option value="days">Days</option>
-                                            <option value="weeks">Weeks</option>
-                                            <option value="months">Months (30 days)</option>
-                                            <option value="years">Years (365 days)</option>
-                                            <option value="decades">Decades</option>
-                                            <option value="centuries">Centuries</option>
-                                            <option value="millennia">Millennia</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl border-l-4 border-violet-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Time</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-violet-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-violet-600 hover:text-violet-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- To Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            To Unit (Target)
-                                        </label>
-                                        <select 
-                                            id="toUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="milliseconds">Milliseconds (ms)</option>
-                                            <option value="seconds">Seconds (s)</option>
-                                            <option value="minutes" selected>Minutes (min)</option>
-                                            <option value="hours">Hours (hr)</option>
-                                            <option value="days">Days</option>
-                                            <option value="weeks">Weeks</option>
-                                            <option value="months">Months (30 days)</option>
-                                            <option value="years">Years (365 days)</option>
-                                            <option value="decades">Decades</option>
-                                            <option value="centuries">Centuries</option>
-                                            <option value="millennia">Millennia</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- All Time Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Small Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Small Units</h4>
 
-                                    <!-- Precision Control -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Display Precision
-                                        </label>
-                                        <div class="flex items-center space-x-4">
-                                            <input 
-                                                type="range" 
-                                                id="precision" 
-                                                min="0" 
-                                                max="10" 
-                                                value="6" 
-                                                class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                            >
-                                            <span class="text-sm font-mono text-gray-700 min-w-[3rem]" id="precisionValue">6 digits</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Adjust decimal places for calculations</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Milliseconds</h5>
+                                                                                            <div class="text-lg font-bold text-red-600 font-mono" id="millisecondsDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Time Context -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Time Context
-                                        </label>
-                                        <select 
-                                            id="timeContext" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="">General conversion</option>
-                                            <option value="precise">Scientific/Precise</option>
-                                            <option value="human">Human lifespan</option>
-                                            <option value="historical">Historical periods</option>
-                                            <option value="astronomical">Astronomical time</option>
-                                            <option value="computing">Computing/Programming</option>
-                                        </select>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Seconds</h5>
+                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="secondsDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Quick Time Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Time Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="3600" data-from="seconds" data-to="hours">1 Hour</button>
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="86400" data-from="seconds" data-to="days">1 Day</button>
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="1" data-from="years" data-to="days">1 Year</button>
-                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="1000" data-from="milliseconds" data-to="seconds">1000ms</button>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Minutes</h5>
+                                                                                            <div class="text-lg font-bold text-yellow-600 font-mono" id="minutesDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-violet-100 hover:bg-violet-200 text-violet-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Hours</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="hoursDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                </form>
+                                                                                <!-- Large Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Large Units</h4>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl border-l-4 border-violet-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Time</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-violet-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-violet-600 hover:text-violet-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Days</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="daysDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- All Time Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Small Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Small Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Milliseconds</h5>
-                                                    <div class="text-lg font-bold text-red-600 font-mono" id="millisecondsDisplay">--</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Seconds</h5>
-                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="secondsDisplay">--</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Minutes</h5>
-                                                    <div class="text-lg font-bold text-yellow-600 font-mono" id="minutesDisplay">--</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Hours</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="hoursDisplay">--</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Weeks</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="weeksDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Large Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Large Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Days</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="daysDisplay">--</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Weeks</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="weeksDisplay">--</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Months</h5>
-                                                    <div class="text-lg font-bold text-pink-600 font-mono" id="monthsDisplay">--</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Years</h5>
-                                                    <div class="text-lg font-bold text-cyan-600 font-mono" id="yearsDisplay">--</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Months</h5>
+                                                                                            <div class="text-lg font-bold text-pink-600 font-mono" id="monthsDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Time Conversion Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Time Unit Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>1 second</strong> = 1,000 milliseconds</div>
-                                        <div><strong>1 minute</strong> = 60 seconds</div>
-                                        <div><strong>1 hour</strong> = 60 minutes</div>
-                                        <div><strong>1 day</strong> = 24 hours</div>
-                                        <div><strong>1 week</strong> = 7 days</div>
-                                        <div><strong>1 month</strong> ≈ 30 days</div>
-                                        <div><strong>1 year</strong> = 365 days</div>
-                                        <div><strong>1 decade</strong> = 10 years</div>
-                                        <div><strong>1 century</strong> = 100 years</div>
-                                        <div><strong>1 millennium</strong> = 1,000 years</div>
-                                        <div><strong>Leap year</strong> = 366 days</div>
-                                        <div><strong>Solar year</strong> ≈ 365.25 days</div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Years</h5>
+                                                                                            <div class="text-lg font-bold text-cyan-600 font-mono" id="yearsDisplay">--</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Time Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Time Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="3600" data-from="seconds" data-to="hours">1 Hour</button>
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="86400" data-from="seconds" data-to="days">1 Day</button>
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="1" data-from="years" data-to="days">1 Year</button>
+                                                            <button type="button" class="time-example px-3 py-2 text-sm bg-gray-100 hover:bg-violet-100 text-gray-700 hover:text-violet-700 rounded-lg transition-colors" data-value="1000" data-from="milliseconds" data-to="seconds">1000ms</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Time Conversion Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Time Unit Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>1 second</strong> = 1,000 milliseconds</div>
+                                                        <div><strong>1 minute</strong> = 60 seconds</div>
+                                                        <div><strong>1 hour</strong> = 60 minutes</div>
+                                                        <div><strong>1 day</strong> = 24 hours</div>
+                                                        <div><strong>1 week</strong> = 7 days</div>
+                                                        <div><strong>1 month</strong> ≈ 30 days</div>
+                                                        <div><strong>1 year</strong> = 365 days</div>
+                                                        <div><strong>1 decade</strong> = 10 years</div>
+                                                        <div><strong>1 century</strong> = 100 years</div>
+                                                        <div><strong>1 millennium</strong> = 1,000 years</div>
+                                                        <div><strong>Leap year</strong> = 366 days</div>
+                                                        <div><strong>Solar year</strong> ≈ 365.25 days</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

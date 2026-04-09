@@ -4,222 +4,238 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Electrical Capacitance Unit Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Capacitance Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter value (e.g., 100)"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Capacitance</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Enter any positive number</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Capacitance Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter value (e.g., 100)"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Capacitance</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Enter any positive number</p>
+                                                                            </div>
+
+                                                                            <!-- From Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    From Unit (Source)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="fromUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="farad">Farad (F)</option>
+                                                                                    <option value="millifarad">Millifarad (mF)</option>
+                                                                                    <option value="microfarad" selected>Microfarad (μF)</option>
+                                                                                    <option value="nanofarad">Nanofarad (nF)</option>
+                                                                                    <option value="picofarad">Picofarad (pF)</option>
+                                                                                    <option value="femtofarad">Femtofarad (fF)</option>
+                                                                                    <option value="attofarad">Attofarad (aF)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- To Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    To Unit (Target)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="toUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="farad">Farad (F)</option>
+                                                                                    <option value="millifarad">Millifarad (mF)</option>
+                                                                                    <option value="microfarad">Microfarad (μF)</option>
+                                                                                    <option value="nanofarad" selected>Nanofarad (nF)</option>
+                                                                                    <option value="picofarad">Picofarad (pF)</option>
+                                                                                    <option value="femtofarad">Femtofarad (fF)</option>
+                                                                                    <option value="attofarad">Attofarad (aF)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Application Context -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Application Context
+                                                                                </label>
+                                                                                <div class="grid grid-cols-3 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="context" value="general" class="text-yellow-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">General</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="context" value="electronics" class="text-yellow-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">Electronics</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="context" value="power" class="text-yellow-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">Power Systems</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- From Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            From Unit (Source)
-                                        </label>
-                                        <select 
-                                            id="fromUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="farad">Farad (F)</option>
-                                            <option value="millifarad">Millifarad (mF)</option>
-                                            <option value="microfarad" selected>Microfarad (μF)</option>
-                                            <option value="nanofarad">Nanofarad (nF)</option>
-                                            <option value="picofarad">Picofarad (pF)</option>
-                                            <option value="femtofarad">Femtofarad (fF)</option>
-                                            <option value="attofarad">Attofarad (aF)</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border-l-4 border-yellow-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Converted Value</h4>
+                                                                                        <p class="text-sm text-gray-600" id="conversionDescription">Primary conversion result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-yellow-600 hover:text-yellow-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- To Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            To Unit (Target)
-                                        </label>
-                                        <select 
-                                            id="toUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="farad">Farad (F)</option>
-                                            <option value="millifarad">Millifarad (mF)</option>
-                                            <option value="microfarad">Microfarad (μF)</option>
-                                            <option value="nanofarad" selected>Nanofarad (nF)</option>
-                                            <option value="picofarad">Picofarad (pF)</option>
-                                            <option value="femtofarad">Femtofarad (fF)</option>
-                                            <option value="attofarad">Attofarad (aF)</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- All Unit Conversions -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Farad -->
+                                                                                <div class="p-4 bg-gradient-to-r from-red-50 to-rose-50 rounded-lg border-l-4 border-red-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Farad (F)</h4>
+                                                                                        <div class="text-lg font-bold text-red-600 font-mono" id="faradDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Base unit</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Application Context -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Application Context
-                                        </label>
-                                        <div class="grid grid-cols-3 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="context" value="general" class="text-yellow-600 focus:ring-yellow-500" checked>
-                                                <span class="text-sm font-medium">General</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="context" value="electronics" class="text-yellow-600 focus:ring-yellow-500">
-                                                <span class="text-sm font-medium">Electronics</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="context" value="power" class="text-yellow-600 focus:ring-yellow-500">
-                                                <span class="text-sm font-medium">Power Systems</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                                <!-- Millifarad -->
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Millifarad (mF)</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="millifaradDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁻³ F</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="100" data-from="microfarad" data-to="nanofarad">100 μF</button>
-                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="470" data-from="nanofarad" data-to="picofarad">470 nF</button>
-                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="22" data-from="picofarad" data-to="femtofarad">22 pF</button>
-                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="1000" data-from="millifarad" data-to="farad">1000 mF</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Common Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Microfarad -->
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Microfarad (μF)</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="microfaradDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁻⁶ F</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                <!-- Nanofarad -->
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Nanofarad (nF)</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="nanofaradDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁻⁹ F</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
+                                                                            <!-- Small Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Picofarad -->
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Picofarad (pF)</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="picofaradDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁻¹² F</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border-l-4 border-yellow-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Converted Value</h4>
-                                                <p class="text-sm text-gray-600" id="conversionDescription">Primary conversion result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-yellow-600 hover:text-yellow-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                <!-- Femtofarad -->
+                                                                                <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Femtofarad (fF)</h4>
+                                                                                        <div class="text-lg font-bold text-pink-600 font-mono" id="femtofaradDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">10⁻¹⁵ F</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- All Unit Conversions -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Farad -->
-                                        <div class="p-4 bg-gradient-to-r from-red-50 to-rose-50 rounded-lg border-l-4 border-red-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Farad (F)</h4>
-                                                <div class="text-lg font-bold text-red-600 font-mono" id="faradDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Base unit</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Millifarad -->
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Millifarad (mF)</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="millifaradDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁻³ F</div>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- Common Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Microfarad -->
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Microfarad (μF)</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="microfaradDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁻⁶ F</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Nanofarad -->
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Nanofarad (nF)</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="nanofaradDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁻⁹ F</div>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <!-- Small Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Picofarad -->
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Picofarad (pF)</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="picofaradDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁻¹² F</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Femtofarad -->
-                                        <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Femtofarad (fF)</h4>
-                                                <div class="text-lg font-bold text-pink-600 font-mono" id="femtofaradDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">10⁻¹⁵ F</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <!-- Capacitance Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Capacitance Unit Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs text-gray-600">
-                                        <div>1 F = 1,000 mF</div>
-                                        <div>1 mF = 1,000 μF</div>
-                                        <div>1 μF = 1,000 nF</div>
-                                        <div>1 nF = 1,000 pF</div>
-                                        <div>1 pF = 1,000 fF</div>
-                                        <div>1 fF = 1,000 aF</div>
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="100" data-from="microfarad" data-to="nanofarad">100 μF</button>
+                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="470" data-from="nanofarad" data-to="picofarad">470 nF</button>
+                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="22" data-from="picofarad" data-to="femtofarad">22 pF</button>
+                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="1000" data-from="millifarad" data-to="farad">1000 mF</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Capacitance Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Capacitance Unit Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs text-gray-600">
+                                                        <div>1 F = 1,000 mF</div>
+                                                        <div>1 mF = 1,000 μF</div>
+                                                        <div>1 μF = 1,000 nF</div>
+                                                        <div>1 nF = 1,000 pF</div>
+                                                        <div>1 pF = 1,000 fF</div>
+                                                        <div>1 fF = 1,000 aF</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

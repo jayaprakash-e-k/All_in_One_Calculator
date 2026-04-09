@@ -4,234 +4,247 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-teal-500 to-teal-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Hydraulic Flow Rate Calculation</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Pressure Input -->
-                                    <div class="space-y-2">
-                                        <label for="pressureValue" class="block text-sm font-semibold text-gray-700">
-                                            Pressure (PSI)
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="pressureValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter pressure in PSI"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">PSI</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Water pressure at the source</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Pressure Input -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="pressureValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Pressure (PSI)
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="pressureValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter pressure in PSI"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">PSI</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Water pressure at the source</p>
+                                                                            </div>
+
+                                                                            <!-- Pipe Diameter Input -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="diameterValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Pipe Diameter
+                                                                                </label>
+                                                                                <div class="grid grid-cols-3 gap-2">
+                                                                                    <div class="col-span-2 relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="diameterValue" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="Enter diameter"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                        >
+                                                                                    </div>
+                                                                                    <select 
+                                                                                        id="diameterUnit" 
+                                                                                        class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <option value="inches">inches</option>
+                                                                                        <option value="mm">mm</option>
+                                                                                        <option value="cm">cm</option>
+                                                                                        <option value="feet">feet</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Internal diameter of the pipe</p>
+                                                                            </div>
+
+                                                                            <!-- Discharge Coefficient -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="coefficientValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Discharge Coefficient (C)
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="coefficientValue" 
+                                                                                        value="0.6" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Discharge coefficient"
+                                                                                        step="0.01"
+                                                                                        min="0.1"
+                                                                                        max="1.0"
+                                                                                    >
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Typical values: Sharp orifice (0.6), Well-rounded (0.8), Venturi (0.98)</p>
+                                                                            </div>
+
+                                                                            <!-- Output Units -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="outputUnits" class="block text-sm font-semibold text-gray-700">
+                                                                                    Flow Rate Output Unit
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="outputUnits" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="gpm">GPM (Gallons per minute)</option>
+                                                                                    <option value="lpm">LPM (Liters per minute)</option>
+                                                                                    <option value="cfs">CFS (Cubic feet per second)</option>
+                                                                                    <option value="cms">CMS (Cubic meters per second)</option>
+                                                                                    <option value="gph">GPH (Gallons per hour)</option>
+                                                                                    <option value="lps">LPS (Liters per second)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Common Pipe Size Presets -->
+                                                                            
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-teal-100 hover:bg-teal-200 text-teal-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Flow Rate Results</h3>
 
-                                    <!-- Pipe Diameter Input -->
-                                    <div class="space-y-2">
-                                        <label for="diameterValue" class="block text-sm font-semibold text-gray-700">
-                                            Pipe Diameter
-                                        </label>
-                                        <div class="grid grid-cols-3 gap-2">
-                                            <div class="col-span-2 relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="diameterValue" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="Enter diameter"
-                                                    step="any"
-                                                    min="0"
-                                                >
-                                            </div>
-                                            <select 
-                                                id="diameterUnit" 
-                                                class="px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <option value="inches">inches</option>
-                                                <option value="mm">mm</option>
-                                                <option value="cm">cm</option>
-                                                <option value="feet">feet</option>
-                                            </select>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Internal diameter of the pipe</p>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Flow Rate</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Calculated from pressure and pipe dimensions</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-teal-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">GPM</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Discharge Coefficient -->
-                                    <div class="space-y-2">
-                                        <label for="coefficientValue" class="block text-sm font-semibold text-gray-700">
-                                            Discharge Coefficient (C)
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="coefficientValue" 
-                                                value="0.6" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Discharge coefficient"
-                                                step="0.01"
-                                                min="0.1"
-                                                max="1.0"
-                                            >
-                                        </div>
-                                        <p class="text-xs text-gray-500">Typical values: Sharp orifice (0.6), Well-rounded (0.8), Venturi (0.98)</p>
-                                    </div>
+                                                                            <!-- All Flow Rate Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">GPM</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="gpmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">LPM</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="lpmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">CFS</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="cfsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Output Units -->
-                                    <div class="space-y-2">
-                                        <label for="outputUnits" class="block text-sm font-semibold text-gray-700">
-                                            Flow Rate Output Unit
-                                        </label>
-                                        <select 
-                                            id="outputUnits" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="gpm">GPM (Gallons per minute)</option>
-                                            <option value="lpm">LPM (Liters per minute)</option>
-                                            <option value="cfs">CFS (Cubic feet per second)</option>
-                                            <option value="cms">CMS (Cubic meters per second)</option>
-                                            <option value="gph">GPH (Gallons per hour)</option>
-                                            <option value="lps">LPS (Liters per second)</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- Additional Flow Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">CMS</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="cmsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">GPH</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="gphOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">LPS</h4>
+                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="lpsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Common Pipe Size Presets -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Standard Pipe Sizes
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="0.5">1/2"</button>
-                                            <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="0.75">3/4"</button>
-                                            <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="1">1"</button>
-                                            <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="2">2"</button>
-                                        </div>
-                                    </div>
-
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-teal-100 hover:bg-teal-200 text-teal-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Flow Rate Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Flow Rate</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Calculated from pressure and pipe dimensions</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-teal-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">GPM</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- All Flow Rate Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">GPM</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="gpmOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">LPM</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="lpmOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">CFS</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="cfsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Flow Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">CMS</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="cmsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">GPH</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="gphOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">LPS</h4>
-                                                <div class="text-lg font-bold text-yellow-600 font-mono" id="lpsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Calculation Details -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-3 text-center">Calculation Details</h4>
-                                        <div class="space-y-2 text-sm text-gray-600">
-                                            <div class="flex justify-between">
-                                                <span>Pressure Head:</span>
-                                                <span class="font-mono" id="pressureHead">--</span>
-                                            </div>
-                                            <div class="flex justify-between">
-                                                <span>Pipe Area:</span>
-                                                <span class="font-mono" id="pipeArea">--</span>
-                                            </div>
-                                            <div class="flex justify-between">
-                                                <span>Velocity:</span>
-                                                <span class="font-mono" id="velocity">--</span>
-                                            </div>
-                                            <div class="flex justify-between">
-                                                <span>Formula:</span>
-                                                <span class="font-mono text-xs">Q = C × A × √(2gh)</span>
-                                            </div>
-                                        </div>
+                                                                            <!-- Calculation Details -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-3 text-center">Calculation Details</h4>
+                                                                                <div class="space-y-2 text-sm text-gray-600">
+                                                                                    <div class="flex justify-between">
+                                                                                        <span>Pressure Head:</span>
+                                                                                        <span class="font-mono" id="pressureHead">--</span>
+                                                                                    </div>
+                                                                                    <div class="flex justify-between">
+                                                                                        <span>Pipe Area:</span>
+                                                                                        <span class="font-mono" id="pipeArea">--</span>
+                                                                                    </div>
+                                                                                    <div class="flex justify-between">
+                                                                                        <span>Velocity:</span>
+                                                                                        <span class="font-mono" id="velocity">--</span>
+                                                                                    </div>
+                                                                                    <div class="flex justify-between">
+                                                                                        <span>Formula:</span>
+                                                                                        <span class="font-mono text-xs">Q = C × A × √(2gh)</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Formula Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Hydraulic Flow Formulas</h4>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• Q = C × A × √(2gh)</div>
-                                        <div>• h = P/(ρg) = P × 2.31 ft</div>
-                                        <div>• A = π × d²/4</div>
-                                        <div>• V = Q/A</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="space-y-2">
+                                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                                    Standard Pipe Sizes
+                                                                                                </label>
+                                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                                    <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="0.5">1/2"</button>
+                                                                                                    <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="0.75">3/4"</button>
+                                                                                                    <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="1">1"</button>
+                                                                                                    <button type="button" class="pipe-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-diameter="2">2"</button>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Formula Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Hydraulic Flow Formulas</h4>
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• Q = C × A × √(2gh)</div>
+                                                        <div>• h = P/(ρg) = P × 2.31 ft</div>
+                                                        <div>• A = π × d²/4</div>
+                                                        <div>• V = Q/A</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

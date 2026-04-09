@@ -4,292 +4,308 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Universal Power Unit Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Power Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter power (e.g., 1000)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Power</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Enter power value for conversion</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Power Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter power (e.g., 1000)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Power</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Enter power value for conversion</p>
+                                                                            </div>
+
+                                                                            <!-- From Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    From Unit (Source)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="fromUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="SI Power Units">
+                                                                                        <option value="watt" selected>Watt (W) - SI power unit</option>
+                                                                                        <option value="kilowatt">Kilowatt (kW)</option>
+                                                                                        <option value="megawatt">Megawatt (MW)</option>
+                                                                                        <option value="gigawatt">Gigawatt (GW)</option>
+                                                                                        <option value="milliwatt">Milliwatt (mW)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Mechanical Power">
+                                                                                        <option value="horsepower_mechanical">Horsepower (hp) - Mechanical</option>
+                                                                                        <option value="horsepower_metric">Metric Horsepower (PS)</option>
+                                                                                        <option value="horsepower_electric">Electric Horsepower</option>
+                                                                                        <option value="horsepower_boiler">Boiler Horsepower</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Thermal Power">
+                                                                                        <option value="btu_hour">BTU/hour (BTU/h)</option>
+                                                                                        <option value="btu_minute">BTU/minute</option>
+                                                                                        <option value="btu_second">BTU/second</option>
+                                                                                        <option value="calorie_second">Calorie/second</option>
+                                                                                        <option value="kcal_hour">kcal/hour</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Alternative Units">
+                                                                                        <option value="foot_pound_second">Foot-pound/second</option>
+                                                                                        <option value="erg_second">Erg/second</option>
+                                                                                        <option value="joule_second">Joule/second</option>
+                                                                                        <option value="ton_refrigeration">Ton of Refrigeration</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- To Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    To Unit (Target)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="toUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="SI Power Units">
+                                                                                        <option value="watt">Watt (W) - SI power unit</option>
+                                                                                        <option value="kilowatt" selected>Kilowatt (kW)</option>
+                                                                                        <option value="megawatt">Megawatt (MW)</option>
+                                                                                        <option value="gigawatt">Gigawatt (GW)</option>
+                                                                                        <option value="milliwatt">Milliwatt (mW)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Mechanical Power">
+                                                                                        <option value="horsepower_mechanical">Horsepower (hp) - Mechanical</option>
+                                                                                        <option value="horsepower_metric">Metric Horsepower (PS)</option>
+                                                                                        <option value="horsepower_electric">Electric Horsepower</option>
+                                                                                        <option value="horsepower_boiler">Boiler Horsepower</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Thermal Power">
+                                                                                        <option value="btu_hour">BTU/hour (BTU/h)</option>
+                                                                                        <option value="btu_minute">BTU/minute</option>
+                                                                                        <option value="btu_second">BTU/second</option>
+                                                                                        <option value="calorie_second">Calorie/second</option>
+                                                                                        <option value="kcal_hour">kcal/hour</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Alternative Units">
+                                                                                        <option value="foot_pound_second">Foot-pound/second</option>
+                                                                                        <option value="erg_second">Erg/second</option>
+                                                                                        <option value="joule_second">Joule/second</option>
+                                                                                        <option value="ton_refrigeration">Ton of Refrigeration</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Power Type -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Power Type
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="powerType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="">General power</option>
+                                                                                    <option value="electrical">Electrical Power</option>
+                                                                                    <option value="mechanical">Mechanical Power</option>
+                                                                                    <option value="thermal">Thermal Power</option>
+                                                                                    <option value="hydraulic">Hydraulic Power</option>
+                                                                                    <option value="pneumatic">Pneumatic Power</option>
+                                                                                    <option value="solar">Solar Power</option>
+                                                                                </select>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Power Conversion Results</h3>
 
-                                    <!-- From Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            From Unit (Source)
-                                        </label>
-                                        <select 
-                                            id="fromUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="SI Power Units">
-                                                <option value="watt" selected>Watt (W) - SI power unit</option>
-                                                <option value="kilowatt">Kilowatt (kW)</option>
-                                                <option value="megawatt">Megawatt (MW)</option>
-                                                <option value="gigawatt">Gigawatt (GW)</option>
-                                                <option value="milliwatt">Milliwatt (mW)</option>
-                                            </optgroup>
-                                            <optgroup label="Mechanical Power">
-                                                <option value="horsepower_mechanical">Horsepower (hp) - Mechanical</option>
-                                                <option value="horsepower_metric">Metric Horsepower (PS)</option>
-                                                <option value="horsepower_electric">Electric Horsepower</option>
-                                                <option value="horsepower_boiler">Boiler Horsepower</option>
-                                            </optgroup>
-                                            <optgroup label="Thermal Power">
-                                                <option value="btu_hour">BTU/hour (BTU/h)</option>
-                                                <option value="btu_minute">BTU/minute</option>
-                                                <option value="btu_second">BTU/second</option>
-                                                <option value="calorie_second">Calorie/second</option>
-                                                <option value="kcal_hour">kcal/hour</option>
-                                            </optgroup>
-                                            <optgroup label="Alternative Units">
-                                                <option value="foot_pound_second">Foot-pound/second</option>
-                                                <option value="erg_second">Erg/second</option>
-                                                <option value="joule_second">Joule/second</option>
-                                                <option value="ton_refrigeration">Ton of Refrigeration</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border-l-4 border-orange-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Power</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-orange-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-orange-600 hover:text-orange-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- To Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            To Unit (Target)
-                                        </label>
-                                        <select 
-                                            id="toUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="SI Power Units">
-                                                <option value="watt">Watt (W) - SI power unit</option>
-                                                <option value="kilowatt" selected>Kilowatt (kW)</option>
-                                                <option value="megawatt">Megawatt (MW)</option>
-                                                <option value="gigawatt">Gigawatt (GW)</option>
-                                                <option value="milliwatt">Milliwatt (mW)</option>
-                                            </optgroup>
-                                            <optgroup label="Mechanical Power">
-                                                <option value="horsepower_mechanical">Horsepower (hp) - Mechanical</option>
-                                                <option value="horsepower_metric">Metric Horsepower (PS)</option>
-                                                <option value="horsepower_electric">Electric Horsepower</option>
-                                                <option value="horsepower_boiler">Boiler Horsepower</option>
-                                            </optgroup>
-                                            <optgroup label="Thermal Power">
-                                                <option value="btu_hour">BTU/hour (BTU/h)</option>
-                                                <option value="btu_minute">BTU/minute</option>
-                                                <option value="btu_second">BTU/second</option>
-                                                <option value="calorie_second">Calorie/second</option>
-                                                <option value="kcal_hour">kcal/hour</option>
-                                            </optgroup>
-                                            <optgroup label="Alternative Units">
-                                                <option value="foot_pound_second">Foot-pound/second</option>
-                                                <option value="erg_second">Erg/second</option>
-                                                <option value="joule_second">Joule/second</option>
-                                                <option value="ton_refrigeration">Ton of Refrigeration</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Power Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <!-- SI Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">SI Units</h4>
 
-                                    <!-- Power Type -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Power Type
-                                        </label>
-                                        <select 
-                                            id="powerType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="">General power</option>
-                                            <option value="electrical">Electrical Power</option>
-                                            <option value="mechanical">Mechanical Power</option>
-                                            <option value="thermal">Thermal Power</option>
-                                            <option value="hydraulic">Hydraulic Power</option>
-                                            <option value="pneumatic">Pneumatic Power</option>
-                                            <option value="solar">Solar Power</option>
-                                        </select>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Watts</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="wattsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">SI power unit</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Quick Power Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Power Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="horsepower_mechanical" data-to="watt">1 hp</button>
-                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1000" data-from="watt" data-to="kilowatt">1000 W</button>
-                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="3412" data-from="btu_hour" data-to="watt">3412 BTU/h</button>
-                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="5" data-from="kilowatt" data-to="horsepower_mechanical">5 kW</button>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Kilowatts</h5>
+                                                                                            <div class="text-lg font-bold text-indigo-600 font-mono" id="kilowattsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">1000 watts</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Megawatts</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="megawattsDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Million watts</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                </form>
+                                                                                <!-- Mechanical Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Mechanical Units</h4>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Power Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border-l-4 border-orange-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Power</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-orange-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-orange-600 hover:text-orange-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Horsepower</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="horsepowerDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Mechanical HP</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Power Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <!-- SI Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">SI Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Watts</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="wattsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">SI power unit</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Kilowatts</h5>
-                                                    <div class="text-lg font-bold text-indigo-600 font-mono" id="kilowattsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">1000 watts</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Megawatts</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="megawattsDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Million watts</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Metric HP</h5>
+                                                                                            <div class="text-lg font-bold text-emerald-600 font-mono" id="metricHpDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">PS (Pferdestärke)</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Mechanical Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Mechanical Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Horsepower</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="horsepowerDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Mechanical HP</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Metric HP</h5>
-                                                    <div class="text-lg font-bold text-emerald-600 font-mono" id="metricHpDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">PS (Pferdestärke)</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">ft⋅lb/s</h5>
-                                                    <div class="text-lg font-bold text-teal-600 font-mono" id="footPoundDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Foot-pounds/second</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">ft⋅lb/s</h5>
+                                                                                            <div class="text-lg font-bold text-teal-600 font-mono" id="footPoundDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Foot-pounds/second</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                        <!-- Thermal Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Thermal Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">BTU/h</h5>
-                                                    <div class="text-lg font-bold text-red-600 font-mono" id="btuHourDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">British thermal units/hour</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">cal/s</h5>
-                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="calorieSecDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Calories per second</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Ton Refrig.</h5>
-                                                    <div class="text-lg font-bold text-yellow-600 font-mono" id="tonRefrigDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Refrigeration ton</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                <!-- Thermal Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Thermal Units</h4>
 
-                                <!-- Power Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Power Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>1 hp</strong> = 745.7 W</div>
-                                        <div><strong>1 PS</strong> = 735.5 W</div>
-                                        <div><strong>1 kW</strong> = 3412 BTU/h</div>
-                                        <div><strong>1 BTU/h</strong> = 0.293 W</div>
-                                        <div><strong>1 cal/s</strong> = 4.184 W</div>
-                                        <div><strong>1 ft⋅lb/s</strong> = 1.356 W</div>
-                                        <div><strong>1 ton refrig.</strong> = 3.517 kW</div>
-                                        <div><strong>Boiler hp</strong> = 9.81 kW</div>
-                                        <div><strong>Light bulb</strong> = 60 W</div>
-                                        <div><strong>Microwave</strong> = 800 W</div>
-                                        <div><strong>Hair dryer</strong> = 1.5 kW</div>
-                                        <div><strong>Electric car</strong> = 100 kW</div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">BTU/h</h5>
+                                                                                            <div class="text-lg font-bold text-red-600 font-mono" id="btuHourDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">British thermal units/hour</div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">cal/s</h5>
+                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="calorieSecDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Calories per second</div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Ton Refrig.</h5>
+                                                                                            <div class="text-lg font-bold text-yellow-600 font-mono" id="tonRefrigDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Refrigeration ton</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Power Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Power Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="horsepower_mechanical" data-to="watt">1 hp</button>
+                                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1000" data-from="watt" data-to="kilowatt">1000 W</button>
+                                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="3412" data-from="btu_hour" data-to="watt">3412 BTU/h</button>
+                                                            <button type="button" class="power-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="5" data-from="kilowatt" data-to="horsepower_mechanical">5 kW</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Power Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Power Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>1 hp</strong> = 745.7 W</div>
+                                                        <div><strong>1 PS</strong> = 735.5 W</div>
+                                                        <div><strong>1 kW</strong> = 3412 BTU/h</div>
+                                                        <div><strong>1 BTU/h</strong> = 0.293 W</div>
+                                                        <div><strong>1 cal/s</strong> = 4.184 W</div>
+                                                        <div><strong>1 ft⋅lb/s</strong> = 1.356 W</div>
+                                                        <div><strong>1 ton refrig.</strong> = 3.517 kW</div>
+                                                        <div><strong>Boiler hp</strong> = 9.81 kW</div>
+                                                        <div><strong>Light bulb</strong> = 60 W</div>
+                                                        <div><strong>Microwave</strong> = 800 W</div>
+                                                        <div><strong>Hair dryer</strong> = 1.5 kW</div>
+                                                        <div><strong>Electric car</strong> = 100 kW</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

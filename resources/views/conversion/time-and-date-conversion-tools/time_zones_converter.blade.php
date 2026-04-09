@@ -4,15 +4,15 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Global Time Zone Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
+                            <div class="p-5 sm:p-6">
                                 <!-- Current Time Display -->
                                 <div class="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
                                     <h3 class="text-sm font-semibold text-blue-800 mb-3">Current Time (Real-time)</h3>
@@ -29,258 +29,274 @@
 
                                 </div>
 
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Source Time Input -->
-                                    <div class="space-y-4">
-                                        <h3 class="text-lg font-semibold text-gray-800">Source Time</h3>
-                                        
-                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <div class="space-y-2">
-                                                <label for="sourceDate" class="block text-sm font-semibold text-gray-700">
-                                                    Date
-                                                </label>
-                                                <input 
-                                                    type="date" 
-                                                    id="sourceDate" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono"
-                                                    value="2025-07-23"
-                                                >
-                                            </div>
-                                            
-                                            <div class="space-y-2">
-                                                <label for="sourceTime" class="block text-sm font-semibold text-gray-700">
-                                                    Time (24h)
-                                                </label>
-                                                <input 
-                                                    type="time" 
-                                                    id="sourceTime" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono"
-                                                    step="1"
-                                                    value="14:46:06"
-                                                >
-                                            </div>
-                                        </div>
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
 
-                                        <div class="space-y-2">
-                                            <label for="sourceTimezone" class="block text-sm font-semibold text-gray-700">
-                                                Source Time Zone
-                                            </label>
-                                            <select 
-                                                id="sourceTimezone" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <option value="UTC" selected>UTC - Coordinated Universal Time</option>
-                                                <optgroup label="North America">
-                                                    <option value="America/New_York">Eastern Time (ET) - New York</option>
-                                                    <option value="America/Chicago">Central Time (CT) - Chicago</option>
-                                                    <option value="America/Denver">Mountain Time (MT) - Denver</option>
-                                                    <option value="America/Los_Angeles">Pacific Time (PT) - Los Angeles</option>
-                                                    <option value="America/Anchorage">Alaska Time (AKST) - Anchorage</option>
-                                                    <option value="Pacific/Honolulu">Hawaii Time (HST) - Honolulu</option>
-                                                    <option value="America/Toronto">Eastern Time - Toronto</option>
-                                                    <option value="America/Vancouver">Pacific Time - Vancouver</option>
-                                                </optgroup>
-                                                <optgroup label="Europe">
-                                                    <option value="Europe/London">GMT/BST - London</option>
-                                                    <option value="Europe/Paris">CET/CEST - Paris</option>
-                                                    <option value="Europe/Berlin">CET/CEST - Berlin</option>
-                                                    <option value="Europe/Rome">CET/CEST - Rome</option>
-                                                    <option value="Europe/Madrid">CET/CEST - Madrid</option>
-                                                    <option value="Europe/Amsterdam">CET/CEST - Amsterdam</option>
-                                                    <option value="Europe/Moscow">MSK - Moscow</option>
-                                                    <option value="Europe/Istanbul">TRT - Istanbul</option>
-                                                </optgroup>
-                                                <optgroup label="Asia">
-                                                    <option value="Asia/Tokyo">JST - Tokyo</option>
-                                                    <option value="Asia/Shanghai">CST - Shanghai</option>
-                                                    <option value="Asia/Hong_Kong">HKT - Hong Kong</option>
-                                                    <option value="Asia/Singapore">SGT - Singapore</option>
-                                                    <option value="Asia/Seoul">KST - Seoul</option>
-                                                    <option value="Asia/Kolkata">IST - Mumbai/Delhi</option>
-                                                    <option value="Asia/Dubai">GST - Dubai</option>
-                                                    <option value="Asia/Bangkok">ICT - Bangkok</option>
-                                                </optgroup>
-                                                <optgroup label="Australia & Pacific">
-                                                    <option value="Australia/Sydney">AEST/AEDT - Sydney</option>
-                                                    <option value="Australia/Melbourne">AEST/AEDT - Melbourne</option>
-                                                    <option value="Australia/Perth">AWST - Perth</option>
-                                                    <option value="Pacific/Auckland">NZST/NZDT - Auckland</option>
-                                                    <option value="Pacific/Fiji">FJT - Fiji</option>
-                                                </optgroup>
-                                                <optgroup label="Africa & Middle East">
-                                                    <option value="Africa/Cairo">EET - Cairo</option>
-                                                    <option value="Africa/Lagos">WAT - Lagos</option>
-                                                    <option value="Africa/Johannesburg">SAST - Johannesburg</option>
-                                                    <option value="Asia/Riyadh">AST - Riyadh</option>
-                                                </optgroup>
-                                                <optgroup label="South America">
-                                                    <option value="America/Sao_Paulo">BRT - São Paulo</option>
-                                                    <option value="America/Argentina/Buenos_Aires">ART - Buenos Aires</option>
-                                                    <option value="America/Santiago">CLT - Santiago</option>
-                                                    <option value="America/Lima">PET - Lima</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
+                                                                            <!-- Source Time Input -->
+                                                                            <div class="space-y-4">
+                                                                                <h3 class="text-lg font-semibold text-gray-800">Source Time</h3>
+
+                                                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="sourceDate" class="block text-sm font-semibold text-gray-700">
+                                                                                            Date
+                                                                                        </label>
+                                                                                        <input 
+                                                                                            type="date" 
+                                                                                            id="sourceDate" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono"
+                                                                                            value="2025-07-23"
+                                                                                        >
+                                                                                    </div>
+
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="sourceTime" class="block text-sm font-semibold text-gray-700">
+                                                                                            Time (24h)
+                                                                                        </label>
+                                                                                        <input 
+                                                                                            type="time" 
+                                                                                            id="sourceTime" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono"
+                                                                                            step="1"
+                                                                                            value="14:46:06"
+                                                                                        >
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="space-y-2">
+                                                                                    <label for="sourceTimezone" class="block text-sm font-semibold text-gray-700">
+                                                                                        Source Time Zone
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="sourceTimezone" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <option value="UTC" selected>UTC - Coordinated Universal Time</option>
+                                                                                        <optgroup label="North America">
+                                                                                            <option value="America/New_York">Eastern Time (ET) - New York</option>
+                                                                                            <option value="America/Chicago">Central Time (CT) - Chicago</option>
+                                                                                            <option value="America/Denver">Mountain Time (MT) - Denver</option>
+                                                                                            <option value="America/Los_Angeles">Pacific Time (PT) - Los Angeles</option>
+                                                                                            <option value="America/Anchorage">Alaska Time (AKST) - Anchorage</option>
+                                                                                            <option value="Pacific/Honolulu">Hawaii Time (HST) - Honolulu</option>
+                                                                                            <option value="America/Toronto">Eastern Time - Toronto</option>
+                                                                                            <option value="America/Vancouver">Pacific Time - Vancouver</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Europe">
+                                                                                            <option value="Europe/London">GMT/BST - London</option>
+                                                                                            <option value="Europe/Paris">CET/CEST - Paris</option>
+                                                                                            <option value="Europe/Berlin">CET/CEST - Berlin</option>
+                                                                                            <option value="Europe/Rome">CET/CEST - Rome</option>
+                                                                                            <option value="Europe/Madrid">CET/CEST - Madrid</option>
+                                                                                            <option value="Europe/Amsterdam">CET/CEST - Amsterdam</option>
+                                                                                            <option value="Europe/Moscow">MSK - Moscow</option>
+                                                                                            <option value="Europe/Istanbul">TRT - Istanbul</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Asia">
+                                                                                            <option value="Asia/Tokyo">JST - Tokyo</option>
+                                                                                            <option value="Asia/Shanghai">CST - Shanghai</option>
+                                                                                            <option value="Asia/Hong_Kong">HKT - Hong Kong</option>
+                                                                                            <option value="Asia/Singapore">SGT - Singapore</option>
+                                                                                            <option value="Asia/Seoul">KST - Seoul</option>
+                                                                                            <option value="Asia/Kolkata">IST - Mumbai/Delhi</option>
+                                                                                            <option value="Asia/Dubai">GST - Dubai</option>
+                                                                                            <option value="Asia/Bangkok">ICT - Bangkok</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Australia & Pacific">
+                                                                                            <option value="Australia/Sydney">AEST/AEDT - Sydney</option>
+                                                                                            <option value="Australia/Melbourne">AEST/AEDT - Melbourne</option>
+                                                                                            <option value="Australia/Perth">AWST - Perth</option>
+                                                                                            <option value="Pacific/Auckland">NZST/NZDT - Auckland</option>
+                                                                                            <option value="Pacific/Fiji">FJT - Fiji</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Africa & Middle East">
+                                                                                            <option value="Africa/Cairo">EET - Cairo</option>
+                                                                                            <option value="Africa/Lagos">WAT - Lagos</option>
+                                                                                            <option value="Africa/Johannesburg">SAST - Johannesburg</option>
+                                                                                            <option value="Asia/Riyadh">AST - Riyadh</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="South America">
+                                                                                            <option value="America/Sao_Paulo">BRT - São Paulo</option>
+                                                                                            <option value="America/Argentina/Buenos_Aires">ART - Buenos Aires</option>
+                                                                                            <option value="America/Santiago">CLT - Santiago</option>
+                                                                                            <option value="America/Lima">PET - Lima</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Target Time Zones -->
+                                                                            <div class="space-y-4">
+                                                                                <h3 class="text-lg font-semibold text-gray-800">Convert To (Multiple Time Zones)</h3>
+
+                                                                                <div class="space-y-2">
+                                                                                    <label class="block text-sm font-semibold text-gray-700">
+                                                                                        Select Target Time Zones
+                                                                                    </label>
+                                                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-40 overflow-y-auto border border-gray-200 rounded-lg p-3">
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="America/New_York" class="text-amber-600 focus:ring-slate-200" checked>
+                                                                                            <span class="text-sm">New York (ET)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Europe/London" class="text-amber-600 focus:ring-slate-200" checked>
+                                                                                            <span class="text-sm">London (GMT/BST)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Asia/Tokyo" class="text-amber-600 focus:ring-slate-200" checked>
+                                                                                            <span class="text-sm">Tokyo (JST)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Australia/Sydney" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">Sydney (AEST/AEDT)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="America/Los_Angeles" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">Los Angeles (PT)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Europe/Paris" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">Paris (CET/CEST)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Asia/Shanghai" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">Shanghai (CST)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Asia/Kolkata" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">Mumbai (IST)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="America/Sao_Paulo" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">São Paulo (BRT)</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
+                                                                                            <input type="checkbox" name="targetTimezone" value="Asia/Dubai" class="text-amber-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm">Dubai (GST)</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Reset All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Time Zone Conversions</h3>
 
-                                    <!-- Target Time Zones -->
-                                    <div class="space-y-4">
-                                        <h3 class="text-lg font-semibold text-gray-800">Convert To (Multiple Time Zones)</h3>
-                                        
-                                        <div class="space-y-2">
-                                            <label class="block text-sm font-semibold text-gray-700">
-                                                Select Target Time Zones
-                                            </label>
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-40 overflow-y-auto border border-gray-200 rounded-lg p-3">
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="America/New_York" class="text-amber-600 focus:ring-amber-500" checked>
-                                                    <span class="text-sm">New York (ET)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Europe/London" class="text-amber-600 focus:ring-amber-500" checked>
-                                                    <span class="text-sm">London (GMT/BST)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Asia/Tokyo" class="text-amber-600 focus:ring-amber-500" checked>
-                                                    <span class="text-sm">Tokyo (JST)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Australia/Sydney" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">Sydney (AEST/AEDT)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="America/Los_Angeles" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">Los Angeles (PT)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Europe/Paris" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">Paris (CET/CEST)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Asia/Shanghai" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">Shanghai (CST)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Asia/Kolkata" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">Mumbai (IST)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="America/Sao_Paulo" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">São Paulo (BRT)</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 hover:bg-amber-50 rounded cursor-pointer">
-                                                    <input type="checkbox" name="targetTimezone" value="Asia/Dubai" class="text-amber-600 focus:ring-amber-500">
-                                                    <span class="text-sm">Dubai (GST)</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                            <!-- Source Time Display -->
+                                                                            <div class="p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl border-l-4 border-amber-500">
+                                                                                <div class="text-center">
+                                                                                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Source Time</h4>
+                                                                                    <div class="text-2xl font-bold text-amber-600 font-mono" id="sourceDisplay">2025-07-23 14:46:06 UTC</div>
+                                                                                    <p class="text-sm text-gray-600 mt-2" id="sourceDescription">Coordinated Universal Time</p>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Actions -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Actions
-                                        </label>
-                                        <div class="flex flex-wrap gap-2">
-                                            <button type="button" id="useCurrentTime" class="px-4 py-2 text-sm bg-amber-100 hover:bg-amber-200 text-amber-700 font-medium rounded-lg transition-colors">
-                                                Use Current Time
-                                            </button>
-                                            <button type="button" id="selectAllMajor" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors">
-                                                Select Major Cities
-                                            </button>
-                                            <button type="button" id="clearSelections" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors">
-                                                Clear All
-                                            </button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Target Time Zones Display -->
+                                                                            <div class="space-y-3" id="targetTimezones">
+                                                                                <!-- Dynamic timezone cards will be inserted here -->
+                                                                            </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Reset All
-                                        </button>
-                                    </div>
+                                                                            <!-- Time Differences -->
+                                                                            <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                                                                                <h4 class="text-sm font-semibold text-blue-800 mb-2 text-center">Time Differences from Source</h4>
+                                                                                <div class="space-y-2" id="timeDifferences">
+                                                                                    <!-- Dynamic time differences will be inserted here -->
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
+                                                                            <div class="hidden">
+                                                                                <!-- DST Information -->
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
+                                                                                    <h4 class="text-sm font-semibold text-green-800 mb-2 text-center">Daylight Saving Time Status</h4>
+                                                                                    <div class="space-y-2" id="dstInfo">
+                                                                                        <!-- Dynamic DST information will be inserted here -->
+                                                                                    </div>
+                                                                                </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Time Zone Conversions</h3>
-                                    
-                                    <!-- Source Time Display -->
-                                    <div class="p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl border-l-4 border-amber-500">
-                                        <div class="text-center">
-                                            <h4 class="text-lg font-semibold text-gray-800 mb-1">Source Time</h4>
-                                            <div class="text-2xl font-bold text-amber-600 font-mono" id="sourceDisplay">2025-07-23 14:46:06 UTC</div>
-                                            <p class="text-sm text-gray-600 mt-2" id="sourceDescription">Coordinated Universal Time</p>
-                                        </div>
-                                    </div>
+                                                                                <!-- Business Hours Analysis -->
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border border-purple-200">
+                                                                                    <h4 class="text-sm font-semibold text-purple-800 mb-2 text-center">Business Hours Analysis</h4>
+                                                                                    <div class="text-sm text-purple-700 text-center" id="businessHours">Select time zones to see business hours overlap</div>
+                                                                                </div>
 
-                                    <!-- Target Time Zones Display -->
-                                    <div class="space-y-3" id="targetTimezones">
-                                        <!-- Dynamic timezone cards will be inserted here -->
-                                    </div>
+                                                                                <!-- Meeting Scheduler -->
+                                                                                <div class="p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg border border-rose-200">
+                                                                                    <h4 class="text-sm font-semibold text-rose-800 mb-2 text-center">Meeting Time Recommendations</h4>
+                                                                                    <div class="text-sm text-rose-700 text-center" id="meetingTimes">Best meeting times will appear here</div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Time Differences -->
-                                    <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
-                                        <h4 class="text-sm font-semibold text-blue-800 mb-2 text-center">Time Differences from Source</h4>
-                                        <div class="space-y-2" id="timeDifferences">
-                                            <!-- Dynamic time differences will be inserted here -->
-                                        </div>
-                                    </div>
 
-                                    <div class="hidden">
-                                        <!-- DST Information -->
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
-                                            <h4 class="text-sm font-semibold text-green-800 mb-2 text-center">Daylight Saving Time Status</h4>
-                                            <div class="space-y-2" id="dstInfo">
-                                                <!-- Dynamic DST information will be inserted here -->
-                                            </div>
-                                        </div>
 
-                                        <!-- Business Hours Analysis -->
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border border-purple-200">
-                                            <h4 class="text-sm font-semibold text-purple-800 mb-2 text-center">Business Hours Analysis</h4>
-                                            <div class="text-sm text-purple-700 text-center" id="businessHours">Select time zones to see business hours overlap</div>
-                                        </div>
-
-                                        <!-- Meeting Scheduler -->
-                                        <div class="p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg border border-rose-200">
-                                            <h4 class="text-sm font-semibold text-rose-800 mb-2 text-center">Meeting Time Recommendations</h4>
-                                            <div class="text-sm text-rose-700 text-center" id="meetingTimes">Best meeting times will appear here</div>
-                                        </div>
-                                    </div>
-
-                                <!-- Time Zone Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Time Zone Abbreviations</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>UTC</strong> - Coordinated Universal Time</div>
-                                        <div><strong>GMT</strong> - Greenwich Mean Time</div>
-                                        <div><strong>EST/EDT</strong> - Eastern Standard/Daylight</div>
-                                        <div><strong>CST/CDT</strong> - Central Standard/Daylight</div>
-                                        <div><strong>MST/MDT</strong> - Mountain Standard/Daylight</div>
-                                        <div><strong>PST/PDT</strong> - Pacific Standard/Daylight</div>
-                                        <div><strong>CET/CEST</strong> - Central European Time</div>
-                                        <div><strong>JST</strong> - Japan Standard Time</div>
-                                        <div><strong>IST</strong> - India Standard Time</div>
-                                        <div><strong>AEST/AEDT</strong> - Australian Eastern Time</div>
-                                        <div><strong>BST</strong> - British Summer Time</div>
-                                        <div><strong>DST</strong> - Daylight Saving Time</div>
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Actions -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Actions
+                                                        </label>
+                                                        <div class="flex flex-wrap gap-2">
+                                                            <button type="button" id="useCurrentTime" class="px-4 py-2 text-sm bg-amber-100 hover:bg-amber-200 text-amber-700 font-medium rounded-lg transition-colors">
+                                                                Use Current Time
+                                                            </button>
+                                                            <button type="button" id="selectAllMajor" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors">
+                                                                Select Major Cities
+                                                            </button>
+                                                            <button type="button" id="clearSelections" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors">
+                                                                Clear All
+                                                            </button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Time Zone Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Time Zone Abbreviations</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>UTC</strong> - Coordinated Universal Time</div>
+                                                        <div><strong>GMT</strong> - Greenwich Mean Time</div>
+                                                        <div><strong>EST/EDT</strong> - Eastern Standard/Daylight</div>
+                                                        <div><strong>CST/CDT</strong> - Central Standard/Daylight</div>
+                                                        <div><strong>MST/MDT</strong> - Mountain Standard/Daylight</div>
+                                                        <div><strong>PST/PDT</strong> - Pacific Standard/Daylight</div>
+                                                        <div><strong>CET/CEST</strong> - Central European Time</div>
+                                                        <div><strong>JST</strong> - Japan Standard Time</div>
+                                                        <div><strong>IST</strong> - India Standard Time</div>
+                                                        <div><strong>AEST/AEDT</strong> - Australian Eastern Time</div>
+                                                        <div><strong>BST</strong> - British Summer Time</div>
+                                                        <div><strong>DST</strong> - Daylight Saving Time</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

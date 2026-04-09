@@ -4,347 +4,360 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Angular Measurement Calculator</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Conversion Mode -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Mode
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer bg-blue-50 border-blue-300">
-                                                <input type="radio" name="mode" value="dd-to-dms" class="text-blue-600 focus:ring-blue-500" checked>
-                                                <span class="text-sm font-medium">DD → DMS</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="mode" value="dms-to-dd" class="text-blue-600 focus:ring-blue-500">
-                                                <span class="text-sm font-medium">DMS → DD</span>
-                                            </label>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Conversion Mode -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Mode
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer bg-blue-50 border-blue-300">
+                                                                                        <input type="radio" name="mode" value="dd-to-dms" class="text-blue-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">DD → DMS</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="mode" value="dms-to-dd" class="text-blue-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">DMS → DD</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Decimal Degrees Input -->
+                                                                            <div id="ddInput" class="space-y-2">
+                                                                                <label for="decimalDegrees" class="block text-sm font-semibold text-gray-700">
+                                                                                    Decimal Degrees
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="decimalDegrees" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter decimal degrees (e.g., 40.7589)"
+                                                                                        step="any"
+                                                                                        min="-360"
+                                                                                        max="360"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">°</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Range: -360° to +360°</p>
+                                                                            </div>
+
+                                                                            <!-- DMS Input -->
+                                                                            <div id="dmsInput" class="space-y-4" style="display: none;">
+                                                                                <div class="grid grid-cols-3 gap-4">
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="degrees" class="block text-sm font-semibold text-gray-700">Degrees</label>
+                                                                                        <div class="relative">
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="degrees" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                placeholder="40"
+                                                                                                min="0"
+                                                                                                max="360"
+                                                                                            >
+                                                                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                                <span class="text-gray-500 text-sm font-medium">°</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="minutes" class="block text-sm font-semibold text-gray-700">Minutes</label>
+                                                                                        <div class="relative">
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="minutes" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                placeholder="45"
+                                                                                                min="0"
+                                                                                                max="59"
+                                                                                            >
+                                                                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                                <span class="text-gray-500 text-sm font-medium">'</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="seconds" class="block text-sm font-semibold text-gray-700">Seconds</label>
+                                                                                        <div class="relative">
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="seconds" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                placeholder="32.04"
+                                                                                                min="0"
+                                                                                                max="59.999"
+                                                                                                step="any"
+                                                                                            >
+                                                                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                                <span class="text-gray-500 text-sm font-medium">"</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- Direction -->
+                                                                                <div class="space-y-2">
+                                                                                    <label class="block text-sm font-semibold text-gray-700">Direction (for coordinates)</label>
+                                                                                    <div class="grid grid-cols-4 gap-2">
+                                                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                            <input type="radio" name="direction" value="positive" class="text-blue-600 focus:ring-slate-200" checked>
+                                                                                            <span class="text-sm font-medium">Positive</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                            <input type="radio" name="direction" value="negative" class="text-blue-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm font-medium">Negative</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                            <input type="radio" name="direction" value="N" class="text-blue-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm font-medium">North</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                            <input type="radio" name="direction" value="S" class="text-blue-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm font-medium">South</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="grid grid-cols-4 gap-2 mt-2">
+                                                                                        <div></div>
+                                                                                        <div></div>
+                                                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                            <input type="radio" name="direction" value="E" class="text-blue-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm font-medium">East</span>
+                                                                                        </label>
+                                                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                            <input type="radio" name="direction" value="W" class="text-blue-600 focus:ring-slate-200">
+                                                                                            <span class="text-sm font-medium">West</span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Input Format Selection -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Angle Context
+                                                                                </label>
+                                                                                <div class="grid grid-cols-3 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="context" value="general" class="text-blue-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">General Angle</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="context" value="latitude" class="text-blue-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Latitude</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="context" value="longitude" class="text-blue-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Longitude</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Precision Level -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Precision Level
+                                                                                </label>
+                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="2" class="text-blue-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">2 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="4" class="text-blue-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">4 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-blue-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="auto" class="text-blue-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Auto</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Sample Values -->
+                                                                            
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Decimal Degrees Input -->
-                                    <div id="ddInput" class="space-y-2">
-                                        <label for="decimalDegrees" class="block text-sm font-semibold text-gray-700">
-                                            Decimal Degrees
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="decimalDegrees" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter decimal degrees (e.g., 40.7589)"
-                                                step="any"
-                                                min="-360"
-                                                max="360"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">°</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Range: -360° to +360°</p>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Angle</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Target angle format</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-blue-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-blue-600 hover:text-blue-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- DMS Input -->
-                                    <div id="dmsInput" class="space-y-4" style="display: none;">
-                                        <div class="grid grid-cols-3 gap-4">
-                                            <div class="space-y-2">
-                                                <label for="degrees" class="block text-sm font-semibold text-gray-700">Degrees</label>
-                                                <div class="relative">
-                                                    <input 
-                                                        type="number" 
-                                                        id="degrees" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                        placeholder="40"
-                                                        min="0"
-                                                        max="360"
-                                                    >
-                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                        <span class="text-gray-500 text-sm font-medium">°</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="space-y-2">
-                                                <label for="minutes" class="block text-sm font-semibold text-gray-700">Minutes</label>
-                                                <div class="relative">
-                                                    <input 
-                                                        type="number" 
-                                                        id="minutes" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                        placeholder="45"
-                                                        min="0"
-                                                        max="59"
-                                                    >
-                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                        <span class="text-gray-500 text-sm font-medium">'</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="space-y-2">
-                                                <label for="seconds" class="block text-sm font-semibold text-gray-700">Seconds</label>
-                                                <div class="relative">
-                                                    <input 
-                                                        type="number" 
-                                                        id="seconds" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                        placeholder="32.04"
-                                                        min="0"
-                                                        max="59.999"
-                                                        step="any"
-                                                    >
-                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                        <span class="text-gray-500 text-sm font-medium">"</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Direction -->
-                                        <div class="space-y-2">
-                                            <label class="block text-sm font-semibold text-gray-700">Direction (for coordinates)</label>
-                                            <div class="grid grid-cols-4 gap-2">
-                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                    <input type="radio" name="direction" value="positive" class="text-blue-600 focus:ring-blue-500" checked>
-                                                    <span class="text-sm font-medium">Positive</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                    <input type="radio" name="direction" value="negative" class="text-blue-600 focus:ring-blue-500">
-                                                    <span class="text-sm font-medium">Negative</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                    <input type="radio" name="direction" value="N" class="text-blue-600 focus:ring-blue-500">
-                                                    <span class="text-sm font-medium">North</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                    <input type="radio" name="direction" value="S" class="text-blue-600 focus:ring-blue-500">
-                                                    <span class="text-sm font-medium">South</span>
-                                                </label>
-                                            </div>
-                                            <div class="grid grid-cols-4 gap-2 mt-2">
-                                                <div></div>
-                                                <div></div>
-                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                    <input type="radio" name="direction" value="E" class="text-blue-600 focus:ring-blue-500">
-                                                    <span class="text-sm font-medium">East</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                    <input type="radio" name="direction" value="W" class="text-blue-600 focus:ring-blue-500">
-                                                    <span class="text-sm font-medium">West</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                            <!-- Dual Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Decimal Degrees -->
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal Degrees</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="ddDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">DD format</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Input Format Selection -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Angle Context
-                                        </label>
-                                        <div class="grid grid-cols-3 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="context" value="general" class="text-blue-600 focus:ring-blue-500" checked>
-                                                <span class="text-xs font-medium">General Angle</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="context" value="latitude" class="text-blue-600 focus:ring-blue-500">
-                                                <span class="text-xs font-medium">Latitude</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="context" value="longitude" class="text-blue-600 focus:ring-blue-500">
-                                                <span class="text-xs font-medium">Longitude</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                                <!-- DMS Format -->
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">DMS Format</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="dmsDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Degrees Minutes Seconds</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Precision Level -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Precision Level
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="2" class="text-blue-600 focus:ring-blue-500">
-                                                <span class="text-xs font-medium">2 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="4" class="text-blue-600 focus:ring-blue-500" checked>
-                                                <span class="text-xs font-medium">4 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-blue-600 focus:ring-blue-500">
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="auto" class="text-blue-600 focus:ring-blue-500">
-                                                <span class="text-xs font-medium">Auto</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Angle Formats -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <!-- Radians -->
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Radians</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="radiansDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Mathematical unit</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Sample Values -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Sample Angle Values
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="30">30°</button>
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="45.5">45.5°</button>
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="90">90°</button>
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="180">180°</button>
-                                        </div>
-                                        <div class="grid grid-cols-4 gap-2 mt-2">
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="40.7589">NYC Lat</button>
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="-73.9851">NYC Lng</button>
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="51.5074">London Lat</button>
-                                            <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="139.6503">Tokyo Lng</button>
-                                        </div>
-                                    </div>
+                                                                                <!-- Gradians -->
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Gradians</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="gradiansDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Centesimal degrees</div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
+                                                                                <!-- Mils -->
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Mils</h4>
+                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="milsDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Military unit</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
+                                                                            <!-- Angle Analysis -->
+                                                                            <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
+                                                                                <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Angle Analysis</h4>
+                                                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Quadrant:</span>
+                                                                                        <span class="font-mono text-indigo-700" id="quadrant">--</span>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Type:</span>
+                                                                                        <span class="font-mono text-indigo-700" id="angleType">--</span>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Reference:</span>
+                                                                                        <span class="font-mono text-indigo-700" id="referenceAngle">--</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Angle</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Target angle format</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-blue-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-blue-600 hover:text-blue-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Dual Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Decimal Degrees -->
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal Degrees</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="ddDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">DD format</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- DMS Format -->
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">DMS Format</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="dmsDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Degrees Minutes Seconds</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Angle Formats -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <!-- Radians -->
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Radians</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="radiansDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Mathematical unit</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Gradians -->
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Gradians</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="gradiansDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Centesimal degrees</div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Mils -->
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Mils</h4>
-                                                <div class="text-lg font-bold text-yellow-600 font-mono" id="milsDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Military unit</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Angle Analysis -->
-                                    <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
-                                        <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Angle Analysis</h4>
-                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Quadrant:</span>
-                                                <span class="font-mono text-indigo-700" id="quadrant">--</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Type:</span>
-                                                <span class="font-mono text-indigo-700" id="angleType">--</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Reference:</span>
-                                                <span class="font-mono text-indigo-700" id="referenceAngle">--</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Coordinate Context Display -->
-                                    <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border border-pink-200" id="coordinateContext" style="display: none;">
-                                        <h4 class="text-sm font-semibold text-pink-800 mb-2 text-center">Coordinate Context</h4>
-                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Context:</span>
-                                                <span class="font-mono text-pink-700" id="contextType">--</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Valid Range:</span>
-                                                <span class="font-mono text-pink-700" id="validRange">--</span>
-                                            </div>
-                                        </div>
+                                                                            <!-- Coordinate Context Display -->
+                                                                            <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border border-pink-200" id="coordinateContext" style="display: none;">
+                                                                                <h4 class="text-sm font-semibold text-pink-800 mb-2 text-center">Coordinate Context</h4>
+                                                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Context:</span>
+                                                                                        <span class="font-mono text-pink-700" id="contextType">--</span>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Valid Range:</span>
+                                                                                        <span class="font-mono text-pink-700" id="validRange">--</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Angular Measurement Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1° = 60' (60 minutes)</div>
-                                        <div>• 1' = 60" (60 seconds)</div>
-                                        <div>• 1° = 3600" (3600 seconds)</div>
-                                        <div>• 1 radian = 57.2958°</div>
-                                        <div>• 1 gradian = 0.9°</div>
-                                        <div>• 1 mil = 0.05625°</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="space-y-2">
+                                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                                    Sample Angle Values
+                                                                                                </label>
+                                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="30">30°</button>
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="45.5">45.5°</button>
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="90">90°</button>
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="180">180°</button>
+                                                                                                </div>
+                                                                                                <div class="grid grid-cols-4 gap-2 mt-2">
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="40.7589">NYC Lat</button>
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="-73.9851">NYC Lng</button>
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="51.5074">London Lat</button>
+                                                                                                    <button type="button" class="sample-value px-3 py-2 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-lg transition-colors" data-value="139.6503">Tokyo Lng</button>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Angular Measurement Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1° = 60' (60 minutes)</div>
+                                                        <div>• 1' = 60" (60 seconds)</div>
+                                                        <div>• 1° = 3600" (3600 seconds)</div>
+                                                        <div>• 1 radian = 57.2958°</div>
+                                                        <div>• 1 gradian = 0.9°</div>
+                                                        <div>• 1 mil = 0.05625°</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

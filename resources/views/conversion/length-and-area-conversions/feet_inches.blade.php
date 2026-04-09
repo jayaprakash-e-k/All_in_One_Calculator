@@ -4,131 +4,141 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-violet-500 to-violet-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Imperial to Metric Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Feet and Inches Input -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Enter Feet and Inches
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <div class="relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="feet" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="0"
-                                                    step="any"
-                                                    min="0"
-                                                >
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <span class="text-gray-500 text-sm font-medium">ft</span>
-                                                </div>
-                                            </div>
-                                            <div class="relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="inches" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:ring-2 focus:ring-violet-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="0"
-                                                    step="any"
-                                                    min="0"
-                                                    max="11.99"
-                                                >
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <span class="text-gray-500 text-sm font-medium">in</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500 mt-1">Enter feet and inches (e.g., 5 feet 9 inches)</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Feet and Inches Input -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Feet and Inches
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-4">
+                                                                                    <div class="relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="feet" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="0"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                        >
+                                                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                            <span class="text-gray-500 text-sm font-medium">ft</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="inches" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="0"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                            max="11.99"
+                                                                                        >
+                                                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                            <span class="text-gray-500 text-sm font-medium">in</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500 mt-1">Enter feet and inches (e.g., 5 feet 9 inches)</p>
+                                                                            </div>
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-violet-100 hover:bg-violet-200 text-violet-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear Values
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-violet-100 hover:bg-violet-200 text-violet-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear Values
-                                        </button>
-                                    </div>
+                                                                            <!-- Total Inches -->
+                                                                            <div class="p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl border-l-4 border-violet-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Total Inches</h4>
+                                                                                        <p class="text-sm text-gray-600">Combined measurement</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-violet-600 font-mono" id="totalInches">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium">inches</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
+                                                                            <!-- Centimeters -->
+                                                                            <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Centimeters</h4>
+                                                                                        <p class="text-sm text-gray-600">Metric equivalent</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-blue-600 font-mono" id="centimeters">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium">cm</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
-                                    
-                                    <!-- Total Inches -->
-                                    <div class="p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl border-l-4 border-violet-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Total Inches</h4>
-                                                <p class="text-sm text-gray-600">Combined measurement</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-violet-600 font-mono" id="totalInches">--</div>
-                                                <div class="text-sm text-gray-500 font-medium">inches</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Centimeters -->
-                                    <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Centimeters</h4>
-                                                <p class="text-sm text-gray-600">Metric equivalent</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-blue-600 font-mono" id="centimeters">--</div>
-                                                <div class="text-sm text-gray-500 font-medium">cm</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Meters -->
-                                    <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Meters</h4>
-                                                <p class="text-sm text-gray-600">Base metric unit</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-green-600 font-mono" id="meters">--</div>
-                                                <div class="text-sm text-gray-500 font-medium">m</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 foot = 12 inches</div>
-                                        <div>• 1 inch = 2.54 cm</div>
-                                        <div>• 1 foot = 30.48 cm</div>
-                                        <div>• 1 meter = 3.28084 feet</div>
+                                                                            <!-- Meters -->
+                                                                            <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Meters</h4>
+                                                                                        <p class="text-sm text-gray-600">Base metric unit</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-green-600 font-mono" id="meters">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium">m</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 foot = 12 inches</div>
+                                                        <div>• 1 inch = 2.54 cm</div>
+                                                        <div>• 1 foot = 30.48 cm</div>
+                                                        <div>• 1 meter = 3.28084 feet</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

@@ -4,324 +4,340 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Quirky & Unconventional Unit Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter value (e.g., 42)"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Value</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Enter numerical value for weird unit conversion</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter value (e.g., 42)"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Value</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Enter numerical value for weird unit conversion</p>
+                                                                            </div>
+
+                                                                            <!-- From Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    From Unit (Source)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="fromUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="Unusual Length Units">
+                                                                                        <option value="smoot" selected>Smoot - MIT Bridge measurement</option>
+                                                                                        <option value="beard_second">Beard-second - Facial hair growth</option>
+                                                                                        <option value="sheppey">Sheppey - Sheep recognition distance</option>
+                                                                                        <option value="mickey">Mickey - Mouse movement unit</option>
+                                                                                        <option value="potrzebie">Potrzebie - MAD Magazine unit</option>
+                                                                                        <option value="altuve">Altuve - Baseball player height</option>
+                                                                                        <option value="banana">Banana - Fruit measurement</option>
+                                                                                        <option value="football_field">Football Field - American field</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Unusual Time Units">
+                                                                                        <option value="microcentury">Microcentury - Small time period</option>
+                                                                                        <option value="nanocentury">Nanocentury - Tiny time period</option>
+                                                                                        <option value="shake">Shake - Nuclear physics time</option>
+                                                                                        <option value="jiffy">Jiffy - Computing time unit</option>
+                                                                                        <option value="moment">Moment - Medieval time unit</option>
+                                                                                        <option value="dog_year">Dog Year - Canine aging</option>
+                                                                                        <option value="friedman">Friedman - Academic time unit</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Data & Information">
+                                                                                        <option value="library_of_congress">Library of Congress - Data storage</option>
+                                                                                        <option value="floppy_disk">Floppy Disk - Retro storage</option>
+                                                                                        <option value="cd">CD - Optical disc storage</option>
+                                                                                        <option value="dvd">DVD - Digital video disc</option>
+                                                                                        <option value="wikipedia">Wikipedia - Encyclopedia size</option>
+                                                                                        <option value="human_genome">Human Genome - Genetic data</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Weight & Mass">
+                                                                                        <option value="elephant">Elephant - Large animal weight</option>
+                                                                                        <option value="blue_whale">Blue Whale - Largest animal</option>
+                                                                                        <option value="rhino">Rhinoceros - Heavy animal</option>
+                                                                                        <option value="car">Car - Vehicle weight</option>
+                                                                                        <option value="penny">Penny - Coin weight</option>
+                                                                                        <option value="paperclip">Paperclip - Office supply</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Energy & Power">
+                                                                                        <option value="tnt">TNT Equivalent - Explosive energy</option>
+                                                                                        <option value="hiroshima">Hiroshima Bomb - Nuclear energy</option>
+                                                                                        <option value="bolt_of_lightning">Lightning Bolt - Electric energy</option>
+                                                                                        <option value="cheeseburger">Cheeseburger - Food energy</option>
+                                                                                        <option value="cup_of_coffee">Cup of Coffee - Caffeine energy</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Standard Units">
+                                                                                        <option value="meter">Meter (m)</option>
+                                                                                        <option value="second">Second (s)</option>
+                                                                                        <option value="kilogram">Kilogram (kg)</option>
+                                                                                        <option value="joule">Joule (J)</option>
+                                                                                        <option value="byte">Byte (B)</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- To Unit -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    To Unit (Target)
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="toUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <optgroup label="Unusual Length Units">
+                                                                                        <option value="smoot">Smoot - MIT Bridge measurement</option>
+                                                                                        <option value="beard_second" selected>Beard-second - Facial hair growth</option>
+                                                                                        <option value="sheppey">Sheppey - Sheep recognition distance</option>
+                                                                                        <option value="mickey">Mickey - Mouse movement unit</option>
+                                                                                        <option value="potrzebie">Potrzebie - MAD Magazine unit</option>
+                                                                                        <option value="altuve">Altuve - Baseball player height</option>
+                                                                                        <option value="banana">Banana - Fruit measurement</option>
+                                                                                        <option value="football_field">Football Field - American field</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Unusual Time Units">
+                                                                                        <option value="microcentury">Microcentury - Small time period</option>
+                                                                                        <option value="nanocentury">Nanocentury - Tiny time period</option>
+                                                                                        <option value="shake">Shake - Nuclear physics time</option>
+                                                                                        <option value="jiffy">Jiffy - Computing time unit</option>
+                                                                                        <option value="moment">Moment - Medieval time unit</option>
+                                                                                        <option value="dog_year">Dog Year - Canine aging</option>
+                                                                                        <option value="friedman">Friedman - Academic time unit</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Data & Information">
+                                                                                        <option value="library_of_congress">Library of Congress - Data storage</option>
+                                                                                        <option value="floppy_disk">Floppy Disk - Retro storage</option>
+                                                                                        <option value="cd">CD - Optical disc storage</option>
+                                                                                        <option value="dvd">DVD - Digital video disc</option>
+                                                                                        <option value="wikipedia">Wikipedia - Encyclopedia size</option>
+                                                                                        <option value="human_genome">Human Genome - Genetic data</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Weight & Mass">
+                                                                                        <option value="elephant">Elephant - Large animal weight</option>
+                                                                                        <option value="blue_whale">Blue Whale - Largest animal</option>
+                                                                                        <option value="rhino">Rhinoceros - Heavy animal</option>
+                                                                                        <option value="car">Car - Vehicle weight</option>
+                                                                                        <option value="penny">Penny - Coin weight</option>
+                                                                                        <option value="paperclip">Paperclip - Office supply</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Energy & Power">
+                                                                                        <option value="tnt">TNT Equivalent - Explosive energy</option>
+                                                                                        <option value="hiroshima">Hiroshima Bomb - Nuclear energy</option>
+                                                                                        <option value="bolt_of_lightning">Lightning Bolt - Electric energy</option>
+                                                                                        <option value="cheeseburger">Cheeseburger - Food energy</option>
+                                                                                        <option value="cup_of_coffee">Cup of Coffee - Caffeine energy</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Standard Units">
+                                                                                        <option value="meter">Meter (m)</option>
+                                                                                        <option value="second">Second (s)</option>
+                                                                                        <option value="kilogram">Kilogram (kg)</option>
+                                                                                        <option value="joule">Joule (J)</option>
+                                                                                        <option value="byte">Byte (B)</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Weirdness Level -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Weirdness Level
+                                                                                </label>
+                                                                                <div class="flex items-center space-x-4">
+                                                                                    <input 
+                                                                                        type="range" 
+                                                                                        id="weirdnessLevel" 
+                                                                                        min="1" 
+                                                                                        max="10" 
+                                                                                        value="5" 
+                                                                                        class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                                                                    >
+                                                                                    <span class="text-sm font-mono text-gray-700 min-w-[4rem]" id="weirdnessValue">5 - Normal</span>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Adjust the level of weirdness in explanations</p>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Weird Conversion Results</h3>
 
-                                    <!-- From Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            From Unit (Source)
-                                        </label>
-                                        <select 
-                                            id="fromUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="Unusual Length Units">
-                                                <option value="smoot" selected>Smoot - MIT Bridge measurement</option>
-                                                <option value="beard_second">Beard-second - Facial hair growth</option>
-                                                <option value="sheppey">Sheppey - Sheep recognition distance</option>
-                                                <option value="mickey">Mickey - Mouse movement unit</option>
-                                                <option value="potrzebie">Potrzebie - MAD Magazine unit</option>
-                                                <option value="altuve">Altuve - Baseball player height</option>
-                                                <option value="banana">Banana - Fruit measurement</option>
-                                                <option value="football_field">Football Field - American field</option>
-                                            </optgroup>
-                                            <optgroup label="Unusual Time Units">
-                                                <option value="microcentury">Microcentury - Small time period</option>
-                                                <option value="nanocentury">Nanocentury - Tiny time period</option>
-                                                <option value="shake">Shake - Nuclear physics time</option>
-                                                <option value="jiffy">Jiffy - Computing time unit</option>
-                                                <option value="moment">Moment - Medieval time unit</option>
-                                                <option value="dog_year">Dog Year - Canine aging</option>
-                                                <option value="friedman">Friedman - Academic time unit</option>
-                                            </optgroup>
-                                            <optgroup label="Data & Information">
-                                                <option value="library_of_congress">Library of Congress - Data storage</option>
-                                                <option value="floppy_disk">Floppy Disk - Retro storage</option>
-                                                <option value="cd">CD - Optical disc storage</option>
-                                                <option value="dvd">DVD - Digital video disc</option>
-                                                <option value="wikipedia">Wikipedia - Encyclopedia size</option>
-                                                <option value="human_genome">Human Genome - Genetic data</option>
-                                            </optgroup>
-                                            <optgroup label="Weight & Mass">
-                                                <option value="elephant">Elephant - Large animal weight</option>
-                                                <option value="blue_whale">Blue Whale - Largest animal</option>
-                                                <option value="rhino">Rhinoceros - Heavy animal</option>
-                                                <option value="car">Car - Vehicle weight</option>
-                                                <option value="penny">Penny - Coin weight</option>
-                                                <option value="paperclip">Paperclip - Office supply</option>
-                                            </optgroup>
-                                            <optgroup label="Energy & Power">
-                                                <option value="tnt">TNT Equivalent - Explosive energy</option>
-                                                <option value="hiroshima">Hiroshima Bomb - Nuclear energy</option>
-                                                <option value="bolt_of_lightning">Lightning Bolt - Electric energy</option>
-                                                <option value="cheeseburger">Cheeseburger - Food energy</option>
-                                                <option value="cup_of_coffee">Cup of Coffee - Caffeine energy</option>
-                                            </optgroup>
-                                            <optgroup label="Standard Units">
-                                                <option value="meter">Meter (m)</option>
-                                                <option value="second">Second (s)</option>
-                                                <option value="kilogram">Kilogram (kg)</option>
-                                                <option value="joule">Joule (J)</option>
-                                                <option value="byte">Byte (B)</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border-l-4 border-orange-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Weird Unit</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Converted result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-orange-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-orange-600 hover:text-orange-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- To Unit -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            To Unit (Target)
-                                        </label>
-                                        <select 
-                                            id="toUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <optgroup label="Unusual Length Units">
-                                                <option value="smoot">Smoot - MIT Bridge measurement</option>
-                                                <option value="beard_second" selected>Beard-second - Facial hair growth</option>
-                                                <option value="sheppey">Sheppey - Sheep recognition distance</option>
-                                                <option value="mickey">Mickey - Mouse movement unit</option>
-                                                <option value="potrzebie">Potrzebie - MAD Magazine unit</option>
-                                                <option value="altuve">Altuve - Baseball player height</option>
-                                                <option value="banana">Banana - Fruit measurement</option>
-                                                <option value="football_field">Football Field - American field</option>
-                                            </optgroup>
-                                            <optgroup label="Unusual Time Units">
-                                                <option value="microcentury">Microcentury - Small time period</option>
-                                                <option value="nanocentury">Nanocentury - Tiny time period</option>
-                                                <option value="shake">Shake - Nuclear physics time</option>
-                                                <option value="jiffy">Jiffy - Computing time unit</option>
-                                                <option value="moment">Moment - Medieval time unit</option>
-                                                <option value="dog_year">Dog Year - Canine aging</option>
-                                                <option value="friedman">Friedman - Academic time unit</option>
-                                            </optgroup>
-                                            <optgroup label="Data & Information">
-                                                <option value="library_of_congress">Library of Congress - Data storage</option>
-                                                <option value="floppy_disk">Floppy Disk - Retro storage</option>
-                                                <option value="cd">CD - Optical disc storage</option>
-                                                <option value="dvd">DVD - Digital video disc</option>
-                                                <option value="wikipedia">Wikipedia - Encyclopedia size</option>
-                                                <option value="human_genome">Human Genome - Genetic data</option>
-                                            </optgroup>
-                                            <optgroup label="Weight & Mass">
-                                                <option value="elephant">Elephant - Large animal weight</option>
-                                                <option value="blue_whale">Blue Whale - Largest animal</option>
-                                                <option value="rhino">Rhinoceros - Heavy animal</option>
-                                                <option value="car">Car - Vehicle weight</option>
-                                                <option value="penny">Penny - Coin weight</option>
-                                                <option value="paperclip">Paperclip - Office supply</option>
-                                            </optgroup>
-                                            <optgroup label="Energy & Power">
-                                                <option value="tnt">TNT Equivalent - Explosive energy</option>
-                                                <option value="hiroshima">Hiroshima Bomb - Nuclear energy</option>
-                                                <option value="bolt_of_lightning">Lightning Bolt - Electric energy</option>
-                                                <option value="cheeseburger">Cheeseburger - Food energy</option>
-                                                <option value="cup_of_coffee">Cup of Coffee - Caffeine energy</option>
-                                            </optgroup>
-                                            <optgroup label="Standard Units">
-                                                <option value="meter">Meter (m)</option>
-                                                <option value="second">Second (s)</option>
-                                                <option value="kilogram">Kilogram (kg)</option>
-                                                <option value="joule">Joule (J)</option>
-                                                <option value="byte">Byte (B)</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Weird Unit Categories -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <!-- Fun Length Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Fun Length Units</h4>
 
-                                    <!-- Weirdness Level -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Weirdness Level
-                                        </label>
-                                        <div class="flex items-center space-x-4">
-                                            <input 
-                                                type="range" 
-                                                id="weirdnessLevel" 
-                                                min="1" 
-                                                max="10" 
-                                                value="5" 
-                                                class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                            >
-                                            <span class="text-sm font-mono text-gray-700 min-w-[4rem]" id="weirdnessValue">5 - Normal</span>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Adjust the level of weirdness in explanations</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Smoots</h5>
+                                                                                            <div class="text-lg font-bold text-red-600 font-mono" id="smootDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">MIT Bridge units</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Quick Weird Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Weird Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="smoot" data-to="meter">1 Smoot</button>
-                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="library_of_congress" data-to="byte">1 LoC</button>
-                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="elephant" data-to="kilogram">1 Elephant</button>
-                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="microcentury" data-to="second">1 μCentury</button>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Bananas</h5>
+                                                                                            <div class="text-lg font-bold text-yellow-600 font-mono" id="bananaDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Fruit measurement</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Football Fields</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="footballFieldDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">American football</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                </form>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Beard-seconds</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="beardSecondDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Facial hair growth</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Weird Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border-l-4 border-orange-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Weird Unit</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Converted result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-orange-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-orange-600 hover:text-orange-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                <!-- Fun Data & Time Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Fun Data & Time</h4>
 
-                                    <!-- Weird Unit Categories -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <!-- Fun Length Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Fun Length Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Smoots</h5>
-                                                    <div class="text-lg font-bold text-red-600 font-mono" id="smootDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">MIT Bridge units</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Bananas</h5>
-                                                    <div class="text-lg font-bold text-yellow-600 font-mono" id="bananaDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Fruit measurement</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Football Fields</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="footballFieldDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">American football</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Beard-seconds</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="beardSecondDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Facial hair growth</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Libraries of Congress</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="locDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Data storage unit</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Fun Data & Time Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Fun Data & Time</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Libraries of Congress</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="locDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Data storage unit</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Microcenturies</h5>
-                                                    <div class="text-lg font-bold text-indigo-600 font-mono" id="microcenturyDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Academic time unit</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Dog Years</h5>
-                                                    <div class="text-lg font-bold text-pink-600 font-mono" id="dogYearDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Canine aging scale</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Floppy Disks</h5>
-                                                    <div class="text-lg font-bold text-cyan-600 font-mono" id="floppyDiskDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Retro storage unit</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Microcenturies</h5>
+                                                                                            <div class="text-lg font-bold text-indigo-600 font-mono" id="microcenturyDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Academic time unit</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Weird Units Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Weird Units Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>1 Smoot</strong> = 5'7" (1.70m)</div>
-                                        <div><strong>1 Beard-second</strong> = 5 nanometers</div>
-                                        <div><strong>1 Library of Congress</strong> = 15 TB</div>
-                                        <div><strong>1 Microcentury</strong> = 52.6 minutes</div>
-                                        <div><strong>1 Sheppey</strong> = 7/8 mile</div>
-                                        <div><strong>1 Mickey</strong> = 1/200 inch</div>
-                                        <div><strong>1 Shake</strong> = 10 nanoseconds</div>
-                                        <div><strong>1 Jiffy</strong> = 1/60 second</div>
-                                        <div><strong>1 Elephant</strong> ≈ 6 tons</div>
-                                        <div><strong>1 Banana</strong> ≈ 7 inches</div>
-                                        <div><strong>1 Cheeseburger</strong> ≈ 540 calories</div>
-                                        <div><strong>1 Lightning Bolt</strong> ≈ 5 billion joules</div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Dog Years</h5>
+                                                                                            <div class="text-lg font-bold text-pink-600 font-mono" id="dogYearDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Canine aging scale</div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="p-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Floppy Disks</h5>
+                                                                                            <div class="text-lg font-bold text-cyan-600 font-mono" id="floppyDiskDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Retro storage unit</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Weird Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Weird Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="smoot" data-to="meter">1 Smoot</button>
+                                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="library_of_congress" data-to="byte">1 LoC</button>
+                                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="elephant" data-to="kilogram">1 Elephant</button>
+                                                            <button type="button" class="weird-example px-3 py-2 text-sm bg-gray-100 hover:bg-orange-100 text-gray-700 hover:text-orange-700 rounded-lg transition-colors" data-value="1" data-from="microcentury" data-to="second">1 μCentury</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Weird Units Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Weird Units Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>1 Smoot</strong> = 5'7" (1.70m)</div>
+                                                        <div><strong>1 Beard-second</strong> = 5 nanometers</div>
+                                                        <div><strong>1 Library of Congress</strong> = 15 TB</div>
+                                                        <div><strong>1 Microcentury</strong> = 52.6 minutes</div>
+                                                        <div><strong>1 Sheppey</strong> = 7/8 mile</div>
+                                                        <div><strong>1 Mickey</strong> = 1/200 inch</div>
+                                                        <div><strong>1 Shake</strong> = 10 nanoseconds</div>
+                                                        <div><strong>1 Jiffy</strong> = 1/60 second</div>
+                                                        <div><strong>1 Elephant</strong> ≈ 6 tons</div>
+                                                        <div><strong>1 Banana</strong> ≈ 7 inches</div>
+                                                        <div><strong>1 Cheeseburger</strong> ≈ 540 calories</div>
+                                                        <div><strong>1 Lightning Bolt</strong> ≈ 5 billion joules</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

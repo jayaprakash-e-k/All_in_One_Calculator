@@ -4,140 +4,150 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Advanced Volume Calculator</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Dimension Inputs -->
-                                    @foreach(['Length', 'Width', 'Height'] as $dimension)
-                                    @php $lower = strtolower($dimension); @endphp
-                                    <div class="space-y-2">
-                                        <label for="{{ $lower }}" class="block text-sm font-semibold text-gray-700">
-                                            {{ $dimension }}
-                                        </label>
-                                        <div class="flex gap-3">
-                                            <input 
-                                                type="number" 
-                                                id="{{ $lower }}" 
-                                                class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter {{ strtolower($dimension) }}"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <select 
-                                                id="{{ $lower }}Unit" 
-                                                class="w-24 px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <option value="mm">mm</option>
-                                                <option value="cm">cm</option>
-                                                <option value="m" selected>m</option>
-                                                <option value="km">km</option>
-                                                <option value="in">in</option>
-                                                <option value="ft">ft</option>
-                                                <option value="yd">yd</option>
-                                            </select>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Dimension Inputs -->
+                                                                            @foreach(['Length', 'Width', 'Height'] as $dimension)
+                                                                            @php $lower = strtolower($dimension); @endphp
+                                                                            <div class="space-y-2">
+                                                                                <label for="{{ $lower }}" class="block text-sm font-semibold text-gray-700">
+                                                                                    {{ $dimension }}
+                                                                                </label>
+                                                                                <div class="flex gap-3">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="{{ $lower }}" 
+                                                                                        class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter {{ strtolower($dimension) }}"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <select 
+                                                                                        id="{{ $lower }}Unit" 
+                                                                                        class="w-24 px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <option value="mm">mm</option>
+                                                                                        <option value="cm">cm</option>
+                                                                                        <option value="m" selected>m</option>
+                                                                                        <option value="km">km</option>
+                                                                                        <option value="in">in</option>
+                                                                                        <option value="ft">ft</option>
+                                                                                        <option value="yd">yd</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            @endforeach
+
+                                                                            <!-- Output Unit Selection -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="outputUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                    Output Unit
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="outputUnit" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="mm3">Cubic Millimeters (mm³)</option>
+                                                                                    <option value="cm3">Cubic Centimeters (cm³)</option>
+                                                                                    <option value="m3" selected>Cubic Meters (m³)</option>
+                                                                                    <option value="km3">Cubic Kilometers (km³)</option>
+                                                                                    <option value="ft3">Cubic Feet (ft³)</option>
+                                                                                    <option value="in3">Cubic Inches (in³)</option>
+                                                                                    <option value="yd3">Cubic Yards (yd³)</option>
+                                                                                    <option value="l">Liters (L)</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
-                                    @endforeach
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Calculated Volume</h3>
 
-                                    <!-- Output Unit Selection -->
-                                    <div class="space-y-2">
-                                        <label for="outputUnit" class="block text-sm font-semibold text-gray-700">
-                                            Output Unit
-                                        </label>
-                                        <select 
-                                            id="outputUnit" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="mm3">Cubic Millimeters (mm³)</option>
-                                            <option value="cm3">Cubic Centimeters (cm³)</option>
-                                            <option value="m3" selected>Cubic Meters (m³)</option>
-                                            <option value="km3">Cubic Kilometers (km³)</option>
-                                            <option value="ft3">Cubic Feet (ft³)</option>
-                                            <option value="in3">Cubic Inches (in³)</option>
-                                            <option value="yd3">Cubic Yards (yd³)</option>
-                                            <option value="l">Liters (L)</option>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Volume Result</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Calculated volume</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-indigo-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="unit-display">Select unit</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Calculated Volume</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1">Volume Result</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Calculated volume</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-indigo-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="unit-display">Select unit</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Common Conversions -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Cubic Meters</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="m3Output">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="litersOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Cubic Feet</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="ft3Output">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Metric Volume Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 m³ = 1000 L</div>
-                                        <div>• 1 m³ = 35.31 ft³</div>
-                                        <div>• 1 m³ = 1,000,000 cm³</div>
-                                        <div>• 1 m³ = 264.17 gallons</div>
+                                                                            <!-- Additional Common Conversions -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Cubic Meters</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="m3Output">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="litersOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Cubic Feet</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="ft3Output">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Metric Volume Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 m³ = 1000 L</div>
+                                                        <div>• 1 m³ = 35.31 ft³</div>
+                                                        <div>• 1 m³ = 1,000,000 cm³</div>
+                                                        <div>• 1 m³ = 264.17 gallons</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

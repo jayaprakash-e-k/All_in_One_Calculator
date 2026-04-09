@@ -1,3 +1,9 @@
+@props([
+    'title' => 'ConvertPro',
+    'description' => '',
+    'showFooter' => true,
+])
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +58,9 @@
         {{ $slot }}
     </main>
     
-    <x-footer />
+    @if($showFooter)
+        <x-footer />
+    @endif
 
     @stack('scripts')
     

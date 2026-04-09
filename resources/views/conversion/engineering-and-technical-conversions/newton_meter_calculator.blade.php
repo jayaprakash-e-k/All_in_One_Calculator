@@ -4,256 +4,269 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Professional Torque Calculator</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Torque Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter torque value"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnitDisplay">Nm</span>
-                                            </div>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Torque Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter torque value"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnitDisplay">Nm</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Unit Selection -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="space-y-2">
+                                                                                    <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                        Convert From
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="fromUnit" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <optgroup label="SI Units">
+                                                                                            <option value="uNm">Micronewton meter (µN·m)</option>
+                                                                                            <option value="mNm">Millinewton meter (mN·m)</option>
+                                                                                            <option value="Nm" selected>Newton meter (N·m)</option>
+                                                                                            <option value="kNm">Kilonewton meter (kN·m)</option>
+                                                                                            <option value="MNm">Meganewton meter (MN·m)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Metric Force Units">
+                                                                                            <option value="kgfm">Kilogram-force meter (kgf·m)</option>
+                                                                                            <option value="kgfcm">Kilogram-force cm (kgf·cm)</option>
+                                                                                            <option value="gfcm">Gram-force cm (gf·cm)</option>
+                                                                                            <option value="tfm_metric">Metric ton-force meter (tf·m)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Imperial Units">
+                                                                                            <option value="lbfft">Pound-force foot (lbf·ft)</option>
+                                                                                            <option value="lbfin">Pound-force inch (lbf·in)</option>
+                                                                                            <option value="ozfin">Ounce-force inch (ozf·in)</option>
+                                                                                            <option value="tfm_us">Ton-force meter (US tf·m)</option>
+                                                                                            <option value="tfm_uk">Ton-force meter (UK tf·m)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Other Units">
+                                                                                            <option value="pdlft">Poundal foot (pdl·ft)</option>
+                                                                                            <option value="dyncm">Dyne centimeter (dyn·cm)</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="space-y-2">
+                                                                                    <label for="toUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                        Convert To
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="toUnit" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <optgroup label="SI Units">
+                                                                                            <option value="uNm">Micronewton meter (µN·m)</option>
+                                                                                            <option value="mNm">Millinewton meter (mN·m)</option>
+                                                                                            <option value="Nm">Newton meter (N·m)</option>
+                                                                                            <option value="kNm">Kilonewton meter (kN·m)</option>
+                                                                                            <option value="MNm">Meganewton meter (MN·m)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Metric Force Units">
+                                                                                            <option value="kgfm">Kilogram-force meter (kgf·m)</option>
+                                                                                            <option value="kgfcm">Kilogram-force cm (kgf·cm)</option>
+                                                                                            <option value="gfcm">Gram-force cm (gf·cm)</option>
+                                                                                            <option value="tfm_metric">Metric ton-force meter (tf·m)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Imperial Units">
+                                                                                            <option value="lbfft" selected>Pound-force foot (lbf·ft)</option>
+                                                                                            <option value="lbfin">Pound-force inch (lbf·in)</option>
+                                                                                            <option value="ozfin">Ounce-force inch (ozf·in)</option>
+                                                                                            <option value="tfm_us">Ton-force meter (US tf·m)</option>
+                                                                                            <option value="tfm_uk">Ton-force meter (UK tf·m)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Other Units">
+                                                                                            <option value="pdlft">Poundal foot (pdl·ft)</option>
+                                                                                            <option value="dyncm">Dyne centimeter (dyn·cm)</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Scientific Notation Toggle -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Display Format
+                                                                                </label>
+                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="3" class="text-indigo-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">3 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-indigo-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="9" class="text-indigo-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">9 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="scientific" class="text-indigo-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Scientific</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Unit Swap Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="swapUnits"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                                                                    </svg>
+                                                                                    Swap Units
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Unit Selection -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="space-y-2">
-                                            <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
-                                                Convert From
-                                            </label>
-                                            <select 
-                                                id="fromUnit" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <optgroup label="SI Units">
-                                                    <option value="uNm">Micronewton meter (µN·m)</option>
-                                                    <option value="mNm">Millinewton meter (mN·m)</option>
-                                                    <option value="Nm" selected>Newton meter (N·m)</option>
-                                                    <option value="kNm">Kilonewton meter (kN·m)</option>
-                                                    <option value="MNm">Meganewton meter (MN·m)</option>
-                                                </optgroup>
-                                                <optgroup label="Metric Force Units">
-                                                    <option value="kgfm">Kilogram-force meter (kgf·m)</option>
-                                                    <option value="kgfcm">Kilogram-force cm (kgf·cm)</option>
-                                                    <option value="gfcm">Gram-force cm (gf·cm)</option>
-                                                    <option value="tfm_metric">Metric ton-force meter (tf·m)</option>
-                                                </optgroup>
-                                                <optgroup label="Imperial Units">
-                                                    <option value="lbfft">Pound-force foot (lbf·ft)</option>
-                                                    <option value="lbfin">Pound-force inch (lbf·in)</option>
-                                                    <option value="ozfin">Ounce-force inch (ozf·in)</option>
-                                                    <option value="tfm_us">Ton-force meter (US tf·m)</option>
-                                                    <option value="tfm_uk">Ton-force meter (UK tf·m)</option>
-                                                </optgroup>
-                                                <optgroup label="Other Units">
-                                                    <option value="pdlft">Poundal foot (pdl·ft)</option>
-                                                    <option value="dyncm">Dyne centimeter (dyn·cm)</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                        <div class="space-y-2">
-                                            <label for="toUnit" class="block text-sm font-semibold text-gray-700">
-                                                Convert To
-                                            </label>
-                                            <select 
-                                                id="toUnit" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <optgroup label="SI Units">
-                                                    <option value="uNm">Micronewton meter (µN·m)</option>
-                                                    <option value="mNm">Millinewton meter (mN·m)</option>
-                                                    <option value="Nm">Newton meter (N·m)</option>
-                                                    <option value="kNm">Kilonewton meter (kN·m)</option>
-                                                    <option value="MNm">Meganewton meter (MN·m)</option>
-                                                </optgroup>
-                                                <optgroup label="Metric Force Units">
-                                                    <option value="kgfm">Kilogram-force meter (kgf·m)</option>
-                                                    <option value="kgfcm">Kilogram-force cm (kgf·cm)</option>
-                                                    <option value="gfcm">Gram-force cm (gf·cm)</option>
-                                                    <option value="tfm_metric">Metric ton-force meter (tf·m)</option>
-                                                </optgroup>
-                                                <optgroup label="Imperial Units">
-                                                    <option value="lbfft" selected>Pound-force foot (lbf·ft)</option>
-                                                    <option value="lbfin">Pound-force inch (lbf·in)</option>
-                                                    <option value="ozfin">Ounce-force inch (ozf·in)</option>
-                                                    <option value="tfm_us">Ton-force meter (US tf·m)</option>
-                                                    <option value="tfm_uk">Ton-force meter (UK tf·m)</option>
-                                                </optgroup>
-                                                <optgroup label="Other Units">
-                                                    <option value="pdlft">Poundal foot (pdl·ft)</option>
-                                                    <option value="dyncm">Dyne centimeter (dyn·cm)</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Torque</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Target torque unit</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-indigo-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">lbf·ft</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Conversion Presets -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Newton Meter Conversions
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="Nm" data-to="lbfft">Nm → lbf·ft</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="lbfft" data-to="Nm">lbf·ft → Nm</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="kgfm" data-to="Nm">kgf·m → Nm</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="lbfin" data-to="Nm">lbf·in → Nm</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Common SI Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton meter</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="nmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilonewton meter</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="knmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">kgf·m</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="kgfmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Scientific Notation Toggle -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Display Format
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="3" class="text-indigo-600 focus:ring-indigo-500">
-                                                <span class="text-xs font-medium">3 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-indigo-600 focus:ring-indigo-500" checked>
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="9" class="text-indigo-600 focus:ring-indigo-500">
-                                                <span class="text-xs font-medium">9 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="scientific" class="text-indigo-600 focus:ring-indigo-500">
-                                                <span class="text-xs font-medium">Scientific</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Imperial Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">lbf·ft</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="lbfftOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">lbf·in</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="lbfinOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">dyn·cm</h4>
+                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="dyncmOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Unit Swap Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="swapUnits"
-                                            class="inline-flex items-center px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                                            </svg>
-                                            Swap Units
-                                        </button>
-                                    </div>
+                                                                            <!-- Engineering Scale Indicator -->
+                                                                            <div class="p-4 bg-gradient-to-r from-violet-50 to-purple-50 rounded-lg border border-violet-200">
+                                                                                <h4 class="text-sm font-semibold text-violet-800 mb-2 text-center">Engineering Scale</h4>
+                                                                                <div class="text-center">
+                                                                                    <div class="text-lg font-bold text-violet-700" id="engineeringScale">Enter torque value</div>
+                                                                                    <div class="text-xs text-violet-600 mt-1" id="scaleDescription">--</div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Torque</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Target torque unit</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-indigo-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">lbf·ft</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Common SI Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton meter</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="nmOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilonewton meter</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="knmOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">kgf·m</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="kgfmOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Imperial Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">lbf·ft</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="lbfftOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">lbf·in</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="lbfinOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">dyn·cm</h4>
-                                                <div class="text-lg font-bold text-yellow-600 font-mono" id="dyncmOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Engineering Scale Indicator -->
-                                    <div class="p-4 bg-gradient-to-r from-violet-50 to-purple-50 rounded-lg border border-violet-200">
-                                        <h4 class="text-sm font-semibold text-violet-800 mb-2 text-center">Engineering Scale</h4>
-                                        <div class="text-center">
-                                            <div class="text-lg font-bold text-violet-700" id="engineeringScale">Enter torque value</div>
-                                            <div class="text-xs text-violet-600 mt-1" id="scaleDescription">--</div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Conversion Formula -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Formula</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="conversionFormula">
-                                            Select units to see conversion formula
-                                        </div>
+                                                                            <!-- Conversion Formula -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Formula</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="conversionFormula">
+                                                                                    Select units to see conversion formula
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Newton Meter Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 Nm = 0.7376 lbf·ft</div>
-                                        <div>• 1 lbf·ft = 1.3558 Nm</div>
-                                        <div>• 1 kgf·m = 9.807 Nm</div>
-                                        <div>• 1 kNm = 1000 Nm</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Conversion Presets -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Newton Meter Conversions
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="Nm" data-to="lbfft">Nm → lbf·ft</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="lbfft" data-to="Nm">lbf·ft → Nm</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="kgfm" data-to="Nm">kgf·m → Nm</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-from="lbfin" data-to="Nm">lbf·in → Nm</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Newton Meter Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 Nm = 0.7376 lbf·ft</div>
+                                                        <div>• 1 lbf·ft = 1.3558 Nm</div>
+                                                        <div>• 1 kgf·m = 9.807 Nm</div>
+                                                        <div>• 1 kNm = 1000 Nm</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

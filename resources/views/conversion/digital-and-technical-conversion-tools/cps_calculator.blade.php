@@ -4,294 +4,310 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-pink-500 to-pink-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Frequency Analysis Calculator</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Calculation Method -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Calculation Method
-                                        </label>
-                                        <select 
-                                            id="calculationMethod" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="frequency_input" selected>Frequency Input (Hz/CPS)</option>
-                                            <option value="period_input">Period Input (seconds)</option>
-                                            <option value="rpm_input">RPM Input (revolutions/min)</option>
-                                            <option value="wavelength_input">Wavelength Input</option>
-                                            <option value="event_counting">Event Counting</option>
-                                            <option value="duty_cycle">Duty Cycle Analysis</option>
-                                        </select>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Calculation Method -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Calculation Method
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="calculationMethod" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="frequency_input" selected>Frequency Input (Hz/CPS)</option>
+                                                                                    <option value="period_input">Period Input (seconds)</option>
+                                                                                    <option value="rpm_input">RPM Input (revolutions/min)</option>
+                                                                                    <option value="wavelength_input">Wavelength Input</option>
+                                                                                    <option value="event_counting">Event Counting</option>
+                                                                                    <option value="duty_cycle">Duty Cycle Analysis</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Primary Input -->
+                                                                            <div class="space-y-2" id="primaryInputContainer">
+                                                                                <label for="primaryValue" class="block text-sm font-semibold text-gray-700" id="primaryLabel">
+                                                                                    Frequency (Hz)
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="primaryValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter frequency (e.g., 60)"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="primaryUnit">Hz</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500" id="primaryHint">Enter frequency value in hertz</p>
+                                                                            </div>
+
+                                                                            <!-- Secondary Input (for specific methods) -->
+                                                                            <div class="space-y-2" id="secondaryInputContainer" style="display: none;">
+                                                                                <label for="secondaryValue" class="block text-sm font-semibold text-gray-700" id="secondaryLabel">
+                                                                                    Additional Parameter
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="secondaryValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter value"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="secondaryUnit">unit</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500" id="secondaryHint">Enter additional parameter</p>
+                                                                            </div>
+
+                                                                            <!-- Wave Properties (for wavelength) -->
+                                                                            <div class="space-y-2" id="wavePropertiesContainer" style="display: none;">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Wave Type
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="waveType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="sound_air" selected>Sound in Air (343 m/s)</option>
+                                                                                    <option value="sound_water">Sound in Water (1500 m/s)</option>
+                                                                                    <option value="electromagnetic">Electromagnetic (3×10⁸ m/s)</option>
+                                                                                    <option value="seismic">Seismic Waves (6000 m/s)</option>
+                                                                                    <option value="custom">Custom Wave Speed</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Custom Wave Speed -->
+                                                                            <div class="space-y-2" id="customSpeedContainer" style="display: none;">
+                                                                                <label for="customSpeed" class="block text-sm font-semibold text-gray-700">
+                                                                                    Wave Speed
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="customSpeed" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                        placeholder="Enter wave speed"
+                                                                                        step="any"
+                                                                                        min="0"
+                                                                                        value="343"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">m/s</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Wave propagation speed in medium</p>
+                                                                            </div>
+
+                                                                            <!-- Application Type -->
+                                                                            <div class="space-y-2 hidden">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Application Type
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="applicationType" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="">General frequency analysis</option>
+                                                                                    <option value="electrical">Electrical/Power Systems</option>
+                                                                                    <option value="mechanical">Mechanical Systems</option>
+                                                                                    <option value="audio">Audio/Acoustics</option>
+                                                                                    <option value="radio">Radio/RF Communications</option>
+                                                                                    <option value="vibration">Vibration Analysis</option>
+                                                                                    <option value="timing">Timing/Clock Systems</option>
+                                                                                </select>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Frequency Analysis Results</h3>
 
-                                    <!-- Primary Input -->
-                                    <div class="space-y-2" id="primaryInputContainer">
-                                        <label for="primaryValue" class="block text-sm font-semibold text-gray-700" id="primaryLabel">
-                                            Frequency (Hz)
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="primaryValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter frequency (e.g., 60)"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="primaryUnit">Hz</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500" id="primaryHint">Enter frequency value in hertz</p>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border-l-4 border-pink-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Cycles Per Second</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Frequency calculation result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-pink-600 font-mono" id="output">--</div>
+                                                                                        <button class="text-xs text-pink-600 hover:text-pink-800 mt-1" id="copyResult">Copy Result</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Secondary Input (for specific methods) -->
-                                    <div class="space-y-2" id="secondaryInputContainer" style="display: none;">
-                                        <label for="secondaryValue" class="block text-sm font-semibold text-gray-700" id="secondaryLabel">
-                                            Additional Parameter
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="secondaryValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter value"
-                                                step="any"
-                                                min="0"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="secondaryUnit">unit</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500" id="secondaryHint">Enter additional parameter</p>
-                                    </div>
+                                                                            <!-- Frequency Units Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <!-- Basic Frequency Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Frequency Units</h4>
 
-                                    <!-- Wave Properties (for wavelength) -->
-                                    <div class="space-y-2" id="wavePropertiesContainer" style="display: none;">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Wave Type
-                                        </label>
-                                        <select 
-                                            id="waveType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="sound_air" selected>Sound in Air (343 m/s)</option>
-                                            <option value="sound_water">Sound in Water (1500 m/s)</option>
-                                            <option value="electromagnetic">Electromagnetic (3×10⁸ m/s)</option>
-                                            <option value="seismic">Seismic Waves (6000 m/s)</option>
-                                            <option value="custom">Custom Wave Speed</option>
-                                        </select>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Hertz (Hz)</h5>
+                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="hertzDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Cycles per second</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Custom Wave Speed -->
-                                    <div class="space-y-2" id="customSpeedContainer" style="display: none;">
-                                        <label for="customSpeed" class="block text-sm font-semibold text-gray-700">
-                                            Wave Speed
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="customSpeed" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-mono" 
-                                                placeholder="Enter wave speed"
-                                                step="any"
-                                                min="0"
-                                                value="343"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">m/s</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Wave propagation speed in medium</p>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Kilohertz (kHz)</h5>
+                                                                                            <div class="text-lg font-bold text-indigo-600 font-mono" id="kilohertzDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">1000 Hz</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                    <!-- Application Type -->
-                                    <div class="space-y-2 hidden">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Application Type
-                                        </label>
-                                        <select 
-                                            id="applicationType" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="">General frequency analysis</option>
-                                            <option value="electrical">Electrical/Power Systems</option>
-                                            <option value="mechanical">Mechanical Systems</option>
-                                            <option value="audio">Audio/Acoustics</option>
-                                            <option value="radio">Radio/RF Communications</option>
-                                            <option value="vibration">Vibration Analysis</option>
-                                            <option value="timing">Timing/Clock Systems</option>
-                                        </select>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Megahertz (MHz)</h5>
+                                                                                            <div class="text-lg font-bold text-purple-600 font-mono" id="megahertzDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">1,000,000 Hz</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Quick CPS Examples -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Frequency Examples
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="60" data-method="frequency_input">60 Hz</button>
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="1000" data-method="frequency_input">1 kHz</button>
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="0.0167" data-method="period_input">1 min</button>
-                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="3600" data-method="rpm_input">3600 RPM</button>
-                                        </div>
-                                    </div>
+                                                                                <!-- Time Units -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Time Parameters</h4>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Period</h5>
+                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="periodDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Time per cycle</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                </form>
+                                                                                    <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Angular Frequency</h5>
+                                                                                            <div class="text-lg font-bold text-emerald-600 font-mono" id="angularFreqDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Radians per second</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Frequency Analysis Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border-l-4 border-pink-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Cycles Per Second</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Frequency calculation result</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-pink-600 font-mono" id="output">--</div>
-                                                <button class="text-xs text-pink-600 hover:text-pink-800 mt-1" id="copyResult">Copy Result</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">RPM</h5>
+                                                                                            <div class="text-lg font-bold text-teal-600 font-mono" id="rpmDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Revolutions per minute</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
 
-                                    <!-- Frequency Units Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <!-- Basic Frequency Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Frequency Units</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Hertz (Hz)</h5>
-                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="hertzDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Cycles per second</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-l-4 border-indigo-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Kilohertz (kHz)</h5>
-                                                    <div class="text-lg font-bold text-indigo-600 font-mono" id="kilohertzDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">1000 Hz</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Megahertz (MHz)</h5>
-                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="megahertzDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">1,000,000 Hz</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                <!-- Wave Properties -->
+                                                                                <div class="space-y-3">
+                                                                                    <h4 class="font-semibold text-gray-700 text-center">Wave Properties</h4>
 
-                                        <!-- Time Units -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Time Parameters</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Period</h5>
-                                                    <div class="text-lg font-bold text-green-600 font-mono" id="periodDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Time per cycle</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg border-l-4 border-emerald-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Angular Frequency</h5>
-                                                    <div class="text-lg font-bold text-emerald-600 font-mono" id="angularFreqDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Radians per second</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">RPM</h5>
-                                                    <div class="text-lg font-bold text-teal-600 font-mono" id="rpmDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Revolutions per minute</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Wavelength</h5>
+                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="wavelengthDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Distance per cycle</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                        <!-- Wave Properties -->
-                                        <div class="space-y-3">
-                                            <h4 class="font-semibold text-gray-700 text-center">Wave Properties</h4>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Wavelength</h5>
-                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="wavelengthDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Distance per cycle</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Wave Number</h5>
-                                                    <div class="text-lg font-bold text-red-600 font-mono" id="waveNumberDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Cycles per meter</div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                                <div class="text-center">
-                                                    <h5 class="text-sm font-semibold text-gray-700 mb-1">Wave Speed</h5>
-                                                    <div class="text-lg font-bold text-yellow-600 font-mono" id="waveSpeedDisplay">--</div>
-                                                    <div class="text-xs text-gray-500 mt-1">Propagation velocity</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-red-50 to-pink-50 rounded-lg border-l-4 border-red-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Wave Number</h5>
+                                                                                            <div class="text-lg font-bold text-red-600 font-mono" id="waveNumberDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Cycles per meter</div>
+                                                                                        </div>
+                                                                                    </div>
 
-                                <!-- Reference Information -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Frequency Reference</h4>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                        <div><strong>1 Hz</strong> = 1 cycle/second</div>
-                                        <div><strong>1 kHz</strong> = 1,000 Hz</div>
-                                        <div><strong>1 MHz</strong> = 1,000,000 Hz</div>
-                                        <div><strong>1 GHz</strong> = 1,000,000,000 Hz</div>
-                                        <div><strong>Power line</strong> = 50/60 Hz</div>
-                                        <div><strong>Audio range</strong> = 20 Hz - 20 kHz</div>
-                                        <div><strong>AM radio</strong> = 0.5-1.6 MHz</div>
-                                        <div><strong>FM radio</strong> = 88-108 MHz</div>
-                                        <div><strong>WiFi 2.4G</strong> = 2.4 GHz</div>
-                                        <div><strong>Microwave</strong> = 2.45 GHz</div>
-                                        <div><strong>Visible light</strong> = 400-700 THz</div>
-                                        <div><strong>CPU clock</strong> = 1-5 GHz</div>
+                                                                                    <div class="p-3 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                        <div class="text-center">
+                                                                                            <h5 class="text-sm font-semibold text-gray-700 mb-1">Wave Speed</h5>
+                                                                                            <div class="text-lg font-bold text-yellow-600 font-mono" id="waveSpeedDisplay">--</div>
+                                                                                            <div class="text-xs text-gray-500 mt-1">Propagation velocity</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                    </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick CPS Examples -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Frequency Examples
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="60" data-method="frequency_input">60 Hz</button>
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="1000" data-method="frequency_input">1 kHz</button>
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="0.0167" data-method="period_input">1 min</button>
+                                                            <button type="button" class="example-btn px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-value="3600" data-method="rpm_input">3600 RPM</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Reference Information -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Frequency Reference</h4>
+                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                                                        <div><strong>1 Hz</strong> = 1 cycle/second</div>
+                                                        <div><strong>1 kHz</strong> = 1,000 Hz</div>
+                                                        <div><strong>1 MHz</strong> = 1,000,000 Hz</div>
+                                                        <div><strong>1 GHz</strong> = 1,000,000,000 Hz</div>
+                                                        <div><strong>Power line</strong> = 50/60 Hz</div>
+                                                        <div><strong>Audio range</strong> = 20 Hz - 20 kHz</div>
+                                                        <div><strong>AM radio</strong> = 0.5-1.6 MHz</div>
+                                                        <div><strong>FM radio</strong> = 88-108 MHz</div>
+                                                        <div><strong>WiFi 2.4G</strong> = 2.4 GHz</div>
+                                                        <div><strong>Microwave</strong> = 2.45 GHz</div>
+                                                        <div><strong>Visible light</strong> = 400-700 THz</div>
+                                                        <div><strong>CPU clock</strong> = 1-5 GHz</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

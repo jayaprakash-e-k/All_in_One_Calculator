@@ -4,343 +4,356 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">GPS & Coordinate System Converter</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Coordinate Format Selection -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Input Format
-                                        </label>
-                                        <select 
-                                            id="inputFormat" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="decimal">Decimal Degrees (DD)</option>
-                                            <option value="dms">Degrees Minutes Seconds (DMS)</option>
-                                            <option value="dm">Degrees Minutes (DM)</option>
-                                            <option value="utm">UTM Coordinates</option>
-                                            <option value="mgrs">MGRS (Military Grid)</option>
-                                            <option value="pluscode">Plus Codes (Open Location Code)</option>
-                                            <option value="maidenhead">Maidenhead Locator System</option>
-                                            <option value="geohash">Geohash</option>
-                                        </select>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Coordinate Format Selection -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Input Format
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="inputFormat" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="decimal">Decimal Degrees (DD)</option>
+                                                                                    <option value="dms">Degrees Minutes Seconds (DMS)</option>
+                                                                                    <option value="dm">Degrees Minutes (DM)</option>
+                                                                                    <option value="utm">UTM Coordinates</option>
+                                                                                    <option value="mgrs">MGRS (Military Grid)</option>
+                                                                                    <option value="pluscode">Plus Codes (Open Location Code)</option>
+                                                                                    <option value="maidenhead">Maidenhead Locator System</option>
+                                                                                    <option value="geohash">Geohash</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Input Fields (Dynamic based on format) -->
+                                                                            <div id="inputFields" class="space-y-4">
+
+                                                                                <!-- Decimal Degrees Input -->
+                                                                                <div id="decimalInput" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="latitude" class="block text-sm font-semibold text-gray-700">Latitude</label>
+                                                                                        <div class="relative">
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="latitude" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                placeholder="e.g., 40.7589"
+                                                                                                step="any"
+                                                                                                min="-90"
+                                                                                                max="90"
+                                                                                            >
+                                                                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                                <span class="text-gray-500 text-sm font-medium">°</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <p class="text-xs text-gray-500">Range: -90° to +90°</p>
+                                                                                    </div>
+                                                                                    <div class="space-y-2">
+                                                                                        <label for="longitude" class="block text-sm font-semibold text-gray-700">Longitude</label>
+                                                                                        <div class="relative">
+                                                                                            <input 
+                                                                                                type="number" 
+                                                                                                id="longitude" 
+                                                                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                placeholder="e.g., -73.9851"
+                                                                                                step="any"
+                                                                                                min="-180"
+                                                                                                max="180"
+                                                                                            >
+                                                                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                                <span class="text-gray-500 text-sm font-medium">°</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <p class="text-xs text-gray-500">Range: -180° to +180°</p>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- DMS Input -->
+                                                                                <div id="dmsInput" class="space-y-4" style="display: none;">
+                                                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                        <!-- Latitude DMS -->
+                                                                                        <div class="space-y-2">
+                                                                                            <label class="block text-sm font-semibold text-gray-700">Latitude DMS</label>
+                                                                                            <div class="grid grid-cols-3 gap-2">
+                                                                                                <input type="number" id="latDeg" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="40" min="0" max="90">
+                                                                                                <input type="number" id="latMin" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="45" min="0" max="59">
+                                                                                                <input type="number" id="latSec" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="32.04" min="0" max="59.999" step="any">
+                                                                                            </div>
+                                                                                            <div class="grid grid-cols-2 gap-2">
+                                                                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
+                                                                                                    <input type="radio" name="latDir" value="N" class="text-emerald-600" checked>
+                                                                                                    <span class="text-sm">North</span>
+                                                                                                </label>
+                                                                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
+                                                                                                    <input type="radio" name="latDir" value="S" class="text-emerald-600">
+                                                                                                    <span class="text-sm">South</span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!-- Longitude DMS -->
+                                                                                        <div class="space-y-2">
+                                                                                            <label class="block text-sm font-semibold text-gray-700">Longitude DMS</label>
+                                                                                            <div class="grid grid-cols-3 gap-2">
+                                                                                                <input type="number" id="lngDeg" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="73" min="0" max="180">
+                                                                                                <input type="number" id="lngMin" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="59" min="0" max="59">
+                                                                                                <input type="number" id="lngSec" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="6.36" min="0" max="59.999" step="any">
+                                                                                            </div>
+                                                                                            <div class="grid grid-cols-2 gap-2">
+                                                                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
+                                                                                                    <input type="radio" name="lngDir" value="E" class="text-emerald-600" checked>
+                                                                                                    <span class="text-sm">East</span>
+                                                                                                </label>
+                                                                                                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
+                                                                                                    <input type="radio" name="lngDir" value="W" class="text-emerald-600">
+                                                                                                    <span class="text-sm">West</span>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- UTM Input -->
+                                                                                <div id="utmInput" class="space-y-4" style="display: none;">
+                                                                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="utmZoneInput" class="block text-sm font-semibold text-gray-700">UTM Zone</label>
+                                                                                            <select id="utmZoneInput" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all bg-white">
+                                                                                                <!-- Will be populated by JavaScript -->
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="utmEasting" class="block text-sm font-semibold text-gray-700">Easting (m)</label>
+                                                                                            <input type="number" id="utmEasting" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="583960" min="0" max="999999">
+                                                                                        </div>
+                                                                                        <div class="space-y-2">
+                                                                                            <label for="utmNorthing" class="block text-sm font-semibold text-gray-700">Northing (m)</label>
+                                                                                            <input type="number" id="utmNorthing" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 transition-all" placeholder="4511322" min="0" max="9999999">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <!-- Single Text Input for other formats -->
+                                                                                <div id="textInput" class="space-y-2" style="display: none;">
+                                                                                    <label for="coordinateText" class="block text-sm font-semibold text-gray-700" id="textInputLabel">Coordinate String</label>
+                                                                                    <input 
+                                                                                        type="text" 
+                                                                                        id="coordinateText" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter coordinate string"
+                                                                                    >
+                                                                                    <p class="text-xs text-gray-500" id="textInputHelp">Enter the coordinate in the selected format</p>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <!-- Coordinate Precision -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Output Precision
+                                                                                </label>
+                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="2" class="text-emerald-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">2 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="4" class="text-emerald-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">4 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-emerald-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="auto" class="text-emerald-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Auto</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Sample Locations -->
+                                                                            
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Coordinate Conversions</h3>
 
-                                    <!-- Input Fields (Dynamic based on format) -->
-                                    <div id="inputFields" class="space-y-4">
-                                        
-                                        <!-- Decimal Degrees Input -->
-                                        <div id="decimalInput" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <div class="space-y-2">
-                                                <label for="latitude" class="block text-sm font-semibold text-gray-700">Latitude</label>
-                                                <div class="relative">
-                                                    <input 
-                                                        type="number" 
-                                                        id="latitude" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                        placeholder="e.g., 40.7589"
-                                                        step="any"
-                                                        min="-90"
-                                                        max="90"
-                                                    >
-                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                        <span class="text-gray-500 text-sm font-medium">°</span>
-                                                    </div>
-                                                </div>
-                                                <p class="text-xs text-gray-500">Range: -90° to +90°</p>
-                                            </div>
-                                            <div class="space-y-2">
-                                                <label for="longitude" class="block text-sm font-semibold text-gray-700">Longitude</label>
-                                                <div class="relative">
-                                                    <input 
-                                                        type="number" 
-                                                        id="longitude" 
-                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                        placeholder="e.g., -73.9851"
-                                                        step="any"
-                                                        min="-180"
-                                                        max="180"
-                                                    >
-                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                        <span class="text-gray-500 text-sm font-medium">°</span>
-                                                    </div>
-                                                </div>
-                                                <p class="text-xs text-gray-500">Range: -180° to +180°</p>
-                                            </div>
-                                        </div>
+                                                                            <!-- All Coordinate Formats -->
+                                                                            <div class="grid grid-cols-1 gap-4">
+                                                                                <!-- Decimal Degrees -->
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal Degrees (DD)</h4>
+                                                                                        <button class="copy-btn text-xs text-blue-600 hover:text-blue-800" data-target="ddOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-blue-600 font-mono" id="ddOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Most common GPS format</div>
+                                                                                </div>
 
-                                        <!-- DMS Input -->
-                                        <div id="dmsInput" class="space-y-4" style="display: none;">
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <!-- Latitude DMS -->
-                                                <div class="space-y-2">
-                                                    <label class="block text-sm font-semibold text-gray-700">Latitude DMS</label>
-                                                    <div class="grid grid-cols-3 gap-2">
-                                                        <input type="number" id="latDeg" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="40" min="0" max="90">
-                                                        <input type="number" id="latMin" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="45" min="0" max="59">
-                                                        <input type="number" id="latSec" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="32.04" min="0" max="59.999" step="any">
-                                                    </div>
-                                                    <div class="grid grid-cols-2 gap-2">
-                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
-                                                            <input type="radio" name="latDir" value="N" class="text-emerald-600" checked>
-                                                            <span class="text-sm">North</span>
-                                                        </label>
-                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
-                                                            <input type="radio" name="latDir" value="S" class="text-emerald-600">
-                                                            <span class="text-sm">South</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <!-- Longitude DMS -->
-                                                <div class="space-y-2">
-                                                    <label class="block text-sm font-semibold text-gray-700">Longitude DMS</label>
-                                                    <div class="grid grid-cols-3 gap-2">
-                                                        <input type="number" id="lngDeg" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="73" min="0" max="180">
-                                                        <input type="number" id="lngMin" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="59" min="0" max="59">
-                                                        <input type="number" id="lngSec" class="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="6.36" min="0" max="59.999" step="any">
-                                                    </div>
-                                                    <div class="grid grid-cols-2 gap-2">
-                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
-                                                            <input type="radio" name="lngDir" value="E" class="text-emerald-600" checked>
-                                                            <span class="text-sm">East</span>
-                                                        </label>
-                                                        <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg cursor-pointer">
-                                                            <input type="radio" name="lngDir" value="W" class="text-emerald-600">
-                                                            <span class="text-sm">West</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                <!-- Degrees Minutes Seconds -->
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Degrees Minutes Seconds (DMS)</h4>
+                                                                                        <button class="copy-btn text-xs text-green-600 hover:text-green-800" data-target="dmsOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-green-600 font-mono" id="dmsOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Traditional navigation format</div>
+                                                                                </div>
 
-                                        <!-- UTM Input -->
-                                        <div id="utmInput" class="space-y-4" style="display: none;">
-                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                <div class="space-y-2">
-                                                    <label for="utmZoneInput" class="block text-sm font-semibold text-gray-700">UTM Zone</label>
-                                                    <select id="utmZoneInput" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all bg-white">
-                                                        <!-- Will be populated by JavaScript -->
-                                                    </select>
-                                                </div>
-                                                <div class="space-y-2">
-                                                    <label for="utmEasting" class="block text-sm font-semibold text-gray-700">Easting (m)</label>
-                                                    <input type="number" id="utmEasting" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="583960" min="0" max="999999">
-                                                </div>
-                                                <div class="space-y-2">
-                                                    <label for="utmNorthing" class="block text-sm font-semibold text-gray-700">Northing (m)</label>
-                                                    <input type="number" id="utmNorthing" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 transition-all" placeholder="4511322" min="0" max="9999999">
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                <!-- Degrees Minutes -->
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Degrees Minutes (DM)</h4>
+                                                                                        <button class="copy-btn text-xs text-purple-600 hover:text-purple-800" data-target="dmOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-purple-600 font-mono" id="dmOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Marine & aviation format</div>
+                                                                                </div>
 
-                                        <!-- Single Text Input for other formats -->
-                                        <div id="textInput" class="space-y-2" style="display: none;">
-                                            <label for="coordinateText" class="block text-sm font-semibold text-gray-700" id="textInputLabel">Coordinate String</label>
-                                            <input 
-                                                type="text" 
-                                                id="coordinateText" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter coordinate string"
-                                            >
-                                            <p class="text-xs text-gray-500" id="textInputHelp">Enter the coordinate in the selected format</p>
-                                        </div>
+                                                                                <!-- UTM -->
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">UTM Coordinates</h4>
+                                                                                        <button class="copy-btn text-xs text-orange-600 hover:text-orange-800" data-target="utmOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-orange-600 font-mono" id="utmOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Universal Transverse Mercator</div>
+                                                                                </div>
 
-                                    </div>
+                                                                                <!-- MGRS -->
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">MGRS (Military Grid)</h4>
+                                                                                        <button class="copy-btn text-xs text-cyan-600 hover:text-cyan-800" data-target="mgrsOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-cyan-600 font-mono" id="mgrsOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Military Grid Reference System</div>
+                                                                                </div>
 
-                                    <!-- Coordinate Precision -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Output Precision
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="2" class="text-emerald-600 focus:ring-emerald-500">
-                                                <span class="text-xs font-medium">2 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="4" class="text-emerald-600 focus:ring-emerald-500">
-                                                <span class="text-xs font-medium">4 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-emerald-600 focus:ring-emerald-500" checked>
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-emerald-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="auto" class="text-emerald-600 focus:ring-emerald-500">
-                                                <span class="text-xs font-medium">Auto</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                                <!-- Plus Codes -->
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Plus Codes (Open Location Code)</h4>
+                                                                                        <button class="copy-btn text-xs text-yellow-600 hover:text-yellow-800" data-target="plusCodeOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-yellow-600 font-mono" id="plusCodeOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Google's address system</div>
+                                                                                </div>
 
-                                    <!-- Sample Locations -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Sample Locations
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="40.7589" data-lng="-73.9851">NYC</button>
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="51.5074" data-lng="-0.1278">London</button>
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="35.6762" data-lng="139.6503">Tokyo</button>
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="-33.8688" data-lng="151.2093">Sydney</button>
-                                        </div>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="48.8566" data-lng="2.3522">Paris</button>
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="55.7558" data-lng="37.6176">Moscow</button>
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="-34.6037" data-lng="-58.3816">Buenos Aires</button>
-                                            <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="1.3521" data-lng="103.8198">Singapore</button>
-                                        </div>
-                                    </div>
+                                                                                <!-- Maidenhead -->
+                                                                                <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Maidenhead Locator</h4>
+                                                                                        <button class="copy-btn text-xs text-pink-600 hover:text-pink-800" data-target="maidenheadOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-pink-600 font-mono" id="maidenheadOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Amateur radio grid system</div>
+                                                                                </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
+                                                                                <!-- Geohash -->
+                                                                                <div class="p-4 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
+                                                                                    <div class="flex justify-between items-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Geohash</h4>
+                                                                                        <button class="copy-btn text-xs text-teal-600 hover:text-teal-800" data-target="geohashOutput">Copy</button>
+                                                                                    </div>
+                                                                                    <div class="text-lg font-bold text-teal-600 font-mono" id="geohashOutput">--</div>
+                                                                                    <div class="text-xs text-gray-500 mt-1">Base32 geocoding system</div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Coordinate Conversions</h3>
-                                    
-                                    <!-- All Coordinate Formats -->
-                                    <div class="grid grid-cols-1 gap-4">
-                                        <!-- Decimal Degrees -->
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal Degrees (DD)</h4>
-                                                <button class="copy-btn text-xs text-blue-600 hover:text-blue-800" data-target="ddOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-blue-600 font-mono" id="ddOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Most common GPS format</div>
-                                        </div>
-
-                                        <!-- Degrees Minutes Seconds -->
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Degrees Minutes Seconds (DMS)</h4>
-                                                <button class="copy-btn text-xs text-green-600 hover:text-green-800" data-target="dmsOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-green-600 font-mono" id="dmsOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Traditional navigation format</div>
-                                        </div>
-
-                                        <!-- Degrees Minutes -->
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Degrees Minutes (DM)</h4>
-                                                <button class="copy-btn text-xs text-purple-600 hover:text-purple-800" data-target="dmOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-purple-600 font-mono" id="dmOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Marine & aviation format</div>
-                                        </div>
-
-                                        <!-- UTM -->
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">UTM Coordinates</h4>
-                                                <button class="copy-btn text-xs text-orange-600 hover:text-orange-800" data-target="utmOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-orange-600 font-mono" id="utmOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Universal Transverse Mercator</div>
-                                        </div>
-
-                                        <!-- MGRS -->
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">MGRS (Military Grid)</h4>
-                                                <button class="copy-btn text-xs text-cyan-600 hover:text-cyan-800" data-target="mgrsOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-cyan-600 font-mono" id="mgrsOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Military Grid Reference System</div>
-                                        </div>
-
-                                        <!-- Plus Codes -->
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Plus Codes (Open Location Code)</h4>
-                                                <button class="copy-btn text-xs text-yellow-600 hover:text-yellow-800" data-target="plusCodeOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-yellow-600 font-mono" id="plusCodeOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Google's address system</div>
-                                        </div>
-
-                                        <!-- Maidenhead -->
-                                        <div class="p-4 bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg border-l-4 border-pink-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Maidenhead Locator</h4>
-                                                <button class="copy-btn text-xs text-pink-600 hover:text-pink-800" data-target="maidenheadOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-pink-600 font-mono" id="maidenheadOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Amateur radio grid system</div>
-                                        </div>
-
-                                        <!-- Geohash -->
-                                        <div class="p-4 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg border-l-4 border-teal-500">
-                                            <div class="flex justify-between items-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Geohash</h4>
-                                                <button class="copy-btn text-xs text-teal-600 hover:text-teal-800" data-target="geohashOutput">Copy</button>
-                                            </div>
-                                            <div class="text-lg font-bold text-teal-600 font-mono" id="geohashOutput">--</div>
-                                            <div class="text-xs text-gray-500 mt-1">Base32 geocoding system</div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Location Information -->
-                                    <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
-                                        <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Location Information</h4>
-                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Hemisphere:</span>
-                                                <span class="font-mono text-indigo-700" id="hemisphere">--</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">UTM Zone:</span>
-                                                <span class="font-mono text-indigo-700" id="utmZone">--</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <span class="text-gray-600 block">Time Zone:</span>
-                                                <span class="font-mono text-indigo-700" id="timeZone">--</span>
-                                            </div>
-                                        </div>
+                                                                            <!-- Location Information -->
+                                                                            <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
+                                                                                <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Location Information</h4>
+                                                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Hemisphere:</span>
+                                                                                        <span class="font-mono text-indigo-700" id="hemisphere">--</span>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">UTM Zone:</span>
+                                                                                        <span class="font-mono text-indigo-700" id="utmZone">--</span>
+                                                                                    </div>
+                                                                                    <div class="text-center">
+                                                                                        <span class="text-gray-600 block">Time Zone:</span>
+                                                                                        <span class="font-mono text-indigo-700" id="timeZone">--</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Coordinate System Reference</h4>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• DD: Decimal degrees (±180°)</div>
-                                        <div>• DMS: Degrees° Minutes' Seconds"</div>
-                                        <div>• UTM: Universal Transverse Mercator</div>
-                                        <div>• MGRS: Military Grid Reference System</div>
-                                        <div>• Plus Codes: Open Location Code (Google)</div>
-                                        <div>• Maidenhead: Amateur radio grid locator</div>
-                                        <div>• Geohash: Base32 hierarchical grid</div>
-                                        <div>• All formats support WGS84 datum</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="space-y-2">
+                                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                                    Sample Locations
+                                                                                                </label>
+                                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="40.7589" data-lng="-73.9851">NYC</button>
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="51.5074" data-lng="-0.1278">London</button>
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="35.6762" data-lng="139.6503">Tokyo</button>
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="-33.8688" data-lng="151.2093">Sydney</button>
+                                                                                                </div>
+                                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="48.8566" data-lng="2.3522">Paris</button>
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="55.7558" data-lng="37.6176">Moscow</button>
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="-34.6037" data-lng="-58.3816">Buenos Aires</button>
+                                                                                                    <button type="button" class="sample-location px-3 py-2 text-sm bg-gray-100 hover:bg-emerald-100 text-gray-700 hover:text-emerald-700 rounded-lg transition-colors" data-lat="1.3521" data-lng="103.8198">Singapore</button>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Coordinate System Reference</h4>
+                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• DD: Decimal degrees (±180°)</div>
+                                                        <div>• DMS: Degrees° Minutes' Seconds"</div>
+                                                        <div>• UTM: Universal Transverse Mercator</div>
+                                                        <div>• MGRS: Military Grid Reference System</div>
+                                                        <div>• Plus Codes: Open Location Code (Google)</div>
+                                                        <div>• Maidenhead: Amateur radio grid locator</div>
+                                                        <div>• Geohash: Base32 hierarchical grid</div>
+                                                        <div>• All formats support WGS84 datum</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

@@ -4,243 +4,256 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-pink-500 to-pink-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Imperial ↔ SI Force Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="inputValue" class="block text-sm font-semibold text-gray-700">
-                                            Enter Force Value
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="inputValue" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter force value"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium" id="inputUnitDisplay">lbf</span>
-                                            </div>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Force Value
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="inputValue" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter force value"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium" id="inputUnitDisplay">lbf</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Unit Selection -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="space-y-2">
+                                                                                    <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                        Convert From
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="fromUnit" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <optgroup label="Imperial Units">
+                                                                                            <option value="lbf" selected>Pound-force (lbf)</option>
+                                                                                            <option value="ozf">Ounce-force (ozf)</option>
+                                                                                            <option value="kip">Kip-force (kip)</option>
+                                                                                            <option value="tonfUS">Ton-force (US)</option>
+                                                                                            <option value="poundal">Poundal (pdl)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="SI Units">
+                                                                                            <option value="N">Newton (N)</option>
+                                                                                            <option value="kN">Kilonewton (kN)</option>
+                                                                                            <option value="MN">Meganewton (MN)</option>
+                                                                                            <option value="mN">Millinewton (mN)</option>
+                                                                                            <option value="µN">Micronewton (µN)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Other Units">
+                                                                                            <option value="kgf">Kilogram-force (kgf)</option>
+                                                                                            <option value="gf">Gram-force (gf)</option>
+                                                                                            <option value="dy">Dyne (dyn)</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="space-y-2">
+                                                                                    <label for="toUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                        Convert To
+                                                                                    </label>
+                                                                                    <select 
+                                                                                        id="toUnit" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    >
+                                                                                        <optgroup label="Imperial Units">
+                                                                                            <option value="lbf">Pound-force (lbf)</option>
+                                                                                            <option value="ozf">Ounce-force (ozf)</option>
+                                                                                            <option value="kip">Kip-force (kip)</option>
+                                                                                            <option value="tonfUS">Ton-force (US)</option>
+                                                                                            <option value="poundal">Poundal (pdl)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="SI Units">
+                                                                                            <option value="N" selected>Newton (N)</option>
+                                                                                            <option value="kN">Kilonewton (kN)</option>
+                                                                                            <option value="MN">Meganewton (MN)</option>
+                                                                                            <option value="mN">Millinewton (mN)</option>
+                                                                                            <option value="µN">Micronewton (µN)</option>
+                                                                                        </optgroup>
+                                                                                        <optgroup label="Other Units">
+                                                                                            <option value="kgf">Kilogram-force (kgf)</option>
+                                                                                            <option value="gf">Gram-force (gf)</option>
+                                                                                            <option value="dy">Dyne (dyn)</option>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Precision Level -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Precision Level
+                                                                                </label>
+                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="2" class="text-pink-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">2 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="4" class="text-pink-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">4 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-pink-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="auto" class="text-pink-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Auto</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Unit Swap Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="swapUnits"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                                                                    </svg>
+                                                                                    Swap Units
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Unit Selection -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="space-y-2">
-                                            <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
-                                                Convert From
-                                            </label>
-                                            <select 
-                                                id="fromUnit" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <optgroup label="Imperial Units">
-                                                    <option value="lbf" selected>Pound-force (lbf)</option>
-                                                    <option value="ozf">Ounce-force (ozf)</option>
-                                                    <option value="kip">Kip-force (kip)</option>
-                                                    <option value="tonfUS">Ton-force (US)</option>
-                                                    <option value="poundal">Poundal (pdl)</option>
-                                                </optgroup>
-                                                <optgroup label="SI Units">
-                                                    <option value="N">Newton (N)</option>
-                                                    <option value="kN">Kilonewton (kN)</option>
-                                                    <option value="MN">Meganewton (MN)</option>
-                                                    <option value="mN">Millinewton (mN)</option>
-                                                    <option value="µN">Micronewton (µN)</option>
-                                                </optgroup>
-                                                <optgroup label="Other Units">
-                                                    <option value="kgf">Kilogram-force (kgf)</option>
-                                                    <option value="gf">Gram-force (gf)</option>
-                                                    <option value="dy">Dyne (dyn)</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                        <div class="space-y-2">
-                                            <label for="toUnit" class="block text-sm font-semibold text-gray-700">
-                                                Convert To
-                                            </label>
-                                            <select 
-                                                id="toUnit" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-pink-500 focus:ring-2 focus:ring-pink-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                            >
-                                                <optgroup label="Imperial Units">
-                                                    <option value="lbf">Pound-force (lbf)</option>
-                                                    <option value="ozf">Ounce-force (ozf)</option>
-                                                    <option value="kip">Kip-force (kip)</option>
-                                                    <option value="tonfUS">Ton-force (US)</option>
-                                                    <option value="poundal">Poundal (pdl)</option>
-                                                </optgroup>
-                                                <optgroup label="SI Units">
-                                                    <option value="N" selected>Newton (N)</option>
-                                                    <option value="kN">Kilonewton (kN)</option>
-                                                    <option value="MN">Meganewton (MN)</option>
-                                                    <option value="mN">Millinewton (mN)</option>
-                                                    <option value="µN">Micronewton (µN)</option>
-                                                </optgroup>
-                                                <optgroup label="Other Units">
-                                                    <option value="kgf">Kilogram-force (kgf)</option>
-                                                    <option value="gf">Gram-force (gf)</option>
-                                                    <option value="dy">Dyne (dyn)</option>
-                                                </optgroup>
-                                            </select>
-                                        </div>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border-l-4 border-pink-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Force</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Target force unit</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-pink-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">N</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Conversion Presets -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Force Conversions
-                                        </label>
-                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="lbf" data-to="N">lbf → N</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="N" data-to="lbf">N → lbf</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="kgf" data-to="lbf">kgf → lbf</button>
-                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="kip" data-to="kN">kip → kN</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Imperial vs SI Comparison -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Pound-force</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="lbfOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="newtonOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Precision Level -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Precision Level
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="2" class="text-pink-600 focus:ring-pink-500">
-                                                <span class="text-xs font-medium">2 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="4" class="text-pink-600 focus:ring-pink-500" checked>
-                                                <span class="text-xs font-medium">4 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-pink-600 focus:ring-pink-500">
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-pink-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="auto" class="text-pink-600 focus:ring-pink-500">
-                                                <span class="text-xs font-medium">Auto</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Force Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilogram-force</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="kgfOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilonewton</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="knOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Dyne</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="dyneOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Unit Swap Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="swapUnits"
-                                            class="inline-flex items-center px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                                            </svg>
-                                            Swap Units
-                                        </button>
-                                    </div>
+                                                                            <!-- Force Magnitude Indicator -->
+                                                                            <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
+                                                                                <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Force Magnitude Scale</h4>
+                                                                                <div class="text-center">
+                                                                                    <div class="text-lg font-bold text-indigo-700" id="forceMagnitude">Enter force value</div>
+                                                                                    <div class="text-xs text-indigo-600 mt-1" id="magnitudeDescription">--</div>
+                                                                                </div>
+                                                                            </div>
 
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-xl border-l-4 border-pink-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Converted Force</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Target force unit</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-pink-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="outputUnitDisplay">N</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Imperial vs SI Comparison -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Pound-force</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="lbfOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="newtonOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Force Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilogram-force</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="kgfOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilonewton</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="knOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Dyne</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="dyneOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Force Magnitude Indicator -->
-                                    <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
-                                        <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Force Magnitude Scale</h4>
-                                        <div class="text-center">
-                                            <div class="text-lg font-bold text-indigo-700" id="forceMagnitude">Enter force value</div>
-                                            <div class="text-xs text-indigo-600 mt-1" id="magnitudeDescription">--</div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Conversion Formula -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Formula</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="conversionFormula">
-                                            1 lbf = 4.44822 N
-                                        </div>
-                                        <div class="text-center text-xs text-gray-500 mt-1">
-                                            Based on standard gravitational acceleration
-                                        </div>
+                                                                            <!-- Conversion Formula -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Formula</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="conversionFormula">
+                                                                                    1 lbf = 4.44822 N
+                                                                                </div>
+                                                                                <div class="text-center text-xs text-gray-500 mt-1">
+                                                                                    Based on standard gravitational acceleration
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Force Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 lbf = 4.448 N</div>
-                                        <div>• 1 N = 0.2248 lbf</div>
-                                        <div>• 1 kgf = 9.807 N</div>
-                                        <div>• 1 kgf = 2.205 lbf</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Conversion Presets -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Force Conversions
+                                                        </label>
+                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="lbf" data-to="N">lbf → N</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="N" data-to="lbf">N → lbf</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="kgf" data-to="lbf">kgf → lbf</button>
+                                                            <button type="button" class="unit-preset px-3 py-2 text-sm bg-gray-100 hover:bg-pink-100 text-gray-700 hover:text-pink-700 rounded-lg transition-colors" data-from="kip" data-to="kN">kip → kN</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Force Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 lbf = 4.448 N</div>
+                                                        <div>• 1 N = 0.2248 lbf</div>
+                                                        <div>• 1 kgf = 9.807 N</div>
+                                                        <div>• 1 kgf = 2.205 lbf</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

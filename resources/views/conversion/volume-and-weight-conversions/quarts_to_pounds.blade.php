@@ -4,268 +4,278 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-fuchsia-500 to-fuchsia-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">Ingredient-Based Volume to Weight Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Conversion Direction -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Direction
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-3">
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-fuchsia-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="direction" value="quarts-to-pounds" class="text-fuchsia-600 focus:ring-fuchsia-500" checked>
-                                                <span class="text-sm font-medium">Quarts → Pounds</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-fuchsia-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="direction" value="pounds-to-quarts" class="text-fuchsia-600 focus:ring-fuchsia-500">
-                                                <span class="text-sm font-medium">Pounds → Quarts</span>
-                                            </label>
-                                        </div>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Conversion Direction -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Direction
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-3">
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-fuchsia-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="direction" value="quarts-to-pounds" class="text-fuchsia-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">Quarts → Pounds</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border-2 border-gray-200 rounded-lg hover:border-fuchsia-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="direction" value="pounds-to-quarts" class="text-fuchsia-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">Pounds → Quarts</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Ingredient Selection -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="ingredient" class="block text-sm font-semibold text-gray-700">
+                                                                                    Select Ingredient
+                                                                                </label>
+                                                                                <select 
+                                                                                    id="ingredient" 
+                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                >
+                                                                                    <option value="">Select ingredient</option>
+                                                                                    <optgroup label="Liquids">
+                                                                                        <option value="Water">Water</option>
+                                                                                        <option value="Milk">Milk</option>
+                                                                                        <option value="Cream 30% fat">Heavy Cream (30% fat)</option>
+                                                                                        <option value="Cream 13% fat">Light Cream (13% fat)</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Sweeteners">
+                                                                                        <option value="Sugar">Sugar</option>
+                                                                                        <option value="Honey">Honey</option>
+                                                                                        <option value="Maple syrup">Maple Syrup</option>
+                                                                                        <option value="Jam">Jam</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Baking Ingredients">
+                                                                                        <option value="Flour">All-Purpose Flour</option>
+                                                                                        <option value="Salt">Salt</option>
+                                                                                        <option value="Butter">Butter</option>
+                                                                                        <option value="Oil">Cooking Oil</option>
+                                                                                        <option value="Cacao">Cocoa Powder</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Grains & Nuts">
+                                                                                        <option value="Rice (raw)">Rice (raw)</option>
+                                                                                        <option value="Oats">Oats</option>
+                                                                                        <option value="Nuts and seeds">Nuts and Seeds</option>
+                                                                                    </optgroup>
+                                                                                    <optgroup label="Specialty">
+                                                                                        <option value="Nutella">Nutella</option>
+                                                                                        <option value="Custom">Custom Ingredient</option>
+                                                                                    </optgroup>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <!-- Custom Density Field -->
+                                                                            <div id="customDensityContainer" class="space-y-2 hidden">
+                                                                                <label for="customDensity" class="block text-sm font-semibold text-gray-700">
+                                                                                    Custom Density
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="customDensity" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter density (e.g., 1.15)"
+                                                                                        step="0.001"
+                                                                                        min="0.001"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">g/mL</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Current Density Display -->
+                                                                            <div class="p-3 bg-fuchsia-50 rounded-lg border border-fuchsia-200">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <span class="text-sm font-semibold text-fuchsia-800">Current Ingredient Density:</span>
+                                                                                    <span class="text-lg font-bold text-fuchsia-700" id="densityDisplay">-- g/mL</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Input Values -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="space-y-2">
+                                                                                    <label for="quartsInput" class="block text-sm font-semibold text-gray-700" id="volumeLabel">
+                                                                                        Volume (Quarts)
+                                                                                    </label>
+                                                                                    <div class="relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="quartsInput" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="Enter volume (e.g., 2)"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                        >
+                                                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                            <span class="text-gray-500 text-sm font-medium" id="volumeUnit">qt</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="space-y-2">
+                                                                                    <label for="poundsInput" class="block text-sm font-semibold text-gray-700" id="weightLabel">
+                                                                                        Weight (Pounds)
+                                                                                    </label>
+                                                                                    <div class="relative">
+                                                                                        <input 
+                                                                                            type="number" 
+                                                                                            id="poundsInput" 
+                                                                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                            placeholder="Enter weight (e.g., 2.08)"
+                                                                                            step="any"
+                                                                                            min="0"
+                                                                                        >
+                                                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                            <span class="text-gray-500 text-sm font-medium" id="weightUnit">lbs</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-fuchsia-100 hover:bg-fuchsia-200 text-fuchsia-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear All
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Ingredient Selection -->
-                                    <div class="space-y-2">
-                                        <label for="ingredient" class="block text-sm font-semibold text-gray-700">
-                                            Select Ingredient
-                                        </label>
-                                        <select 
-                                            id="ingredient" 
-                                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-fuchsia-500 focus:ring-2 focus:ring-fuchsia-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium bg-white"
-                                        >
-                                            <option value="">Select ingredient</option>
-                                            <optgroup label="Liquids">
-                                                <option value="Water">Water</option>
-                                                <option value="Milk">Milk</option>
-                                                <option value="Cream 30% fat">Heavy Cream (30% fat)</option>
-                                                <option value="Cream 13% fat">Light Cream (13% fat)</option>
-                                            </optgroup>
-                                            <optgroup label="Sweeteners">
-                                                <option value="Sugar">Sugar</option>
-                                                <option value="Honey">Honey</option>
-                                                <option value="Maple syrup">Maple Syrup</option>
-                                                <option value="Jam">Jam</option>
-                                            </optgroup>
-                                            <optgroup label="Baking Ingredients">
-                                                <option value="Flour">All-Purpose Flour</option>
-                                                <option value="Salt">Salt</option>
-                                                <option value="Butter">Butter</option>
-                                                <option value="Oil">Cooking Oil</option>
-                                                <option value="Cacao">Cocoa Powder</option>
-                                            </optgroup>
-                                            <optgroup label="Grains & Nuts">
-                                                <option value="Rice (raw)">Rice (raw)</option>
-                                                <option value="Oats">Oats</option>
-                                                <option value="Nuts and seeds">Nuts and Seeds</option>
-                                            </optgroup>
-                                            <optgroup label="Specialty">
-                                                <option value="Nutella">Nutella</option>
-                                                <option value="Custom">Custom Ingredient</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-fuchsia-50 to-yellow-50 rounded-xl border-l-4 border-fuchsia-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Weight in Pounds</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Imperial weight measurement</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-2xl font-bold text-fuchsia-600 font-mono" id="output">--</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium" id="unit-display">lbs</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Custom Density Field -->
-                                    <div id="customDensityContainer" class="space-y-2 hidden">
-                                        <label for="customDensity" class="block text-sm font-semibold text-gray-700">
-                                            Custom Density
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="customDensity" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-fuchsia-500 focus:ring-2 focus:ring-fuchsia-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter density (e.g., 1.15)"
-                                                step="0.001"
-                                                min="0.001"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">g/mL</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Volume/Weight Conversions -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Ounces</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="ouncesOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="kgOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Grams</h4>
+                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="gramsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Current Density Display -->
-                                    <div class="p-3 bg-fuchsia-50 rounded-lg border border-fuchsia-200">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-sm font-semibold text-fuchsia-800">Current Ingredient Density:</span>
-                                            <span class="text-lg font-bold text-fuchsia-700" id="densityDisplay">-- g/mL</span>
-                                        </div>
-                                    </div>
+                                                                            <!-- Volume Conversions -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Pints</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="pintsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="litersOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-fuchsia-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Cups</h4>
+                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="cupsOutput">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Input Values -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="space-y-2">
-                                            <label for="quartsInput" class="block text-sm font-semibold text-gray-700" id="volumeLabel">
-                                                Volume (Quarts)
-                                            </label>
-                                            <div class="relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="quartsInput" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-fuchsia-500 focus:ring-2 focus:ring-fuchsia-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="Enter volume (e.g., 2)"
-                                                    step="any"
-                                                    min="0"
-                                                >
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <span class="text-gray-500 text-sm font-medium" id="volumeUnit">qt</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="space-y-2">
-                                            <label for="poundsInput" class="block text-sm font-semibold text-gray-700" id="weightLabel">
-                                                Weight (Pounds)
-                                            </label>
-                                            <div class="relative">
-                                                <input 
-                                                    type="number" 
-                                                    id="poundsInput" 
-                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-fuchsia-500 focus:ring-2 focus:ring-fuchsia-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                    placeholder="Enter weight (e.g., 2.08)"
-                                                    step="any"
-                                                    min="0"
-                                                >
-                                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <span class="text-gray-500 text-sm font-medium" id="weightUnit">lbs</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                            <!-- Scaled Result (if scaling is active) -->
+                                                                            <div class="p-4 bg-green-50 rounded-lg border border-green-200" id="scaledResult" style="display: none;">
+                                                                                <h4 class="text-sm font-semibold text-green-800 mb-2">Scaled Recipe Amount</h4>
+                                                                                <div class="text-lg font-bold text-green-700" id="scaledOutput">--</div>
+                                                                            </div>
 
-                                    <!-- Recipe Scaling Helper -->
-                                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                                        <h4 class="text-sm font-semibold text-blue-800 mb-2">Recipe Scaling Helper</h4>
-                                        <div class="grid grid-cols-2 gap-3">
-                                            <div>
-                                                <label for="originalServings" class="block text-xs font-medium text-blue-700 mb-1">Original Servings</label>
-                                                <input type="number" id="originalServings" class="w-full px-2 py-1 text-sm border border-blue-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="e.g., 4" min="1">
-                                            </div>
-                                            <div>
-                                                <label for="desiredServings" class="block text-xs font-medium text-blue-700 mb-1">Desired Servings</label>
-                                                <input type="number" id="desiredServings" class="w-full px-2 py-1 text-sm border border-blue-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="e.g., 6" min="1">
-                                            </div>
-                                        </div>
-                                        <div class="mt-2 text-xs text-blue-700">
-                                            Scale Factor: <span id="scaleFactor" class="font-semibold">--</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-fuchsia-100 hover:bg-fuchsia-200 text-fuchsia-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear All
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-fuchsia-50 to-yellow-50 rounded-xl border-l-4 border-fuchsia-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Weight in Pounds</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Imperial weight measurement</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-2xl font-bold text-fuchsia-600 font-mono" id="output">--</div>
-                                                <div class="text-sm text-gray-500 font-medium" id="unit-display">lbs</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Volume/Weight Conversions -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Ounces</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="ouncesOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="kgOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Grams</h4>
-                                                <div class="text-lg font-bold text-purple-600 font-mono" id="gramsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Volume Conversions -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Pints</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="pintsOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="litersOutput">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-fuchsia-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Cups</h4>
-                                                <div class="text-lg font-bold text-yellow-600 font-mono" id="cupsOutput">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Scaled Result (if scaling is active) -->
-                                    <div class="p-4 bg-green-50 rounded-lg border border-green-200" id="scaledResult" style="display: none;">
-                                        <h4 class="text-sm font-semibold text-green-800 mb-2">Scaled Recipe Amount</h4>
-                                        <div class="text-lg font-bold text-green-700" id="scaledOutput">--</div>
-                                    </div>
-
-                                    <!-- Calculation Steps -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Calculation Steps</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="calculationSteps">
-                                            Select ingredient and enter values to see calculation steps
-                                        </div>
+                                                                            <!-- Calculation Steps -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Calculation Steps</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="calculationSteps">
+                                                                                    Select ingredient and enter values to see calculation steps
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Cooking Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 quart = 946.353 mL</div>
-                                        <div>• 1 quart = 2 pints</div>
-                                        <div>• 1 quart = 4 cups</div>
-                                        <div>• 1 pound = 453.592 grams</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                                                                                                <h4 class="text-sm font-semibold text-blue-800 mb-2">Recipe Scaling Helper</h4>
+                                                                                                <div class="grid grid-cols-2 gap-3">
+                                                                                                    <div>
+                                                                                                        <label for="originalServings" class="block text-xs font-medium text-blue-700 mb-1">Original Servings</label>
+                                                                                                        <input type="number" id="originalServings" class="w-full px-2 py-1 text-sm border border-blue-300 rounded focus:border-slate-400 focus:ring-1 focus:ring-slate-200" placeholder="e.g., 4" min="1">
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        <label for="desiredServings" class="block text-xs font-medium text-blue-700 mb-1">Desired Servings</label>
+                                                                                                        <input type="number" id="desiredServings" class="w-full px-2 py-1 text-sm border border-blue-300 rounded focus:border-slate-400 focus:ring-1 focus:ring-slate-200" placeholder="e.g., 6" min="1">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="mt-2 text-xs text-blue-700">
+                                                                                                    Scale Factor: <span id="scaleFactor" class="font-semibold">--</span>
+                                                                                                </div>
+                                                                                            </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Cooking Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 quart = 946.353 mL</div>
+                                                        <div>• 1 quart = 2 pints</div>
+                                                        <div>• 1 quart = 4 cups</div>
+                                                        <div>• 1 pound = 453.592 grams</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->

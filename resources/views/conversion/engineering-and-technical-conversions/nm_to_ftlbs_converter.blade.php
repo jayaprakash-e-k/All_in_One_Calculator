@@ -4,192 +4,205 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-visible">
+                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
                             
                             <!-- Calculator Header -->
-                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4">
+                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
                                 <h2 class="text-lg font-semibold text-white">SI to Imperial Torque Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-8">
-                                <form class="space-y-6 focus-within:ring-2 focus-within:ring-blue-100 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-xl lg:border lg:border-blue-100 lg:bg-white/95 lg:p-4 lg:pr-1 lg:shadow-sm" id="calculatorForm">
-                                    
-                                    <!-- Input Value -->
-                                    <div class="space-y-2">
-                                        <label for="nmInput" class="block text-sm font-semibold text-gray-700">
-                                            Enter Torque (Newton meters)
-                                        </label>
-                                        <div class="relative">
-                                            <input 
-                                                type="number" 
-                                                id="nmInput" 
-                                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:ring-opacity-50 transition-all duration-200 text-lg font-medium" 
-                                                placeholder="Enter torque in Newton meters"
-                                                step="any"
-                                            >
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                <span class="text-gray-500 text-sm font-medium">Nm</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-xs text-gray-500">Input torque value in Newton meters (SI unit)</p>
+                            <div class="p-5 sm:p-6">
+                                
+                                <div class="grid gap-6 lg:grid-cols-12">
+                                    <div class="lg:col-span-5">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+
+                                                                            <!-- Input Value -->
+                                                                            <div class="space-y-2">
+                                                                                <label for="nmInput" class="block text-sm font-semibold text-gray-700">
+                                                                                    Enter Torque (Newton meters)
+                                                                                </label>
+                                                                                <div class="relative">
+                                                                                    <input 
+                                                                                        type="number" 
+                                                                                        id="nmInput" 
+                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        placeholder="Enter torque in Newton meters"
+                                                                                        step="any"
+                                                                                    >
+                                                                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                                                                        <span class="text-gray-500 text-sm font-medium">Nm</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="text-xs text-gray-500">Input torque value in Newton meters (SI unit)</p>
+                                                                            </div>
+
+                                                                            <!-- Conversion Mode -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Conversion Mode
+                                                                                </label>
+                                                                                <div class="grid grid-cols-2 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer bg-purple-50 border-purple-300">
+                                                                                        <input type="radio" name="mode" value="nm-to-ftlbs" class="text-purple-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-sm font-medium">Nm → ft-lbs</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="mode" value="ftlbs-to-nm" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-sm font-medium">ft-lbs → Nm</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Precision Level -->
+                                                                            <div class="space-y-2">
+                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                    Precision Level
+                                                                                </label>
+                                                                                <div class="grid grid-cols-4 gap-2">
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="2" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">2 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="4" class="text-purple-600 focus:ring-slate-200" checked>
+                                                                                        <span class="text-xs font-medium">4 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="6" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">6 decimals</span>
+                                                                                    </label>
+                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
+                                                                                        <input type="radio" name="precision" value="auto" class="text-purple-600 focus:ring-slate-200">
+                                                                                        <span class="text-xs font-medium">Auto</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                            <!-- Clear Button -->
+                                                                            <div class="flex justify-center">
+                                                                                <button 
+                                                                                    type="button" 
+                                                                                    id="clearButton"
+                                                                                    class="inline-flex items-center px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                >
+                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                                                    </svg>
+                                                                                    Clear
+                                                                                </button>
+                                                                            </div>
+
+                                                                        </form>
                                     </div>
+                                    <div class="space-y-4 lg:col-span-7">
+                                        <!-- Results Display -->
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
 
-                                    <!-- Conversion Mode -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Conversion Mode
-                                        </label>
-                                        <div class="grid grid-cols-2 gap-2">
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer bg-purple-50 border-purple-300">
-                                                <input type="radio" name="mode" value="nm-to-ftlbs" class="text-purple-600 focus:ring-purple-500" checked>
-                                                <span class="text-sm font-medium">Nm → ft-lbs</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="mode" value="ftlbs-to-nm" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-sm font-medium">ft-lbs → Nm</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Primary Result -->
+                                                                            <div class="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-purple-500">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Torque in foot-pounds</h4>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Imperial torque unit</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="text-3xl font-bold text-purple-600 font-mono" id="output">-- ft-lbs</div>
+                                                                                        <div class="text-sm text-gray-500 font-medium">foot-pounds</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Precision Level -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Precision Level
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="2" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-xs font-medium">2 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="4" class="text-purple-600 focus:ring-purple-500" checked>
-                                                <span class="text-xs font-medium">4 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="6" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-xs font-medium">6 decimals</span>
-                                            </label>
-                                            <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                <input type="radio" name="precision" value="auto" class="text-purple-600 focus:ring-purple-500">
-                                                <span class="text-xs font-medium">Auto</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                                                            <!-- Bidirectional Display -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton meters</h4>
+                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="nmDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">SI Unit</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Foot-pounds</h4>
+                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="ftlbsDisplay">--</div>
+                                                                                        <div class="text-xs text-gray-500 mt-1">Imperial Unit</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Quick Values -->
-                                    <div class="space-y-2">
-                                        <label class="block text-sm font-semibold text-gray-700">
-                                            Quick Torque Values (Nm)
-                                        </label>
-                                        <div class="grid grid-cols-4 gap-2">
-                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="10">10 Nm</button>
-                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="50">50 Nm</button>
-                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="100">100 Nm</button>
-                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="250">250 Nm</button>
-                                        </div>
-                                    </div>
+                                                                            <!-- Additional Related Units -->
+                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Inch-pounds</h4>
+                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="inlbsDisplay">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">kgf·m</h4>
+                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="kgfmDisplay">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
+                                                                                    <div class="text-center">
+                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">kN·m</h4>
+                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="knmDisplay">--</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
 
-                                    <!-- Clear Button -->
-                                    <div class="flex justify-center">
-                                        <button 
-                                            type="button" 
-                                            id="clearButton"
-                                            class="inline-flex items-center px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors duration-200"
-                                        >
-                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                            </svg>
-                                            Clear
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Results Display -->
-                                <div class="mt-8 space-y-4">
-                                    <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
-                                    
-                                    <!-- Primary Result -->
-                                    <div class="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-purple-500">
-                                        <div class="flex items-center justify-between">
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Torque in foot-pounds</h4>
-                                                <p class="text-sm text-gray-600" id="result-description">Imperial torque unit</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="text-3xl font-bold text-purple-600 font-mono" id="output">-- ft-lbs</div>
-                                                <div class="text-sm text-gray-500 font-medium">foot-pounds</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bidirectional Display -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Newton meters</h4>
-                                                <div class="text-lg font-bold text-blue-600 font-mono" id="nmDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">SI Unit</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Foot-pounds</h4>
-                                                <div class="text-lg font-bold text-green-600 font-mono" id="ftlbsDisplay">--</div>
-                                                <div class="text-xs text-gray-500 mt-1">Imperial Unit</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Additional Related Units -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">Inch-pounds</h4>
-                                                <div class="text-lg font-bold text-orange-600 font-mono" id="inlbsDisplay">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">kgf·m</h4>
-                                                <div class="text-lg font-bold text-cyan-600 font-mono" id="kgfmDisplay">--</div>
-                                            </div>
-                                        </div>
-                                        <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                            <div class="text-center">
-                                                <h4 class="text-sm font-semibold text-gray-700 mb-1">kN·m</h4>
-                                                <div class="text-lg font-bold text-yellow-600 font-mono" id="knmDisplay">--</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Conversion Constant -->
-                                    <div class="p-4 bg-gray-50 rounded-lg">
-                                        <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Constant</h4>
-                                        <div class="text-center text-sm text-gray-600 font-mono" id="conversionConstant">
-                                            1 Nm = 0.737562 ft-lbs
-                                        </div>
-                                        <div class="text-center text-xs text-gray-500 mt-1">
-                                            Exact conversion factor
-                                        </div>
+                                                                            <!-- Conversion Constant -->
+                                                                            <div class="p-4 bg-gray-50 rounded-lg">
+                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Conversion Constant</h4>
+                                                                                <div class="text-center text-sm text-gray-600 font-mono" id="conversionConstant">
+                                                                                    1 Nm = 0.737562 ft-lbs
+                                                                                </div>
+                                                                                <div class="text-center text-xs text-gray-500 mt-1">
+                                                                                    Exact conversion factor
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Quick Reference -->
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Torque Conversion Reference</h4>
-                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                        <div>• 1 Nm = 0.7376 ft-lbs</div>
-                                        <div>• 1 ft-lbs = 1.3558 Nm</div>
-                                        <div>• 1 Nm = 8.851 in-lbs</div>
-                                        <div>• 1 ft-lbs = 12 in-lbs</div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-    </x-slot>
+    
+
+        <div class="mt-6 space-y-4">
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Values -->
+                                                    <div class="space-y-2">
+                                                        <label class="block text-sm font-semibold text-gray-700">
+                                                            Quick Torque Values (Nm)
+                                                        </label>
+                                                        <div class="grid grid-cols-4 gap-2">
+                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="10">10 Nm</button>
+                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="50">50 Nm</button>
+                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="100">100 Nm</button>
+                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="250">250 Nm</button>
+                                                        </div>
+                                                    </div>
+            </div>
+            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <!-- Quick Reference -->
+                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Torque Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                        <div>• 1 Nm = 0.7376 ft-lbs</div>
+                                                        <div>• 1 ft-lbs = 1.3558 Nm</div>
+                                                        <div>• 1 Nm = 8.851 in-lbs</div>
+                                                        <div>• 1 ft-lbs = 12 in-lbs</div>
+                                                    </div>
+                                                </div>
+            </div>
+        </div>
+</x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
