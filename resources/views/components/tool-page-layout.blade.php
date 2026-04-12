@@ -228,7 +228,9 @@ if (is_array($howToSchema)) {
 
                     <section aria-label="About This Tool" class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4">
                         @if($aboutContentSlot)
-                            {{ $aboutContentSlot }}
+                            <div id="aboutContentStack" class="space-y-4">
+                                {{ $aboutContentSlot }}
+                            </div>
                         @else
                             <h2 class="mb-3 text-lg font-semibold text-slate-900">About {{ $toolTitle }}</h2>
                             <p class="text-sm leading-7 text-slate-600">

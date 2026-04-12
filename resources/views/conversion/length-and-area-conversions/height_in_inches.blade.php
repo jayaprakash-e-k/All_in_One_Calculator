@@ -4,101 +4,98 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Human Height Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Human Height Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Input Value -->
                                                                             <div class="space-y-2">
-                                                                                <label for="inches" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="inches" class="block text-xs font-semibold text-slate-700">
                                                                                     Enter Height in Inches
                                                                                 </label>
                                                                                 <div class="relative">
                                                                                     <input 
                                                                                         type="number" 
                                                                                         id="inches" 
-                                                                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                        class="w-full rounded-md border border-slate-300 bg-white" 
                                                                                         placeholder="Enter height (e.g., 65)"
                                                                                         step="0.1"
                                                                                         min="0"
                                                                                         max="120"
                                                                                     >
                                                                                     <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                                                                        <span class="text-gray-500 text-sm font-medium">inches</span>
+                                                                                        <span class="text-slate-500 text-sm font-medium">inches</span>
                                                                                     </div>
                                                                                 </div>
-                                                                                <p class="text-xs text-gray-500 mt-1">Typical human height range: 48-84 inches</p>
+                                                                                <p class="text-[11px] text-slate-500">Typical human height range: 48-84 inches</p>
                                                                             </div>
 
-                                                                            <!-- Clear Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + Shift + C to clear</p>
+                                                                                <button
+                                                                                    type="button"
                                                                                     id="clearButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                                    </svg>
-                                                                                    Clear Value
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Heights</h3>
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Heights</h3>
 
                                                                             <!-- Feet & Inches -->
-                                                                            <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Feet & Inches</h4>
-                                                                                        <p class="text-sm text-gray-600">Imperial format</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Feet & Inches</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Imperial format</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-blue-600 font-mono" id="feetInches">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium">ft & in</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="feetInches">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium">ft & in</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Centimeters -->
-                                                                            <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Centimeters</h4>
-                                                                                        <p class="text-sm text-gray-600">Metric measurement</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Centimeters</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Metric measurement</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-green-600 font-mono" id="centimeters">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium">cm</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="centimeters">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium">cm</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Meters -->
-                                                                            <div class="p-6 bg-gradient-to-r from-purple-50 to-violet-50 rounded-xl border-l-4 border-purple-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Meters</h4>
-                                                                                        <p class="text-sm text-gray-600">Base metric unit</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Meters</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Base metric unit</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-purple-600 font-mono" id="meters">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium">m</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="meters">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium">m</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -109,66 +106,62 @@
                         </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 inch = 2.54 cm</div>
-                                                        <div>• 1 foot = 12 inches</div>
-                                                        <div>• 5 feet = 60 inches</div>
-                                                        <div>• 6 feet = 72 inches</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Height Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Height Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Height Measurements</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Height Measurements</h4>
                                     <p>Height is commonly measured in inches in the United States, while most other countries use centimeters. This calculator helps convert between both systems for medical records, sports, and international applications.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Common Uses</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Common Uses</h4>
                                     <p>Essential for medical charts, sports statistics, clothing sizes, ergonomic design, and converting between imperial and metric measurement systems in various professional contexts.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                                <p class="text-sm text-blue-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Medical Note:</strong> Height measurements are crucial for calculating BMI, medication dosages, and growth tracking!
                                 </p>
                             </div>
                         </div>
 
+                        <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+                            <h3 class="text-base font-semibold text-slate-900 mb-3">Quick Reference</h3>
+                            <div class="grid grid-cols-1 gap-2 text-xs text-slate-600 sm:grid-cols-2">
+                                <div>• 1 inch = 2.54 cm</div>
+                                <div>• 1 foot = 12 inches</div>
+                                <div>• 5 feet = 60 inches</div>
+                                <div>• 6 feet = 72 inches</div>
+                            </div>
+                        </div>
+
                         <!-- Common Height Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Height Examples</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Height Examples</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Short Adult</div>
-                                    <div class="text-blue-600 cursor-pointer hover:text-blue-800 transition-colors" data-height="60">60 inches</div>
-                                    <div class="text-xs text-gray-500 mt-1">5'0"</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Short Adult</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-height="60">60 inches</div>
+                                    <div class="text-[11px] text-slate-500">5'0"</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Average Woman</div>
-                                    <div class="text-blue-600 cursor-pointer hover:text-blue-800 transition-colors" data-height="64">64 inches</div>
-                                    <div class="text-xs text-gray-500 mt-1">5'4"</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Average Woman</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-height="64">64 inches</div>
+                                    <div class="text-[11px] text-slate-500">5'4"</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Average Man</div>
-                                    <div class="text-blue-600 cursor-pointer hover:text-blue-800 transition-colors" data-height="69">69 inches</div>
-                                    <div class="text-xs text-gray-500 mt-1">5'9"</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Average Man</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-height="69">69 inches</div>
+                                    <div class="text-[11px] text-slate-500">5'9"</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Tall Adult</div>
-                                    <div class="text-blue-600 cursor-pointer hover:text-blue-800 transition-colors" data-height="76">76 inches</div>
-                                    <div class="text-xs text-gray-500 mt-1">6'4"</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Tall Adult</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-height="76">76 inches</div>
+                                    <div class="text-[11px] text-slate-500">6'4"</div>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +234,10 @@
 
                         // Add keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
                                 clearInput();
                             }
                         });

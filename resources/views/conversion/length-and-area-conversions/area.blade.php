@@ -4,29 +4,29 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Area Unit Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Area Unit Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
-                                    <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                <div class="grid gap-3 lg:grid-cols-5">
+                                    <div class="lg:col-span-3">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Input Value -->
                                                                             <div class="space-y-2">
-                                                                                <label for="value" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="value" class="block text-xs font-semibold text-slate-700">
                                                                                     Enter Area Value
                                                                                 </label>
                                                                                 <input 
                                                                                     type="number" 
                                                                                     id="value" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                    class="w-full rounded-md border border-slate-300 bg-white" 
                                                                                     placeholder="Enter area value"
                                                                                     step="any"
                                                                                     min="0"
@@ -35,12 +35,12 @@
 
                                                                             <!-- From Unit -->
                                                                             <div class="space-y-2">
-                                                                                <label for="from" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="from" class="block text-xs font-semibold text-slate-700">
                                                                                     From Unit
                                                                                 </label>
                                                                                 <select 
                                                                                     id="from" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    class="w-full rounded-md border border-slate-300 bg-white"
                                                                                 >
                                                                                     <option value="sqm">Square Meters (m²)</option>
                                                                                     <option value="sqft">Square Feet (ft²)</option>
@@ -57,12 +57,12 @@
 
                                                                             <!-- To Unit -->
                                                                             <div class="space-y-2">
-                                                                                <label for="to" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="to" class="block text-xs font-semibold text-slate-700">
                                                                                     To Unit
                                                                                 </label>
                                                                                 <select 
                                                                                     id="to" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
+                                                                                    class="w-full rounded-md border border-slate-300 bg-white"
                                                                                 >
                                                                                     <option value="sqm">Square Meters (m²)</option>
                                                                                     <option value="sqft">Square Feet (ft²)</option>
@@ -77,100 +77,97 @@
                                                                                 </select>
                                                                             </div>
 
-                                                                            <!-- Swap Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
-                                                                                    id="swapButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 font-medium rounded-lg transition-colors duration-200"
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + Shift + C to clear</p>
+                                                                                <button
+                                                                                    type="button"
+                                                                                    id="clearButton"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                                                                                    </svg>
-                                                                                    Swap Units
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-2">
                                         <!-- Result Display -->
-                                                                        <div class="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
-                                                                            <div class="flex items-center justify-between">
-                                                                                <div>
-                                                                                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Converted Value</h3>
-                                                                                    <p class="text-sm text-gray-600">Real-time conversion result</p>
-                                                                                </div>
-                                                                                <div class="text-right">
-                                                                                    <div class="text-2xl font-bold text-green-600 font-mono" id="output">--</div>
-                                                                                    <div class="text-sm text-gray-500 font-medium" id="unit-display">Select units</div>
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Converted Value</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Real-time conversion result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="output">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium" id="unit-display">Select units</div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 m² = 10.764 ft²</div>
-                                                        <div>• 1 acre = 4,047 m²</div>
-                                                        <div>• 1 hectare = 10,000 m²</div>
-                                                        <div>• 1 ft² = 144 in²</div>
-                                                        <div>• 1 yd² = 9 ft²</div>
-                                                        <div>• 1 hectare = 100 ares</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Area Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Area Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Common Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Common Applications</h4>
                                     <p>Area calculations are essential for real estate transactions, construction planning, landscaping projects, agricultural planning, and scientific measurements across various fields.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Precision & Accuracy</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Precision & Accuracy</h4>
                                     <p>Our calculator uses international standard conversion factors for maximum accuracy across all area units, ensuring reliable results for professional and personal use.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
-                                <p class="text-sm text-green-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Professional Tip:</strong> For large-scale measurements, consider using hectares or square kilometers for better readability!
                                 </p>
                             </div>
                         </div>
 
+                        <div class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+                            <h3 class="text-base font-semibold text-slate-900 mb-3">Quick Reference</h3>
+                            <div class="grid grid-cols-1 gap-2 text-xs text-slate-600 sm:grid-cols-2">
+                                <div>• 1 m² = 10.764 ft²</div>
+                                <div>• 1 acre = 4,047 m²</div>
+                                <div>• 1 hectare = 10,000 m²</div>
+                                <div>• 1 ft² = 144 in²</div>
+                                <div>• 1 yd² = 9 ft²</div>
+                                <div>• 1 hectare = 100 ares</div>
+                            </div>
+                        </div>
+
                         <!-- Common Area Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Area Examples</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Area Examples</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Tennis Court</div>
-                                    <div class="text-green-600 cursor-pointer hover:text-green-800 transition-colors" data-area="260" data-unit="sqm">260 m²</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Tennis Court</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-area="260" data-unit="sqm">260 m²</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Football Field</div>
-                                    <div class="text-green-600 cursor-pointer hover:text-green-800 transition-colors" data-area="5400" data-unit="sqm">5,400 m²</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Garden Plot</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-area="0.12" data-unit="hectare">0.12 ha</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Small House</div>
-                                    <div class="text-green-600 cursor-pointer hover:text-green-800 transition-colors" data-area="1500" data-unit="sqft">1,500 ft²</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Small House</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-area="1500" data-unit="sqft">1,500 ft²</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">City Block</div>
-                                    <div class="text-green-600 cursor-pointer hover:text-green-800 transition-colors" data-area="2" data-unit="hectare">2 hectares</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">City Park</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-area="1.5" data-unit="acre">1.5 acres</div>
                                 </div>
                             </div>
                         </div>
@@ -182,7 +179,7 @@
                         const valueInput = document.getElementById('value');
                         const fromSelect = document.getElementById('from');
                         const toSelect = document.getElementById('to');
-                        const swapButton = document.getElementById('swapButton');
+                        const clearButton = document.getElementById('clearButton');
                         const output = document.getElementById('output');
                         const unitDisplay = document.getElementById('unit-display');
 
@@ -230,14 +227,10 @@
                             }
                         }
 
-                        function swapUnits() {
-                            const fromValue = fromSelect.value;
-                            const toValue = toSelect.value;
-                            
-                            fromSelect.value = toValue;
-                            toSelect.value = fromValue;
-                            
+                        function clearInput() {
+                            valueInput.value = '';
                             convert();
+                            valueInput.focus();
                         }
 
                         function updateUnitDisplay() {
@@ -257,7 +250,7 @@
                             convert();
                             updateUnitDisplay();
                         });
-                        swapButton.addEventListener('click', swapUnits);
+                        clearButton.addEventListener('click', clearInput);
 
                         // Add clickable functionality to example areas
                         const exampleAreas = document.querySelectorAll('[data-area]');
@@ -285,13 +278,11 @@
 
                         // Add keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
-                                valueInput.value = '';
-                                convert();
-                                valueInput.focus();
-                            } else if (e.ctrlKey && e.key === 's') {
-                                e.preventDefault();
-                                swapUnits();
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
+                                clearInput();
                             }
                         });
                     });
