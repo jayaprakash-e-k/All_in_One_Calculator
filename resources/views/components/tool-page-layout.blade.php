@@ -275,7 +275,9 @@ if (is_array($howToSchema)) {
                 const aboutContentStack = document.getElementById('aboutContentStack');
                 const isVolumeWeightPage = window.location.pathname.includes('/volume-and-weight-conversions/');
                 const isEngineeringTechnicalPage = window.location.pathname.includes('/engineering-and-technical-conversions/');
-                const hasEnhancedConvertedValues = isVolumeWeightPage || isEngineeringTechnicalPage;
+                const isGeographicMappingPage = window.location.pathname.includes('/geographic-and-mapping-tools/');
+                const isGeographicScaleCalculatorPage = window.location.pathname.includes('/geographic-and-mapping-tools/scale-calculator');
+                const hasEnhancedConvertedValues = isVolumeWeightPage || isEngineeringTechnicalPage || isGeographicMappingPage;
 
                 const isCtrlMShortcut = function (e) {
                     const key = typeof e.key === 'string' ? e.key.toLowerCase() : '';
@@ -372,6 +374,7 @@ if (is_array($howToSchema)) {
 
                     const convertedValueSelector = ':scope .font-serif[id], :scope [id].font-serif, :scope .font-mono[id], :scope [id].font-mono, :scope [id$="Output"], :scope [id="output"]';
                     const centeredConvertedValueSelector = ':scope > .font-serif[id], :scope > [id].font-serif, :scope > .font-mono[id], :scope > [id].font-mono, :scope > [id$="Output"], :scope > [id="output"]';
+                    const directConvertedValueSelector = ':scope > .font-serif[id], :scope > [id].font-serif, :scope > .font-mono[id], :scope > [id].font-mono, :scope > [id$="Output"], :scope > [id="output"]';
 
                     const moveInlineUnitToLabel = function (valueElement, unitElement, fallbackUnit) {
                         const text = (valueElement.textContent || '').trim();
@@ -410,7 +413,7 @@ if (is_array($howToSchema)) {
                             }
 
                             const title = body.querySelector(':scope h4');
-                            const value = body.querySelector(convertedValueSelector);
+                            const value = body.querySelector(convertedValueSelector) || card.querySelector(directConvertedValueSelector);
 
                             return !!(title && value);
                         });
@@ -430,8 +433,8 @@ if (is_array($howToSchema)) {
                         const body = rowBody || centeredBody || card;
 
                         const titleElement = body.querySelector(':scope h4');
-                        const subtitleElement = body.querySelector(':scope p');
-                        const valueElement = body.querySelector(convertedValueSelector);
+                        const subtitleElement = body.querySelector(':scope p') || card.querySelector(':scope > .text-xs');
+                        const valueElement = body.querySelector(convertedValueSelector) || card.querySelector(directConvertedValueSelector);
 
                         if (!titleElement || !valueElement) {
                             return null;
@@ -439,7 +442,7 @@ if (is_array($howToSchema)) {
 
                         const unitElement = rowBody
                             ? rowBody.querySelector(':scope > .text-right > .text-xs.text-slate-500.font-medium')
-                            : body.querySelector(':scope .text-xs.text-slate-500.font-medium');
+                            : (body.querySelector(':scope .text-xs.text-slate-500.font-medium') || card.querySelector(':scope > .text-xs.text-slate-500.font-medium'));
 
                         return {
                             titleElement,
@@ -555,6 +558,17 @@ if (is_array($howToSchema)) {
 
                         const meta = getCardCopyMeta(card);
                         if (!meta) {
+                            return;
+                        }
+
+                        const existingCopyButton = card.querySelector(':scope button.copy-btn, :scope button#copyResult');
+                        if (existingCopyButton) {
+                            existingCopyButton.type = 'button';
+                            existingCopyButton.classList.add('inline-flex', 'items-center', 'justify-center', 'rounded-md', 'border', 'border-slate-300', 'bg-white', 'px-2', 'py-1', 'text-[10px]', 'font-semibold', 'text-slate-700', 'hover:bg-slate-100');
+                            if ((existingCopyButton.textContent || '').trim() === '') {
+                                existingCopyButton.textContent = 'Copy';
+                            }
+                            card.dataset.copyButtonAttached = 'true';
                             return;
                         }
 
@@ -844,14 +858,17 @@ if (is_array($howToSchema)) {
                                 }
 
                                 const centeredBody = card.querySelector(':scope > .text-center');
-                                if (!centeredBody) {
-                                    return false;
+                                if (centeredBody) {
+                                    const title = centeredBody.querySelector(':scope > h4');
+                                    const value = centeredBody.querySelector(centeredConvertedValueSelector);
+                                    return !!(title && value);
                                 }
 
-                                const title = centeredBody.querySelector(':scope > h4');
-                                const value = centeredBody.querySelector(centeredConvertedValueSelector);
+                                const stackedHeader = card.querySelector(':scope > .flex.items-center.justify-between');
+                                const stackedTitle = stackedHeader ? stackedHeader.querySelector(':scope > h4') : null;
+                                const stackedValue = card.querySelector(directConvertedValueSelector);
 
-                                return !!(title && value);
+                                return !!(stackedHeader && stackedTitle && stackedValue);
                             });
 
                             const cardParents = new Set(cardsToTransform.map((card) => card.parentElement).filter(Boolean));
@@ -866,15 +883,26 @@ if (is_array($howToSchema)) {
 
                             cardsToTransform.forEach((card) => {
                                 const centeredBody = card.querySelector(':scope > .text-center');
-                                if (!centeredBody) {
-                                    return;
-                                }
+                                const stackedHeader = card.querySelector(':scope > .flex.items-center.justify-between');
 
-                                const title = centeredBody.querySelector(':scope > h4');
-                                const value = centeredBody.querySelector(centeredConvertedValueSelector);
+                                const title = centeredBody
+                                    ? centeredBody.querySelector(':scope > h4')
+                                    : (stackedHeader ? stackedHeader.querySelector(':scope > h4') : null);
+                                const value = centeredBody
+                                    ? centeredBody.querySelector(centeredConvertedValueSelector)
+                                    : card.querySelector(directConvertedValueSelector);
+
                                 if (!title || !value) {
                                     return;
                                 }
+
+                                const stackedSubtitle = centeredBody
+                                    ? null
+                                    : card.querySelector(':scope > .text-xs');
+
+                                const existingCopyButton = centeredBody
+                                    ? centeredBody.querySelector(':scope > button.copy-btn, :scope > button#copyResult')
+                                    : (stackedHeader ? stackedHeader.querySelector(':scope > button.copy-btn, :scope > button#copyResult') : null);
 
                                 const fallbackUnit = inferUnitLabel(title.textContent || '', value.id || '');
 
@@ -884,7 +912,9 @@ if (is_array($howToSchema)) {
 
                                 const subtitle = document.createElement('p');
                                 subtitle.className = 'text-[11px] text-slate-500';
-                                subtitle.textContent = inferConvertedValueSubtitle(title.textContent || '');
+                                subtitle.textContent = stackedSubtitle
+                                    ? (stackedSubtitle.textContent || '').trim()
+                                    : inferConvertedValueSubtitle(title.textContent || '');
                                 left.appendChild(subtitle);
 
                                 const right = document.createElement('div');
@@ -896,6 +926,10 @@ if (is_array($howToSchema)) {
                                 unit.className = 'text-xs text-slate-500 font-medium';
                                 unit.textContent = fallbackUnit;
                                 right.appendChild(unit);
+
+                                if (existingCopyButton) {
+                                    right.appendChild(existingCopyButton);
+                                }
 
                                 moveInlineUnitToLabel(value, unit, fallbackUnit);
 
@@ -909,7 +943,13 @@ if (is_array($howToSchema)) {
                                 row.appendChild(left);
                                 row.appendChild(right);
 
-                                centeredBody.replaceWith(row);
+                                if (centeredBody) {
+                                    centeredBody.replaceWith(row);
+                                } else {
+                                    card.innerHTML = '';
+                                    card.appendChild(row);
+                                }
+
                                 card.dataset.convertedCardNormalized = 'true';
                             });
 
@@ -918,7 +958,7 @@ if (is_array($howToSchema)) {
                     };
 
                     const normalizeEngineeringToolShell = function () {
-                        if (!isEngineeringTechnicalPage) {
+                        if (!isEngineeringTechnicalPage && !isGeographicMappingPage) {
                             return;
                         }
 
@@ -1094,6 +1134,41 @@ if (is_array($howToSchema)) {
 
                     normalizeMultiConvertedValueCards();
                     enhanceConvertedValuesSections();
+
+                    if (isGeographicScaleCalculatorPage) {
+                        const adjustScaleCalculatorRows = function (root) {
+                            const rows = root.querySelectorAll('.flex.items-center.justify-between');
+
+                            rows.forEach((row) => {
+                                row.className = 'flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between';
+
+                                const left = row.querySelector(':scope > div:first-child');
+                                if (left) {
+                                    left.classList.add('min-w-0', 'flex-1');
+                                }
+
+                                const right = row.querySelector(':scope > .text-right, :scope > div:last-child');
+                                if (right) {
+                                    right.classList.remove('text-right');
+                                    right.classList.add('w-full', 'text-left', 'sm:w-auto', 'sm:text-right');
+
+                                    const value = right.querySelector(':scope > .font-serif');
+                                    if (value) {
+                                        value.classList.add('break-words');
+                                    }
+
+                                    right.querySelectorAll('button').forEach((button) => {
+                                        button.classList.add('self-start', 'sm:self-auto');
+                                    });
+                                }
+                            });
+                        };
+
+                        const resultSections = getConvertedValueSections();
+                        resultSections.forEach((section) => {
+                            adjustScaleCalculatorRows(section);
+                        });
+                    }
 
                     document.addEventListener('keydown', function (e) {
                         if (e.defaultPrevented) {

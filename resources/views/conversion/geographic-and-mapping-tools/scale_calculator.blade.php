@@ -46,18 +46,18 @@
                                                                                 <div id="findScaleInputs" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                                                     <div class="space-y-2">
                                                                                         <label for="mapDistance" class="block text-sm font-semibold text-gray-700">Map Distance</label>
-                                                                                        <div class="flex">
+                                                                                        <div class="grid grid-cols-[minmax(0,1fr)_auto]">
                                                                                             <input 
                                                                                                 type="number" 
                                                                                                 id="mapDistance" 
-                                                                                                class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                class="min-w-0 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
                                                                                                 placeholder="e.g., 5"
                                                                                                 step="any"
                                                                                                 min="0"
                                                                                             >
                                                                                             <select 
                                                                                                 id="mapUnit" 
-                                                                                                class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
+                                                                                                class="w-24 px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
                                                                                             >
                                                                                                 <option value="mm">mm</option>
                                                                                                 <option value="cm" selected>cm</option>
@@ -68,18 +68,18 @@
                                                                                     </div>
                                                                                     <div class="space-y-2">
                                                                                         <label for="realDistance" class="block text-sm font-semibold text-gray-700">Real Distance</label>
-                                                                                        <div class="flex">
+                                                                                        <div class="grid grid-cols-[minmax(0,1fr)_auto]">
                                                                                             <input 
                                                                                                 type="number" 
                                                                                                 id="realDistance" 
-                                                                                                class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                class="min-w-0 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
                                                                                                 placeholder="e.g., 500"
                                                                                                 step="any"
                                                                                                 min="0"
                                                                                             >
                                                                                             <select 
                                                                                                 id="realUnit" 
-                                                                                                class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
+                                                                                                class="w-24 px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
                                                                                             >
                                                                                                 <option value="mm">mm</option>
                                                                                                 <option value="cm">cm</option>
@@ -98,18 +98,18 @@
                                                                                 <div id="findRealInputs" class="grid grid-cols-1 md:grid-cols-2 gap-4" style="display: none;">
                                                                                     <div class="space-y-2">
                                                                                         <label for="mapDistance2" class="block text-sm font-semibold text-gray-700">Map Distance</label>
-                                                                                        <div class="flex">
+                                                                                        <div class="grid grid-cols-[minmax(0,1fr)_auto]">
                                                                                             <input 
                                                                                                 type="number" 
                                                                                                 id="mapDistance2" 
-                                                                                                class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                class="min-w-0 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
                                                                                                 placeholder="e.g., 5"
                                                                                                 step="any"
                                                                                                 min="0"
                                                                                             >
                                                                                             <select 
                                                                                                 id="mapUnit2" 
-                                                                                                class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
+                                                                                                class="w-24 px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
                                                                                             >
                                                                                                 <option value="mm">mm</option>
                                                                                                 <option value="cm" selected>cm</option>
@@ -138,18 +138,18 @@
                                                                                 <div id="findMapInputs" class="grid grid-cols-1 md:grid-cols-2 gap-4" style="display: none;">
                                                                                     <div class="space-y-2">
                                                                                         <label for="realDistance2" class="block text-sm font-semibold text-gray-700">Real Distance</label>
-                                                                                        <div class="flex">
+                                                                                        <div class="grid grid-cols-[minmax(0,1fr)_auto]">
                                                                                             <input 
                                                                                                 type="number" 
                                                                                                 id="realDistance2" 
-                                                                                                class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
+                                                                                                class="min-w-0 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium" 
                                                                                                 placeholder="e.g., 500"
                                                                                                 step="any"
                                                                                                 min="0"
                                                                                             >
                                                                                             <select 
                                                                                                 id="realUnit2" 
-                                                                                                class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
+                                                                                                class="w-24 px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 bg-white"
                                                                                             >
                                                                                                 <option value="mm">mm</option>
                                                                                                 <option value="cm">cm</option>
@@ -227,7 +227,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Scale Calculation Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl border-l-4 border-cyan-500">
