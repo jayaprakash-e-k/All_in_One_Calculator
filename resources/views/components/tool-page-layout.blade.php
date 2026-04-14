@@ -272,8 +272,684 @@ if (is_array($howToSchema)) {
                 window.addEventListener('resize', syncToolLayoutViewport);
 
                 const toolUiRoot = document.getElementById('toolUiRoot');
+                const aboutContentStack = document.getElementById('aboutContentStack');
+                const isVolumeWeightPage = window.location.pathname.includes('/volume-and-weight-conversions/');
+
+                const isCtrlMShortcut = function (e) {
+                    const key = typeof e.key === 'string' ? e.key.toLowerCase() : '';
+                    return e.ctrlKey && key === 'm';
+                };
+
+                if (isVolumeWeightPage && toolUiRoot && aboutContentStack) {
+                    const inferConvertedValueSubtitle = function (titleText) {
+                        const text = (titleText || '').toLowerCase().trim();
+
+                        if (text.includes('total')) {
+                            return 'Combined measurement';
+                        }
+
+                        if (text.includes('weight') || text.includes('mass')) {
+                            return 'Calculated weight';
+                        }
+
+                        if (text.includes('volume')) {
+                            return 'Calculated volume';
+                        }
+
+                        if (text.includes('density')) {
+                            return 'Reference value';
+                        }
+
+                        if (text.includes('cups') || text.includes('ounces') || text.includes('teaspoons') || text.includes('tablespoons')) {
+                            return 'Kitchen equivalent';
+                        }
+
+                        if (text.includes('liters') || text.includes('meters') || text.includes('grams') || text.includes('kilograms')) {
+                            return 'Metric equivalent';
+                        }
+
+                        return 'Converted measurement';
+                    };
+
+                    const inferUnitLabel = function (titleText, valueId) {
+                        const key = ((titleText || '') + ' ' + (valueId || '')).toLowerCase();
+
+                        if (key.includes('fluid ounce') || key.includes('floz')) return 'fl oz';
+                        if (key.includes('teaspoon') || key.includes('tsp')) return 'tsp';
+                        if (key.includes('tablespoon') || key.includes('tbsp')) return 'tbsp';
+                        if (key.includes('cubic meter') || key.includes('m3')) return 'm³';
+                        if (key.includes('cubic feet') || key.includes('ft3')) return 'ft³';
+                        if (key.includes('millilit') || key.includes('ml')) return 'mL';
+                        if (key.includes('decilit') || key.includes('dl')) return 'dL';
+                        if (key.includes('centilit') || key.includes('cl')) return 'cL';
+                        if (key.includes('kilolit') || key.includes('kl')) return 'kL';
+                        if (key.includes('liter') || key.includes('litre')) return 'L';
+                        if (key.includes('kilogram') || key.includes('kg')) return 'kg';
+                        if (key.includes('milligram') || key.includes('mg')) return 'mg';
+                        if (key.includes('microgram') || key.includes('mcg')) return 'mcg';
+                        if (key.includes('nanogram') || key.includes('ng')) return 'ng';
+                        if (key.includes('gram') || key.includes('gramsoutput')) return 'g';
+                        if (key.includes('quart') || key.includes('qt')) return 'qt';
+                        if (key.includes('pint') || key.includes('pt')) return 'pt';
+                        if (key.includes('gallon') || key.includes('gal')) return 'gal';
+                        if (key.includes('ounces') || key.includes('oz')) return 'oz';
+                        if (key.includes('ton') || key.includes('tonne') || key.includes('toutput')) return 't';
+                        if (key.includes('stone')) return 'st';
+                        if (key.includes('cups') || key.includes('cup')) return 'cups';
+
+                        return '';
+                    };
+
+                    const moveInlineUnitToLabel = function (valueElement, unitElement, fallbackUnit) {
+                        const text = (valueElement.textContent || '').trim();
+
+                        if (text === '' || text === '--') {
+                            unitElement.textContent = fallbackUnit;
+                            return;
+                        }
+
+                        const unitMatch = text.match(/^(.+?)\s+([a-zA-Zµ³²]+(?:\s+[a-zA-Zµ³²]+)?)$/);
+                        if (!unitMatch) {
+                            unitElement.textContent = fallbackUnit;
+                            return;
+                        }
+
+                        const numberPart = unitMatch[1].trim();
+                        const parsedUnit = unitMatch[2].trim();
+
+                        if (numberPart === '' || parsedUnit === '') {
+                            unitElement.textContent = fallbackUnit;
+                            return;
+                        }
+
+                        valueElement.textContent = numberPart;
+                        unitElement.textContent = parsedUnit;
+                    };
+
+                    const getConvertedValueCards = function (section) {
+                        return Array.from(section.querySelectorAll('div')).filter((card) => {
+                            const centeredBody = card.querySelector(':scope > .text-center');
+                            const rowBody = card.querySelector(':scope > .flex.items-center.justify-between');
+                            const body = centeredBody || rowBody;
+
+                            if (!body) {
+                                return false;
+                            }
+
+                            const title = body.querySelector(':scope h4');
+                            const value = body.querySelector(':scope .font-serif[id], :scope [id].font-serif');
+
+                            return !!(title && value);
+                        });
+                    };
+
+                    const getConvertedValueSections = function () {
+                        return Array.from(toolUiRoot.querySelectorAll('div.mt-8.space-y-4')).filter((section) => {
+                            const heading = section.querySelector(':scope > h3');
+                            return heading && ((heading.textContent || '').toLowerCase().includes('converted values'));
+                        });
+                    };
+
+                    const getCardCopyMeta = function (card) {
+                        const rowBody = card.querySelector(':scope > .flex.items-center.justify-between');
+                        const centeredBody = card.querySelector(':scope > .text-center');
+                        const body = rowBody || centeredBody || card;
+
+                        const titleElement = body.querySelector(':scope h4');
+                        const subtitleElement = body.querySelector(':scope p');
+                        const valueElement = body.querySelector(':scope .font-serif[id], :scope [id].font-serif');
+
+                        if (!titleElement || !valueElement) {
+                            return null;
+                        }
+
+                        const unitElement = rowBody
+                            ? rowBody.querySelector(':scope > .text-right > .text-xs.text-slate-500.font-medium')
+                            : body.querySelector(':scope .text-xs.text-slate-500.font-medium');
+
+                        return {
+                            titleElement,
+                            subtitleElement,
+                            valueElement,
+                            unitElement,
+                        };
+                    };
+
+                    const splitValueAndUnit = function (valueText, fallbackUnit) {
+                        const value = (valueText || '').trim();
+                        const unit = (fallbackUnit || '').trim();
+
+                        if (value === '' || value === '--') {
+                            return {
+                                value,
+                                unit,
+                            };
+                        }
+
+                        if (unit !== '' && !value.toLowerCase().endsWith(unit.toLowerCase())) {
+                            return {
+                                value,
+                                unit,
+                            };
+                        }
+
+                        if (unit !== '') {
+                            const suffixPattern = new RegExp('\\\\s+' + unit.replace(/[.*+?^${}()|[\\]\\]/g, '\\\\$&') + '$', 'i');
+                            const stripped = value.replace(suffixPattern, '').trim();
+
+                            return {
+                                value: stripped === '' ? value : stripped,
+                                unit,
+                            };
+                        }
+
+                        const parsed = value.match(/^(.+?)\s+([a-zA-Zµ³²]+(?:\s+[a-zA-Zµ³²]+)?)$/);
+                        if (!parsed) {
+                            return {
+                                value,
+                                unit,
+                            };
+                        }
+
+                        return {
+                            value: parsed[1].trim(),
+                            unit: parsed[2].trim(),
+                        };
+                    };
+
+                    const buildCopyPayload = function (meta) {
+                        const titleText = (meta.titleElement.textContent || '').trim();
+                        const valueText = (meta.valueElement.textContent || '').trim();
+                        const unitText = meta.unitElement ? (meta.unitElement.textContent || '').trim() : '';
+                        const parts = splitValueAndUnit(valueText, unitText);
+                        const combinedValue = parts.unit && parts.value && parts.value !== '--'
+                            ? (parts.value + ' ' + parts.unit)
+                            : parts.value;
+
+                        return titleText
+                            ? (titleText + ': ' + combinedValue)
+                            : combinedValue;
+                    };
+
+                    const copyTextToClipboard = async function (text) {
+                        if (!text) {
+                            return false;
+                        }
+
+                        if (navigator.clipboard && window.isSecureContext) {
+                            try {
+                                await navigator.clipboard.writeText(text);
+                                return true;
+                            } catch (error) {
+                                // Fall through to legacy copy path.
+                            }
+                        }
+
+                        const textarea = document.createElement('textarea');
+                        textarea.value = text;
+                        textarea.style.position = 'fixed';
+                        textarea.style.left = '-9999px';
+                        textarea.style.top = '-9999px';
+                        document.body.appendChild(textarea);
+                        textarea.focus();
+                        textarea.select();
+
+                        let success = false;
+                        try {
+                            success = document.execCommand('copy');
+                        } catch (error) {
+                            success = false;
+                        }
+
+                        textarea.remove();
+                        return success;
+                    };
+
+                    const showCopyFeedback = function (button, success) {
+                        const originalText = button.textContent;
+                        button.textContent = success ? 'Copied' : 'Failed';
+
+                        window.setTimeout(function () {
+                            button.textContent = originalText;
+                        }, 1200);
+                    };
+
+                    const attachCopyButtonToCard = function (card) {
+                        if (card.dataset.copyButtonAttached === 'true') {
+                            return;
+                        }
+
+                        const meta = getCardCopyMeta(card);
+                        if (!meta) {
+                            return;
+                        }
+
+                        const button = document.createElement('button');
+                        button.type = 'button';
+                        button.className = 'mt-1 inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-2 py-1 text-[10px] font-semibold text-slate-700 hover:bg-slate-100';
+                        button.textContent = 'Copy';
+
+                        button.addEventListener('click', async function (event) {
+                            event.preventDefault();
+                            event.stopPropagation();
+
+                            const payload = buildCopyPayload(meta);
+                            const success = await copyTextToClipboard(payload);
+                            showCopyFeedback(button, success);
+                        });
+
+                        const rightColumn = card.querySelector(':scope > .flex.items-center.justify-between > .text-right');
+
+                        if (rightColumn) {
+                            rightColumn.appendChild(button);
+                        } else {
+                            card.classList.add('relative');
+                            button.className = 'absolute right-2 top-2 inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-2 py-1 text-[10px] font-semibold text-slate-700 hover:bg-slate-100';
+                            card.appendChild(button);
+                        }
+
+                        card.dataset.copyButtonAttached = 'true';
+                    };
+
+                    const getOrCreateValuesModal = function (section, cards) {
+                        if (section._convertedValuesModal) {
+                            return section._convertedValuesModal;
+                        }
+
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 p-4';
+                        modal.innerHTML = [
+                            '<div class="w-full max-w-2xl rounded-xl border border-slate-200 bg-white shadow-xl">',
+                            '  <div class="flex items-center justify-between border-b border-slate-200 px-4 py-3">',
+                            '    <h3 class="text-sm font-semibold text-slate-900">All Conversion Values</h3>',
+                            '    <button type="button" class="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100" data-converted-modal-close>Close</button>',
+                            '  </div>',
+                            '  <div class="max-h-[70vh] overflow-y-auto p-4">',
+                            '    <div class="space-y-3" data-converted-modal-list></div>',
+                            '  </div>',
+                            '</div>',
+                        ].join('');
+
+                        document.body.appendChild(modal);
+
+                        const closeButton = modal.querySelector('[data-converted-modal-close]');
+                        const listRoot = modal.querySelector('[data-converted-modal-list]');
+
+                        const closeModal = function () {
+                            modal.classList.add('hidden');
+                            modal.classList.remove('flex');
+                            document.body.classList.remove('overflow-hidden');
+                        };
+
+                        const openModal = function () {
+                            listRoot.innerHTML = '';
+
+                            cards.forEach((card) => {
+                                const meta = getCardCopyMeta(card);
+                                if (!meta) {
+                                    return;
+                                }
+
+                                const titleText = (meta.titleElement.textContent || '').trim();
+                                const subtitleText = meta.subtitleElement
+                                    ? (meta.subtitleElement.textContent || '').trim()
+                                    : inferConvertedValueSubtitle(titleText);
+
+                                const valueText = (meta.valueElement.textContent || '').trim();
+                                const unitText = meta.unitElement ? (meta.unitElement.textContent || '').trim() : '';
+                                const parts = splitValueAndUnit(valueText, unitText);
+
+                                const rowCard = document.createElement('div');
+                                rowCard.className = 'rounded-md border border-slate-200 bg-slate-50 p-3';
+
+                                const row = document.createElement('div');
+                                row.className = 'flex items-center justify-between';
+
+                                const left = document.createElement('div');
+
+                                const title = document.createElement('h4');
+                                title.className = 'text-xs font-semibold text-slate-900';
+                                title.textContent = titleText;
+                                left.appendChild(title);
+
+                                const subtitle = document.createElement('p');
+                                subtitle.className = 'text-[11px] text-slate-500';
+                                subtitle.textContent = subtitleText;
+                                left.appendChild(subtitle);
+
+                                const right = document.createElement('div');
+                                right.className = 'text-right';
+
+                                const value = document.createElement('div');
+                                value.className = 'font-serif text-3xl font-bold leading-none text-indigo-700';
+                                value.textContent = parts.value || '--';
+                                right.appendChild(value);
+
+                                const unit = document.createElement('div');
+                                unit.className = 'text-xs text-slate-500 font-medium';
+                                unit.textContent = parts.unit;
+                                right.appendChild(unit);
+
+                                const copyButton = document.createElement('button');
+                                copyButton.type = 'button';
+                                copyButton.className = 'mt-1 inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-2 py-1 text-[10px] font-semibold text-slate-700 hover:bg-slate-100';
+                                copyButton.textContent = 'Copy';
+                                copyButton.addEventListener('click', async function () {
+                                    const payload = buildCopyPayload(meta);
+                                    const success = await copyTextToClipboard(payload);
+                                    showCopyFeedback(copyButton, success);
+                                });
+                                right.appendChild(copyButton);
+
+                                row.appendChild(left);
+                                row.appendChild(right);
+                                rowCard.appendChild(row);
+                                listRoot.appendChild(rowCard);
+                            });
+
+                            modal.classList.remove('hidden');
+                            modal.classList.add('flex');
+                            document.body.classList.add('overflow-hidden');
+                        };
+
+                        closeButton.addEventListener('click', closeModal);
+
+                        modal.addEventListener('click', function (event) {
+                            if (event.target === modal) {
+                                closeModal();
+                            }
+                        });
+
+                        section._convertedValuesModal = {
+                            open: openModal,
+                            close: closeModal,
+                        };
+
+                        return section._convertedValuesModal;
+                    };
+
+                      const enhanceConvertedValuesSections = function () {
+                          const resultSections = getConvertedValueSections();
+
+                          resultSections.forEach((section) => {
+                              const cards = getConvertedValueCards(section);
+
+                              if (!cards.length) {
+                                  return;
+                              }
+
+                              cards.forEach((card) => {
+                                  attachCopyButtonToCard(card);
+                              });
+
+                              const heading = section.querySelector(':scope > h3');
+                              let visibleCardsHost = section.querySelector('[data-converted-visible-cards]');
+
+                              if (!visibleCardsHost) {
+                                  visibleCardsHost = document.createElement('div');
+                                  visibleCardsHost.dataset.convertedVisibleCards = 'true';
+                                  visibleCardsHost.className = 'space-y-3';
+
+                                  if (heading) {
+                                      heading.insertAdjacentElement('afterend', visibleCardsHost);
+                                  } else {
+                                      section.prepend(visibleCardsHost);
+                                  }
+                              }
+
+                              cards.slice(0, 3).forEach((card) => {
+                                  card.classList.remove('hidden');
+                                  visibleCardsHost.appendChild(card);
+                              });
+
+                              cards.slice(3).forEach((card) => {
+                                  card.classList.add('hidden');
+                              });
+
+                              let showMoreButton = section.querySelector('[data-converted-show-more]');
+
+                              if (cards.length > 3) {
+                                  if (!showMoreButton) {
+                                      showMoreButton = document.createElement('button');
+                                      showMoreButton.type = 'button';
+                                      showMoreButton.dataset.convertedShowMore = 'true';
+                                      showMoreButton.className = 'inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-100';
+                                      showMoreButton.textContent = 'Show More';
+                                      section.appendChild(showMoreButton);
+                                  }
+
+                                  showMoreButton.classList.remove('hidden');
+
+                                  if (showMoreButton.previousElementSibling !== visibleCardsHost) {
+                                      visibleCardsHost.insertAdjacentElement('afterend', showMoreButton);
+                                  }
+
+                                  if (!showMoreButton.dataset.bound) {
+                                      const modalController = getOrCreateValuesModal(section, cards);
+
+                                      showMoreButton.addEventListener('click', function () {
+                                          modalController.open();
+                                      });
+
+                                      showMoreButton.dataset.bound = 'true';
+                                  } else {
+                                      getOrCreateValuesModal(section, cards);
+                                  }
+                              } else if (showMoreButton) {
+                                  showMoreButton.classList.add('hidden');
+                              }
+
+                              const preservedElements = new Set([heading, visibleCardsHost, showMoreButton].filter(Boolean));
+
+                              Array.from(section.children).forEach((child) => {
+                                  if (!preservedElements.has(child)) {
+                                      child.classList.add('hidden');
+                                  }
+                              });
+                          });
+                      };
+
+                    const applyUniformConvertedValueTypography = function (section) {
+                        const convertedCards = getConvertedValueCards(section);
+
+                        convertedCards.forEach((card) => {
+                            const row = card.querySelector(':scope > .flex.items-center.justify-between');
+                            if (!row) {
+                                return;
+                            }
+
+                            const left = row.querySelector(':scope > div:first-child');
+                            const right = row.querySelector(':scope > .text-right');
+
+                            if (left) {
+                                const title = left.querySelector(':scope > h4');
+                                if (title) {
+                                    title.className = 'text-xs font-semibold text-slate-900';
+                                }
+
+                                const subtitle = left.querySelector(':scope > p');
+                                if (subtitle) {
+                                    subtitle.className = 'text-[11px] text-slate-500';
+                                }
+                            }
+
+                            if (right) {
+                                const value = right.querySelector(':scope > .font-serif');
+                                if (value) {
+                                    value.className = 'font-serif text-3xl font-bold leading-none text-indigo-700';
+                                }
+
+                                const unit = right.querySelector(':scope > div:not(.font-serif)');
+                                if (unit) {
+                                    unit.className = 'text-xs text-slate-500 font-medium';
+                                }
+                            }
+                        });
+                    };
+
+                    const normalizeMultiConvertedValueCards = function () {
+                        const resultSections = getConvertedValueSections();
+
+                        resultSections.forEach((section) => {
+                            const convertedCards = getConvertedValueCards(section);
+
+                            if (convertedCards.length <= 1) {
+                                return;
+                            }
+
+                            const cardsToTransform = convertedCards.filter((card) => {
+                                if (card.dataset.convertedCardNormalized === 'true') {
+                                    return false;
+                                }
+
+                                const centeredBody = card.querySelector(':scope > .text-center');
+                                if (!centeredBody) {
+                                    return false;
+                                }
+
+                                const title = centeredBody.querySelector(':scope > h4');
+                                const value = centeredBody.querySelector(':scope > .font-serif[id], :scope > [id].font-serif');
+
+                                return !!(title && value);
+                            });
+
+                            const cardParents = new Set(cardsToTransform.map((card) => card.parentElement).filter(Boolean));
+                            cardParents.forEach((parent) => {
+                                if (!parent.classList.contains('grid')) {
+                                    return;
+                                }
+
+                                parent.classList.remove('grid', 'grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3', 'gap-4');
+                                parent.classList.add('space-y-3');
+                            });
+
+                            cardsToTransform.forEach((card) => {
+                                const centeredBody = card.querySelector(':scope > .text-center');
+                                if (!centeredBody) {
+                                    return;
+                                }
+
+                                const title = centeredBody.querySelector(':scope > h4');
+                                const value = centeredBody.querySelector(':scope > .font-serif[id], :scope > [id].font-serif');
+                                if (!title || !value) {
+                                    return;
+                                }
+
+                                const fallbackUnit = inferUnitLabel(title.textContent || '', value.id || '');
+
+                                const left = document.createElement('div');
+                                title.className = 'text-xs font-semibold text-slate-900';
+                                left.appendChild(title);
+
+                                const subtitle = document.createElement('p');
+                                subtitle.className = 'text-[11px] text-slate-500';
+                                subtitle.textContent = inferConvertedValueSubtitle(title.textContent || '');
+                                left.appendChild(subtitle);
+
+                                const right = document.createElement('div');
+                                right.className = 'text-right';
+                                value.className = 'font-serif text-3xl font-bold leading-none text-indigo-700';
+                                right.appendChild(value);
+
+                                const unit = document.createElement('div');
+                                unit.className = 'text-xs text-slate-500 font-medium';
+                                unit.textContent = fallbackUnit;
+                                right.appendChild(unit);
+
+                                moveInlineUnitToLabel(value, unit, fallbackUnit);
+
+                                const observer = new MutationObserver(() => {
+                                    moveInlineUnitToLabel(value, unit, fallbackUnit);
+                                });
+                                observer.observe(value, { childList: true, characterData: true, subtree: true });
+
+                                const row = document.createElement('div');
+                                row.className = 'flex items-center justify-between';
+                                row.appendChild(left);
+                                row.appendChild(right);
+
+                                centeredBody.replaceWith(row);
+                                card.dataset.convertedCardNormalized = 'true';
+                            });
+
+                            applyUniformConvertedValueTypography(section);
+                        });
+                    };
+
+                    const helperBlocks = Array.from(toolUiRoot.children).filter((node) => {
+                        return node.classList && node.classList.contains('mt-6') && node.classList.contains('space-y-4');
+                    });
+
+                    helperBlocks.forEach((block) => {
+                        block.classList.remove('mt-6');
+
+                        const cards = Array.from(block.querySelectorAll(':scope > div'));
+                        cards.forEach((card) => {
+                            card.classList.remove('p-4');
+                            card.classList.add('p-3', 'shadow-sm');
+
+                            card.querySelectorAll('.mt-6').forEach((node) => node.classList.remove('mt-6'));
+                            card.querySelectorAll('.bg-gray-50').forEach((node) => {
+                                node.classList.remove('bg-gray-50');
+                                node.classList.add('bg-slate-50');
+                            });
+                            card.querySelectorAll('.rounded-lg').forEach((node) => {
+                                if (node.tagName.toLowerCase() === 'div') {
+                                    node.classList.remove('rounded-lg');
+                                    node.classList.add('rounded-md');
+                                }
+                            });
+                            card.querySelectorAll('.text-gray-700').forEach((node) => {
+                                node.classList.remove('text-gray-700');
+                                node.classList.add('text-slate-700');
+                            });
+                            card.querySelectorAll('.text-gray-600').forEach((node) => {
+                                node.classList.remove('text-gray-600');
+                                node.classList.add('text-slate-600');
+                            });
+                        });
+
+                        aboutContentStack.appendChild(block);
+                    });
+
+                    normalizeMultiConvertedValueCards();
+                    enhanceConvertedValuesSections();
+
+                    document.addEventListener('keydown', function (e) {
+                        if (e.defaultPrevented) {
+                            return;
+                        }
+
+                        if (!isCtrlMShortcut(e)) {
+                            return;
+                        }
+
+                        const directionRadios = Array.from(toolUiRoot.querySelectorAll('input[name="direction"]'));
+                        const modeRadios = Array.from(toolUiRoot.querySelectorAll('input[name="mode"]'));
+                        const toggleGroup = directionRadios.length > 1 ? directionRadios : modeRadios;
+
+                        if (toggleGroup.length <= 1) {
+                            return;
+                        }
+
+                        e.preventDefault();
+
+                        const currentIndex = toggleGroup.findIndex((radio) => radio.checked);
+                        const nextIndex = currentIndex >= 0
+                            ? (currentIndex + 1) % toggleGroup.length
+                            : 0;
+
+                        toggleGroup[nextIndex].checked = true;
+                        toggleGroup[nextIndex].dispatchEvent(new Event('change', { bubbles: true }));
+                    });
+                }
+
                 const quickReferenceColumn = document.getElementById('quickReferenceColumn');
                 const quickReferenceTarget = document.getElementById('quickReferenceTarget');
+
+                if (isVolumeWeightPage) {
+                    return;
+                }
 
                 if (!toolUiRoot || !quickReferenceColumn || !quickReferenceTarget) {
                     return;

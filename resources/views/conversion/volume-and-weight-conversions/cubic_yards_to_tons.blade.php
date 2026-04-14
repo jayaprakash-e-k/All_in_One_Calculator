@@ -4,23 +4,23 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Material Volume to Weight Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Material Volume to Weight Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Material Type Selection -->
                                                                             <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                <label class="block text-sm font-semibold text-slate-700">
                                                                                     Type of Material
                                                                                 </label>
                                                                                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -35,7 +35,7 @@
 
                                                                             <!-- Material Selection -->
                                                                             <div class="space-y-2">
-                                                                                <label for="substance" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="substance" class="block text-sm font-semibold text-slate-700">
                                                                                     <span id="subLabel">Non-metals</span> Material
                                                                                 </label>
                                                                                 <select 
@@ -48,7 +48,7 @@
 
                                                                             <!-- Custom Density Input -->
                                                                             <div class="space-y-2" id="customDensityField" style="display: none;">
-                                                                                <label for="customDensity" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="customDensity" class="block text-sm font-semibold text-slate-700">
                                                                                     Custom Density
                                                                                 </label>
                                                                                 <div class="relative">
@@ -68,7 +68,7 @@
 
                                                                             <!-- Density Display -->
                                                                             <div class="space-y-2">
-                                                                                <label for="density" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="density" class="block text-sm font-semibold text-slate-700">
                                                                                     Material Density
                                                                                 </label>
                                                                                 <div class="relative">
@@ -87,7 +87,7 @@
 
                                                                             <!-- Volume Input -->
                                                                             <div class="space-y-2">
-                                                                                <label for="volume" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="volume" class="block text-sm font-semibold text-slate-700">
                                                                                     Volume
                                                                                 </label>
                                                                                 <div class="relative">
@@ -105,53 +105,50 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Clear Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + Shift + C to clear</p>
+                                                                                <button
+                                                                                    type="button"
                                                                                     id="clearButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                                    </svg>
-                                                                                    Clear Values
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Weight Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result - Metric Tons -->
-                                                                            <div class="p-6 bg-gradient-to-r from-purple-50 to-violet-50 rounded-xl border-l-4 border-purple-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Mass (Metric Tons)</h4>
-                                                                                        <p class="text-sm text-gray-600">Standard metric weight</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Mass (Metric Tons)</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Standard metric weight</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-purple-600 font-mono" id="mass">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium">metric tons</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="mass">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium">metric tons</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Additional Conversions -->
                                                                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
-                                                                                        <div class="text-xl font-bold text-blue-600 font-mono" id="kgOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Kilograms</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="kgOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">US Tons</h4>
-                                                                                        <div class="text-xl font-bold text-orange-600 font-mono" id="usTonsOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">US Tons</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="usTonsOutput">--</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -166,8 +163,8 @@
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <!-- Quick Reference -->
                                                 <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Material Density Reference</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Material Density Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
                                                         <div>• Concrete: 2400 kg/m³</div>
                                                         <div>• Sand: 1602 kg/m³</div>
                                                         <div>• Gravel: 1680 kg/m³</div>
@@ -180,48 +177,48 @@
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Volume to Weight Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Volume to Weight Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Construction Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Construction Applications</h4>
                                     <p>Essential for ordering concrete, estimating soil needs, calculating aggregate requirements, and determining trucking loads for construction projects.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Material Planning</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Material Planning</h4>
                                     <p>Critical for project budgeting, transportation planning, and ensuring adequate structural support for the weight of materials being used.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
-                                <p class="text-sm text-purple-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Construction Tip:</strong> Always verify material densities with your supplier as they can vary based on moisture content and composition!
                                 </p>
                             </div>
                         </div>
 
                         <!-- Common Material Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Construction Materials</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Construction Materials</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Concrete</div>
-                                    <div class="text-purple-600 cursor-pointer hover:text-purple-800 transition-colors" data-material="Concrete" data-volume="1">1 yd³</div>
-                                    <div class="text-xs text-gray-500 mt-1">~1.8 tons</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Concrete</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-material="Concrete" data-volume="1">1 yd³</div>
+                                    <div class="text-[11px] text-slate-500">~1.8 tons</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Topsoil</div>
-                                    <div class="text-purple-600 cursor-pointer hover:text-purple-800 transition-colors" data-material="Sand" data-volume="1">1 yd³</div>
-                                    <div class="text-xs text-gray-500 mt-1">~1.2 tons</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Topsoil</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-material="Sand" data-volume="1">1 yd³</div>
+                                    <div class="text-[11px] text-slate-500">~1.2 tons</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Gravel</div>
-                                    <div class="text-purple-600 cursor-pointer hover:text-purple-800 transition-colors" data-material="Asphalt" data-volume="1">1 yd³</div>
-                                    <div class="text-xs text-gray-500 mt-1">~1.8 tons</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Gravel</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-material="Asphalt" data-volume="1">1 yd³</div>
+                                    <div class="text-[11px] text-slate-500">~1.8 tons</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Clay</div>
-                                    <div class="text-purple-600 cursor-pointer hover:text-purple-800 transition-colors" data-material="Clay" data-volume="1">1 yd³</div>
-                                    <div class="text-xs text-gray-500 mt-1">~1.2 tons</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Clay</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-material="Clay" data-volume="1">1 yd³</div>
+                                    <div class="text-[11px] text-slate-500">~1.2 tons</div>
                                 </div>
                             </div>
                         </div>
@@ -415,7 +412,10 @@
 
                         // Keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
                                 clearAll();
                             }
                         });

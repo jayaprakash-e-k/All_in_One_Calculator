@@ -4,23 +4,23 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Volume & Capacity Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Volume & Capacity Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Input Value -->
                                                                             <div class="space-y-2">
-                                                                                <label for="inputValue" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="inputValue" class="block text-sm font-semibold text-slate-700">
                                                                                     Enter Volume Value
                                                                                 </label>
                                                                                 <input 
@@ -36,7 +36,7 @@
                                                                             <!-- From and To Units -->
                                                                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                                                 <div class="space-y-2">
-                                                                                    <label for="fromUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                    <label for="fromUnit" class="block text-sm font-semibold text-slate-700">
                                                                                         From Unit
                                                                                     </label>
                                                                                     <select 
@@ -59,7 +59,7 @@
                                                                                 </div>
 
                                                                                 <div class="space-y-2">
-                                                                                    <label for="toUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                    <label for="toUnit" class="block text-sm font-semibold text-slate-700">
                                                                                         To Unit
                                                                                     </label>
                                                                                     <select 
@@ -82,33 +82,33 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Swap Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
-                                                                                    id="swapButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-cyan-100 hover:bg-cyan-200 text-cyan-700 font-medium rounded-lg transition-colors duration-200"
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + Shift + C to clear</p>
+                                                                                <button
+                                                                                    type="button"
+                                                                                    id="clearButton"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                                                                                    </svg>
-                                                                                    Swap Units
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Result Display -->
-                                                                        <div class="mt-8 p-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl border-l-4 border-cyan-500">
-                                                                            <div class="flex items-center justify-between">
-                                                                                <div>
-                                                                                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Converted Volume</h3>
-                                                                                    <p class="text-sm text-gray-600">Real-time conversion result</p>
-                                                                                </div>
-                                                                                <div class="text-right">
-                                                                                    <div class="text-2xl font-bold text-cyan-600 font-mono" id="output">--</div>
-                                                                                    <div class="text-sm text-gray-500 font-medium" id="unit-display">Select units</div>
+                                                                        <div class="mt-8 space-y-4">
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
+                                                                                <div class="flex items-center justify-between">
+                                                                                    <div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Converted Value</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Real-time conversion result</p>
+                                                                                    </div>
+                                                                                    <div class="text-right">
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="output">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium" id="unit-display">Select units</div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -122,8 +122,8 @@
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <!-- Quick Reference -->
                                                 <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Quick Reference</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Quick Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
                                                         <div>• 1 L = 1000 mL</div>
                                                         <div>• 1 gal = 3.785 L</div>
                                                         <div>• 1 ft³ = 28.32 L</div>
@@ -136,44 +136,44 @@
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Volume Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Volume Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Volume vs Capacity</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Volume vs Capacity</h4>
                                     <p>Volume refers to the amount of space occupied by matter, while capacity refers to the amount a container can hold. Both use the same units for practical measurements.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Common Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Common Applications</h4>
                                     <p>Essential for cooking, chemistry, engineering, construction, and everyday tasks involving liquids, gases, or bulk materials.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-cyan-50 rounded-lg border border-cyan-200">
-                                <p class="text-sm text-cyan-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Cooking Tip:</strong> US cooking measurements differ from metric - 1 US cup = 240 mL, while 1 metric cup = 250 mL!
                                 </p>
                             </div>
                         </div>
 
                         <!-- Common Volume Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Volume Examples</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Volume Examples</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Teaspoon</div>
-                                    <div class="text-cyan-600 cursor-pointer hover:text-cyan-800 transition-colors" data-volume="5" data-unit="ml">5 mL</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Teaspoon</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-volume="5" data-unit="ml">5 mL</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Water Bottle</div>
-                                    <div class="text-cyan-600 cursor-pointer hover:text-cyan-800 transition-colors" data-volume="500" data-unit="ml">500 mL</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Water Bottle</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-volume="500" data-unit="ml">500 mL</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Milk Jug</div>
-                                    <div class="text-cyan-600 cursor-pointer hover:text-cyan-800 transition-colors" data-volume="1" data-unit="gal">1 gallon</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Milk Jug</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-volume="1" data-unit="gal">1 gallon</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Swimming Pool</div>
-                                    <div class="text-cyan-600 cursor-pointer hover:text-cyan-800 transition-colors" data-volume="50" data-unit="m3">50 m³</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Swimming Pool</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-volume="50" data-unit="m3">50 m³</div>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                         const inputValue = document.getElementById('inputValue');
                         const fromUnit = document.getElementById('fromUnit');
                         const toUnit = document.getElementById('toUnit');
-                        const swapButton = document.getElementById('swapButton');
+                        const clearButton = document.getElementById('clearButton');
                         const output = document.getElementById('output');
                         const unitDisplay = document.getElementById('unit-display');
 
@@ -233,21 +233,17 @@
                             }
                         }
 
-                        function swapUnits() {
-                            const fromValue = fromUnit.value;
-                            const toValue = toUnit.value;
-                            
-                            fromUnit.value = toValue;
-                            toUnit.value = fromValue;
-                            
+                        function clearInput() {
+                            inputValue.value = '';
                             convert();
+                            inputValue.focus();
                         }
 
                         // Event listeners
                         inputValue.addEventListener('input', convert);
                         fromUnit.addEventListener('change', convert);
                         toUnit.addEventListener('change', convert);
-                        swapButton.addEventListener('click', swapUnits);
+                        clearButton.addEventListener('click', clearInput);
 
                         // Add clickable functionality to example volumes
                         const exampleVolumes = document.querySelectorAll('[data-volume]');
@@ -269,13 +265,11 @@
 
                         // Keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
-                                inputValue.value = '';
-                                convert();
-                                inputValue.focus();
-                            } else if (e.ctrlKey && e.key === 's') {
-                                e.preventDefault();
-                                swapUnits();
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
+                                clearInput();
                             }
                         });
                     });

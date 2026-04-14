@@ -4,23 +4,23 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Metric Weight Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Metric Weight Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Input Value -->
                                                                             <div class="space-y-2">
-                                                                                <label for="decagram" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="decagram" class="block text-sm font-semibold text-slate-700">
                                                                                     Enter Value in Decagrams
                                                                                 </label>
                                                                                 <div class="relative">
@@ -36,12 +36,12 @@
                                                                                         <span class="text-gray-500 text-sm font-medium">dag</span>
                                                                                     </div>
                                                                                 </div>
-                                                                                <p class="text-xs text-gray-500 mt-1">1 decagram = 10 grams</p>
+                                                                                <p class="text-[11px] text-slate-500">1 decagram = 10 grams</p>
                                                                             </div>
 
                                                                             <!-- Conversion Direction -->
                                                                             <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                <label class="block text-sm font-semibold text-slate-700">
                                                                                     Conversion Direction
                                                                                 </label>
                                                                                 <div class="grid grid-cols-2 gap-3">
@@ -56,59 +56,56 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Clear Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + M to switch mode</p>
+                                                                                <button
+                                                                                    type="button"
                                                                                     id="clearButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                                    </svg>
-                                                                                    Clear Value
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
-                                                                            <div class="p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Equivalent in Grams</h4>
-                                                                                        <p class="text-sm text-gray-600" id="result-description">Metric weight conversion</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900" id="result-title">Equivalent in Grams</h4>
+                                                                                        <p class="text-[11px] text-slate-500" id="result-description">Metric weight conversion</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-yellow-600 font-mono" id="output">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium" id="unit-display">g</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="output">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium" id="unit-display">g</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Additional Metric Conversions -->
                                                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Milligrams</h4>
-                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="mgOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Milligrams</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="mgOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
-                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="kgOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Kilograms</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="kgOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Ounces</h4>
-                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="ozOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Ounces</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="ozOutput">--</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -123,8 +120,8 @@
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <!-- Quick Reference -->
                                                 <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Metric Weight System</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Metric Weight System</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
                                                         <div>• 1 dag = 10 g</div>
                                                         <div>• 1 g = 1000 mg</div>
                                                         <div>• 1 kg = 100 dag</div>
@@ -137,48 +134,48 @@
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Decagram Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Decagram Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">What is a Decagram?</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">What is a Decagram?</h4>
                                     <p>A decagram (dag) is a metric unit of mass equal to 10 grams. It's part of the International System of Units (SI) and is commonly used in some European countries for food packaging and measurements.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Practical Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Practical Applications</h4>
                                     <p>Used in cooking, nutrition labeling, laboratory measurements, and commercial food packaging where intermediate weight units between grams and kilograms are needed.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-                                <p class="text-sm text-yellow-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Metric Tip:</strong> Decagrams are particularly useful for portion control and recipe scaling in professional kitchens!
                                 </p>
                             </div>
                         </div>
 
                         <!-- Common Weight Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Weight Examples</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Weight Examples</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Small Cookie</div>
-                                    <div class="text-yellow-600 cursor-pointer hover:text-yellow-800 transition-colors" data-weight="1">1 dag</div>
-                                    <div class="text-xs text-gray-500 mt-1">10 grams</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Small Cookie</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-weight="1">1 dag</div>
+                                    <div class="text-[11px] text-slate-500">10 grams</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Slice of Bread</div>
-                                    <div class="text-yellow-600 cursor-pointer hover:text-yellow-800 transition-colors" data-weight="2.5">2.5 dag</div>
-                                    <div class="text-xs text-gray-500 mt-1">25 grams</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Slice of Bread</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-weight="2.5">2.5 dag</div>
+                                    <div class="text-[11px] text-slate-500">25 grams</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Chocolate Bar</div>
-                                    <div class="text-yellow-600 cursor-pointer hover:text-yellow-800 transition-colors" data-weight="5">5 dag</div>
-                                    <div class="text-xs text-gray-500 mt-1">50 grams</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Chocolate Bar</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-weight="5">5 dag</div>
+                                    <div class="text-[11px] text-slate-500">50 grams</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Small Apple</div>
-                                    <div class="text-yellow-600 cursor-pointer hover:text-yellow-800 transition-colors" data-weight="15">15 dag</div>
-                                    <div class="text-xs text-gray-500 mt-1">150 grams</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Small Apple</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-weight="15">15 dag</div>
+                                    <div class="text-[11px] text-slate-500">150 grams</div>
                                 </div>
                             </div>
                         </div>
@@ -301,9 +298,12 @@
 
                         // Keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
                                 clearInput();
-                            } else if (e.ctrlKey && e.key === 'd') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 // Toggle direction
                                 const currentDirection = document.querySelector('input[name="direction"]:checked').value;

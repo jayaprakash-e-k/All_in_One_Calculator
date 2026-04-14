@@ -4,23 +4,23 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Liquid Volume to Weight Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Liquid Volume to Weight Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Substance Selection -->
                                                                             <div class="space-y-2">
-                                                                                <label for="substance" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="substance" class="block text-sm font-semibold text-slate-700">
                                                                                     Select Substance
                                                                                 </label>
                                                                                 <select 
@@ -44,7 +44,7 @@
 
                                                                             <!-- Custom Density Field -->
                                                                             <div class="space-y-2" id="customDensityContainer" style="display: none;">
-                                                                                <label for="customDensity" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="customDensity" class="block text-sm font-semibold text-slate-700">
                                                                                     Custom Density
                                                                                 </label>
                                                                                 <div class="relative">
@@ -61,12 +61,12 @@
                                                                                         <span class="text-gray-500 text-sm font-medium">lb/US gal</span>
                                                                                     </div>
                                                                                 </div>
-                                                                                <p class="text-xs text-gray-500 mt-1">Enter pounds per US gallon</p>
+                                                                                <p class="text-[11px] text-slate-500">Enter pounds per US gallon</p>
                                                                             </div>
 
                                                                             <!-- Density Display -->
                                                                             <div class="space-y-2">
-                                                                                <label for="densityDisplay" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="densityDisplay" class="block text-sm font-semibold text-slate-700">
                                                                                     Substance Density
                                                                                 </label>
                                                                                 <div class="relative">
@@ -85,7 +85,7 @@
 
                                                                             <!-- Volume Input -->
                                                                             <div class="space-y-2">
-                                                                                <label for="gallons" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="gallons" class="block text-sm font-semibold text-slate-700">
                                                                                     Volume
                                                                                 </label>
                                                                                 <div class="relative">
@@ -103,59 +103,56 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Clear Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + Shift + C to clear</p>
+                                                                                <button
+                                                                                    type="button"
                                                                                     id="clearButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                                    </svg>
-                                                                                    Clear Values
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Weight Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result - Pounds -->
-                                                                            <div class="p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border-l-4 border-amber-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Weight in Pounds</h4>
-                                                                                        <p class="text-sm text-gray-600">Total weight of liquid</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Weight in Pounds</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Total weight of liquid</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-amber-600 font-mono" id="pounds">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium">lb</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="pounds">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium">lb</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Additional Weight Conversions -->
                                                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilograms</h4>
-                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="kgOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Kilograms</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="kgOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Ounces</h4>
-                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="ozOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Ounces</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="ozOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Metric Tons</h4>
-                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="tonnesOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Metric Tons</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="tonnesOutput">--</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -170,8 +167,8 @@
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <!-- Quick Reference -->
                                                 <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Common Liquid Densities</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Common Liquid Densities</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
                                                         <div>• Water: 8.34 lb/gal</div>
                                                         <div>• Gasoline: 6.07 lb/gal</div>
                                                         <div>• Milk: 8.6 lb/gal</div>
@@ -184,48 +181,48 @@
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Gallon to Pound Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Gallon to Pound Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Density Matters</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Density Matters</h4>
                                     <p>The weight of a gallon depends entirely on the substance's density. Water weighs about 8.34 pounds per gallon, while gasoline weighs only about 6.07 pounds per gallon.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Practical Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Practical Applications</h4>
                                     <p>Essential for fuel calculations, chemical mixing, shipping weights, cooking measurements, and any application where liquid volume needs to be converted to weight.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
-                                <p class="text-sm text-amber-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Temperature Note:</strong> Liquid density can vary with temperature. These calculations assume standard room temperature conditions!
                                 </p>
                             </div>
                         </div>
 
                         <!-- Common Volume Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Liquid Examples</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Liquid Examples</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Water Gallon</div>
-                                    <div class="text-amber-600 cursor-pointer hover:text-amber-800 transition-colors" data-substance="Water" data-volume="1">1 gal</div>
-                                    <div class="text-xs text-gray-500 mt-1">~8.34 pounds</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Water Gallon</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-substance="Water" data-volume="1">1 gal</div>
+                                    <div class="text-[11px] text-slate-500">~8.34 pounds</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Gas Tank</div>
-                                    <div class="text-amber-600 cursor-pointer hover:text-amber-800 transition-colors" data-substance="Gasoline" data-volume="15">15 gal</div>
-                                    <div class="text-xs text-gray-500 mt-1">~91 pounds</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Gas Tank</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-substance="Gasoline" data-volume="15">15 gal</div>
+                                    <div class="text-[11px] text-slate-500">~91 pounds</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Cooking Oil</div>
-                                    <div class="text-amber-600 cursor-pointer hover:text-amber-800 transition-colors" data-substance="Cooking oil" data-volume="0.5">0.5 gal</div>
-                                    <div class="text-xs text-gray-500 mt-1">~3.84 pounds</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Cooking Oil</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-substance="Cooking oil" data-volume="0.5">0.5 gal</div>
+                                    <div class="text-[11px] text-slate-500">~3.84 pounds</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Milk Jug</div>
-                                    <div class="text-amber-600 cursor-pointer hover:text-amber-800 transition-colors" data-substance="Milk" data-volume="1">1 gal</div>
-                                    <div class="text-xs text-gray-500 mt-1">~8.6 pounds</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Milk Jug</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-substance="Milk" data-volume="1">1 gal</div>
+                                    <div class="text-[11px] text-slate-500">~8.6 pounds</div>
                                 </div>
                             </div>
                         </div>
@@ -353,7 +350,10 @@
 
                         // Keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
                                 clearAll();
                             }
                         });

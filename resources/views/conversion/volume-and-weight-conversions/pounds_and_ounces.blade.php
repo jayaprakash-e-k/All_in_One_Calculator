@@ -4,28 +4,28 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Imperial Weight System Conversion</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Imperial Weight System Conversion</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Imperial Weight Input -->
                                                                             <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                <label class="block text-sm font-semibold text-slate-700">
                                                                                     Imperial Weight
                                                                                 </label>
                                                                                 <div class="grid grid-cols-2 gap-4">
                                                                                     <div>
-                                                                                        <label for="pounds" class="block text-xs font-medium text-gray-600 mb-1">Pounds</label>
+                                                                                        <label for="pounds" class="block text-xs font-medium text-slate-500 mb-1">Pounds</label>
                                                                                         <div class="relative">
                                                                                             <input 
                                                                                                 type="number" 
@@ -41,7 +41,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div>
-                                                                                        <label for="ounces" class="block text-xs font-medium text-gray-600 mb-1">Ounces</label>
+                                                                                        <label for="ounces" class="block text-xs font-medium text-slate-500 mb-1">Ounces</label>
                                                                                         <div class="relative">
                                                                                             <input 
                                                                                                 type="number" 
@@ -58,12 +58,12 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <p class="text-xs text-gray-500 mt-1">16 ounces = 1 pound</p>
+                                                                                <p class="text-[11px] text-slate-500">16 ounces = 1 pound</p>
                                                                             </div>
 
                                                                             <!-- Metric Unit Selection -->
                                                                             <div class="space-y-2">
-                                                                                <label for="metricUnit" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="metricUnit" class="block text-sm font-semibold text-slate-700">
                                                                                     Metric Unit for Display
                                                                                 </label>
                                                                                 <select 
@@ -86,107 +86,104 @@
                                                                             <div class="space-y-2">
                                                                                 <label class="flex items-center space-x-2">
                                                                                     <input type="checkbox" id="autoNormalize" class="text-teal-600 focus:ring-slate-200 rounded" checked>
-                                                                                    <span class="text-sm font-medium text-gray-700">Auto-normalize (convert excess ounces to pounds)</span>
+                                                                                    <span class="text-sm font-medium text-slate-700">Auto-normalize (convert excess ounces to pounds)</span>
                                                                                 </label>
                                                                             </div>
 
-                                                                            <!-- Clear Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + Shift + C to clear</p>
+                                                                                <button
+                                                                                    type="button"
                                                                                     id="clearButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-teal-100 hover:bg-teal-200 text-teal-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                                    </svg>
-                                                                                    Clear All
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Combined Imperial Weight -->
-                                                                            <div class="p-6 bg-gradient-to-r from-teal-50 to-pink-50 rounded-xl border-l-4 border-teal-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Combined Imperial Weight</h4>
-                                                                                        <p class="text-sm text-gray-600">Pounds and ounces together</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Combined Imperial Weight</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Pounds and ounces together</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-teal-600 font-mono" id="combinedOutput">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium">lbs + oz</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="combinedOutput">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium">lbs + oz</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Primary Metric Result -->
-                                                                            <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="metricTitle">Weight in Grams</h4>
-                                                                                        <p class="text-sm text-gray-600">Metric weight measurement</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900" id="metricTitle">Weight in Grams</h4>
+                                                                                        <p class="text-[11px] text-slate-500">Metric weight measurement</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-blue-600 font-mono" id="metricOutput">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium" id="metricUnitDisplay">g</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="metricOutput">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium" id="metricUnitDisplay">g</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Additional Weight Conversions -->
                                                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Total Ounces</h4>
-                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="totalOuncesOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Total Ounces</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="totalOuncesOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Decimal Pounds</h4>
-                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="decimalPoundsOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Decimal Pounds</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="decimalPoundsOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-l-4 border-orange-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Stone & Pounds</h4>
-                                                                                        <div class="text-lg font-bold text-orange-600 font-mono" id="stoneOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Stone & Pounds</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="stoneOutput">--</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- All Metric Units Display -->
-                                                                            <div class="p-4 bg-gray-50 rounded-lg">
-                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-3 text-center">All Metric Conversions</h4>
-                                                                                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs text-gray-600">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
+                                                                                <h4 class="text-sm font-semibold text-slate-700 mb-3 text-center">All Metric Conversions</h4>
+                                                                                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs text-slate-500">
                                                                                     <div class="text-center">
-                                                                                        <div class="font-medium text-gray-700" id="mcgOutput">-- µg</div>
+                                                                                        <div class="font-medium text-slate-700" id="mcgOutput">-- µg</div>
                                                                                         <div>Micrograms</div>
                                                                                     </div>
                                                                                     <div class="text-center">
-                                                                                        <div class="font-medium text-gray-700" id="mgOutput">-- mg</div>
+                                                                                        <div class="font-medium text-slate-700" id="mgOutput">-- mg</div>
                                                                                         <div>Milligrams</div>
                                                                                     </div>
                                                                                     <div class="text-center">
-                                                                                        <div class="font-medium text-gray-700" id="gOutput">-- g</div>
+                                                                                        <div class="font-medium text-slate-700" id="gOutput">-- g</div>
                                                                                         <div>Grams</div>
                                                                                     </div>
                                                                                     <div class="text-center">
-                                                                                        <div class="font-medium text-gray-700" id="dagOutput">-- dag</div>
+                                                                                        <div class="font-medium text-slate-700" id="dagOutput">-- dag</div>
                                                                                         <div>Decagrams</div>
                                                                                     </div>
                                                                                     <div class="text-center">
-                                                                                        <div class="font-medium text-gray-700" id="kgOutput">-- kg</div>
+                                                                                        <div class="font-medium text-slate-700" id="kgOutput">-- kg</div>
                                                                                         <div>Kilograms</div>
                                                                                     </div>
                                                                                     <div class="text-center">
-                                                                                        <div class="font-medium text-gray-700" id="tOutput">-- t</div>
+                                                                                        <div class="font-medium text-slate-700" id="tOutput">-- t</div>
                                                                                         <div>Metric tons</div>
                                                                                     </div>
                                                                                 </div>
@@ -201,22 +198,22 @@
         <div class="mt-6 space-y-4">
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <div class="space-y-2">
-                                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                                <label class="block text-sm font-semibold text-slate-700">
                                                                                                     Common Weight Presets
                                                                                                 </label>
                                                                                                 <div class="grid grid-cols-4 gap-2">
-                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="1" data-ounces="0">1 lb</button>
-                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="2" data-ounces="8">2.5 lbs</button>
-                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="5" data-ounces="0">5 lbs</button>
-                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="10" data-ounces="0">10 lbs</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-slate-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="1" data-ounces="0">1 lb</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-slate-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="2" data-ounces="8">2.5 lbs</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-slate-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="5" data-ounces="0">5 lbs</button>
+                                                                                                    <button type="button" class="weight-preset px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-slate-700 hover:text-teal-700 rounded-lg transition-colors" data-pounds="10" data-ounces="0">10 lbs</button>
                                                                                                 </div>
                                                                                             </div>
             </div>
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <!-- Quick Reference -->
                                                 <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Weight Conversion Reference</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Weight Conversion Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
                                                         <div>• 1 pound = 16 ounces</div>
                                                         <div>• 1 stone = 14 pounds</div>
                                                         <div>• 1 pound = 453.592 grams</div>
@@ -229,48 +226,48 @@
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Pounds and Ounces Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Pounds and Ounces Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Imperial Weight System</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Imperial Weight System</h4>
                                     <p>The imperial weight system uses pounds and ounces as primary units. This converter helps you work with mixed units (pounds + ounces) and convert to various metric equivalents with high precision.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Practical Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Practical Applications</h4>
                                     <p>Essential for cooking, shipping, body weight tracking, baby weight monitoring, postal services, and any situation requiring conversion between imperial and metric weight systems.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
-                                <p class="text-sm text-teal-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Auto-normalize Feature:</strong> When enabled, excess ounces (16 or more) are automatically converted to additional pounds!
                                 </p>
                             </div>
                         </div>
 
                         <!-- Common Weight Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Weight Examples</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Weight Examples</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Baby Weight</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-pounds="7" data-ounces="8">7 lbs 8 oz</div>
-                                    <div class="text-xs text-gray-500 mt-1">≈ 3.4 kg</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Baby Weight</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-pounds="7" data-ounces="8">7 lbs 8 oz</div>
+                                    <div class="text-[11px] text-slate-500">≈ 3.4 kg</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Bag of Sugar</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-pounds="4" data-ounces="6">4 lbs 6 oz</div>
-                                    <div class="text-xs text-gray-500 mt-1">≈ 2 kg</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Bag of Sugar</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-pounds="4" data-ounces="6">4 lbs 6 oz</div>
+                                    <div class="text-[11px] text-slate-500">≈ 2 kg</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Small Package</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-pounds="2" data-ounces="12">2 lbs 12 oz</div>
-                                    <div class="text-xs text-gray-500 mt-1">≈ 1.25 kg</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Small Package</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-pounds="2" data-ounces="12">2 lbs 12 oz</div>
+                                    <div class="text-[11px] text-slate-500">≈ 1.25 kg</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Large Roast</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-pounds="12" data-ounces="4">12 lbs 4 oz</div>
-                                    <div class="text-xs text-gray-500 mt-1">≈ 5.55 kg</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Large Roast</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-pounds="12" data-ounces="4">12 lbs 4 oz</div>
+                                    <div class="text-[11px] text-slate-500">≈ 5.55 kg</div>
                                 </div>
                             </div>
                         </div>
@@ -453,8 +450,8 @@
                                 
                                 // Update button styles
                                 weightPresets.forEach(btn => btn.classList.remove('bg-teal-100', 'text-teal-700'));
-                                weightPresets.forEach(btn => btn.classList.add('bg-gray-100', 'text-gray-700'));
-                                this.classList.remove('bg-gray-100', 'text-gray-700');
+                                weightPresets.forEach(btn => btn.classList.add('bg-gray-100', 'text-slate-700'));
+                                this.classList.remove('bg-gray-100', 'text-slate-700');
                                 this.classList.add('bg-teal-100', 'text-teal-700');
                             });
                         });
@@ -478,7 +475,10 @@
 
                         // Keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
                                 clearAll();
                             } else if (e.ctrlKey && e.key === 'n') {
                                 e.preventDefault();

@@ -4,23 +4,23 @@
 >
     <x-slot name="toolUi">
         <!-- Calculator Card -->
-                        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-visible">
+                        <div class="space-y-2">
                             
                             <!-- Calculator Header -->
-                            <div class="border-b border-slate-200 bg-slate-900 px-5 py-3">
-                                <h2 class="text-lg font-semibold text-white">Small Volume Measurements</h2>
+                            <div class="rounded-md bg-white p-2.5 shadow-sm">
+                                <h2 class="text-sm font-semibold text-slate-900">Small Volume Measurements</h2>
                             </div>
 
                             <!-- Calculator Body -->
-                            <div class="p-5 sm:p-6">
+                            <div class="rounded-md bg-white p-3 shadow-sm">
                                 
-                                <div class="grid gap-6 lg:grid-cols-12">
+                                <div class="grid gap-3 lg:grid-cols-9">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-3" id="calculatorForm">
 
                                                                             <!-- Input Value -->
                                                                             <div class="space-y-2">
-                                                                                <label for="drops" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="drops" class="block text-sm font-semibold text-slate-700">
                                                                                     Enter Number of Drops
                                                                                 </label>
                                                                                 <div class="relative">
@@ -36,12 +36,12 @@
                                                                                         <span class="text-gray-500 text-sm font-medium">drops</span>
                                                                                     </div>
                                                                                 </div>
-                                                                                <p class="text-xs text-gray-500 mt-1">Standard: 1 drop ≈ 0.05 mL</p>
+                                                                                <p class="text-[11px] text-slate-500">Standard: 1 drop ≈ 0.05 mL</p>
                                                                             </div>
 
                                                                             <!-- Drop Size Selection -->
                                                                             <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                <label class="block text-sm font-semibold text-slate-700">
                                                                                     Drop Size Standard
                                                                                 </label>
                                                                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -49,28 +49,28 @@
                                                                                         <input type="radio" name="dropSize" value="0.05" class="text-teal-600 focus:ring-slate-200" checked>
                                                                                         <div>
                                                                                             <span class="text-sm font-medium">Standard Medical</span>
-                                                                                            <div class="text-xs text-gray-500">0.05 mL per drop</div>
+                                                                                            <div class="text-[11px] text-slate-500">0.05 mL per drop</div>
                                                                                         </div>
                                                                                     </label>
                                                                                     <label class="flex items-center space-x-3 p-3 border-2 border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
                                                                                         <input type="radio" name="dropSize" value="0.067" class="text-teal-600 focus:ring-slate-200">
                                                                                         <div>
                                                                                             <span class="text-sm font-medium">Imperial Standard</span>
-                                                                                            <div class="text-xs text-gray-500">0.067 mL per drop</div>
+                                                                                            <div class="text-[11px] text-slate-500">0.067 mL per drop</div>
                                                                                         </div>
                                                                                     </label>
                                                                                     <label class="flex items-center space-x-3 p-3 border-2 border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
                                                                                         <input type="radio" name="dropSize" value="0.1" class="text-teal-600 focus:ring-slate-200">
                                                                                         <div>
                                                                                             <span class="text-sm font-medium">Large Drop</span>
-                                                                                            <div class="text-xs text-gray-500">0.1 mL per drop</div>
+                                                                                            <div class="text-[11px] text-slate-500">0.1 mL per drop</div>
                                                                                         </div>
                                                                                     </label>
                                                                                     <label class="flex items-center space-x-3 p-3 border-2 border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
                                                                                         <input type="radio" name="dropSize" value="custom" class="text-teal-600 focus:ring-slate-200">
                                                                                         <div>
                                                                                             <span class="text-sm font-medium">Custom Size</span>
-                                                                                            <div class="text-xs text-gray-500">Enter custom value</div>
+                                                                                            <div class="text-[11px] text-slate-500">Enter custom value</div>
                                                                                         </div>
                                                                                     </label>
                                                                                 </div>
@@ -78,7 +78,7 @@
 
                                                                             <!-- Custom Drop Size -->
                                                                             <div class="space-y-2" id="customDropSizeField" style="display: none;">
-                                                                                <label for="customDropSize" class="block text-sm font-semibold text-gray-700">
+                                                                                <label for="customDropSize" class="block text-sm font-semibold text-slate-700">
                                                                                     Custom Drop Size
                                                                                 </label>
                                                                                 <div class="relative">
@@ -99,7 +99,7 @@
 
                                                                             <!-- Conversion Direction -->
                                                                             <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
+                                                                                <label class="block text-sm font-semibold text-slate-700">
                                                                                     Conversion Direction
                                                                                 </label>
                                                                                 <div class="grid grid-cols-2 gap-3">
@@ -114,59 +114,56 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Clear Button -->
-                                                                            <div class="flex justify-center">
-                                                                                <button 
-                                                                                    type="button" 
+                                                                            <div class="flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5">
+                                                                                <p class="text-[11px] text-slate-500">Shortcut: Ctrl + M to switch mode</p>
+                                                                                <button
+                                                                                    type="button"
                                                                                     id="clearButton"
-                                                                                    class="inline-flex items-center px-4 py-2 bg-teal-100 hover:bg-teal-200 text-teal-700 font-medium rounded-lg transition-colors duration-200"
+                                                                                    class="rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700"
                                                                                 >
-                                                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                                    </svg>
-                                                                                    Clear Value
+                                                                                    Clear
                                                                                 </button>
                                                                             </div>
 
                                                                         </form>
                                     </div>
-                                    <div class="space-y-4 lg:col-span-7">
+                                    <div class="space-y-4 lg:col-span-4">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-slate-900 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
-                                                                            <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
+                                                                            <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
-                                                                                        <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Volume in Milliliters</h4>
-                                                                                        <p class="text-sm text-gray-600" id="result-description">Precise volume measurement</p>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900" id="result-title">Volume in Milliliters</h4>
+                                                                                        <p class="text-[11px] text-slate-500" id="result-description">Precise volume measurement</p>
                                                                                     </div>
                                                                                     <div class="text-right">
-                                                                                        <div class="text-2xl font-bold text-teal-600 font-mono" id="output">--</div>
-                                                                                        <div class="text-sm text-gray-500 font-medium" id="unit-display">mL</div>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="output">--</div>
+                                                                                        <div class="text-xs text-slate-500 font-medium" id="unit-display">mL</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
 
                                                                             <!-- Additional Conversions -->
                                                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Liters</h4>
-                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="litersOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Liters</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="litersOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Fluid Ounces</h4>
-                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="flOzOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Fluid Ounces</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="flOzOutput">--</div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
+                                                                                <div class="rounded-md border border-slate-200 bg-slate-50 p-2.5">
                                                                                     <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Teaspoons</h4>
-                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="tspOutput">--</div>
+                                                                                        <h4 class="text-xs font-semibold text-slate-900">Teaspoons</h4>
+                                                                                        <div class="font-serif text-3xl font-bold leading-none text-indigo-700" id="tspOutput">--</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -181,8 +178,8 @@
             <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
                 <!-- Quick Reference -->
                                                 <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Drop Size Reference</h4>
-                                                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                                                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Drop Size Reference</h4>
+                                                    <div class="grid grid-cols-2 gap-2 text-xs text-slate-500">
                                                         <div>• Medical standard: 0.05 mL</div>
                                                         <div>• Imperial standard: 0.067 mL</div>
                                                         <div>• 20 drops ≈ 1 mL (medical)</div>
@@ -195,48 +192,48 @@
 
     <x-slot name="aboutContent">
         <!-- Additional Information -->
-                        <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">About Drops to mL Conversion</h3>
-                            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">About Drops to mL Conversion</h3>
+                            <div class="grid md:grid-cols-2 gap-6 text-[11px] text-slate-500">
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Medical Applications</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Medical Applications</h4>
                                     <p>Essential for precise medication dosing, eye drops, ear drops, and other medical treatments where small, accurate volumes are critical for patient safety and treatment effectiveness.</p>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-700 mb-2">Variable Drop Sizes</h4>
+                                    <h4 class="font-semibold text-slate-700 mb-2">Variable Drop Sizes</h4>
                                     <p>Drop size varies based on liquid properties (viscosity, surface tension), dropper design, and dispensing technique. Always verify with specific medical instructions.</p>
                                 </div>
                             </div>
-                            <div class="mt-4 p-3 bg-teal-50 rounded-lg border border-teal-200">
-                                <p class="text-sm text-teal-800">
+                            <div class="mt-4 rounded-md bg-indigo-50 p-3 text-xs text-indigo-800">
+                                <p class="text-sm text-indigo-800">
                                     <strong>Medical Warning:</strong> Always follow your healthcare provider's specific instructions for medication dosing. This calculator is for reference only!
                                 </p>
                             </div>
                         </div>
 
                         <!-- Common Drop Examples -->
-                        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Common Drop Measurements</h3>
+                        <div class="rounded-xl border border-slate-200 bg-white p-3">
+                            <h3 class="text-lg font-semibold text-slate-900 mb-4">Common Drop Measurements</h3>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Eye Drops</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-drops="1">1-2 drops</div>
-                                    <div class="text-xs text-gray-500 mt-1">~0.05-0.1 mL</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Eye Drops</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-drops="1">1-2 drops</div>
+                                    <div class="text-[11px] text-slate-500">~0.05-0.1 mL</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Small Dose</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-drops="5">5 drops</div>
-                                    <div class="text-xs text-gray-500 mt-1">~0.25 mL</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Small Dose</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-drops="5">5 drops</div>
+                                    <div class="text-[11px] text-slate-500">~0.25 mL</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Medium Dose</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-drops="20">20 drops</div>
-                                    <div class="text-xs text-gray-500 mt-1">~1 mL</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Medium Dose</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-drops="20">20 drops</div>
+                                    <div class="text-[11px] text-slate-500">~1 mL</div>
                                 </div>
-                                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                                    <div class="font-semibold text-gray-700">Larger Dose</div>
-                                    <div class="text-teal-600 cursor-pointer hover:text-teal-800 transition-colors" data-drops="40">40 drops</div>
-                                    <div class="text-xs text-gray-500 mt-1">~2 mL</div>
+                                <div class="text-center p-3 bg-slate-50 rounded-md">
+                                    <div class="font-semibold text-slate-700">Larger Dose</div>
+                                    <div class="text-indigo-700 cursor-pointer hover:text-indigo-800 transition-colors" data-drops="40">40 drops</div>
+                                    <div class="text-[11px] text-slate-500">~2 mL</div>
                                 </div>
                             </div>
                         </div>
@@ -392,9 +389,12 @@
 
                         // Keyboard shortcuts
                         document.addEventListener('keydown', function(e) {
-                            if (e.key === 'Escape') {
+                            if (e.key === 'Escape' || (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c'))) {
+                                if (e.ctrlKey && e.shiftKey) {
+                                    e.preventDefault();
+                                }
                                 clearInput();
-                            } else if (e.ctrlKey && e.key === 'd') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 // Toggle direction
                                 const currentDirection = document.querySelector('input[name="direction"]:checked').value;
