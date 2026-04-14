@@ -143,7 +143,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-gray-50 to-slate-50 rounded-xl border-l-4 border-gray-500">
@@ -543,7 +543,7 @@
                                 inputValue.value = '';
                                 convert();
                                 inputValue.focus();
-                            } else if (e.ctrlKey && e.key === 's') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 's') {
                                 e.preventDefault();
                                 swapUnitsFunction();
                             }

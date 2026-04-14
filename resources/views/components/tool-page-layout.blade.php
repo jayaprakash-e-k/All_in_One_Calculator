@@ -274,13 +274,20 @@ if (is_array($howToSchema)) {
                 const toolUiRoot = document.getElementById('toolUiRoot');
                 const aboutContentStack = document.getElementById('aboutContentStack');
                 const isVolumeWeightPage = window.location.pathname.includes('/volume-and-weight-conversions/');
+                const isEngineeringTechnicalPage = window.location.pathname.includes('/engineering-and-technical-conversions/');
+                const hasEnhancedConvertedValues = isVolumeWeightPage || isEngineeringTechnicalPage;
 
                 const isCtrlMShortcut = function (e) {
                     const key = typeof e.key === 'string' ? e.key.toLowerCase() : '';
                     return e.ctrlKey && key === 'm';
                 };
 
-                if (isVolumeWeightPage && toolUiRoot && aboutContentStack) {
+                const isCtrlShiftCClearShortcut = function (e) {
+                    const key = typeof e.key === 'string' ? e.key.toLowerCase() : '';
+                    return e.ctrlKey && e.shiftKey && key === 'c';
+                };
+
+                if (hasEnhancedConvertedValues && toolUiRoot && aboutContentStack) {
                     const inferConvertedValueSubtitle = function (titleText) {
                         const text = (titleText || '').toLowerCase().trim();
 
@@ -336,9 +343,35 @@ if (is_array($howToSchema)) {
                         if (key.includes('ton') || key.includes('tonne') || key.includes('toutput')) return 't';
                         if (key.includes('stone')) return 'st';
                         if (key.includes('cups') || key.includes('cup')) return 'cups';
+                        if (key.includes('kilonewton') || key.includes('kn')) return 'kN';
+                        if (key.includes('newton') || key.includes('noutput')) return 'N';
+                        if (key.includes('pound-force') || key.includes('lbf')) return 'lbf';
+                        if (key.includes('kilogram-force') || key.includes('kgf')) return 'kgf';
+                        if (key.includes('dyne') || key.includes('dyn')) return 'dyn';
+                        if (key.includes('kip')) return 'kip';
+                        if (key.includes('horsepower') || key.includes('hp')) return 'HP';
+                        if (key.includes('kilowatt') || key.includes('kw')) return 'kW';
+                        if (key.includes('watt') || key.includes('watts')) return 'W';
+                        if (key.includes('psi')) return 'psi';
+                        if (key.includes('pascal')) return 'Pa';
+                        if (key.includes('torr')) return 'Torr';
+                        if (key.includes('atm')) return 'atm';
+                        if (key.includes('bar')) return 'bar';
+                        if (key.includes('gpm')) return 'GPM';
+                        if (key.includes('lpm')) return 'LPM';
+                        if (key.includes('cfs')) return 'CFS';
+                        if (key.includes('cms')) return 'CMS';
+                        if (key.includes('gph')) return 'GPH';
+                        if (key.includes('lps')) return 'LPS';
+                        if (key.includes('ftlb') || key.includes('ft-lb') || key.includes('lbf·ft')) return 'ft-lbs';
+                        if (key.includes('inlb') || key.includes('in-lb') || key.includes('lbf·in')) return 'in-lbs';
+                        if (key.includes('n·m') || key.includes('nmoutput')) return 'N·m';
 
                         return '';
                     };
+
+                    const convertedValueSelector = ':scope .font-serif[id], :scope [id].font-serif, :scope .font-mono[id], :scope [id].font-mono, :scope [id$="Output"], :scope [id="output"]';
+                    const centeredConvertedValueSelector = ':scope > .font-serif[id], :scope > [id].font-serif, :scope > .font-mono[id], :scope > [id].font-mono, :scope > [id$="Output"], :scope > [id="output"]';
 
                     const moveInlineUnitToLabel = function (valueElement, unitElement, fallbackUnit) {
                         const text = (valueElement.textContent || '').trim();
@@ -348,7 +381,7 @@ if (is_array($howToSchema)) {
                             return;
                         }
 
-                        const unitMatch = text.match(/^(.+?)\s+([a-zA-Zµ³²]+(?:\s+[a-zA-Zµ³²]+)?)$/);
+                        const unitMatch = text.match(/^(.+?)\s+([a-zA-Z0-9µ°/%²³·⋅-]+(?:\s+[a-zA-Z0-9µ°/%²³·⋅-]+)*)$/);
                         if (!unitMatch) {
                             unitElement.textContent = fallbackUnit;
                             return;
@@ -377,7 +410,7 @@ if (is_array($howToSchema)) {
                             }
 
                             const title = body.querySelector(':scope h4');
-                            const value = body.querySelector(':scope .font-serif[id], :scope [id].font-serif');
+                            const value = body.querySelector(convertedValueSelector);
 
                             return !!(title && value);
                         });
@@ -386,7 +419,8 @@ if (is_array($howToSchema)) {
                     const getConvertedValueSections = function () {
                         return Array.from(toolUiRoot.querySelectorAll('div.mt-8.space-y-4')).filter((section) => {
                             const heading = section.querySelector(':scope > h3');
-                            return heading && ((heading.textContent || '').toLowerCase().includes('converted values'));
+                            const headingText = (heading?.textContent || '').toLowerCase();
+                            return heading && (headingText.includes('converted values') || headingText.includes('conversion results'));
                         });
                     };
 
@@ -397,7 +431,7 @@ if (is_array($howToSchema)) {
 
                         const titleElement = body.querySelector(':scope h4');
                         const subtitleElement = body.querySelector(':scope p');
-                        const valueElement = body.querySelector(':scope .font-serif[id], :scope [id].font-serif');
+                        const valueElement = body.querySelector(convertedValueSelector);
 
                         if (!titleElement || !valueElement) {
                             return null;
@@ -443,7 +477,7 @@ if (is_array($howToSchema)) {
                             };
                         }
 
-                        const parsed = value.match(/^(.+?)\s+([a-zA-Zµ³²]+(?:\s+[a-zA-Zµ³²]+)?)$/);
+                        const parsed = value.match(/^(.+?)\s+([a-zA-Z0-9µ°/%²³·⋅-]+(?:\s+[a-zA-Z0-9µ°/%²³·⋅-]+)*)$/);
                         if (!parsed) {
                             return {
                                 value,
@@ -750,9 +784,16 @@ if (is_array($howToSchema)) {
                       };
 
                     const applyUniformConvertedValueTypography = function (section) {
+                        const heading = section.querySelector(':scope > h3');
+                        if (heading) {
+                            heading.className = 'text-lg font-semibold text-slate-900 text-center mb-4';
+                        }
+
                         const convertedCards = getConvertedValueCards(section);
 
                         convertedCards.forEach((card) => {
+                            card.className = 'rounded-md border border-slate-200 bg-slate-50 p-2.5';
+
                             const row = card.querySelector(':scope > .flex.items-center.justify-between');
                             if (!row) {
                                 return;
@@ -774,12 +815,12 @@ if (is_array($howToSchema)) {
                             }
 
                             if (right) {
-                                const value = right.querySelector(':scope > .font-serif');
+                                const value = right.querySelector(':scope > .font-serif, :scope > .font-mono, :scope > [id$="Output"], :scope > [id="output"]');
                                 if (value) {
                                     value.className = 'font-serif text-3xl font-bold leading-none text-indigo-700';
                                 }
 
-                                const unit = right.querySelector(':scope > div:not(.font-serif)');
+                                const unit = right.querySelector(':scope > .text-xs.text-slate-500.font-medium');
                                 if (unit) {
                                     unit.className = 'text-xs text-slate-500 font-medium';
                                 }
@@ -808,7 +849,7 @@ if (is_array($howToSchema)) {
                                 }
 
                                 const title = centeredBody.querySelector(':scope > h4');
-                                const value = centeredBody.querySelector(':scope > .font-serif[id], :scope > [id].font-serif');
+                                const value = centeredBody.querySelector(centeredConvertedValueSelector);
 
                                 return !!(title && value);
                             });
@@ -830,7 +871,7 @@ if (is_array($howToSchema)) {
                                 }
 
                                 const title = centeredBody.querySelector(':scope > h4');
-                                const value = centeredBody.querySelector(':scope > .font-serif[id], :scope > [id].font-serif');
+                                const value = centeredBody.querySelector(centeredConvertedValueSelector);
                                 if (!title || !value) {
                                     return;
                                 }
@@ -876,6 +917,145 @@ if (is_array($howToSchema)) {
                         });
                     };
 
+                    const normalizeEngineeringToolShell = function () {
+                        if (!isEngineeringTechnicalPage) {
+                            return;
+                        }
+
+                        const normalizeEngineeringClearActionBar = function (form) {
+                            let clearButton = form.querySelector('#clearButton');
+                            if (!clearButton) {
+                                clearButton = document.createElement('button');
+                                clearButton.type = 'button';
+                                clearButton.id = 'clearButton';
+                                clearButton.dataset.generatedClearButton = 'true';
+                                clearButton.addEventListener('click', function () {
+                                    const clearEvent = new KeyboardEvent('keydown', {
+                                        key: 'Escape',
+                                        bubbles: true,
+                                        cancelable: true,
+                                    });
+                                    document.dispatchEvent(clearEvent);
+                                });
+                            }
+
+                            const directionCount = form.querySelectorAll('input[name="direction"]').length;
+                            const modeCount = form.querySelectorAll('input[name="mode"]').length;
+                            const hasDirectionToggle = directionCount > 1 || modeCount > 1;
+
+                            const shortcutLabel = hasDirectionToggle
+                                ? 'Shortcut: Ctrl + M to switch mode'
+                                : 'Shortcut: Ctrl + Shift + C to clear';
+
+                            const shortcutText = document.createElement('p');
+                            shortcutText.className = 'text-[11px] text-slate-500';
+                            shortcutText.textContent = shortcutLabel;
+
+                            const currentWrapper = clearButton.parentElement;
+
+                            clearButton.textContent = 'Clear';
+                            clearButton.className = 'rounded-md bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700';
+
+                            const actionRow = document.createElement('div');
+                            actionRow.dataset.clearActionRow = 'true';
+                            actionRow.className = 'flex items-center justify-between gap-3 rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5';
+                            actionRow.appendChild(shortcutText);
+                            actionRow.appendChild(clearButton);
+
+                            if (currentWrapper && currentWrapper !== form && currentWrapper.parentElement === form) {
+                                currentWrapper.replaceWith(actionRow);
+                            } else {
+                                form.appendChild(actionRow);
+                            }
+                        };
+
+                        const calculatorShell = toolUiRoot.firstElementChild;
+                        if (!calculatorShell) {
+                            return;
+                        }
+
+                        calculatorShell.className = 'space-y-2';
+
+                        const shellSections = Array.from(calculatorShell.children).filter((node) => node.tagName && node.tagName.toLowerCase() === 'div');
+                        const headerSection = shellSections[0];
+                        const bodySection = shellSections[1];
+
+                        if (headerSection) {
+                            headerSection.className = 'rounded-md bg-white p-2.5 shadow-sm';
+
+                            const title = headerSection.querySelector('h2');
+                            if (title) {
+                                title.className = 'text-sm font-semibold text-slate-900';
+                            }
+                        }
+
+                        if (bodySection) {
+                            bodySection.className = 'rounded-md bg-white p-3 shadow-sm';
+
+                            const bodyGrid = bodySection.querySelector(':scope > .grid');
+                            if (bodyGrid) {
+                                bodyGrid.classList.remove('gap-6', 'lg:grid-cols-12');
+                                bodyGrid.classList.add('gap-3', 'lg:grid-cols-9');
+
+                                const columns = Array.from(bodyGrid.children).filter((node) => node.tagName && node.tagName.toLowerCase() === 'div');
+                                const leftColumn = columns[0];
+                                const rightColumn = columns[1];
+
+                                if (leftColumn) {
+                                    leftColumn.classList.remove('lg:col-span-6');
+                                    leftColumn.classList.add('lg:col-span-5');
+
+                                    const form = leftColumn.querySelector('form');
+                                    if (form) {
+                                        form.className = 'space-y-3';
+                                        normalizeEngineeringClearActionBar(form);
+                                    }
+                                }
+
+                                if (rightColumn) {
+                                    rightColumn.className = 'space-y-4 lg:col-span-4';
+                                }
+                            }
+                        }
+
+                        toolUiRoot.querySelectorAll('.text-gray-900').forEach((node) => {
+                            node.classList.remove('text-gray-900');
+                            node.classList.add('text-slate-900');
+                        });
+
+                        toolUiRoot.querySelectorAll('.text-gray-800').forEach((node) => {
+                            node.classList.remove('text-gray-800');
+                            node.classList.add('text-slate-900');
+                        });
+
+                        toolUiRoot.querySelectorAll('.text-gray-700').forEach((node) => {
+                            node.classList.remove('text-gray-700');
+                            node.classList.add('text-slate-700');
+                        });
+
+                        toolUiRoot.querySelectorAll('.text-gray-600').forEach((node) => {
+                            node.classList.remove('text-gray-600');
+                            node.classList.add('text-slate-600');
+                        });
+
+                        toolUiRoot.querySelectorAll('.text-gray-500').forEach((node) => {
+                            node.classList.remove('text-gray-500');
+                            node.classList.add('text-slate-500');
+                        });
+
+                        const swapButtons = Array.from(toolUiRoot.querySelectorAll('#swapUnits'));
+                        swapButtons.forEach((swapButton) => {
+                            const wrapper = swapButton.parentElement;
+                            if (wrapper && wrapper !== toolUiRoot && wrapper.tagName.toLowerCase() === 'div' && wrapper.childElementCount === 1) {
+                                wrapper.remove();
+                            } else {
+                                swapButton.remove();
+                            }
+                        });
+                    };
+
+                    normalizeEngineeringToolShell();
+
                     const helperBlocks = Array.from(toolUiRoot.children).filter((node) => {
                         return node.classList && node.classList.contains('mt-6') && node.classList.contains('space-y-4');
                     });
@@ -920,6 +1100,15 @@ if (is_array($howToSchema)) {
                             return;
                         }
 
+                        if (isCtrlShiftCClearShortcut(e)) {
+                            const clearButton = toolUiRoot.querySelector('#clearButton');
+                            if (clearButton) {
+                                e.preventDefault();
+                                clearButton.click();
+                            }
+                            return;
+                        }
+
                         if (!isCtrlMShortcut(e)) {
                             return;
                         }
@@ -947,7 +1136,7 @@ if (is_array($howToSchema)) {
                 const quickReferenceColumn = document.getElementById('quickReferenceColumn');
                 const quickReferenceTarget = document.getElementById('quickReferenceTarget');
 
-                if (isVolumeWeightPage) {
+                if (hasEnhancedConvertedValues) {
                     return;
                 }
 
