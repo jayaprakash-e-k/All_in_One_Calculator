@@ -73,61 +73,14 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Financial Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Financial Context
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="context" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="general">General Numbers</option>
-                                                                                    <option value="revenue">Company Revenue</option>
-                                                                                    <option value="valuation">Business Valuation</option>
-                                                                                    <option value="market-cap">Market Capitalization</option>
-                                                                                    <option value="gdp">GDP/Economic Data</option>
-                                                                                    <option value="budget">Government Budget</option>
-                                                                                    <option value="investment">Investment Fund</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="context">
+                                                                                    <option value="general" selected>General Numbers</option>
                                                                                 </select>
-                                                                            </div>
-
-                                                                            <!-- Precision Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Precision Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-4 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="1" class="text-purple-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">1 decimal</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="3" class="text-purple-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">3 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="6" class="text-purple-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">6 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="auto" class="text-purple-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Auto</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Financial Examples -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Financial Examples (Millions)
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                                                    <button type="button" class="financial-example px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="100" data-context="Small cap">100M</button>
-                                                                                    <button type="button" class="financial-example px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="500" data-context="Mid cap">500M</button>
-                                                                                    <button type="button" class="financial-example px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="1000" data-context="Unicorn">1B</button>
-                                                                                    <button type="button" class="financial-example px-3 py-2 text-sm bg-gray-100 hover:bg-purple-100 text-gray-700 hover:text-purple-700 rounded-lg transition-colors" data-value="10000" data-context="Large cap">10B</button>
-                                                                                </div>
+                                                                                <input type="radio" name="precision" value="1">
+                                                                                <input type="radio" name="precision" value="3" checked>
+                                                                                <input type="radio" name="precision" value="6">
+                                                                                <input type="radio" name="precision" value="auto">
                                                                             </div>
 
                                                                             <!-- Clear Button -->
@@ -149,7 +102,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border-l-4 border-purple-500">
@@ -237,47 +190,10 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Financial Context Display -->
-                                                                            <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
-                                                                                <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Financial Context</h4>
-                                                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Context:</span>
-                                                                                        <span class="font-mono text-indigo-700" id="contextDisplay">General</span>
-                                                                                    </div>
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Scale:</span>
-                                                                                        <span class="font-mono text-indigo-700" id="scaleLevel">--</span>
-                                                                                    </div>
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Category:</span>
-                                                                                        <span class="font-mono text-indigo-700" id="categoryLevel">--</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Market Comparison -->
-                                                                            <div class="p-4 bg-gradient-to-r from-gray-50 to-slate-50 rounded-lg border border-gray-200">
-                                                                                <h4 class="text-sm font-semibold text-gray-700 mb-2 text-center">Market Comparison</h4>
-                                                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Company Size:</span>
-                                                                                        <span class="font-mono text-gray-700" id="companySize">--</span>
-                                                                                    </div>
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Investment Grade:</span>
-                                                                                        <span class="font-mono text-gray-700" id="investmentGrade">--</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Written Form -->
-                                                                            <div class="p-4 bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg border border-emerald-200">
-                                                                                <h4 class="text-sm font-semibold text-emerald-800 mb-2 text-center">Written Form</h4>
-                                                                                <div class="text-center">
-                                                                                    <div class="text-lg font-mono text-emerald-700" id="writtenForm">--</div>
-                                                                                    <div class="text-xs text-gray-500 mt-1">Number in words</div>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <span id="contextDisplay">General</span>
+                                                                                <span id="scaleLevel">--</span>
+                                                                                <span id="categoryLevel">--</span>
                                                                             </div>
                                                                         </div>
                                     </div>
@@ -662,7 +578,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'million-to-billion' ? 'billion-to-million' : 'million-to-billion';

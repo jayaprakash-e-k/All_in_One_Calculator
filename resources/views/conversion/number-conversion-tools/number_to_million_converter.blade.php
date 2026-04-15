@@ -38,102 +38,19 @@
                                                                                 <p class="text-xs text-gray-500">Enter any positive or negative number</p>
                                                                             </div>
 
-                                                                            <!-- Application Domain -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Application Domain
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="domain" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="general">General Numbers</option>
-                                                                                    <option value="business">Business & Finance</option>
-                                                                                    <option value="real-estate">Real Estate</option>
-                                                                                    <option value="population">Population & Demographics</option>
-                                                                                    <option value="sales">Sales & Revenue</option>
-                                                                                    <option value="investment">Investment & Assets</option>
-                                                                                    <option value="technology">Technology & Data</option>
-                                                                                    <option value="manufacturing">Manufacturing & Production</option>
-                                                                                    <option value="healthcare">Healthcare & Medical</option>
-                                                                                    <option value="education">Education & Research</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="domain">
+                                                                                    <option value="general" selected>General Numbers</option>
                                                                                 </select>
-                                                                            </div>
-
-                                                                            <!-- Comparison Baseline -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Comparison Baseline
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer bg-amber-50 border-amber-300">
-                                                                                        <input type="radio" name="baseline" value="relative" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Relative Scale</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="baseline" value="absolute" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Absolute Scale</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Analysis Detail Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Analysis Detail Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-3 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="detailLevel" value="basic" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Basic</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="detailLevel" value="detailed" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Detailed</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="detailLevel" value="comprehensive" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Comprehensive</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Precision Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Precision Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-4 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="1" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">1 decimal</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="3" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">3 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="6" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">6 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="auto" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Auto</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Domain-Specific Examples -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Domain Examples
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                                                    <button type="button" class="domain-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="1000000" data-context="1M units">1M</button>
-                                                                                    <button type="button" class="domain-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="5000000" data-context="5M budget">5M</button>
-                                                                                    <button type="button" class="domain-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="250000" data-context="Home price">250K</button>
-                                                                                    <button type="button" class="domain-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="75000" data-context="Annual salary">75K</button>
-                                                                                </div>
+                                                                                <input type="radio" name="baseline" value="relative" checked>
+                                                                                <input type="radio" name="baseline" value="absolute">
+                                                                                <input type="radio" name="detailLevel" value="basic">
+                                                                                <input type="radio" name="detailLevel" value="detailed" checked>
+                                                                                <input type="radio" name="detailLevel" value="comprehensive">
+                                                                                <input type="radio" name="precision" value="1">
+                                                                                <input type="radio" name="precision" value="3" checked>
+                                                                                <input type="radio" name="precision" value="6">
+                                                                                <input type="radio" name="precision" value="auto">
                                                                             </div>
 
                                                                             <!-- Clear Button -->
@@ -155,7 +72,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Million-Scale Analysis Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result - Millions -->
                                                                             <div class="p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border-l-4 border-amber-500">
@@ -260,22 +177,6 @@
                             </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Million Scale Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Million Scale Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 Million = 1,000 Thousand = 10⁶</div>
-                                                        <div>• 1 Million = 1,000,000 units</div>
-                                                        <div>• 1 Million = 10 Lakh (Indian)</div>
-                                                        <div>• 1 Million = 0.1 Crore (Indian)</div>
-                                                        <div>• To convert to millions: divide by 1,000,000</div>
-                                                        <div>• Million scale: Business, real estate, salaries</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">

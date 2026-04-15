@@ -119,7 +119,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border-l-4 border-yellow-500">
@@ -181,23 +181,10 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Number Information -->
-                                                                            <div class="p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
-                                                                                <h4 class="text-sm font-semibold text-indigo-800 mb-2 text-center">Number Information</h4>
-                                                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Scale System:</span>
-                                                                                        <span class="font-mono text-indigo-700" id="scaleSystem">Short Scale</span>
-                                                                                    </div>
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Digits:</span>
-                                                                                        <span class="font-mono text-indigo-700" id="digitCount">--</span>
-                                                                                    </div>
-                                                                                    <div class="text-center">
-                                                                                        <span class="text-gray-600 block">Zeros:</span>
-                                                                                        <span class="font-mono text-indigo-700" id="zeroCount">--</span>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <span id="scaleSystem">Short Scale</span>
+                                                                                <span id="digitCount">--</span>
+                                                                                <span id="zeroCount">--</span>
                                                                             </div>
                                                                         </div>
                                     </div>
@@ -508,7 +495,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'billion-to-trillion' ? 'trillion-to-billion' : 'billion-to-trillion';

@@ -56,79 +56,19 @@
                                                                                 <p class="text-xs text-gray-500" id="inputHelp">Enter the number of millions to convert</p>
                                                                             </div>
 
-                                                                            <!-- Financial Category -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Financial Category
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="category" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="general">General Numbers</option>
-                                                                                    <option value="budget">Budget Planning</option>
-                                                                                    <option value="salary">Salary & Compensation</option>
-                                                                                    <option value="investment">Investment Amount</option>
-                                                                                    <option value="revenue">Revenue & Sales</option>
-                                                                                    <option value="cost">Cost Analysis</option>
-                                                                                    <option value="loan">Loan & Financing</option>
-                                                                                    <option value="insurance">Insurance Coverage</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="category">
+                                                                                    <option value="general" selected>General Numbers</option>
                                                                                 </select>
                                                                             </div>
 
-                                                                            <!-- Output Format -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Output Format
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="format" value="detailed" class="text-teal-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Detailed Breakdown</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="format" value="simple" class="text-teal-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Simple Display</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Precision Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Precision Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-4 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="0" class="text-teal-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Whole</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="2" class="text-teal-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">2 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="3" class="text-teal-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">3 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-teal-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="auto" class="text-teal-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Auto</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Financial Examples -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Common Financial Values
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                                                    <button type="button" class="financial-value px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="1" data-context="Small business">1M</button>
-                                                                                    <button type="button" class="financial-value px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="2.5" data-context="Home mortgage">2.5M</button>
-                                                                                    <button type="button" class="financial-value px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="5" data-context="Investment fund">5M</button>
-                                                                                    <button type="button" class="financial-value px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="10" data-context="Corporate budget">10M</button>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="radio" name="format" value="detailed" checked>
+                                                                                <input type="radio" name="format" value="simple">
+                                                                                <input type="radio" name="precision" value="0">
+                                                                                <input type="radio" name="precision" value="2" checked>
+                                                                                <input type="radio" name="precision" value="3">
+                                                                                <input type="radio" name="precision" value="auto">
                                                                             </div>
 
                                                                             <!-- Clear Button -->
@@ -150,7 +90,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Scale Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
@@ -246,22 +186,6 @@
                             </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Conversion Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Scale Conversion Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 Million = 1,000 Thousand</div>
-                                                        <div>• 1 Thousand = 0.001 Million</div>
-                                                        <div>• 1 Million = 1,000,000 Units</div>
-                                                        <div>• 1 Thousand = 1,000 Units</div>
-                                                        <div>• Scale down: Divide by 1,000</div>
-                                                        <div>• Scale up: Multiply by 1,000</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
@@ -602,7 +526,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'million-to-thousand' ? 'thousand-to-million' : 'million-to-thousand';

@@ -56,21 +56,9 @@
                                                                                 <p class="text-xs text-gray-500" id="inputHelp">Enter the number of crores to convert</p>
                                                                             </div>
 
-                                                                            <!-- Number Format Display -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Number Format Display
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="format" value="indian" class="text-indigo-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Indian Format</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="format" value="international" class="text-indigo-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">International</span>
-                                                                                    </label>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="radio" name="format" value="indian" checked>
+                                                                                <input type="radio" name="format" value="international">
                                                                             </div>
 
                                                                             <!-- Precision Level -->
@@ -119,7 +107,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
@@ -165,32 +153,6 @@
     
 
         <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Values (Indian Context) -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Quick Values (Crores)
-                                                        </label>
-                                                        <div class="grid grid-cols-4 gap-2">
-                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1">1</button>
-                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="5">5</button>
-                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="10">10</button>
-                                                            <button type="button" class="quick-value px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="100">100</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Indian Number System Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 Lakh = 1,00,000 (100 Thousand)</div>
-                                                        <div>• 1 Crore = 1,00,00,000 (10 Million)</div>
-                                                        <div>• 1 Crore = 100 Lakh</div>
-                                                        <div>• Indian format: 1,23,45,678</div>
-                                                    </div>
-                                                </div>
-            </div>
         </div>
 </x-slot>
 
@@ -488,7 +450,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'crore-to-lakh' ? 'lakh-to-crore' : 'crore-to-lakh';

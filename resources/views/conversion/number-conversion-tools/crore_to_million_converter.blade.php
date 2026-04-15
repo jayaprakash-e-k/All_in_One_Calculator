@@ -56,79 +56,16 @@
                                                                                 <p class="text-xs text-gray-500" id="inputHelp">Enter the number of crores to convert to millions</p>
                                                                             </div>
 
-                                                                            <!-- Currency Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Currency Context (Optional)
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="currency" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="none">No Currency</option>
-                                                                                    <option value="INR">Indian Rupee (₹)</option>
-                                                                                    <option value="USD">US Dollar ($)</option>
-                                                                                    <option value="EUR">Euro (€)</option>
-                                                                                    <option value="GBP">British Pound (£)</option>
-                                                                                    <option value="JPY">Japanese Yen (¥)</option>
-                                                                                    <option value="AUD">Australian Dollar (A$)</option>
-                                                                                    <option value="CAD">Canadian Dollar (C$)</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="currency">
+                                                                                    <option value="none" selected>No Currency</option>
                                                                                 </select>
-                                                                            </div>
-
-                                                                            <!-- Number System Display -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Display Format
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="display" value="both" class="text-green-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Both Systems</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="display" value="target" class="text-green-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Target Only</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Precision Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Precision Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-4 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="1" class="text-green-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">1 decimal</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="2" class="text-green-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">2 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="4" class="text-green-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">4 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-green-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="auto" class="text-green-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Auto</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Business Context Examples -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Business Context Examples
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                                                    <button type="button" class="business-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-value="1" data-context="Startup valuation">1 Cr</button>
-                                                                                    <button type="button" class="business-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-value="10" data-context="Mid-size company">10 Cr</button>
-                                                                                    <button type="button" class="business-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-value="100" data-context="Large enterprise">100 Cr</button>
-                                                                                    <button type="button" class="business-example px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-value="1000" data-context="Major corporation">1000 Cr</button>
-                                                                                </div>
+                                                                                <input type="radio" name="display" value="both" checked>
+                                                                                <input type="radio" name="display" value="target">
+                                                                                <input type="radio" name="precision" value="1">
+                                                                                <input type="radio" name="precision" value="2" checked>
+                                                                                <input type="radio" name="precision" value="4">
+                                                                                <input type="radio" name="precision" value="auto">
                                                                             </div>
 
                                                                             <!-- Clear Button -->
@@ -150,7 +87,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
@@ -166,29 +103,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Cross-System Comparison -->
-                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                                <!-- Indian System -->
-                                                                                <div class="p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg border-l-4 border-orange-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Indian System</h4>
-                                                                                        <div class="space-y-1">
-                                                                                            <div class="text-lg font-bold text-orange-600 font-mono" id="croreDisplay">--</div>
-                                                                                            <div class="text-xs text-gray-500">Crores</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <!-- Western System -->
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Western System</h4>
-                                                                                        <div class="space-y-1">
-                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="millionDisplay">--</div>
-                                                                                            <div class="text-xs text-gray-500">Millions</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <span id="croreDisplay">--</span>
+                                                                                <span id="millionDisplay">--</span>
                                                                             </div>
 
                                                                             <!-- Complete Denominations -->
@@ -543,7 +460,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'crore-to-million' ? 'million-to-crore' : 'crore-to-million';

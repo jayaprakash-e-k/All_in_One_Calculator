@@ -56,108 +56,27 @@
                                                                                 <p class="text-xs text-gray-500" id="inputHelp">Enter the number of millions to convert to lakhs</p>
                                                                             </div>
 
-                                                                            <!-- Regional Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Regional Business Context
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="region" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="global">Global Business</option>
-                                                                                    <option value="usa-india">USA-India Trade</option>
-                                                                                    <option value="uk-india">UK-India Trade</option>
-                                                                                    <option value="singapore-india">Singapore-India</option>
-                                                                                    <option value="uae-india">UAE-India</option>
-                                                                                    <option value="australia-india">Australia-India</option>
-                                                                                    <option value="canada-india">Canada-India</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="region">
+                                                                                    <option value="global" selected>Global Business</option>
                                                                                 </select>
                                                                             </div>
 
-                                                                            <!-- Business Application -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Business Application
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="application" value="investment" class="text-rose-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Investment</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="application" value="revenue" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Revenue</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="application" value="valuation" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Valuation</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="application" value="salary" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Salary/HR</span>
-                                                                                    </label>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="radio" name="application" value="investment" checked>
+                                                                                <input type="radio" name="application" value="revenue">
+                                                                                <input type="radio" name="application" value="valuation">
+                                                                                <input type="radio" name="application" value="salary">
+                                                                                <input type="radio" name="currency" value="none" checked>
+                                                                                <input type="radio" name="currency" value="USD-INR">
+                                                                                <input type="radio" name="currency" value="GBP-INR">
+                                                                                <input type="radio" name="precision" value="1">
+                                                                                <input type="radio" name="precision" value="2" checked>
+                                                                                <input type="radio" name="precision" value="3">
+                                                                                <input type="radio" name="precision" value="auto">
                                                                             </div>
 
-                                                                            <!-- Currency Display -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Currency Display
-                                                                                </label>
-                                                                                <div class="grid grid-cols-3 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="currency" value="none" class="text-rose-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">No Currency</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="currency" value="USD-INR" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">USD-INR</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="currency" value="GBP-INR" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">GBP-INR</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
 
-                                                                            <!-- Precision Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Precision Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-4 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="1" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">1 decimal</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="2" class="text-rose-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">2 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="3" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">3 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-rose-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="auto" class="text-rose-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Auto</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Cross-Cultural Examples -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Cross-Cultural Examples
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                                                    <button type="button" class="cultural-example px-3 py-2 text-sm bg-gray-100 hover:bg-rose-100 text-gray-700 hover:text-rose-700 rounded-lg transition-colors" data-value="1" data-context="Startup fund">$1M</button>
-                                                                                    <button type="button" class="cultural-example px-3 py-2 text-sm bg-gray-100 hover:bg-rose-100 text-gray-700 hover:text-rose-700 rounded-lg transition-colors" data-value="5" data-context="Series A">$5M</button>
-                                                                                    <button type="button" class="cultural-example px-3 py-2 text-sm bg-gray-100 hover:bg-rose-100 text-gray-700 hover:text-rose-700 rounded-lg transition-colors" data-value="10" data-context="Series B">$10M</button>
-                                                                                    <button type="button" class="cultural-example px-3 py-2 text-sm bg-gray-100 hover:bg-rose-100 text-gray-700 hover:text-rose-700 rounded-lg transition-colors" data-value="50" data-context="Growth fund">$50M</button>
-                                                                                </div>
-                                                                            </div>
 
                                                                             <!-- Clear Button -->
                                                                             <div class="flex justify-center">
@@ -178,7 +97,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Cross-System Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl border-l-4 border-rose-500">
@@ -194,29 +113,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- System Comparison -->
-                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                                <!-- Western System -->
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Western System</h4>
-                                                                                        <div class="space-y-1">
-                                                                                            <div class="text-lg font-bold text-blue-600 font-mono" id="millionDisplay">--</div>
-                                                                                            <div class="text-xs text-gray-500">Millions</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <!-- Indian System -->
-                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Indian System</h4>
-                                                                                        <div class="space-y-1">
-                                                                                            <div class="text-lg font-bold text-green-600 font-mono" id="lakhDisplay">--</div>
-                                                                                            <div class="text-xs text-gray-500">Lakhs</div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <span id="millionDisplay">--</span>
+                                                                                <span id="lakhDisplay">--</span>
                                                                             </div>
 
                                                                             <!-- Extended Denominations -->
@@ -269,22 +168,6 @@
                             </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Conversion Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Cross-Cultural Number Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 Million = 10 Lakh</div>
-                                                        <div>• 1 Lakh = 0.1 Million = 100,000</div>
-                                                        <div>• 1 Million = 1,000,000 (Western)</div>
-                                                        <div>• 1 Lakh = 1,00,000 (Indian)</div>
-                                                        <div>• 10 Lakh = 1 Million = 0.1 Crore</div>
-                                                        <div>• Cross-cultural business communication essential</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
@@ -664,7 +547,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'million-to-lakh' ? 'lakh-to-million' : 'million-to-lakh';

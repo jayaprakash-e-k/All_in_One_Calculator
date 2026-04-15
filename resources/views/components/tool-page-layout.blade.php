@@ -276,8 +276,9 @@ if (is_array($howToSchema)) {
                 const isVolumeWeightPage = window.location.pathname.includes('/volume-and-weight-conversions/');
                 const isEngineeringTechnicalPage = window.location.pathname.includes('/engineering-and-technical-conversions/');
                 const isGeographicMappingPage = window.location.pathname.includes('/geographic-and-mapping-tools/');
+                const isNumberConversionToolsPage = window.location.pathname.includes('/number-conversion-tools/');
                 const isGeographicScaleCalculatorPage = window.location.pathname.includes('/geographic-and-mapping-tools/scale-calculator');
-                const hasEnhancedConvertedValues = isVolumeWeightPage || isEngineeringTechnicalPage || isGeographicMappingPage;
+                const hasEnhancedConvertedValues = isVolumeWeightPage || isEngineeringTechnicalPage || isGeographicMappingPage || isNumberConversionToolsPage;
 
                 const isCtrlMShortcut = function (e) {
                     const key = typeof e.key === 'string' ? e.key.toLowerCase() : '';
@@ -423,7 +424,7 @@ if (is_array($howToSchema)) {
                         return Array.from(toolUiRoot.querySelectorAll('div.mt-8.space-y-4')).filter((section) => {
                             const heading = section.querySelector(':scope > h3');
                             const headingText = (heading?.textContent || '').toLowerCase();
-                            return heading && (headingText.includes('converted values') || headingText.includes('conversion results'));
+                            return heading && (headingText.includes('converted values') || headingText.includes('results'));
                         });
                     };
 
@@ -790,8 +791,21 @@ if (is_array($howToSchema)) {
                               const preservedElements = new Set([heading, visibleCardsHost, showMoreButton].filter(Boolean));
 
                               Array.from(section.children).forEach((child) => {
-                                  if (!preservedElements.has(child)) {
-                                      child.classList.add('hidden');
+                                  if (preservedElements.has(child)) {
+                                      return;
+                                  }
+
+                                  const hasVisibleDirectChild = !!child.querySelector(':scope > :not(.hidden)');
+
+                                  if (!hasVisibleDirectChild) {
+                                      if ((child.children || []).length > 0) {
+                                          child.classList.add('hidden');
+                                          return;
+                                      }
+
+                                      if ((child.textContent || '').trim() === '') {
+                                          child.classList.add('hidden');
+                                      }
                                   }
                               });
                           });
@@ -801,6 +815,7 @@ if (is_array($howToSchema)) {
                         const heading = section.querySelector(':scope > h3');
                         if (heading) {
                             heading.className = 'text-lg font-semibold text-slate-900 text-center mb-4';
+                            heading.textContent = 'Converted Values';
                         }
 
                         const convertedCards = getConvertedValueCards(section);
@@ -958,7 +973,7 @@ if (is_array($howToSchema)) {
                     };
 
                     const normalizeEngineeringToolShell = function () {
-                        if (!isEngineeringTechnicalPage && !isGeographicMappingPage) {
+                        if (!isEngineeringTechnicalPage && !isGeographicMappingPage && !isNumberConversionToolsPage) {
                             return;
                         }
 

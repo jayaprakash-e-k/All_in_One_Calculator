@@ -38,91 +38,26 @@
                                                                                 <p class="text-xs text-gray-500">Enter any positive or negative number</p>
                                                                             </div>
 
-                                                                            <!-- Number Input Format -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Input Format
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer bg-amber-50 border-amber-300">
-                                                                                        <input type="radio" name="inputFormat" value="decimal" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Decimal</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-3 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="inputFormat" value="scientific" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Scientific</span>
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Analysis Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Analysis Context
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="context" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="general">General Analysis</option>
-                                                                                    <option value="population">Population Data</option>
-                                                                                    <option value="economic">Economic Figures</option>
-                                                                                    <option value="scientific">Scientific Data</option>
-                                                                                    <option value="technology">Technology Metrics</option>
-                                                                                    <option value="environmental">Environmental Data</option>
-                                                                                    <option value="astronomical">Astronomical Numbers</option>
-                                                                                    <option value="financial">Financial Analysis</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="radio" name="inputFormat" value="decimal" checked>
+                                                                                <input type="radio" name="inputFormat" value="scientific">
+                                                                                <select id="context">
+                                                                                    <option value="general" selected>General Analysis</option>
                                                                                 </select>
                                                                             </div>
 
-                                                                            <!-- Display Options -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Display Options
-                                                                                </label>
-                                                                                <div class="grid grid-cols-2 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="checkbox" name="showScientific" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Scientific Notation</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="checkbox" name="showWords" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Written Form</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="checkbox" name="showComparison" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Scale Comparison</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="checkbox" name="showAnalogy" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">Real-World Analogy</span>
-                                                                                    </label>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="checkbox" name="showScientific" checked>
+                                                                                <input type="checkbox" name="showWords" checked>
+                                                                                <input type="checkbox" name="showComparison" checked>
+                                                                                <input type="checkbox" name="showAnalogy" checked>
                                                                             </div>
 
-                                                                            <!-- Precision Level -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Precision Level
-                                                                                </label>
-                                                                                <div class="grid grid-cols-4 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="2" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">2 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="4" class="text-amber-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-xs font-medium">4 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="6" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">6 decimals</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-amber-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="precision" value="auto" class="text-amber-600 focus:ring-slate-200">
-                                                                                        <span class="text-xs font-medium">Auto</span>
-                                                                                    </label>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="radio" name="precision" value="2">
+                                                                                <input type="radio" name="precision" value="4" checked>
+                                                                                <input type="radio" name="precision" value="6">
+                                                                                <input type="radio" name="precision" value="auto">
                                                                             </div>
 
 
@@ -146,7 +81,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Number Analysis Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result - Billions -->
                                                                             <div class="p-6 bg-gradient-to-r from-amber-50 to-gray-50 rounded-xl border-l-4 border-amber-500">
@@ -251,36 +186,6 @@
                             </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Examples -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Quick Examples
-                                                        </label>
-                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                            <button type="button" class="quick-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="1000000000" data-context="1 Billion">1B</button>
-                                                            <button type="button" class="quick-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="7800000000" data-context="World Population">7.8B</button>
-                                                            <button type="button" class="quick-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="25000000000000" data-context="US GDP">25T</button>
-                                                            <button type="button" class="quick-example px-3 py-2 text-sm bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded-lg transition-colors" data-value="300000000" data-context="US Population">300M</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Conversion Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Billion Scale Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div>• 1 Billion = 1,000 Million = 10⁹</div>
-                                                        <div>• 1 Billion = 1,000,000,000 units</div>
-                                                        <div>• 1 Billion = 100 Crore (Indian)</div>
-                                                        <div>• 1 Billion = 1,000,000 Thousand</div>
-                                                        <div>• To convert to billions: divide by 1,000,000,000</div>
-                                                        <div>• Billion scale: Economic, population, technology data</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
