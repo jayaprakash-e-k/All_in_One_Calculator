@@ -76,25 +76,10 @@
                                                                                 </select>
                                                                             </div>
 
-                                                                            <!-- Application Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Application Context
-                                                                                </label>
-                                                                                <div class="grid grid-cols-3 gap-2">
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="context" value="general" class="text-yellow-600 focus:ring-slate-200" checked>
-                                                                                        <span class="text-sm font-medium">General</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="context" value="electronics" class="text-yellow-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Electronics</span>
-                                                                                    </label>
-                                                                                    <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded-lg hover:border-yellow-300 transition-colors cursor-pointer">
-                                                                                        <input type="radio" name="context" value="power" class="text-yellow-600 focus:ring-slate-200">
-                                                                                        <span class="text-sm font-medium">Power Systems</span>
-                                                                                    </label>
-                                                                                </div>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <input type="radio" name="context" value="general" checked>
+                                                                                <input type="radio" name="context" value="electronics">
+                                                                                <input type="radio" name="context" value="power">
                                                                             </div>
 
 
@@ -118,7 +103,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl border-l-4 border-yellow-500">
@@ -204,37 +189,6 @@
                                 </div>
                             </div>
     
-
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Examples -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Quick Examples
-                                                        </label>
-                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="100" data-from="microfarad" data-to="nanofarad">100 μF</button>
-                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="470" data-from="nanofarad" data-to="picofarad">470 nF</button>
-                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="22" data-from="picofarad" data-to="femtofarad">22 pF</button>
-                                                            <button type="button" class="cap-example px-3 py-2 text-sm bg-gray-100 hover:bg-yellow-100 text-gray-700 hover:text-yellow-700 rounded-lg transition-colors" data-value="1000" data-from="millifarad" data-to="farad">1000 mF</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Capacitance Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Capacitance Unit Reference</h4>
-                                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs text-gray-600">
-                                                        <div>1 F = 1,000 mF</div>
-                                                        <div>1 mF = 1,000 μF</div>
-                                                        <div>1 μF = 1,000 nF</div>
-                                                        <div>1 nF = 1,000 pF</div>
-                                                        <div>1 pF = 1,000 fF</div>
-                                                        <div>1 fF = 1,000 aF</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">

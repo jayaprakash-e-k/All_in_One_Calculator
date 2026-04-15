@@ -78,23 +78,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- Storage Device Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    Storage Device Context (Optional)
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="deviceType" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="">General conversion</option>
-                                                                                    <option value="hdd">Hard Disk Drive (HDD)</option>
-                                                                                    <option value="ssd">Solid State Drive (SSD)</option>
-                                                                                    <option value="usb">USB Flash Drive</option>
-                                                                                    <option value="sdcard">SD/MicroSD Card</option>
-                                                                                    <option value="ram">System Memory (RAM)</option>
-                                                                                    <option value="cloud">Cloud Storage</option>
-                                                                                    <option value="optical">Optical Media (CD/DVD/Blu-ray)</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="deviceType">
+                                                                                    <option value="" selected>General conversion</option>
                                                                                 </select>
                                                                             </div>
 
@@ -138,7 +124,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-l-4 border-indigo-500">
@@ -183,38 +169,6 @@
                             </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Storage Examples -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Quick Storage Examples
-                                                        </label>
-                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1024" data-mode="mb-to-gb">1024 MB</button>
-                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="2048" data-mode="mb-to-gb">2048 MB</button>
-                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="500" data-mode="gb-to-mb">500 GB</button>
-                                                            <button type="button" class="storage-example px-3 py-2 text-sm bg-gray-100 hover:bg-indigo-100 text-gray-700 hover:text-indigo-700 rounded-lg transition-colors" data-value="1000" data-mode="gb-to-mb">1000 GB</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Storage Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Storage Unit Reference</h4>
-                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                                        <div><strong>Binary:</strong> 1024 MB = 1 GB</div>
-                                                        <div><strong>Decimal:</strong> 1000 MB = 1 GB</div>
-                                                        <div>1 GB = 1,024 MB (Binary)</div>
-                                                        <div>1 GB = 1,000 MB (Decimal)</div>
-                                                        <div>1 MB = 1,048,576 bytes</div>
-                                                        <div>1 GB = 1,073,741,824 bytes</div>
-                                                        <div>Difference: ~7.4% larger in binary</div>
-                                                        <div>500 GB drive ≈ 465 GB (OS view)</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
@@ -668,7 +622,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'mb-to-gb' ? 'gb-to-mb' : 'mb-to-gb';

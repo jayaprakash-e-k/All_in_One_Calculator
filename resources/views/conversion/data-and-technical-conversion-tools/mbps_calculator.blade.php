@@ -44,22 +44,22 @@
 
                                                                                 <!-- Download Time Mode Fields -->
                                                                                 <div id="downloadTimeFields" class="space-y-4">
-                                                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
                                                                                         <div class="space-y-2">
                                                                                             <label for="fileSize" class="block text-sm font-semibold text-gray-700">
                                                                                                 File Size
                                                                                             </label>
-                                                                                            <div class="flex">
+                                                                                            <div class="grid grid-cols-[minmax(0,1fr)_6.5rem] gap-3">
                                                                                                 <input 
                                                                                                     type="number" 
                                                                                                     id="fileSize" 
-                                                                                                    class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                                    class="min-w-0 w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
                                                                                                     placeholder="100"
                                                                                                     step="any"
                                                                                                 >
                                                                                                 <select 
                                                                                                     id="fileSizeUnit" 
-                                                                                                    class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 bg-white font-medium"
+                                                                                                    class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 bg-white font-medium whitespace-nowrap"
                                                                                                 >
                                                                                                     <option value="MB">MB</option>
                                                                                                     <option value="GB">GB</option>
@@ -73,17 +73,17 @@
                                                                                             <label for="connectionSpeed" class="block text-sm font-semibold text-gray-700">
                                                                                                 Connection Speed
                                                                                             </label>
-                                                                                            <div class="flex">
+                                                                                            <div class="grid grid-cols-[minmax(0,1fr)_6.5rem] gap-3">
                                                                                                 <input 
                                                                                                     type="number" 
                                                                                                     id="connectionSpeed" 
-                                                                                                    class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                                    class="min-w-0 w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
                                                                                                     placeholder="100"
                                                                                                     step="any"
                                                                                                 >
                                                                                                 <select 
                                                                                                     id="speedUnit" 
-                                                                                                    class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 bg-white font-medium"
+                                                                                                    class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 bg-white font-medium whitespace-nowrap"
                                                                                                 >
                                                                                                     <option value="Mbps">Mbps</option>
                                                                                                     <option value="Gbps">Gbps</option>
@@ -96,22 +96,22 @@
 
                                                                                 <!-- Speed Test Mode Fields -->
                                                                                 <div id="speedTestFields" class="space-y-4 hidden">
-                                                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
                                                                                         <div class="space-y-2">
                                                                                             <label for="dataTransferred" class="block text-sm font-semibold text-gray-700">
                                                                                                 Data Transferred
                                                                                             </label>
-                                                                                            <div class="flex">
+                                                                                            <div class="grid grid-cols-[minmax(0,1fr)_6.5rem] gap-3">
                                                                                                 <input 
                                                                                                     type="number" 
                                                                                                     id="dataTransferred" 
-                                                                                                    class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                                    class="min-w-0 w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
                                                                                                     placeholder="500"
                                                                                                     step="any"
                                                                                                 >
                                                                                                 <select 
                                                                                                     id="dataUnit" 
-                                                                                                    class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 bg-white font-medium"
+                                                                                                    class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 bg-white font-medium whitespace-nowrap"
                                                                                                 >
                                                                                                     <option value="MB">MB</option>
                                                                                                     <option value="GB">GB</option>
@@ -124,17 +124,17 @@
                                                                                             <label for="transferTime" class="block text-sm font-semibold text-gray-700">
                                                                                                 Transfer Time
                                                                                             </label>
-                                                                                            <div class="flex">
+                                                                                            <div class="grid grid-cols-[minmax(0,1fr)_6.5rem] gap-3">
                                                                                                 <input 
                                                                                                     type="number" 
                                                                                                     id="transferTime" 
-                                                                                                    class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                                    class="min-w-0 w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
                                                                                                     placeholder="40"
                                                                                                     step="any"
                                                                                                 >
                                                                                                 <select 
                                                                                                     id="timeUnit" 
-                                                                                                    class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 bg-white font-medium"
+                                                                                                    class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 bg-white font-medium whitespace-nowrap"
                                                                                                 >
                                                                                                     <option value="seconds">Seconds</option>
                                                                                                     <option value="minutes">Minutes</option>
@@ -147,7 +147,7 @@
 
                                                                                 <!-- Bandwidth Calculator Mode Fields -->
                                                                                 <div id="bandwidthFields" class="space-y-4 hidden">
-                                                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
                                                                                         <div class="space-y-2">
                                                                                             <label for="users" class="block text-sm font-semibold text-gray-700">
                                                                                                 Number of Users
@@ -165,17 +165,17 @@
                                                                                             <label for="perUserBandwidth" class="block text-sm font-semibold text-gray-700">
                                                                                                 Per User Bandwidth
                                                                                             </label>
-                                                                                            <div class="flex">
+                                                                                            <div class="grid grid-cols-[minmax(0,1fr)_6.5rem] gap-3">
                                                                                                 <input 
                                                                                                     type="number" 
                                                                                                     id="perUserBandwidth" 
-                                                                                                    class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-l-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
+                                                                                                    class="min-w-0 w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-mono" 
                                                                                                     placeholder="10"
                                                                                                     step="any"
                                                                                                 >
                                                                                                 <select 
                                                                                                     id="userBandwidthUnit" 
-                                                                                                    class="px-3 py-3 border-2 border-l-0 border-gray-200 rounded-r-lg focus:border-slate-400 bg-white font-medium"
+                                                                                                    class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 bg-white font-medium whitespace-nowrap"
                                                                                                 >
                                                                                                     <option value="Mbps">Mbps</option>
                                                                                                     <option value="Kbps">Kbps</option>
@@ -228,7 +228,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Calculation Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
@@ -272,39 +272,6 @@
                                 </div>
                             </div>
     
-
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Presets -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Connection Type Presets
-                                                        </label>
-                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                            <button type="button" class="preset-btn px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-speed="100" data-unit="Mbps">100 Mbps</button>
-                                                            <button type="button" class="preset-btn px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-speed="1" data-unit="Gbps">1 Gbps</button>
-                                                            <button type="button" class="preset-btn px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-speed="25" data-unit="Mbps">25 Mbps</button>
-                                                            <button type="button" class="preset-btn px-3 py-2 text-sm bg-gray-100 hover:bg-green-100 text-gray-700 hover:text-green-700 rounded-lg transition-colors" data-speed="56" data-unit="Kbps">56K Modem</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Speed Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Common Internet Speeds Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div><strong>Broadband:</strong> 25+ Mbps</div>
-                                                        <div><strong>Fiber:</strong> 100+ Mbps to 1+ Gbps</div>
-                                                        <div><strong>Cable:</strong> 10-100 Mbps</div>
-                                                        <div><strong>DSL:</strong> 1-25 Mbps</div>
-                                                        <div><strong>4G LTE:</strong> 5-50 Mbps</div>
-                                                        <div><strong>5G:</strong> 100+ Mbps to 10+ Gbps</div>
-                                                        <div><strong>Satellite:</strong> 10-100 Mbps</div>
-                                                        <div><strong>Dial-up:</strong> 56 Kbps</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">

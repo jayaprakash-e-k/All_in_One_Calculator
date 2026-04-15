@@ -78,23 +78,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <!-- File Type Context -->
-                                                                            <div class="space-y-2">
-                                                                                <label class="block text-sm font-semibold text-gray-700">
-                                                                                    File Type Context (Optional)
-                                                                                </label>
-                                                                                <select 
-                                                                                    id="fileType" 
-                                                                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-slate-400 focus:ring-2 focus:ring-slate-200 transition-all duration-200 text-lg font-medium bg-white"
-                                                                                >
-                                                                                    <option value="">General conversion</option>
-                                                                                    <option value="text">Text files (.txt, .doc)</option>
-                                                                                    <option value="image">Images (.jpg, .png, .gif)</option>
-                                                                                    <option value="audio">Audio files (.mp3, .wav)</option>
-                                                                                    <option value="video">Video files (.mp4, .avi)</option>
-                                                                                    <option value="document">Documents (.pdf, .docx)</option>
-                                                                                    <option value="archive">Archives (.zip, .rar)</option>
-                                                                                    <option value="executable">Programs (.exe, .app)</option>
+                                                                            <div class="hidden" aria-hidden="true">
+                                                                                <select id="fileType">
+                                                                                    <option value="" selected>General conversion</option>
                                                                                 </select>
                                                                             </div>
 
@@ -119,7 +105,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl border-l-4 border-cyan-500">
@@ -163,39 +149,6 @@
                                 </div>
                             </div>
     
-
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Examples -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Quick Examples
-                                                        </label>
-                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                            <button type="button" class="kb-example px-3 py-2 text-sm bg-gray-100 hover:bg-cyan-100 text-gray-700 hover:text-cyan-700 rounded-lg transition-colors" data-value="1024" data-mode="kb-to-mb">1024 kB</button>
-                                                            <button type="button" class="kb-example px-3 py-2 text-sm bg-gray-100 hover:bg-cyan-100 text-gray-700 hover:text-cyan-700 rounded-lg transition-colors" data-value="2048" data-mode="kb-to-mb">2048 kB</button>
-                                                            <button type="button" class="kb-example px-3 py-2 text-sm bg-gray-100 hover:bg-cyan-100 text-gray-700 hover:text-cyan-700 rounded-lg transition-colors" data-value="5" data-mode="mb-to-kb">5 MB</button>
-                                                            <button type="button" class="kb-example px-3 py-2 text-sm bg-gray-100 hover:bg-cyan-100 text-gray-700 hover:text-cyan-700 rounded-lg transition-colors" data-value="10" data-mode="mb-to-kb">10 MB</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Conversion Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">kB to MB Conversion Reference</h4>
-                                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
-                                                        <div><strong>Binary:</strong> 1024 kB = 1 MB</div>
-                                                        <div><strong>Decimal:</strong> 1000 kB = 1 MB</div>
-                                                        <div>1 MB = 1,024 kB (Binary)</div>
-                                                        <div>1 MB = 1,000 kB (Decimal)</div>
-                                                        <div>1 kB = 1,024 bytes</div>
-                                                        <div>1 MB = 1,048,576 bytes</div>
-                                                        <div>1 kB = 8,192 bits</div>
-                                                        <div>1 MB = 8,388,608 bits</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
@@ -587,7 +540,7 @@
                         document.addEventListener('keydown', function(e) {
                             if (e.key === 'Escape') {
                                 clearAll();
-                            } else if (e.ctrlKey && e.key === 'm') {
+                            } else if (e.ctrlKey && (e.key || '').toLowerCase() === 'm') {
                                 e.preventDefault();
                                 const currentMode = getMode();
                                 const newMode = currentMode === 'kb-to-mb' ? 'mb-to-kb' : 'kb-to-mb';

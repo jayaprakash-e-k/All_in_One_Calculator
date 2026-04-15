@@ -118,7 +118,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Conversion Results</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
@@ -207,38 +207,6 @@
                             </div>
     
 
-        <div class="mt-6 space-y-4">
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Quick Examples -->
-                                                    <div class="space-y-2">
-                                                        <label class="block text-sm font-semibold text-gray-700">
-                                                            Quick Examples
-                                                        </label>
-                                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                                                            <button type="button" class="byte-example px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="1024" data-from="kilobyte" data-to="megabyte">1024 KB</button>
-                                                            <button type="button" class="byte-example px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="2048" data-from="megabyte" data-to="gigabyte">2048 MB</button>
-                                                            <button type="button" class="byte-example px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="500" data-from="gigabyte" data-to="megabyte">500 GB</button>
-                                                            <button type="button" class="byte-example px-3 py-2 text-sm bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded-lg transition-colors" data-value="1" data-from="terabyte" data-to="gigabyte">1 TB</button>
-                                                        </div>
-                                                    </div>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <!-- Storage Reference -->
-                                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Storage Unit Reference</h4>
-                                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-600">
-                                                        <div><strong>Binary:</strong> 1 KB = 1,024 B</div>
-                                                        <div><strong>Decimal:</strong> 1 KB = 1,000 B</div>
-                                                        <div>1 MB = 1,024 KB (Binary)</div>
-                                                        <div>1 MB = 1,000 KB (Decimal)</div>
-                                                        <div>1 GB = 1,024 MB (Binary)</div>
-                                                        <div>1 GB = 1,000 MB (Decimal)</div>
-                                                        <div>1 TB = 1,024 GB (Binary)</div>
-                                                        <div>1 TB = 1,000 GB (Decimal)</div>
-                                                    </div>
-                                                </div>
-            </div>
-        </div>
 </x-slot>
 
     <x-slot name="aboutContent">
