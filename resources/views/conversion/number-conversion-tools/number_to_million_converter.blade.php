@@ -72,7 +72,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Value</h3>
 
                                                                             <!-- Primary Result - Millions -->
                                                                             <div class="p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border-l-4 border-amber-500">

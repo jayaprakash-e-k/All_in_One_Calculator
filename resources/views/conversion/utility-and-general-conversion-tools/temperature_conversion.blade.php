@@ -119,7 +119,7 @@
                                                                                 <div class="flex items-center justify-between">
                                                                                     <div>
                                                                                         <h4 class="text-lg font-semibold text-gray-800 mb-1" id="result-title">Temperature Conversion</h4>
-                                                                                        <p class="text-sm text-gray-600" id="result-description">All temperature scales</p>
+                                                                                        <p class="text-sm text-gray-600" id="result-description">Selected temperature conversion</p>
                                                                                     </div>
                                                                                     <div class="text-right">
                                                                                         <div class="text-2xl font-bold text-red-600 font-mono" id="output">--</div>
@@ -451,10 +451,10 @@
                                 const reaumur = convertTemperature(value, scale, 'reaumur');
                                 const romer = convertTemperature(value, scale, 'romer');
                                 
-                                // Update primary output (show all common scales)
+                                // Keep the selected conversion as the visible result.
                                 output.textContent = `${formatNumber(celsius, decimals)}°C`;
-                                resultTitle.textContent = 'All Temperature Scales';
-                                resultDescription.textContent = `${value}° ${scale} converted to all scales`;
+                                resultTitle.textContent = 'Converted Temperature';
+                                resultDescription.textContent = `${value}° ${scale} converted to Celsius`;
 
                                 // Display all temperature scales
                                 celsiusDisplay.textContent = formatNumber(celsius, decimals) + '°C';
@@ -480,7 +480,7 @@
                         function clearOutputs() {
                             output.textContent = '--';
                             resultTitle.textContent = 'Temperature Conversion';
-                            resultDescription.textContent = 'All temperature scales';
+                            resultDescription.textContent = 'Selected temperature conversion';
                             celsiusDisplay.textContent = '--';
                             fahrenheitDisplay.textContent = '--';
                             kelvinDisplay.textContent = '--';

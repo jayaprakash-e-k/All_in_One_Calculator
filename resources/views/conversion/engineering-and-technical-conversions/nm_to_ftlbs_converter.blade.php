@@ -101,7 +101,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Value</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-purple-500">

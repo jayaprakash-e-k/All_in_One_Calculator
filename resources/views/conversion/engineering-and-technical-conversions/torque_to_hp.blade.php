@@ -115,7 +115,7 @@
                                     <div class="space-y-4 lg:col-span-7">
                                         <!-- Results Display -->
                                                                         <div class="mt-8 space-y-4">
-                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Values</h3>
+                                                                            <h3 class="text-lg font-semibold text-gray-800 text-center mb-4">Converted Value</h3>
 
                                                                             <!-- Primary Result -->
                                                                             <div class="p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-l-4 border-orange-500">
@@ -127,44 +127,6 @@
                                                                                     <div class="text-right">
                                                                                         <div class="text-2xl font-bold text-orange-600 font-mono" id="output">--</div>
                                                                                         <div class="text-sm text-gray-500 font-medium" id="powerUnitDisplay">HP</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- All Power Units Display -->
-                                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Horsepower</h4>
-                                                                                        <div class="text-lg font-bold text-blue-600 font-mono" id="hpOutput">--</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border-l-4 border-green-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Kilowatts</h4>
-                                                                                        <div class="text-lg font-bold text-green-600 font-mono" id="kwOutput">--</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-purple-50 to-violet-50 rounded-lg border-l-4 border-purple-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Watts</h4>
-                                                                                        <div class="text-lg font-bold text-purple-600 font-mono" id="wattsOutput">--</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <!-- Additional Power Units -->
-                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                                                <div class="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border-l-4 border-cyan-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Brake Horsepower</h4>
-                                                                                        <div class="text-lg font-bold text-cyan-600 font-mono" id="bhpOutput">--</div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-lg border-l-4 border-yellow-500">
-                                                                                    <div class="text-center">
-                                                                                        <h4 class="text-sm font-semibold text-gray-700 mb-1">Metric Horsepower</h4>
-                                                                                        <div class="text-lg font-bold text-yellow-600 font-mono" id="psOutput">--</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -285,11 +247,6 @@
                         const output = document.getElementById('output');
                         const resultTitle = document.getElementById('result-title');
                         const resultDescription = document.getElementById('result-description');
-                        const hpOutput = document.getElementById('hpOutput');
-                        const kwOutput = document.getElementById('kwOutput');
-                        const wattsOutput = document.getElementById('wattsOutput');
-                        const bhpOutput = document.getElementById('bhpOutput');
-                        const psOutput = document.getElementById('psOutput');
                         const convertedTorque = document.getElementById('convertedTorque');
                         const displayRpm = document.getElementById('displayRpm');
 
@@ -371,24 +328,12 @@
                                 // Update primary output
                                 output.textContent = formatNumber(result);
                                 
-                                // Update all power unit outputs
-                                hpOutput.textContent = formatNumber(hp) + ' HP';
-                                kwOutput.textContent = formatNumber(hp * powerConversions.kw) + ' kW';
-                                wattsOutput.textContent = formatNumber(hp * powerConversions.watts) + ' W';
-                                bhpOutput.textContent = formatNumber(hp) + ' BHP';
-                                psOutput.textContent = formatNumber(hp * powerConversions.ps) + ' PS';
-                                
                                 // Update calculation details
                                 convertedTorque.textContent = formatNumber(torqueInFtLbs) + ' ft-lbs';
                                 displayRpm.textContent = formatNumber(rpm) + ' RPM';
                                 
                             } else {
                                 output.textContent = '--';
-                                hpOutput.textContent = '--';
-                                kwOutput.textContent = '--';
-                                wattsOutput.textContent = '--';
-                                bhpOutput.textContent = '--';
-                                psOutput.textContent = '--';
                                 convertedTorque.textContent = '--';
                                 displayRpm.textContent = '--';
                             }
