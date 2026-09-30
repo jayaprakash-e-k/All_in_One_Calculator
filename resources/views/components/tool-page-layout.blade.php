@@ -196,17 +196,19 @@ if (is_array($howToSchema)) {
 
         @media (min-width: 1024px) {
             body.tool-layout-lock {
-                overflow: hidden;
+                overflow-x: hidden;
             }
 
             .tool-layout-viewport {
-                height: calc(100dvh - var(--cp-nav-height, 0px) - var(--cp-breadcrumb-height, 0px));
-                overflow: hidden;
+                min-height: calc(100dvh - var(--cp-nav-height, 0px) - var(--cp-breadcrumb-height, 0px));
+                height: auto;
+                overflow: visible;
             }
 
             .tool-layout-grid {
-                height: 100%;
-                overflow: hidden;
+                min-height: calc(100dvh - var(--cp-nav-height, 0px) - var(--cp-breadcrumb-height, 0px));
+                height: auto;
+                overflow: visible;
             }
         }
     </style>
@@ -214,13 +216,13 @@ if (is_array($howToSchema)) {
     <section class="tool-layout-viewport bg-slate-50 py-2 sm:py-3 lg:py-1">
         <div class="mx-auto h-full max-w-7xl px-3 sm:px-4 lg:px-6">
             <div class="tool-layout-grid grid h-full gap-4 lg:min-h-0 lg:grid-cols-12 lg:grid-rows-[minmax(0,1fr)] lg:items-stretch">
-                <div class="space-y-3 lg:col-span-7 lg:h-full lg:min-h-0 lg:overflow-hidden">
+                <div class="space-y-3 lg:col-span-8 lg:h-auto lg:min-h-0">
                     <section id="toolUiRoot" aria-label="Tool Interface" class="tool-ui-shell tool-ui-compact rounded-xl bg-white p-2.5 shadow-sm sm:p-3">
                         {{ $toolUiContent }}
                     </section>
                 </div>
 
-                <div class="tool-right-scroll space-y-4 lg:col-span-5 lg:h-full lg:min-h-0 lg:self-stretch lg:overflow-y-auto lg:pr-1">
+                <div class="tool-right-scroll space-y-4 lg:col-span-4 lg:h-full lg:min-h-0 lg:self-stretch lg:overflow-y-auto lg:pr-1">
                     <section id="quickReferenceColumn" aria-label="Quick Reference" class="hidden rounded-xl bg-white p-3 shadow-sm">
                         <h2 class="mb-3 text-base font-semibold text-slate-900">Quick Reference</h2>
                         <div id="quickReferenceTarget" class="space-y-4"></div>
@@ -238,10 +240,14 @@ if (is_array($howToSchema)) {
                             </p>
                         @endif
                     </section>
+
+                    <x-ads placement="tool-sidebar" :href="url()->current()" />
                 </div>
             </div>
         </div>
     </section>
+
+    <x-footer />
 
     <x-slot name="scripts">
         @if(isset($scripts) && trim((string) $scripts) !== '')

@@ -32,7 +32,7 @@
                                 
                                 <div class="grid gap-6 lg:grid-cols-12">
                                     <div class="lg:col-span-5">
-                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200 lg:sticky lg:top-24 lg:z-20 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto" id="calculatorForm">
+                                        <form class="space-y-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm focus-within:ring-2 focus-within:ring-slate-200" id="calculatorForm">
 
                                                                             <!-- Source Time Input -->
                                                                             <div class="space-y-4">
@@ -225,7 +225,7 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="hidden">
+                                                                            <div class="space-y-4">
                                                                                 <!-- DST Information -->
                                                                                 <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-200">
                                                                                     <h4 class="text-sm font-semibold text-green-800 mb-2 text-center">Daylight Saving Time Status</h4>
@@ -485,7 +485,7 @@
                                 });
                                 
                                 if (suitableCount >= Math.floor(targetTimezones.length * 0.7)) {
-                                    suggestions.push(`${hour}:00 ${sourceTimezone.split('/')[1]} time`);
+                                    suggestions.push(`${hour}:00 ${sourceTimezone.split('/').pop().replace('_', ' ')} time`);
                                 }
                             });
                             

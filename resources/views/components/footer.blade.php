@@ -47,6 +47,7 @@
                     <li><a href="#" class="hover:text-gray-900 transition-colors duration-200">Privacy Policy</a></li>
                     <li><a href="#" class="hover:text-gray-900 transition-colors duration-200">Terms of Service</a></li>
                     <li><a href="#" class="hover:text-gray-900 transition-colors duration-200">API Documentation</a></li>
+                    <li><a href="{{ route('report-bug.create') }}" class="font-medium text-primary-600 hover:text-primary-700 transition-colors duration-200">Report a bug</a></li>
                 </ul>
             </div>
         </div>

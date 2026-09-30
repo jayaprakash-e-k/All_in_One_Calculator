@@ -32,12 +32,12 @@
                         </svg>
                         Explore Tools
                     </a>
-                    <a href="#features" 
+                    <a href="{{ route('feature-request.create') }}" 
                        class="border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-lg hover:bg-primary-50 transition-all duration-200 font-semibold text-lg inline-flex items-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8h-16"></path>
                         </svg>
-                        Learn More
+                        Request a feature
                     </a>
                 </div>
 

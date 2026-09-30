@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class AppLayout extends Component
 {
     public $title;
+
     public $description;
 
     public function __construct($title = null, $description = null)
@@ -17,6 +18,6 @@ class AppLayout extends Component
 
     public function render()
     {
-        return view('components.app-layout');
+        return view('layouts.app');
     }
 }
